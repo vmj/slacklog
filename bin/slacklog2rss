@@ -1,0 +1,61 @@
+#!/usr/bin/python # -*- python -*-
+import codecs
+from optparse import OptionParser
+from slacklog import parsers
+from slacklog import formatters
+
+#
+#   Define options
+#
+options = OptionParser(usage='USAGE: %prog [options] --changelog FILE --out FILE',
+                       version='%prog 0.1',
+                       description='Convert a Slackware ChangeLog to RSS feed.',
+                       epilog='Bug reports, suggestions, and patches should be sent to vmj@linuxbox.fi.'
+                             +'This software is Free Software, released under GPLv3.')
+options.add_option('--changelog',      metavar='FILE',           help='Read input from FILE')
+options.add_option('--encoding',       default='iso8859-1',      help='Input encoding [default: %default]')
+options.add_option('--out',            metavar='FILE',           help='Write output to FILE')
+options.add_option('--slackware',      default='Slackware 13.1', help='Slackware version [default: %default].')
+options.add_option('--rssLink',        metavar='URL',            help='Full URL of the RSS feed')
+options.add_option('--webLink',        metavar='URL',            help='Full URL of the HTML version')
+options.add_option('--description',    metavar='DESC',           help='Description of the RSS feed')
+options.add_option('--language',       default='en',             help='Language of the RSS feed [default: %default]')
+options.add_option('--managingEditor', metavar='EMAIL (NAME)',   help='EMAIL, and possibly NAME, of the editor')
+options.add_option('--webMaster',      metavar='EMAIL (NAME)',   help='EMAIL, and possibly NAME, of the web master')
+
+#
+#   Handle command line options
+#
+(opts, args) = options.parse_args()
+if opts.changelog is None or opts.out is None:
+    options.error('Both --changelog and --out are required options')
+
+#
+#   Apply options to formatter
+#
+formatters.SlackLogRssFormatter.slackware      = opts.slackware
+formatters.SlackLogRssFormatter.rssLink        = opts.rssLink
+formatters.SlackLogRssFormatter.webLink        = opts.webLink
+formatters.SlackLogRssFormatter.description    = opts.description
+formatters.SlackLogRssFormatter.language       = opts.language
+formatters.SlackLogRssFormatter.managingEditor = opts.managingEditor
+formatters.SlackLogRssFormatter.webMaster      = opts.webMaster
+
+#
+#   Read input
+#
+f = codecs.open(opts.changelog, 'r', opts.encoding)
+txt = f.read()
+f.close()
+
+#
+#   Format output
+#
+rss = formatters.SlackLogRssFormatter.format(parsers.SlackLogParser.parse(txt))
+
+#
+#   Write output
+#
+f = codecs.open(opts.out, 'w', 'utf-8')
+f.write(rss)
+f.close()
