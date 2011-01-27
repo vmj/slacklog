@@ -32,8 +32,8 @@ options.add_option('--webMaster',      metavar='EMAIL (NAME)',   help='EMAIL, an
 #   Handle command line options
 #
 (opts, args) = options.parse_args()
-if opts.changelog is None or opts.out is None:
-    options.error('Both --changelog and --out are required options')
+if opts.changelog is None or opts.out is None or opts.rssLink is None:
+    options.error('Options --changelog, --out, and --rssLink are required')
 
 #
 #   Apply options to formatter

@@ -128,11 +128,12 @@ class SlackLogRssFormatter (SlackLogFormatter):
         data  = u'<?xml version="1.0"?>\n'
         data += u'<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
         data += u'  <channel>\n'
-        if cls.rssLink:
-            data += u'    <atom:link href="%s" rel="self" type="application/rss+xml" />\n' % cls.rssLink
+        data += u'    <atom:link href="%s" rel="self" type="application/rss+xml" />\n' % cls.rssLink
         data += u'    <title>%s ChangeLog</title>\n' % cls.slackware
         if cls.webLink:
             data += u'    <link>%s</link>\n' % cls.webLink
+        else:
+            data += u'    <link>%s</link>\n' % cls.rssLink
         if cls.description:
             data += u'    <description>%s</description>\n' % cls.description
         data += u'    <docs>http://www.rssboard.org/rss-specification</docs>\n'
