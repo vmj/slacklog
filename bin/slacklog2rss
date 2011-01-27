@@ -20,6 +20,7 @@ options = OptionParser(usage='USAGE: %prog [options] --changelog FILE --out FILE
 options.add_option('--changelog',      metavar='FILE',           help='Read input from FILE')
 options.add_option('--encoding',       default='iso8859-1',      help='ChangeLog encoding [default: %default]')
 options.add_option('--out',            metavar='FILE',           help='Write output to FILE')
+options.add_option('--quiet',          action='store_true',      help='Do not print warnings')
 options.add_option('--slackware',      default='Slackware 13.1', help='Slackware version [default: %default].')
 options.add_option('--rssLink',        metavar='URL',            help='Full URL of the RSS feed')
 options.add_option('--webLink',        metavar='URL',            help='Full URL of the HTML version')
@@ -36,8 +37,10 @@ if opts.changelog is None or opts.out is None or opts.rssLink is None:
     options.error('Options --changelog, --out, and --rssLink are required')
 
 #
-#   Apply options to formatter
+#   Apply options to parser and formatter
 #
+parsers.SlackLogParser.quiet = opts.quiet
+
 formatters.SlackLogRssFormatter.slackware      = conv(opts.slackware)
 formatters.SlackLogRssFormatter.rssLink        = conv(opts.rssLink)
 formatters.SlackLogRssFormatter.webLink        = conv(opts.webLink)

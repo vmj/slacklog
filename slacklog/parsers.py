@@ -10,6 +10,8 @@ pkg_name_re = re.compile(r'\A[a-z/]+[-a-zA-Z0-9_.]+:  ')
 
 class SlackLogParser (object):
 
+    quiet = False
+
     ENTRY = 0
     PKG = 0
 
@@ -48,12 +50,14 @@ class SlackLogParser (object):
         timestamp = parser.parse(timestamp_str)
         if timestamp.tzinfo is None:
             # Timestamp was ambiguous, assume UTC
-            print >>stderr, "Warning: Assuming UTC, input was '%s'" % timestamp_str
+            if not cls.quiet:
+                print >>stderr, "Warning: Assuming UTC, input was '%s'" % timestamp_str
             timestamp = timestamp.replace(tzinfo=tz.tzutc())
         elif not isinstance(timestamp.tzinfo, tz.tzutc):
             # Timestamp was in some local timezone,
             # convert to UTC
-            print >>stderr, "Warning: Converting to UTC"
+            if not cls.quiet:
+                print >>stderr, "Warning: Converting to UTC"
             timestamp = timestamp.astimezone(tz.tzutc())
         return [timestamp, data]
     parse_entry_timestamp = classmethod(parse_entry_timestamp)
