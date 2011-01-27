@@ -1,8 +1,13 @@
 #!/usr/bin/python # -*- python -*-
 import codecs
+import locale
 from optparse import OptionParser
 from slacklog import parsers
 from slacklog import formatters
+
+def conv(str):
+    if str: return str.decode(locale.getpreferredencoding())
+    return None
 
 #
 #   Define options
@@ -13,7 +18,7 @@ options = OptionParser(usage='USAGE: %prog [options] --changelog FILE --out FILE
                        epilog='Bug reports, suggestions, and patches should be sent to vmj@linuxbox.fi.'
                              +'This software is Free Software, released under GPLv3.')
 options.add_option('--changelog',      metavar='FILE',           help='Read input from FILE')
-options.add_option('--encoding',       default='iso8859-1',      help='Input encoding [default: %default]')
+options.add_option('--encoding',       default='iso8859-1',      help='ChangeLog encoding [default: %default]')
 options.add_option('--out',            metavar='FILE',           help='Write output to FILE')
 options.add_option('--slackware',      default='Slackware 13.1', help='Slackware version [default: %default].')
 options.add_option('--rssLink',        metavar='URL',            help='Full URL of the RSS feed')
@@ -33,13 +38,13 @@ if opts.changelog is None or opts.out is None:
 #
 #   Apply options to formatter
 #
-formatters.SlackLogRssFormatter.slackware      = opts.slackware
-formatters.SlackLogRssFormatter.rssLink        = opts.rssLink
-formatters.SlackLogRssFormatter.webLink        = opts.webLink
-formatters.SlackLogRssFormatter.description    = opts.description
-formatters.SlackLogRssFormatter.language       = opts.language
-formatters.SlackLogRssFormatter.managingEditor = opts.managingEditor
-formatters.SlackLogRssFormatter.webMaster      = opts.webMaster
+formatters.SlackLogRssFormatter.slackware      = conv(opts.slackware)
+formatters.SlackLogRssFormatter.rssLink        = conv(opts.rssLink)
+formatters.SlackLogRssFormatter.webLink        = conv(opts.webLink)
+formatters.SlackLogRssFormatter.description    = conv(opts.description)
+formatters.SlackLogRssFormatter.language       = conv(opts.language)
+formatters.SlackLogRssFormatter.managingEditor = conv(opts.managingEditor)
+formatters.SlackLogRssFormatter.webMaster      = conv(opts.webMaster)
 
 #
 #   Read input
