@@ -160,7 +160,7 @@ class SlackLogRssFormatter (SlackLogFormatter):
         if cls.webLink:
             data += u'      <guid isPermaLink="true">%s#%s</guid>\n' % (cls.webLink, entry.timestamp.strftime("%Y%m%dT%H%M%SZ"))
         else:
-            data += u'      <guid>%s-%s</guid>\n' % (cls.slackware.replace(' ', '-'), entry.timestamp.strftime("%Y%m%dT%H%M%SZ"))
+            data += u'      <guid isPermaLink="false">%s-%s</guid>\n' % (cls.slackware.replace(' ', '-'), entry.timestamp.strftime("%Y%m%dT%H%M%SZ"))
         data += u'      <title>%s changes for %s</title>\n' % (cls.slackware, entry.timestamp.strftime("%a, %d %b %Y %H:%M:%S GMT"))
         data += u'      <pubDate>%s</pubDate>\n' % entry.timestamp.strftime("%a, %d %b %Y %H:%M:%S GMT")
         if entry.description:
