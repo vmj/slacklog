@@ -13,6 +13,6 @@ setup(
     url='http://pypi.python.org/pypi/slacklog/',
     license='GNU GPLv3',
     description='Convert Slackware ChangeLog to RSS',
-    long_description=open('README.txt').read(),
+    long_description=open('README.rst').read(),
     requires=['dateutil',],
     )
