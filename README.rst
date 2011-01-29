@@ -1,19 +1,28 @@
-========
-slacklog
-========
+slacklog -- Convert Slackware Changelog to RSS
+**********************************************
 
 slacklog provides a program and a library to convert a Slackware
-ChangeLog into other formats.  Currently, RSS is supported.  Typical
-usage of the program looks like this::
+ChangeLog into other formats.  Currently, RSS is supported.
 
-    slacklog2rss --changelog slackware-current/ChangeLog.txt \
-                 --encoding iso8859-1 \
-                 --out ~/public_html/slackware-current.rss \
-                 --slackware "Slackware current" \
-                 --rssLink "http://linuxbox.fi/~vmj/slackware-current.rss \
-                 --description "Slackware current activity" \
-                 --managingEditor "vmj@linuxbox.fi (Mikko Värri)" \
-                 --webMaster "vmj@linuxbox.fi (Mikko Värri)"
+| Download: http://pypi.python.org/pypi/slacklog
+| Source code: http://github.com/vmj/slacklog
+
+.. contents::
+
+
+Basic usage
+===========
+
+Typical usage of the program looks like this::
+
+    $ slacklog2rss --changelog slackware-current/ChangeLog.txt \
+                   --encoding iso8859-1 \
+                   --out ~/public_html/slackware-current.rss \
+                   --slackware "Slackware current" \
+                   --rssLink "http://linuxbox.fi/~vmj/slackware-current.rss" \
+                   --description "Slackware current activity" \
+                   --managingEditor "vmj@linuxbox.fi (Mikko Värri)" \
+                   --webMaster "vmj@linuxbox.fi (Mikko Värri)"
 
 The included Python library provides the ability to make custom
 formats easily::
@@ -43,11 +52,13 @@ formats easily::
 Note that slacklog package deals solely in Unicode; parser expect to
 be given Unicode input and formatters generate Unicode data.
 
+
 Requirements
 ============
 
 In addition to Python, `python-dateutil
 <http://pypi.python.org/pypi/python-dateutil>`_ is required.
+
 
 Installation
 ============
@@ -60,11 +71,13 @@ The source code is available at `Python Package Index (PyPI)
 unreleased version, from `Github <https://github.com/vmj/slacklog>`_
 git repository.
 
+
 Authors
 =======
 
 Original author and current maintainer is Mikko Värri
 (vmj@linuxbox.fi).
+
 
 License
 =======
