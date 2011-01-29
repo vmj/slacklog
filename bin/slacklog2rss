@@ -2,6 +2,7 @@
 import codecs
 import locale
 from optparse import OptionParser
+import slacklog
 from slacklog import parsers
 from slacklog import formatters
 
@@ -13,8 +14,8 @@ def conv(str):
 #   Define options
 #
 options = OptionParser(usage='USAGE: %prog [options] --changelog FILE --out FILE',
-                       version='%prog 0.1',
-                       description='Convert a Slackware ChangeLog to RSS feed.',
+                       version='%%prog %s' % slacklog.__version__,
+                       description=slacklog.__doc__,
                        epilog='Bug reports, suggestions, and patches should be sent to vmj@linuxbox.fi.'
                              +'This software is Free Software, released under GPLv3.')
 options.add_option('--changelog',      metavar='FILE',           help='Read input from FILE')

@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from distutils.core import setup
+import slacklog
 setup(
     name='slacklog',
-    version='0.0.1',
+    version=slacklog.__version__,
     author='Mikko Värri',
     author_email='vmj@linuxbox.fi',
     maintainer='Mikko Värri',
@@ -12,7 +13,7 @@ setup(
     scripts=['bin/slacklog2rss',],
     url='http://pypi.python.org/pypi/slacklog/',
     license='GNU GPLv3',
-    description='Convert Slackware ChangeLog to RSS',
+    description=slacklog.__doc__,
     long_description=''.join([
             open('README.rst').read(),
             '\n\n',
