@@ -19,4 +19,12 @@ setup(
             open('CHANGES.rst').read()
             ]),
     requires=['dateutil',],
+    classifiers=[
+        'Development Status :: 2 - Pre-Alpha',
+        'Environment :: Console',
+        'License :: OSI Approved :: GNU Affero General Public License v3',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Topic :: Utilities',
+        ],
     )
