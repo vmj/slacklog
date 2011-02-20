@@ -1,4 +1,5 @@
-#!/usr/bin/python # -*- python -*-
+#!/usr/bin/python
+# -*- python -*-
 import codecs
 import locale
 from optparse import OptionParser
