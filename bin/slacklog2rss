@@ -15,7 +15,7 @@ def conv(str):
 #
 options = OptionParser(usage='USAGE: %prog [options] --changelog FILE --out FILE',
                        version='%%prog %s' % slacklog.__version__,
-                       description=slacklog.__doc__,
+                       description='Convert Slackware ChangeLog to RSS',
                        epilog='Bug reports, suggestions, and patches should be sent to vmj@linuxbox.fi.'
                              +'This software is Free Software, released under GPLv3.')
 options.add_option('--changelog',      metavar='FILE',           help='Read input from FILE')

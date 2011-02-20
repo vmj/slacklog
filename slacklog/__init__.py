@@ -1,3 +1,3 @@
-'''Convert Slackware ChangeLog to RSS'''
+'''Convert Slackware ChangeLog to various formats'''
 
 __version__='0.0.2'
