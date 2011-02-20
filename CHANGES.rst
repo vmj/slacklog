@@ -2,6 +2,12 @@ Release history
 ===============
 
 
+Version
+-------
+
+Added PyBlosxom formatter.
+
+
 Version 0.0.2 (2011-01-29)
 --------------------------
 

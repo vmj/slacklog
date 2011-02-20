@@ -1,8 +1,9 @@
-slacklog -- Convert Slackware Changelog to RSS
-**********************************************
+slacklog -- Convert Slackware Changelog to various formats
+**********************************************************
 
 slacklog provides a program and a library to convert a Slackware
-ChangeLog into other formats.  Currently, RSS is supported.
+ChangeLog into other formats.  Currently, RSS and PyBlosxom formats
+are supported.
 
 | Download: http://pypi.python.org/pypi/slacklog
 | Source code: http://github.com/vmj/slacklog

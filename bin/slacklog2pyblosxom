@@ -1,0 +1,68 @@
+#!/usr/bin/python # -*- python -*-
+import codecs
+import locale
+from optparse import OptionParser
+import slacklog
+from slacklog import parsers
+from slacklog import formatters
+
+def conv(str):
+    if str: return str.decode(locale.getpreferredencoding())
+    return None
+
+#
+#   Define options
+#
+options = OptionParser(usage='USAGE: %prog [options] --changelog FILE --datadir DATADIR',
+                       version='%%prog %s' % slacklog.__version__,
+                       description='Convert Slackware ChangeLog to PyBlosxom blog entries',
+                       epilog='Bug reports, suggestions, and patches should be sent to vmj@linuxbox.fi.'
+                             +'This software is Free Software, released under GPLv3.')
+options.add_option('--changelog',      metavar='FILE',           help='Read input from FILE')
+options.add_option('--encoding',       default='iso8859-1',      help='ChangeLog encoding [default: %default]')
+options.add_option('--datadir',        metavar='DATADIR',        help='PyBlosxom blog datadir')
+options.add_option('--quiet',          action='store_true',      help='Do not print warnings')
+options.add_option('--slackware',      default='Slackware 13.1', help='Slackware version [default: %default]')
+options.add_option('--entry-extension',default='txt',            help='PyBlosxom entry extention [default: %default]')
+options.add_option('--entry-encoding', default='utf-8',          help='PyBlosxom entry encoding [default: %default]')
+options.add_option('--tags-separator', default=',',              help='PyBlosxom tags separator [default: %default]')
+options.add_option('--pkg-separator',  default=':',              help='Separator for pkg and description [default: %default]')
+options.add_option('--pyfilemtime',    action='store_true',      help='Enable pyfilemtime compliance')
+options.add_option('--overwrite',      action='store_true',      help='Overwrite entries that exist')
+options.add_option('--no-backup',      action='store_true',      help='Make a backup before overwriting')
+
+#
+#   Handle command line options
+#
+(opts, args) = options.parse_args()
+if opts.changelog is None or opts.datadir is None:
+    options.error('Options --changelog and --datadir are required')
+
+#
+#   Apply options to parser and formatter
+#
+parsers.SlackLogParser.quiet = opts.quiet
+formatters.SlackLogPyblosxomFormatter.quiet          = opts.quiet
+
+formatters.SlackLogPyblosxomFormatter.slackware      = conv(opts.slackware)
+formatters.SlackLogPyblosxomFormatter.datadir        = conv(opts.datadir)
+formatters.SlackLogPyblosxomFormatter.extension      = conv(opts.entry_extension)
+formatters.SlackLogPyblosxomFormatter.encoding       = conv(opts.entry_encoding)
+formatters.SlackLogPyblosxomFormatter.tags_separator = conv(opts.tags_separator)
+formatters.SlackLogPyblosxomFormatter.pkg_separator = conv(opts.pkg_separator)
+formatters.SlackLogPyblosxomFormatter.overwrite      = opts.overwrite
+formatters.SlackLogPyblosxomFormatter.backup         = not opts.no_backup
+formatters.SlackLogPyblosxomFormatter.pyfilemtime    = opts.pyfilemtime
+
+#
+#   Read input
+#
+f = codecs.open(opts.changelog, 'r', opts.encoding)
+txt = f.read()
+f.close()
+
+#
+#   Format output (output goes to files, no need to capture the result)
+#
+formatters.SlackLogPyblosxomFormatter.format(parsers.SlackLogParser.parse(txt))
+
