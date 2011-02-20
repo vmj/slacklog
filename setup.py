@@ -20,7 +20,7 @@ setup(
             '\n\n',
             open('CHANGES.rst').read()
             ]),
-    requires=['dateutil',],
+    install_requires=['python-dateutil',],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Environment :: Console',
