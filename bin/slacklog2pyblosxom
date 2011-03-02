@@ -58,7 +58,11 @@ formatters.SlackLogPyblosxomFormatter.pyfilemtime    = opts.pyfilemtime
 #
 #   Read input
 #
-f = codecs.open(opts.changelog, 'r', opts.encoding)
+try:
+    f = codecs.open(opts.changelog, 'r', opts.encoding)
+except IOError, e:
+    print "%s: %s" % (e.filename, e.strerror)
+    exit(e.errno)
 txt = f.read()
 f.close()
 
