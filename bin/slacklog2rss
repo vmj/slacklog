@@ -59,7 +59,11 @@ try:
 except IOError, e:
     print "%s: %s" % (e.filename, e.strerror)
     exit(e.errno)
-txt = f.read()
+try:
+    txt = f.read()
+except UnicodeDecodeError, e:
+    print "%s: %s-%s: %s: %s" % (opts.changelog, e.start, e.end, e.encoding, e.reason)
+    exit(-1)
 f.close()
 
 #
