@@ -8,6 +8,10 @@ from slacklog import models
 
 pkg_name_re = re.compile(r'\A[a-z/]+[-a-zA-Z0-9_.]+:  ')
 
+tzinfos = {
+    'CDT': -5 * 60 * 60,
+    }
+
 class SlackLogParser (object):
 
     quiet = False
@@ -47,7 +51,7 @@ class SlackLogParser (object):
     def parse_entry_timestamp(cls, data):
         assert(isinstance(data, unicode))
         timestamp_str, data = cls.get_line(data)
-        timestamp = parser.parse(timestamp_str)
+        timestamp = parser.parse(timestamp_str, tzinfos=tzinfos)
         if timestamp.tzinfo is None:
             # Timestamp was ambiguous, assume UTC
             if not cls.quiet:
@@ -56,8 +60,9 @@ class SlackLogParser (object):
         elif not isinstance(timestamp.tzinfo, tz.tzutc):
             # Timestamp was in some local timezone,
             # convert to UTC
-            if not cls.quiet:
-                print >>stderr, "Warning: Converting to UTC"
+            tzname = timestamp.tzinfo.tzname(timestamp)
+            if not cls.quiet and tzname not in tzinfos:
+                print >>stderr, "Warning: Converting '%s' to UTC" % tzname
             timestamp = timestamp.astimezone(tz.tzutc())
         return [timestamp, data]
     parse_entry_timestamp = classmethod(parse_entry_timestamp)
