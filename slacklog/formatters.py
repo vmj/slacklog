@@ -166,22 +166,21 @@ class SlackLogRssFormatter (SlackLogFormatter):
             data += u'      <guid isPermaLink="false">%s-%s</guid>\n' % (cls.slackware.replace(' ', '-'), entry.timestamp.strftime("%Y%m%dT%H%M%SZ"))
         data += u'      <title>%s changes for %s</title>\n' % (cls.slackware, entry.timestamp.strftime("%a, %d %b %Y %H:%M:%S GMT"))
         data += u'      <pubDate>%s</pubDate>\n' % entry.timestamp.strftime("%a, %d %b %Y %H:%M:%S GMT")
+        data += u'      <description><![CDATA[<pre>'
         if entry.description:
-            data += u'      <description>%s<br /><br />' % entry.description
-        else:
-            data += u'      <description>'
+            data += entry.description.replace('<','&lt;')
         return data
     format_entry_preamble = classmethod(format_entry_preamble)
 
     def format_entry_postamble(cls, entry):
         assert(isinstance(entry, models.SlackLogEntry))
-        return u'</description>\n    </item>\n'
+        return u'</pre>]]></description>\n    </item>\n'
     format_entry_postamble = classmethod(format_entry_postamble)
 
 
     def format_pkg_preamble(cls, pkg):
         assert(isinstance(pkg, models.SlackLogPkg))
-        return u'%s: %s<br />' % (pkg.pkg, pkg.description.replace('\n','<br />'))
+        return u'%s:%s' % (pkg.pkg, pkg.description.replace('<','&lt;'))
     format_pkg_preamble = classmethod(format_pkg_preamble)
 
 
