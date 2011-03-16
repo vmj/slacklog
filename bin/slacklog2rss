@@ -21,6 +21,7 @@ options = OptionParser(usage='USAGE: %prog [options] --changelog FILE --out FILE
                              +'This software is Free Software, released under GPLv3.')
 options.add_option('--changelog',      metavar='FILE',           help='Read input from FILE')
 options.add_option('--encoding',       default='iso8859-1',      help='ChangeLog encoding [default: %default]')
+options.add_option('--min-date',       metavar='DATE',           help='Last date to include [default: include all]')
 options.add_option('--out',            metavar='FILE',           help='Write output to FILE')
 options.add_option('--quiet',          action='store_true',      help='Do not print warnings')
 options.add_option('--slackware',      default='Slackware 13.1', help='Slackware version [default: %default].')
@@ -41,7 +42,8 @@ if opts.changelog is None or opts.out is None or opts.rssLink is None:
 #
 #   Apply options to parser and formatter
 #
-parsers.SlackLogParser.quiet = opts.quiet
+parsers.SlackLogParser.quiet    = opts.quiet
+parsers.SlackLogParser.min_date = parsers.SlackLogParser.parse_date(conv(opts.min_date))
 
 formatters.SlackLogRssFormatter.slackware      = conv(opts.slackware)
 formatters.SlackLogRssFormatter.rssLink        = conv(opts.rssLink)

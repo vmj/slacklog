@@ -15,6 +15,7 @@ tzinfos = {
 class SlackLogParser (object):
 
     quiet = False
+    min_date = None
 
     ENTRY = 0
     PKG = 0
@@ -24,7 +25,10 @@ class SlackLogParser (object):
         log = models.SlackLog()
         for entry_data in cls.split_log_to_entries(data):
             entry = cls.parse_entry(entry_data, log)
-            log.entries.append(entry)
+            if entry:
+                log.entries.append(entry)
+            else:
+                break
         return log
     parse = classmethod(parse)
 
@@ -40,6 +44,8 @@ class SlackLogParser (object):
         cls.PKG = 0
         #print "%s:%s" % (cls.ENTRY, cls.PKG)
         timestamp, data = cls.parse_entry_timestamp(data)
+        if cls.min_date and cls.min_date > timestamp:
+            return None
         description, data = cls.parse_entry_description(data)
         entry = models.SlackLogEntry(timestamp, description, log)
         for pkg_data in cls.split_entry_to_pkgs(data):
@@ -51,19 +57,7 @@ class SlackLogParser (object):
     def parse_entry_timestamp(cls, data):
         assert(isinstance(data, unicode))
         timestamp_str, data = cls.get_line(data)
-        timestamp = parser.parse(timestamp_str, tzinfos=tzinfos)
-        if timestamp.tzinfo is None:
-            # Timestamp was ambiguous, assume UTC
-            if not cls.quiet:
-                print >>stderr, "Warning: Assuming UTC, input was '%s'" % timestamp_str
-            timestamp = timestamp.replace(tzinfo=tz.tzutc())
-        elif not isinstance(timestamp.tzinfo, tz.tzutc):
-            # Timestamp was in some local timezone,
-            # convert to UTC
-            tzname = timestamp.tzinfo.tzname(timestamp)
-            if not cls.quiet and tzname not in tzinfos:
-                print >>stderr, "Warning: Converting '%s' to UTC" % tzname
-            timestamp = timestamp.astimezone(tz.tzutc())
+        timestamp = cls.parse_date(timestamp_str)
         return [timestamp, data]
     parse_entry_timestamp = classmethod(parse_entry_timestamp)
 
@@ -133,3 +127,23 @@ class SlackLogParser (object):
             data = u''
         return [line, data]
     get_line = classmethod(get_line)
+
+    def parse_date(cls, data):
+        if data is None:
+            return None
+        assert(isinstance(data, unicode))
+        timestamp = parser.parse(data, tzinfos=tzinfos)
+        if timestamp.tzinfo is None:
+            # Timestamp was ambiguous, assume UTC
+            if not cls.quiet:
+                print >>stderr, "Warning: Assuming UTC, input was '%s'" % data
+            timestamp = timestamp.replace(tzinfo=tz.tzutc())
+        elif not isinstance(timestamp.tzinfo, tz.tzutc):
+            # Timestamp was in some local timezone,
+            # convert to UTC
+            tzname = timestamp.tzinfo.tzname(timestamp)
+            if not cls.quiet and tzname not in tzinfos:
+                print >>stderr, "Warning: Converting '%s' to UTC" % tzname
+            timestamp = timestamp.astimezone(tz.tzutc())
+        return timestamp
+    parse_date = classmethod(parse_date)
