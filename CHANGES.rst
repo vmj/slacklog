@@ -2,6 +2,12 @@ Release history
 ===============
 
 
+Version 0.0.6 (2011-03-18)
+--------------------------
+
+This release adds documentation.
+
+
 Version 0.0.5 (2011-03-17)
 --------------------------
 
