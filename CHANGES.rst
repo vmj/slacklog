@@ -2,6 +2,12 @@ Release history
 ===============
 
 
+Version 0.0.5 (2011-03-17)
+--------------------------
+
+This release adds the example script in source distribution, too.
+
+
 Version 0.0.4 (2011-03-17)
 --------------------------
 
