@@ -7,7 +7,7 @@ import slacklog
 from slacklog import parsers
 from slacklog import formatters
 
-def conv(str):
+def u(str):
     if str: return str.decode(locale.getpreferredencoding())
     return None
 
@@ -43,15 +43,15 @@ if opts.changelog is None or opts.out is None or opts.rssLink is None:
 #   Apply options to parser and formatter
 #
 parsers.SlackLogParser.quiet    = opts.quiet
-parsers.SlackLogParser.min_date = parsers.SlackLogParser.parse_date(conv(opts.min_date))
+parsers.SlackLogParser.min_date = parsers.SlackLogParser.parse_date(u(opts.min_date))
 
-formatters.SlackLogRssFormatter.slackware      = conv(opts.slackware)
-formatters.SlackLogRssFormatter.rssLink        = conv(opts.rssLink)
-formatters.SlackLogRssFormatter.webLink        = conv(opts.webLink)
-formatters.SlackLogRssFormatter.description    = conv(opts.description)
-formatters.SlackLogRssFormatter.language       = conv(opts.language)
-formatters.SlackLogRssFormatter.managingEditor = conv(opts.managingEditor)
-formatters.SlackLogRssFormatter.webMaster      = conv(opts.webMaster)
+formatters.SlackLogRssFormatter.slackware      = u(opts.slackware)
+formatters.SlackLogRssFormatter.rssLink        = u(opts.rssLink)
+formatters.SlackLogRssFormatter.webLink        = u(opts.webLink)
+formatters.SlackLogRssFormatter.description    = u(opts.description)
+formatters.SlackLogRssFormatter.language       = u(opts.language)
+formatters.SlackLogRssFormatter.managingEditor = u(opts.managingEditor)
+formatters.SlackLogRssFormatter.webMaster      = u(opts.webMaster)
 
 #
 #   Read input

@@ -7,7 +7,7 @@ import slacklog
 from slacklog import parsers
 from slacklog import formatters
 
-def conv(str):
+def u(str):
     if str: return str.decode(locale.getpreferredencoding())
     return None
 
@@ -44,15 +44,15 @@ if opts.changelog is None or opts.datadir is None:
 #   Apply options to parser and formatter
 #
 parsers.SlackLogParser.quiet    = opts.quiet
-parsers.SlackLogParser.min_date = parsers.SlackLogParser.parse_date(conv(opts.min_date))
+parsers.SlackLogParser.min_date = parsers.SlackLogParser.parse_date(u(opts.min_date))
 
 formatters.SlackLogPyblosxomFormatter.quiet          = opts.quiet
-formatters.SlackLogPyblosxomFormatter.slackware      = conv(opts.slackware)
-formatters.SlackLogPyblosxomFormatter.datadir        = conv(opts.datadir)
-formatters.SlackLogPyblosxomFormatter.extension      = conv(opts.entry_extension)
-formatters.SlackLogPyblosxomFormatter.encoding       = conv(opts.entry_encoding)
-formatters.SlackLogPyblosxomFormatter.tags_separator = conv(opts.tags_separator)
-formatters.SlackLogPyblosxomFormatter.pkg_separator = conv(opts.pkg_separator)
+formatters.SlackLogPyblosxomFormatter.slackware      = u(opts.slackware)
+formatters.SlackLogPyblosxomFormatter.datadir        = u(opts.datadir)
+formatters.SlackLogPyblosxomFormatter.extension      = u(opts.entry_extension)
+formatters.SlackLogPyblosxomFormatter.encoding       = u(opts.entry_encoding)
+formatters.SlackLogPyblosxomFormatter.tags_separator = u(opts.tags_separator)
+formatters.SlackLogPyblosxomFormatter.pkg_separator  = u(opts.pkg_separator)
 formatters.SlackLogPyblosxomFormatter.overwrite      = opts.overwrite
 formatters.SlackLogPyblosxomFormatter.backup         = not opts.no_backup
 formatters.SlackLogPyblosxomFormatter.pyfilemtime    = opts.pyfilemtime
