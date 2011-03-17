@@ -11,6 +11,10 @@ def u(str):
     if str: return str.decode(locale.getpreferredencoding())
     return None
 
+def i(str):
+    if str: return int(str)
+    return None
+
 #
 #   Define options
 #
@@ -24,6 +28,7 @@ options.add_option('--encoding',       default='iso8859-1',      help='ChangeLog
 options.add_option('--min-date',       metavar='DATE',           help='Last date to include [default: include all]')
 options.add_option('--out',            metavar='FILE',           help='Write output to FILE')
 options.add_option('--quiet',          action='store_true',      help='Do not print warnings')
+options.add_option('--max-entries',    metavar='NUM',            help='Maximum number of RSS items [default: infinity]')
 options.add_option('--slackware',      default='Slackware 13.1', help='Slackware version [default: %default].')
 options.add_option('--rssLink',        metavar='URL',            help='Full URL of the RSS feed')
 options.add_option('--webLink',        metavar='URL',            help='Full URL of the HTML version')
@@ -45,6 +50,7 @@ if opts.changelog is None or opts.out is None or opts.rssLink is None:
 parsers.SlackLogParser.quiet    = opts.quiet
 parsers.SlackLogParser.min_date = parsers.SlackLogParser.parse_date(u(opts.min_date))
 
+formatters.SlackLogRssFormatter.max_entries    = i(opts.max_entries)
 formatters.SlackLogRssFormatter.slackware      = u(opts.slackware)
 formatters.SlackLogRssFormatter.rssLink        = u(opts.rssLink)
 formatters.SlackLogRssFormatter.webLink        = u(opts.webLink)

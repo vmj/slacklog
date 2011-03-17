@@ -8,11 +8,16 @@ from slacklog import models
 
 class SlackLogFormatter (object):
 
+
+    max_entries = None
+    max_pkgs = None
+
+
     def format(cls, log):
         assert(isinstance(log, models.SlackLog))
         data = u''
         data += cls.format_log_preamble(log)
-        data += cls.format_list(log.entries, cls.format_entry)
+        data += cls.format_list(log.entries, cls.format_entry, cls.max_entries)
         data += cls.format_log_postamble(log)
         return data
     format = classmethod(format)
@@ -33,7 +38,7 @@ class SlackLogFormatter (object):
         data = u''
         data += cls.format_entry_separator(is_first, is_last)
         data += cls.format_entry_preamble(entry)
-        data += cls.format_list(entry.pkgs, cls.format_pkg)
+        data += cls.format_list(entry.pkgs, cls.format_pkg, cls.max_pkgs)
         data += cls.format_entry_postamble(entry)
         return data
     format_entry = classmethod(format_entry)
@@ -76,9 +81,13 @@ class SlackLogFormatter (object):
         return u''
     format_pkg_postamble = classmethod(format_pkg_postamble)
 
-    def format_list(cls, list_of_items, item_formatter):
+    def format_list(cls, list_of_items, item_formatter, max_items=None):
         data = u''
         num_items = len(list_of_items)
+        if max_items:
+            assert(isinstance(max_items, int))
+            if num_items > max_items:
+                num_items = max_items
         for index in xrange(num_items):
             is_first = False
             is_last = False

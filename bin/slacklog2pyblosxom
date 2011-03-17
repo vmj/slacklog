@@ -11,6 +11,10 @@ def u(str):
     if str: return str.decode(locale.getpreferredencoding())
     return None
 
+def i(str):
+    if str: return int(str)
+    return None
+
 #
 #   Define options
 #
@@ -24,6 +28,7 @@ options.add_option('--encoding',       default='iso8859-1',      help='ChangeLog
 options.add_option('--min-date',       metavar='DATE',           help='Last date to include [default: include all]')
 options.add_option('--datadir',        metavar='DATADIR',        help='PyBlosxom blog datadir')
 options.add_option('--quiet',          action='store_true',      help='Do not print warnings')
+options.add_option('--max-entries',    metavar='NUM',            help='Maximum number of blog entries [default: infinity]')
 options.add_option('--slackware',      default='Slackware 13.1', help='Slackware version [default: %default]')
 options.add_option('--entry-extension',default='txt',            help='PyBlosxom entry extention [default: %default]')
 options.add_option('--entry-encoding', default='utf-8',          help='PyBlosxom entry encoding [default: %default]')
@@ -46,6 +51,7 @@ if opts.changelog is None or opts.datadir is None:
 parsers.SlackLogParser.quiet    = opts.quiet
 parsers.SlackLogParser.min_date = parsers.SlackLogParser.parse_date(u(opts.min_date))
 
+formatters.SlackLogPyblosxomFormatter.max_entries    = i(opts.max_entries)
 formatters.SlackLogPyblosxomFormatter.quiet          = opts.quiet
 formatters.SlackLogPyblosxomFormatter.slackware      = u(opts.slackware)
 formatters.SlackLogPyblosxomFormatter.datadir        = u(opts.datadir)
