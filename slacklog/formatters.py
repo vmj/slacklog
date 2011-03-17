@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+"""
+SlackLog formatters
+===================
+
+SlackLog formatter takes an in-memory representation of a Slackware ChangeLog.txt and produces a different representation of it.
+"""
 import codecs
 import datetime
 import os

@@ -1,3 +1,9 @@
+"""
+SlackLog parsers
+================
+
+SlackLog parser reads a Slackware ChangeLog.txt and builds an in-memory representation of it using SlackLog models.
+"""
 from sys import stderr
 import re
 from datetime import datetime

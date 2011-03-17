@@ -1,3 +1,9 @@
+"""
+SlackLog models
+===============
+
+SlackLog models represent the ChangeLog.txt after parsing.
+"""
 from datetime import datetime
 from dateutil import tz
 
