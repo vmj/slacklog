@@ -2,6 +2,12 @@ Release history
 ===============
 
 
+Version 0.0.7 (2011-??-??)
+--------------------------
+
+This release adds Atom feed formatter.
+
+
 Version 0.0.6 (2011-03-18)
 --------------------------
 

@@ -1,0 +1,83 @@
+#!/usr/bin/python
+# -*- python -*-
+import codecs
+import locale
+from optparse import OptionParser
+import slacklog
+from slacklog import parsers
+from slacklog import formatters
+
+def u(str):
+    if str: return str.decode(locale.getpreferredencoding())
+    return None
+
+def i(str):
+    if str: return int(str)
+    return None
+
+#
+#   Define options
+#
+options = OptionParser(usage='USAGE: %prog [options] --changelog FILE --out FILE',
+                       version='%%prog %s' % slacklog.__version__,
+                       description='Convert Slackware ChangeLog to Atom',
+                       epilog='Bug reports, suggestions, and patches should be sent to vmj@linuxbox.fi.'
+                             +'This software is Free Software, released under GPLv3.')
+options.add_option('--changelog',      metavar='FILE',           help='Read input from FILE')
+options.add_option('--encoding',       default='iso8859-1',      help='ChangeLog encoding [default: %default]')
+options.add_option('--min-date',       metavar='DATE',           help='Last date to include [default: include all]')
+options.add_option('--out',            metavar='FILE',           help='Write output to FILE')
+options.add_option('--quiet',          action='store_true',      help='Do not print warnings')
+options.add_option('--max-entries',    metavar='NUM',            help='Maximum number of Atom entries [default: infinity]')
+options.add_option('--slackware',      default='Slackware 13.1', help='Slackware version [default: %default].')
+options.add_option('--link',           metavar='URL',            help='Full URL of the Atom feed')
+options.add_option('--webLink',        metavar='URL',            help='Full URL of the HTML version')
+options.add_option('--name',           metavar='NAME',           help='NAME of the feed author')
+options.add_option('--email',          metavar='EMAIL',          help='EMAIL of the feed author')
+
+#
+#   Handle command line options
+#
+(opts, args) = options.parse_args()
+if opts.changelog is None or opts.out is None or opts.link is None:
+    options.error('Options --changelog, --out, and --link are required')
+
+#
+#   Apply options to parser and formatter
+#
+parsers.SlackLogParser.quiet    = opts.quiet
+parsers.SlackLogParser.min_date = parsers.SlackLogParser.parse_date(u(opts.min_date))
+
+formatters.SlackLogAtomFormatter.max_entries    = i(opts.max_entries)
+formatters.SlackLogAtomFormatter.slackware      = u(opts.slackware)
+formatters.SlackLogAtomFormatter.link           = u(opts.link)
+formatters.SlackLogAtomFormatter.webLink        = u(opts.webLink)
+formatters.SlackLogAtomFormatter.name           = u(opts.name)
+formatters.SlackLogAtomFormatter.email          = u(opts.email)
+
+#
+#   Read input
+#
+try:
+    f = codecs.open(opts.changelog, 'r', opts.encoding)
+except IOError, e:
+    print "%s: %s" % (e.filename, e.strerror)
+    exit(e.errno)
+try:
+    txt = f.read()
+except UnicodeDecodeError, e:
+    print "%s: %s-%s: %s: %s" % (opts.changelog, e.start, e.end, e.encoding, e.reason)
+    exit(-1)
+f.close()
+
+#
+#   Format output
+#
+atom = formatters.SlackLogAtomFormatter.format(parsers.SlackLogParser.parse(txt))
+
+#
+#   Write output
+#
+f = codecs.open(opts.out, 'w', 'utf-8')
+f.write(atom)
+f.close()
