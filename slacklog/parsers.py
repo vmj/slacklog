@@ -62,7 +62,13 @@ class SlackLogParser (object):
         :rtype: [:py:class:`unicode`]
         """
         assert(isinstance(data, unicode))
-        return re.split('\n*\+-+\+\n*', data)
+        raw_entries = re.split('\+-+\+', data)
+        entries = []
+        for entry in raw_entries:
+            entry = entry.strip()
+            if entry and entry != "":
+                entries.append(entry)
+        return entries
     split_log_to_entries = classmethod(split_log_to_entries)
 
     def parse_entry(cls, data, log):
