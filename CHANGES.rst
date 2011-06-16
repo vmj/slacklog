@@ -2,10 +2,13 @@ Release history
 ===============
 
 
-Version 0.0.7 (2011-??-??)
+Version 0.0.7 (2011-06-16)
 --------------------------
 
-This release adds Atom feed formatter.
+This release adds Atom feed formatter, and fixes compatibility issue
+with recent ChangeLog.txt format change which caused empty entries to
+be generated.  Also, Slackware{,64} 13.37 was added to the example
+script.
 
 
 Version 0.0.6 (2011-03-18)
