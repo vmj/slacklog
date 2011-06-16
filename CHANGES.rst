@@ -2,12 +2,10 @@ Release history
 ===============
 
 
-Version 0.0.7 (2011-06-16)
+Version 0.0.7 (2011-??-??)
 --------------------------
 
-This release adds Atom feed formatter, and fixes compatibility issue
-with recent ChangeLog.txt format change which caused empty entries to
-be generated.
+This release adds Atom feed formatter.
 
 
 Version 0.0.6 (2011-03-18)
