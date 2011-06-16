@@ -63,15 +63,18 @@ update_rss() {
 }
 
 
-#   Update various feeds.  For stable releases, the date is the date
-#   of the first patch, because the next entry would be the
-#   announcement of the previous stable release, which is odd.  For
-#   example, at the bottom of the 13.0 stable ChangeLog.txt is the
-#   announcement of 12.1 release...
+#   Update various feeds.
 
+#   For stable releases, the date is the date of the first patch,
+#   since the next entry would be the announcement of the previous
+#   release.
 update_rss slackware   13.0    'Wed May  7 16:13:31 CDT 2008'
 update_rss slackware64 13.0    'Tue May 19 15:36:49 CDT 2009'
 update_rss slackware   13.1    'Mon Sep  7 20:58:42 CDT 2009'
 update_rss slackware64 13.1    'Mon Sep  7 20:58:42 CDT 2009'
+update_rss slackware   13.37   'Fri Jun 18 18:12:04 UTC 2010'
+update_rss slackware64 13.37   'Fri Jun 18 18:12:04 UTC 2010'
+
+#   For current, use some very old date.
 update_rss slackware   current 'Thu Jan  1 00:00:00 UTC 1970'
 update_rss slackware64 current 'Thu Jan  1 00:00:00 UTC 1970'
