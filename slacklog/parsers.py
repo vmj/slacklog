@@ -58,11 +58,11 @@ class SlackLogParser (object):
         Split the ChangeLog.txt into a list of unparsed entries.
 
         :param unicode data: the ChangeLog.txt content.
-        :returns: list of unparsed entries, separators removed.
+        :returns: list of unparsed entries, separators and empty entries removed.
         :rtype: [:py:class:`unicode`]
         """
         assert(isinstance(data, unicode))
-        return re.split('\n*\+-+\+\n*', data)
+        return [entry for entry in re.split('\n*\+-+\+\n*', data) if entry != ""]
     split_log_to_entries = classmethod(split_log_to_entries)
 
     def parse_entry(cls, data, log):
