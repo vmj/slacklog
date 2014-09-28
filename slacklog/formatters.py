@@ -5,6 +5,8 @@ SlackLog formatters
 
 SlackLog formatter takes an in-memory representation of a Slackware ChangeLog.txt and produces a different representation of it.
 """
+from __future__ import print_function
+
 import codecs
 import datetime
 import os
@@ -649,13 +651,13 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
                         backup = "%s~%d~" % (filename, i)
                         i += 1
                     if not cls.quiet:
-                        print "Backing up entry: %s" % backup
+                        print("Backing up entry: %s" % backup)
                     os.rename(filename, backup)
                 else:
-                    print "Overwriting entry: %s" % filename
+                    print("Overwriting entry: %s" % filename)
             else:
                 if not cls.quiet:
-                    print "Entry already exists: %s" % filename
+                    print("Entry already exists: %s" % filename)
                 return data
 
         # Write the entry

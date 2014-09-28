@@ -4,6 +4,8 @@ SlackLog parsers
 
 SlackLog parser reads a Slackware ChangeLog.txt and builds an in-memory representation of it using SlackLog models.
 """
+from __future__ import print_function
+
 from sys import stderr
 import re
 from datetime import datetime
@@ -90,7 +92,7 @@ class SlackLogParser (object):
         assert(isinstance(log, models.SlackLog))
         cls.ENTRY += 1
         cls.PKG = 0
-        #print "%s:%s" % (cls.ENTRY, cls.PKG)
+        #print("%s:%s" % (cls.ENTRY, cls.PKG))
         timestamp, data = cls.parse_entry_timestamp(data)
         if cls.min_date and cls.min_date > timestamp:
             return None
@@ -174,11 +176,11 @@ class SlackLogParser (object):
         assert(isinstance(data, str))
         assert(isinstance(entry, models.SlackLogEntry))
         cls.PKG += 1
-        #print "%s:%s" % (cls.ENTRY, cls.PKG)
+        #print("%s:%s" % (cls.ENTRY, cls.PKG))
         try:
             pkg, data = cls.parse_pkg_name(data)
         except ValueError:
-            print "data: '%s...'" % data[0:50]
+            print("data: '%s...'" % data[0:50])
             raise
         description = cls.parse_pkg_description(data)
         return models.SlackLogPkg(pkg, description, entry)
@@ -219,7 +221,7 @@ class SlackLogParser (object):
         assert(isinstance(data, str))
         try:
             line, data = data.split(u'\n', 1)
-            #print line
+            #print(line)
             line += u'\n'
         except ValueError: # No newlines
             line = data
@@ -242,14 +244,16 @@ class SlackLogParser (object):
         if timestamp.tzinfo is None:
             # Timestamp was ambiguous, assume UTC
             if not cls.quiet:
-                print >>stderr, "Warning: Assuming UTC, input was '%s'" % data
+                from sys import stderr
+                stderr.write("Warning: Assuming UTC, input was '%s'" % data)
             timestamp = timestamp.replace(tzinfo=tz.tzutc())
         elif not isinstance(timestamp.tzinfo, tz.tzutc):
             # Timestamp was in some local timezone,
             # convert to UTC
             tzname = timestamp.tzinfo.tzname(timestamp)
             if not cls.quiet and tzname not in tzinfos:
-                print >>stderr, "Warning: Converting '%s' to UTC" % tzname
+                from sys import stderr
+                stderr.write("Warning: Converting '%s' to UTC" % tzname)
             timestamp = timestamp.astimezone(tz.tzutc())
         return timestamp
     parse_date = classmethod(parse_date)

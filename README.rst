@@ -31,6 +31,7 @@ The included Python library provides the ability to make custom
 formats easily::
 
     #!/usr/bin/env python
+    from __future__ import print_function
     import codecs
     import locale
     from slacklog import parsers
@@ -41,7 +42,7 @@ formats easily::
 
     def write(str):
         '''Print out in preferred encoding.'''
-        print str.encode(locale.getpreferredencoding())
+        print(str.encode(locale.getpreferredencoding()))
 
     # Parse the ChangeLog
     log = parsers.SlackLogParser.parse(read('ChangeLog.txt'))

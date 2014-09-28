@@ -1,5 +1,7 @@
 #!/usr/bin/python
 # -*- python -*-
+from __future__ import print_function
+
 import codecs
 import locale
 from optparse import OptionParser
@@ -61,12 +63,12 @@ formatters.SlackLogAtomFormatter.email          = u(opts.email)
 try:
     f = codecs.open(opts.changelog, 'r', opts.encoding)
 except IOError as e:
-    print "%s: %s" % (e.filename, e.strerror)
+    print("%s: %s" % (e.filename, e.strerror))
     exit(e.errno)
 try:
     txt = f.read()
 except UnicodeDecodeError as e:
-    print "%s: %s-%s: %s: %s" % (opts.changelog, e.start, e.end, e.encoding, e.reason)
+    print("%s: %s-%s: %s: %s" % (opts.changelog, e.start, e.end, e.encoding, e.reason))
     exit(-1)
 f.close()
 
