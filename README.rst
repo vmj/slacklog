@@ -7,6 +7,8 @@ formats are supported.
 
 | Download: http://pypi.python.org/pypi/slacklog
 | Source code: http://github.com/vmj/slacklog
+| Builds status: https://travis-ci.org/vmj/slacklog
+| Docs: http://slacklog.readthedocs.org
 
 .. contents::
 
@@ -57,8 +59,8 @@ be given Unicode input and formatters generate Unicode data.
 Requirements
 ============
 
-In addition to Python, `python-dateutil
-<http://pypi.python.org/pypi/python-dateutil>`_ is required.
+In addition to Python 2.6 or 2.7, `python-dateutil
+<http://pypi.python.org/pypi/python-dateutil>`_ is required (versions 1.5 and 2.2 are tested).
 
 
 Installation

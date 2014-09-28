@@ -1,7 +1,9 @@
 language: python
 python:
+ - 2.6
  - 2.7
 env:
+ - DATEUTIL_VERSION=1.5
  - DATEUTIL_VERSION=2.2
 install:
  - pip install python-dateutil==$DATEUTIL_VERSION
