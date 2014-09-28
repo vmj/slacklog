@@ -4,7 +4,6 @@ python:
  - 2.7
  - 3.4
 env:
- - DATEUTIL_VERSION=1.5
  - DATEUTIL_VERSION=2.2
 install:
  - pip install python-dateutil==$DATEUTIL_VERSION
