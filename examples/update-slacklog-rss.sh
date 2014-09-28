@@ -8,17 +8,12 @@ BASE_URL=http://ftp.osuosl.org/pub/slackware
 #
 #   Where to store the ChangeLogs once downloaded
 #
-BASE_DIR=/home/vmj/public_html/slacklog
+BASE_DIR=.
 
 #
 #   Temporary storage
 #
 TMP_DIR=/tmp
-
-#
-#   Where are the slacklog python modules installed
-#
-SLACKLOG=/home/vmj/tmp/slacklog
 
 #
 #   A function that knows how to update a single feed.
@@ -49,7 +44,7 @@ update_rss() {
         #
         #   Update the RSS feed
         #
-        LANG=en_US.utf8 PYTHONPATH=$SLACKLOG python $SLACKLOG/bin/slacklog2rss \
+        LANG=en_US.utf8 slacklog2rss \
             --changelog $BASE_DIR/$slackware-$version.txt \
             --min-date="$min_date" \
             --out $BASE_DIR/$slackware-$version.rss \
