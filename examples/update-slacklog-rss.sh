@@ -48,7 +48,6 @@ update_rss() {
             --changelog $BASE_DIR/$slackware-$version.txt \
             --min-date="$min_date" \
             --out $BASE_DIR/$slackware-$version.rss \
-            --max-entries=20 \
             --slackware="$slackware $version" \
             --rssLink="http://linuxbox.fi/~vmj/slacklog/$slackware-$version.rss" \
             --description="Recent changes in $slackware $version" \
@@ -69,6 +68,8 @@ update_rss slackware   13.1    'Mon Sep  7 20:58:42 CDT 2009'
 update_rss slackware64 13.1    'Mon Sep  7 20:58:42 CDT 2009'
 update_rss slackware   13.37   'Fri Jun 18 18:12:04 UTC 2010'
 update_rss slackware64 13.37   'Fri Jun 18 18:12:04 UTC 2010'
+update_rss slackware   14.1    'Mon Nov 18 20:52:16 UTC 2013'
+update_rss slackware64 14.1    'Mon Nov 18 20:52:16 UTC 2013'
 
 #   For current, use some very old date.
 update_rss slackware   current 'Thu Jan  1 00:00:00 UTC 1970'

@@ -17,6 +17,7 @@ pkg_name_re = re.compile(r'\A[a-z/]+[-a-zA-Z0-9_.]+:  ')
 tzinfos = {
     'CDT': -5 * 60 * 60,
     'CST': -6 * 60 * 60,
+    'UTC': 0,
     }
 
 class SlackLogParser (object):
