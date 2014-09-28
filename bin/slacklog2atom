@@ -60,12 +60,12 @@ formatters.SlackLogAtomFormatter.email          = u(opts.email)
 #
 try:
     f = codecs.open(opts.changelog, 'r', opts.encoding)
-except IOError, e:
+except IOError as e:
     print "%s: %s" % (e.filename, e.strerror)
     exit(e.errno)
 try:
     txt = f.read()
-except UnicodeDecodeError, e:
+except UnicodeDecodeError as e:
     print "%s: %s-%s: %s: %s" % (opts.changelog, e.start, e.end, e.encoding, e.reason)
     exit(-1)
 f.close()
