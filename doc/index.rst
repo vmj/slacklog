@@ -13,8 +13,8 @@ Contents:
 
    Introduction <README>
    CHANGES
-   doc/cmd
-   doc/api
+   cmd
+   api
 
 Indices and tables
 ==================
