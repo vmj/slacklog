@@ -261,7 +261,7 @@ class SlackLogFormatter (object):
             assert(isinstance(max_items, int))
             if num_items > max_items:
                 num_items = max_items
-        for index in xrange(num_items):
+        for index in range(num_items):
             is_first = False
             is_last = False
             if index == 0:
