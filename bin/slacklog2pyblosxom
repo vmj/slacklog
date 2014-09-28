@@ -9,12 +9,18 @@ import slacklog
 from slacklog import parsers
 from slacklog import formatters
 
-def u(str):
-    if str: return str.decode(locale.getpreferredencoding())
+try:
+    str = unicode
+except NameError:
+    pass # Forward compatibility with Py3k (unicode is not defined)
+
+def u(s):
+    if isinstance(s, str): return s
+    if s: return codecs.decode(s, locale.getpreferredencoding())
     return None
 
-def i(str):
-    if str: return int(str)
+def i(s):
+    if s: return int(s)
     return None
 
 #
