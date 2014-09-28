@@ -11,6 +11,10 @@ from dateutil import parser
 from dateutil import tz
 from slacklog import models
 
+try:
+    str = unicode
+except NameError:
+    pass # Forward compatibility with Py3k (unicode is not defined)
 
 pkg_name_re = re.compile(r'\A[a-z/]+[-a-zA-Z0-9_.]+:  ')
 
@@ -43,7 +47,7 @@ class SlackLogParser (object):
         :returns: in-memory representation of data
         :rtype: :py:class:`slacklog.models.SlackLog`
         """
-        assert(isinstance(data, unicode))
+        assert(isinstance(data, str))
         log = models.SlackLog()
         for entry_data in cls.split_log_to_entries(data):
             entry = cls.parse_entry(entry_data, log)
@@ -62,7 +66,7 @@ class SlackLogParser (object):
         :returns: list of unparsed entries, separators removed.
         :rtype: [:py:class:`unicode`]
         """
-        assert(isinstance(data, unicode))
+        assert(isinstance(data, str))
         raw_entries = re.split('\+-+\+', data)
         entries = []
         for entry in raw_entries:
@@ -82,7 +86,7 @@ class SlackLogParser (object):
         :return: in-memory representation of the ChangeLog entry.
         :rtype: :py:class:`slacklog.models.SlackLogEntry`
         """
-        assert(isinstance(data, unicode))
+        assert(isinstance(data, str))
         assert(isinstance(log, models.SlackLog))
         cls.ENTRY += 1
         cls.PKG = 0
@@ -106,7 +110,7 @@ class SlackLogParser (object):
         :returns: a two element list: timestamp and the rest of the entry.
         :rtype: [:py:class:`datetime.datetime`, :py:class:`unicode`]
         """
-        assert(isinstance(data, unicode))
+        assert(isinstance(data, str))
         timestamp_str, data = cls.get_line(data)
         timestamp = cls.parse_date(timestamp_str)
         return [timestamp, data]
@@ -120,7 +124,7 @@ class SlackLogParser (object):
         :returns: a two element list: description and the rest of the entry.
         :rtype: [:py:class:`unicode`, :py:class:`unicode`]
         """
-        assert(isinstance(data, unicode))
+        assert(isinstance(data, str))
         description = u''
         while data and not pkg_name_re.match(data):
             line, data = cls.get_line(data)
@@ -136,7 +140,7 @@ class SlackLogParser (object):
         :return: a list of unparsed packages.
         :rtype: [:py:class:`unicode`]
         """
-        assert(isinstance(data, unicode))
+        assert(isinstance(data, str))
         pkgs = []
         pkg = u''
         if data == u'' or data == u'\n':
@@ -167,7 +171,7 @@ class SlackLogParser (object):
         :return: in-memory representation of the package.
         :rtype: :py:class:`slacklog.models.SlackLogPkg`
         """
-        assert(isinstance(data, unicode))
+        assert(isinstance(data, str))
         assert(isinstance(entry, models.SlackLogEntry))
         cls.PKG += 1
         #print "%s:%s" % (cls.ENTRY, cls.PKG)
@@ -188,7 +192,7 @@ class SlackLogParser (object):
         :return: a two element list: package name and package description.
         :rtype: [:py:class:`unicode`, :py:class:`unicode`]
         """
-        assert(isinstance(data, unicode))
+        assert(isinstance(data, str))
         return data.split(u':', 1)
     parse_pkg_name = classmethod(parse_pkg_name)
 
@@ -200,7 +204,7 @@ class SlackLogParser (object):
         :return: Package description.
         :rtype: :py:class:`unicode`
         """
-        assert(isinstance(data, unicode))
+        assert(isinstance(data, str))
         return data
     parse_pkg_description = classmethod(parse_pkg_description)
 
@@ -212,7 +216,7 @@ class SlackLogParser (object):
         :return: a two element list: first line, rest of the data.
         :rtype: [:py:class:`unicode`, :py:class:`unicode`]
         """
-        assert(isinstance(data, unicode))
+        assert(isinstance(data, str))
         try:
             line, data = data.split(u'\n', 1)
             #print line
@@ -233,7 +237,7 @@ class SlackLogParser (object):
         """
         if data is None:
             return None
-        assert(isinstance(data, unicode))
+        assert(isinstance(data, str))
         timestamp = parser.parse(data, tzinfos=tzinfos)
         if timestamp.tzinfo is None:
             # Timestamp was ambiguous, assume UTC

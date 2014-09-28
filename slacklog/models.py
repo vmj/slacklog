@@ -7,6 +7,11 @@ SlackLog models represent the ChangeLog.txt after parsing.
 from datetime import datetime
 from dateutil import tz
 
+try:
+    str = unicode
+except NameError:
+    pass # Forward compatibility with Py3k (unicode is not defined)
+
 class SlackLog (object):
     """
     Little more than a list of SlackLogEntry objects.
@@ -27,7 +32,7 @@ class SlackLogEntry (object):
 
     def __init__(self, timestamp, description, log):
         assert(isinstance(timestamp, datetime))
-        assert(isinstance(description, unicode))
+        assert(isinstance(description, str))
         assert(isinstance(timestamp.tzinfo, tz.tzutc))
         assert(isinstance(log, SlackLog))
         self.timestamp = timestamp
@@ -44,8 +49,8 @@ class SlackLogPkg (object):
     """
 
     def __init__(self, pkg, description, entry):
-        assert(isinstance(pkg, unicode))
-        assert(isinstance(description, unicode))
+        assert(isinstance(pkg, str))
+        assert(isinstance(description, str))
         assert(isinstance(entry, SlackLogEntry))
         self.pkg = pkg
         self.description = description
