@@ -2,6 +2,16 @@ Release history
 ===============
 
 
+Version 0.0.8 (2014-09-28)
+--------------------------
+
+This release does not add any new functionality, but includes support
+for Python 3.
+
+In addition, Slackware{,64} 14.1 was added to the example script, and
+Travis CI and ReadTheDocs were integrated (see the links at the top of
+the README).
+
 Version 0.0.7 (2011-06-16)
 --------------------------
 
