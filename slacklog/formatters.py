@@ -258,6 +258,8 @@ class SlackLogFormatter (object):
                argument, two booleans `is_first` and `is_last` as
                second and third positional arguments, and returns a
                :py:class:`unicode` string.
+        :param max_items: Maximum number of items to format.  If falsy, all items are formatted.
+        :type: :py:class:`int` or falsy.
         :return: Formatted data.
         :rtype: :py:class:`unicode`
         """
