@@ -60,8 +60,8 @@ be given Unicode input and formatters generate Unicode data.
 Requirements
 ============
 
-In addition to Python version 2.[67] or 3.[34], `python-dateutil
-<http://pypi.python.org/pypi/python-dateutil>`_ version 2.[12] is required.
+In addition to Python version 2.[67] or 3.[3456], `python-dateutil
+<http://pypi.python.org/pypi/python-dateutil>`_ version 2.1-2.6.0 is required.
 
 
 Installation
