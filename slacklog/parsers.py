@@ -16,7 +16,7 @@ from slacklog import models
 try:
     str = unicode
 except NameError:
-    pass # Forward compatibility with Py3k (unicode is not defined)
+    pass  # Forward compatibility with Py3k (unicode is not defined)
 
 pkg_name_re = re.compile(r'\A[a-z/]+[-a-zA-Z0-9_.]+:  ')
 
@@ -26,6 +26,7 @@ tzinfos = {
     'UTC': 0,
     }
 
+
 class SlackLogParser (object):
     """
     Parser for recent (13.x) Slackware ChangeLogs.
@@ -34,7 +35,7 @@ class SlackLogParser (object):
     quiet = False
     """If :py:const:`True`, warnings about date parsing are not printed."""
     min_date = None
-    """If set to a :py:class:`datetime.datetime` object, any log entries whose timestamp is older are ignored (not parsed)."""
+    """If set to a :py:class:`datetime.datetime` object, older log entries are ignored (not parsed)."""
 
     ENTRY = 0
     """Counter of entries (for debugging)."""
@@ -92,7 +93,6 @@ class SlackLogParser (object):
         assert(isinstance(log, models.SlackLog))
         cls.ENTRY += 1
         cls.PKG = 0
-        #print("%s:%s" % (cls.ENTRY, cls.PKG))
         timestamp, data = cls.parse_entry_timestamp(data)
         if cls.min_date and cls.min_date > timestamp:
             return None
@@ -176,7 +176,6 @@ class SlackLogParser (object):
         assert(isinstance(data, str))
         assert(isinstance(entry, models.SlackLogEntry))
         cls.PKG += 1
-        #print("%s:%s" % (cls.ENTRY, cls.PKG))
         try:
             pkg, data = cls.parse_pkg_name(data)
         except ValueError:
@@ -221,9 +220,8 @@ class SlackLogParser (object):
         assert(isinstance(data, str))
         try:
             line, data = data.split(u'\n', 1)
-            #print(line)
             line += u'\n'
-        except ValueError: # No newlines
+        except ValueError:  # No newlines
             line = data
             data = u''
         return [line, data]

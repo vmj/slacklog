@@ -9,7 +9,7 @@ setup(
     author_email='vmj@linuxbox.fi',
     maintainer='Mikko Värri',
     maintainer_email='vmj@linuxbox.fi',
-    packages=['slacklog',],
+    packages=['slacklog', ],
     scripts=['bin/slacklog2rss',
              'bin/slacklog2pyblosxom',
              'bin/slacklog2atom'],
@@ -21,7 +21,7 @@ setup(
             '\n\n',
             open('CHANGES.rst').read()
             ]),
-    install_requires=['python-dateutil',],
+    install_requires=['python-dateutil', ],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Environment :: Console',

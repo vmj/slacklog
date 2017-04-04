@@ -10,7 +10,8 @@ from dateutil import tz
 try:
     str = unicode
 except NameError:
-    pass # Forward compatibility with Py3k (unicode is not defined)
+    pass  # Forward compatibility with Py3k (unicode is not defined)
+
 
 class SlackLog (object):
     """
@@ -55,4 +56,3 @@ class SlackLogPkg (object):
         self.pkg = pkg
         self.description = description
         self.entry = entry
-

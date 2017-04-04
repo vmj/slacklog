@@ -12,15 +12,20 @@ from slacklog import formatters
 try:
     str = unicode
 except NameError:
-    pass # Forward compatibility with Py3k (unicode is not defined)
+    pass  # Forward compatibility with Py3k (unicode is not defined)
+
 
 def u(s):
-    if isinstance(s, str): return s
-    if s: return codecs.decode(s, locale.getpreferredencoding())
+    if isinstance(s, str):
+        return s
+    if s:
+        return codecs.decode(s, locale.getpreferredencoding())
     return None
 
+
 def i(s):
-    if s: return int(s)
+    if s:
+        return int(s)
     return None
 
 #
@@ -30,7 +35,7 @@ options = OptionParser(usage='USAGE: %prog [options] --changelog FILE --out FILE
                        version='%%prog %s' % slacklog.__version__,
                        description='Convert Slackware ChangeLog to RSS',
                        epilog='Bug reports, suggestions, and patches should be sent to vmj@linuxbox.fi.'
-                             +'This software is Free Software, released under GPLv3.')
+                             + 'This software is Free Software, released under GPLv3.')
 options.add_option('--changelog',      metavar='FILE',           help='Read input from FILE')
 options.add_option('--encoding',       default='iso8859-1',      help='ChangeLog encoding [default: %default]')
 options.add_option('--min-date',       metavar='DATE',           help='Last date to include [default: include all]')
@@ -55,17 +60,17 @@ if opts.changelog is None or opts.out is None or opts.rssLink is None:
 #
 #   Apply options to parser and formatter
 #
-parsers.SlackLogParser.quiet    = opts.quiet
+parsers.SlackLogParser.quiet = opts.quiet
 parsers.SlackLogParser.min_date = parsers.SlackLogParser.parse_date(u(opts.min_date))
 
-formatters.SlackLogRssFormatter.max_entries    = i(opts.max_entries)
-formatters.SlackLogRssFormatter.slackware      = u(opts.slackware)
-formatters.SlackLogRssFormatter.rssLink        = u(opts.rssLink)
-formatters.SlackLogRssFormatter.webLink        = u(opts.webLink)
-formatters.SlackLogRssFormatter.description    = u(opts.description)
-formatters.SlackLogRssFormatter.language       = u(opts.language)
+formatters.SlackLogRssFormatter.max_entries = i(opts.max_entries)
+formatters.SlackLogRssFormatter.slackware = u(opts.slackware)
+formatters.SlackLogRssFormatter.rssLink = u(opts.rssLink)
+formatters.SlackLogRssFormatter.webLink = u(opts.webLink)
+formatters.SlackLogRssFormatter.description = u(opts.description)
+formatters.SlackLogRssFormatter.language = u(opts.language)
 formatters.SlackLogRssFormatter.managingEditor = u(opts.managingEditor)
-formatters.SlackLogRssFormatter.webMaster      = u(opts.webMaster)
+formatters.SlackLogRssFormatter.webMaster = u(opts.webMaster)
 
 #
 #   Read input
