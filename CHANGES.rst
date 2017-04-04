@@ -2,6 +2,18 @@ Release history
 ===============
 
 
+Version 0.0.9 (2017-04-04)
+--------------------------
+
+This release does not add any new functionality.
+
+The dependencies were updated: Python 2.7, 3.3 - 3.6, and python-dateutil 2.1 - 2.6.
+Support for Python 2.6 was dropped, not because it doesn't work but because Python core team doesn't support it.
+
+The code was formatted according to PEP-8, and the example script was updated to include Slackware versions 14.0 and
+14.2.
+
+
 Version 0.0.8 (2014-09-28)
 --------------------------
 
