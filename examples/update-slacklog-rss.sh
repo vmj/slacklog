@@ -68,8 +68,12 @@ update_rss slackware   13.1    'Mon Sep  7 20:58:42 CDT 2009'
 update_rss slackware64 13.1    'Mon Sep  7 20:58:42 CDT 2009'
 update_rss slackware   13.37   'Fri Jun 18 18:12:04 UTC 2010'
 update_rss slackware64 13.37   'Fri Jun 18 18:12:04 UTC 2010'
+update_rss slackware   14.0    'Wed Oct 10 03:06:03 UTC 2012'
+update_rss slackware64 14.0    'Wed Oct 10 03:06:03 UTC 2012'
 update_rss slackware   14.1    'Mon Nov 18 20:52:16 UTC 2013'
 update_rss slackware64 14.1    'Mon Nov 18 20:52:16 UTC 2013'
+update_rss slackware   14.2    'Tue Jul  5 04:52:45 UTC 2016'
+update_rss slackware64 14.2    'Tue Jul  5 04:52:45 UTC 2016'
 
 #   For current, use some very old date.
 update_rss slackware   current 'Thu Jan  1 00:00:00 UTC 1970'
