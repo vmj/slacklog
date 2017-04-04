@@ -6,7 +6,6 @@ SlackLog parser reads a Slackware ChangeLog.txt and builds an in-memory represen
 """
 from __future__ import print_function
 
-from sys import stderr
 import re
 from datetime import datetime
 from dateutil import parser
