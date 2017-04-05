@@ -10,9 +10,13 @@ setup(
     maintainer='Mikko Värri',
     maintainer_email='vmj@linuxbox.fi',
     packages=['slacklog', ],
-    scripts=['bin/slacklog2rss',
-             'bin/slacklog2pyblosxom',
-             'bin/slacklog2atom'],
+    entry_points={
+        'console_scripts': [
+            'slacklog2atom      = slacklog.scripts:slacklog2atom',
+            'slacklog2pyblosxom = slacklog.scripts:slacklog2pyblosxom',
+            'slacklog2rss       = slacklog.scripts:slacklog2rss'
+        ]
+    },
     url='http://pypi.python.org/pypi/slacklog/',
     license='GNU GPLv3',
     description=slacklog.__doc__,
