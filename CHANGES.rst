@@ -2,6 +2,15 @@ Release history
 ===============
 
 
+Verions 0.9.0 (2017-04-05)
+--------------------------
+
+After almost six years with only maintenance releases, it's time to move to beta.
+
+This release switches from distutils to setuptools, and contains some refactoring to scripts (pure refactoring, no
+changes in the CLI).
+
+
 Version 0.0.9 (2017-04-04)
 --------------------------
 
