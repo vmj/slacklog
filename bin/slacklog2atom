@@ -1,66 +1,6 @@
 #!/usr/bin/python
 # -*- python -*-
-from __future__ import print_function
 
-from slacklog import parsers
-from slacklog import formatters
-from slacklog import scripts
-from slacklog.scripts import u, i, main
-
-#
-#   Define and handle command line options
-#
-(opts, args) = main(
-    description='Convert Slackware ChangeLog to Atom',
-    options={
-        'changelog':   {'help': 'Read input from FILE',
-                        'metavar': 'FILE', 'mandatory': True},
-        'encoding':    {'help': 'ChangeLog encoding [default: %default]',
-                        'default': 'iso8859-1'},
-        'min-date':    {'help': 'Last date to include [default: include all]',
-                        'metavar': 'DATE'},
-        'out':         {'help': 'Write output to FILE',
-                        'metavar': 'FILE', 'mandatory': True},
-        'quiet':       {'help': 'Do not print warnings',
-                        'action': 'store_true'},
-        'max-entries': {'help': 'Max number of Atom entries [default: infinity]',
-                        'metavar': 'NUM'},
-        'slackware':   {'help': 'Slackware version [default: %default].',
-                        'default': 'Slackware 13.1'},
-        'link':        {'help': 'Full URL of the Atom feed',
-                        'metavar': 'URL', 'mandatory': True},
-        'webLink':     {'help': 'Full URL of the HTML version',
-                        'metavar': 'URL'},
-        'name':        {'help': 'NAME of the feed author',
-                        'metavar': 'NAME'},
-        'email':       {'help': 'EMAIL of the feed author',
-                        'metavar': 'EMAIL'}
-    })
-
-#
-#   Apply options to parser and formatter
-#
-parsers.SlackLogParser.quiet = opts.quiet
-parsers.SlackLogParser.min_date = parsers.SlackLogParser.parse_date(u(opts.min_date))
-
-formatters.SlackLogAtomFormatter.max_entries = i(opts.max_entries)
-formatters.SlackLogAtomFormatter.slackware = u(opts.slackware)
-formatters.SlackLogAtomFormatter.link = u(opts.link)
-formatters.SlackLogAtomFormatter.webLink = u(opts.webLink)
-formatters.SlackLogAtomFormatter.name = u(opts.name)
-formatters.SlackLogAtomFormatter.email = u(opts.email)
-
-#
-#   Read input
-#
-txt = scripts.read(opts.changelog, opts.encoding)
-
-#
-#   Format output
-#
-atom = formatters.SlackLogAtomFormatter.format(parsers.SlackLogParser.parse(txt))
-
-#
-#   Write output
-#
-scripts.write(opts.out, atom)
+if __name__ == '__main__':
+    from slacklog.scripts import slacklog2atom
+    slacklog2atom()
