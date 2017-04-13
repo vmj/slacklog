@@ -78,6 +78,21 @@ unreleased version, from `Github <https://github.com/vmj/slacklog>`_
 git repository.
 
 
+Trying it in Docker
+===================
+
+Here's one way to hack on this inside a container::
+
+    $ docker run --rm -it -v $(pwd):/slacklog alpine:3.5 /bin/sh
+    # apk add --no-cache python py-setuptools py-dateutil curl
+    # cd /slacklog
+    # python setup.py install
+    # sh examples/update-slacklog-rss.sh
+
+Obviously, you need Docker installed and working,
+and I'm assuming you run those commands in the git clone.
+
+
 Authors
 =======
 
