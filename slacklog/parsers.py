@@ -17,7 +17,11 @@ try:
 except NameError:
     pass  # Forward compatibility with Py3k (unicode is not defined)
 
-pkg_name_re = re.compile(r'\A[a-z/]+[-a-zA-Z0-9_.]+:  ')
+# pkg name starts from the beginning of line, and there's a colon followed by
+# a double space.  But description can also contain "something:  ",
+# so "something" should contain either a slash or a dot for it to look like
+# a file name.
+pkg_name_re = re.compile(r'\A[-a-zA-Z0-9_]+[/.][-a-zA-Z0-9_/.]+[^/.]:  ')
 
 tzinfos = {
     'CDT': -5 * 60 * 60,
@@ -119,7 +123,7 @@ class SlackLogParser (object):
 
     def parse_entry_description(cls, data):
         """
-        Parse ChangeLog entry desctiption from data.
+        Parse ChangeLog entry description from data.
 
         :param unicode data: ChangeLog entry content (without timestamp).
         :returns: a two element list: description and the rest of the entry.
