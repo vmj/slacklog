@@ -29,16 +29,28 @@ class SlackLogEntry (object):
     Consist of a timestamp in UTC, and a unicode description which may be empty.
 
     Also contains a list of SlackLogPkg objects.
+    
+    Since 0.9.1 an identifier was added, which is either None or a unicode String.
+    If using the default parser, the value is a SHA-512 as a HEX string (and never None).
+    
+    Since 0.9.1 a parent was added, which is either None or a unicode String.
+    If using the default parser, the value is the identifier of the next (older) log entry.
     """
 
-    def __init__(self, timestamp, description, log):
+    def __init__(self, timestamp, description, log, identifier=None, parent=None):
         assert(isinstance(timestamp, datetime))
         assert(isinstance(description, str))
         assert(isinstance(timestamp.tzinfo, tz.tzutc))
         assert(isinstance(log, SlackLog))
+        if identifier is not None:
+            assert(isinstance(identifier, str))
+        if parent is not None:
+            assert(isinstance(parent, str))
         self.timestamp = timestamp
         self.description = description
         self.log = log
+        self.identifier = identifier
+        self.parent = parent
         self.pkgs = []
 
 

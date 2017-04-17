@@ -7,10 +7,12 @@ SlackLog parser reads a Slackware ChangeLog.txt and builds an in-memory represen
 from __future__ import print_function
 
 import re
+import hashlib
 from datetime import datetime
 from dateutil import parser
 from dateutil import tz
 from slacklog import models
+from codecs import encode
 
 try:
     str = unicode
@@ -21,7 +23,7 @@ except NameError:
 # a double space.  But description can also contain "something:  ",
 # so "something" should contain either a slash or a dot for it to look like
 # a file name.
-pkg_name_re = re.compile(r'\A[-a-zA-Z0-9_]+[/.][-a-zA-Z0-9_/.]+[^/.]:  ')
+pkg_name_re = re.compile(r'\A[-a-zA-Z0-9_]+[/.][-a-zA-Z0-9_/.]*[*]?:  ')
 
 tzinfos = {
     'CDT': -5 * 60 * 60,
@@ -58,6 +60,8 @@ class SlackLogParser (object):
         for entry_data in cls.split_log_to_entries(data):
             entry = cls.parse_entry(entry_data, log)
             if entry:
+                if log.entries:
+                    log.entries[-1].parent = entry.identifier
                 log.entries.append(entry)
             else:
                 break
@@ -96,11 +100,13 @@ class SlackLogParser (object):
         assert(isinstance(log, models.SlackLog))
         cls.ENTRY += 1
         cls.PKG = 0
+        sha512 = hashlib.sha512(encode(data, 'utf-8')).hexdigest()
+        identifier = u'%s' % sha512
         timestamp, data = cls.parse_entry_timestamp(data)
         if cls.min_date and cls.min_date > timestamp:
             return None
         description, data = cls.parse_entry_description(data)
-        entry = models.SlackLogEntry(timestamp, description, log)
+        entry = models.SlackLogEntry(timestamp, description, log, identifier=identifier)
         for pkg_data in cls.split_entry_to_pkgs(data):
             pkg = cls.parse_pkg(pkg_data, entry)
             entry.pkgs.append(pkg)

@@ -1,0 +1,134 @@
+Sun Mar 27 08:28:47 UTC 2011
+There have been quite a few changes so we will have one more release
+candidate:  Slackware 13.37 RC 3.14159265358979323846264338327950288419716.
+Very close now!  But we'll likely hold out for 2.6.37.6.
+a/aaa_base-13.37-i486-3.txz:  Rebuilt.
+  Fixed a dangling /var/X11 symlink on a fresh installation.
+  Thanks to Joerg Germeroth.
+a/aaa_elflibs-13.37-i486-3.txz:  Rebuilt.
+a/btrfs-progs-20110322-i486-1.txz:  Upgraded.
+  Added fsck.btrfs script to fix problem with fsck at boot.
+  Thanks to gerasimos_h for the bug report.
+a/glibc-solibs-2.13-i486-4.txz:  Rebuilt.
+a/glibc-zoneinfo-2.13-noarch-4.txz:  Rebuilt.
+a/kernel-firmware-2.6.37.5-noarch-1.txz:  Upgraded.
+a/kernel-generic-2.6.37.5-i486-1.txz:  Upgraded.
+a/kernel-generic-smp-2.6.37.5_smp-i686-1.txz:  Upgraded.
+a/kernel-huge-2.6.37.5-i486-1.txz:  Upgraded.
+a/kernel-huge-smp-2.6.37.5_smp-i686-1.txz:  Upgraded.
+a/kernel-modules-2.6.37.5-i486-1.txz:  Upgraded.
+a/kernel-modules-smp-2.6.37.5_smp-i686-1.txz:  Upgraded.
+a/lilo-22.8-i486-16.txz:  Rebuilt.
+  In liloconfig, make vga=normal the default choice, and add vga=ask.
+  Use a menu rather than an inputbox to choose Linux partitions in expert mode.
+  Thanks to bukhansky.
+a/mkinitrd-1.4.6-i486-8.txz:  Rebuilt.
+  Allow relative paths for -s option.
+  Thanks to GazL on LQ.
+  Upgraded to busybox-1.18.4.
+a/openssl-solibs-0.9.8r-i486-3.txz:  Rebuilt.
+a/shadow-4.1.4.3-i486-1.txz:  Upgraded.
+  This release fixes a security issue where local users may be able to add
+  themselves to NIS groups through chfn and chsh.
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0721
+  (* Security fix *)
+  Thanks to Gary Langshaw for collecting important additional patches from svn.
+a/sysvinit-scripts-1.2-noarch-40.txz:  Rebuilt.
+  In /etc/inittab.new open tty1-6 for all of runlevels 1-5.
+a/xfsprogs-3.1.4-i486-1.txz:  Upgraded.
+ap/hplip-3.11.3a-i486-1.txz:  Upgraded.
+ap/man-1.6g-i486-1.txz:  Upgraded.
+ap/slackpkg-2.82.0-noarch-2.tgz:  Upgraded.
+  Added Slackware 13.37 mirrors.
+  Thanks to Piter Punk.
+ap/vim-7.3.143-i486-1.txz:  Upgraded.
+d/kernel-headers-2.6.37.5_smp-x86-1.txz:  Upgraded.
+k/kernel-source-2.6.37.5_smp-noarch-1.txz:  Upgraded.
+kde/kdegraphics-4.5.5-i486-3.txz:  Rebuilt.
+  Recompiled against poppler-0.16.3.
+kde/koffice-2.3.3-i486-2.txz:  Rebuilt.
+  Recompiled against poppler-0.16.3.
+l/QScintilla-2.4.5-i486-2.txz:  Rebuilt.
+  Recompiled to update the sip module API.
+  Thanks to David Somero.
+l/akonadi-1.4.1-i486-3.txz:  Rebuilt.
+  Fixed sqlite3 plugin path.
+  Thanks to Kris Karas.
+l/glibc-2.13-i486-4.txz:  Rebuilt.
+l/glibc-i18n-2.13-i486-4.txz:  Rebuilt.
+l/glibc-profile-2.13-i486-4.txz:  Rebuilt.
+l/gst-plugins-good-0.10.28-i486-1.txz:  Upgraded.
+l/libelf-0.8.13-i486-2.txz:  Rebuilt.
+  Enabled the static library.
+  Thanks to Ozan T�rkyilmaz.
+l/libusb-1.0.8-i486-2.txz:  Rebuilt.
+  Patched debug log level.
+  Thanks to Heinz Wiesinger for a link to a patch.
+l/pcre-8.12-i486-1.txz:  Upgraded.
+l/poppler-0.16.3-i486-1.txz:  Upgraded.
+  This (again) bumps the major number of the library requiring everything that
+  uses it to be recompiled.  :/  Probably a good idea to upgrade though.
+l/qt-4.7.0_7abde40-i486-3.txz:  Rebuilt.
+  Fixed .la and .pc files to remove incorrect references to -ljscore and
+  -L../JavaScriptCore/release.
+  Thanks to Niels Horn.
+  Blacklisted several invalid HTTPS certificates.
+  For more information, see:
+    http://www.comodo.com/Comodo-Fraud-Incident-2011-03-23.html
+  (* Security fix *)
+l/seamonkey-solibs-2.1b2-i486-2.txz:  Rebuilt.
+n/bind-9.7.3-i486-2.txz:  Rebuilt.
+  Recompiled to link with idnkit.
+  Thanks to Tobias Poschwatta.
+n/bluez-4.90-i486-1.txz:  Upgraded.
+n/dhcp-4.2.1-i486-2.txz:  Rebuilt.
+  Create empty leases files in the package.
+  Thanks to St�phane Berthelot.
+n/ethtool-2.6.36-i486-1.txz:  Upgraded.
+  Thanks to Luiz Gustavo Zuliani for testing ethtool, iputils, mtr, and
+  traceroute updates and making sure they were bumped in time for 13.37.
+n/idnkit-1.0-i486-1.txz:  Added.
+  The idnkit package supports internationalized domain names.
+n/iputils-s20101006-i486-1.txz:  Upgraded.
+n/mtr-0.80-i486-1.txz:  Upgraded.
+n/openssl-0.9.8r-i486-3.txz:  Rebuilt.
+  Fixed installation of certwatch.new.
+  Thanks to Thom1b on LQ.
+n/rsync-3.0.8-i486-1.txz:  Upgraded.
+n/traceroute-2.0.17-i486-1.txz:  Upgraded.
+n/whois-5.0.11-i486-1.txz:  Upgraded.
+x/libXi-1.4.2-i486-1.txz:  Upgraded.
+x/liberation-fonts-ttf-1.06.0.20100721-noarch-3.txz:  Rebuilt.
+  Brought back the 60-liberation.conf with Courier New added.
+x/xproto-7.0.21-noarch-1.txz:  Upgraded.
+xap/gimp-2.6.11-i486-3.txz:  Rebuilt.
+  Recompiled against poppler-0.16.3.
+xap/mozilla-firefox-4.0-i486-2.txz:  Rebuilt.
+  Use --enable-startup-notification.
+  Thanks to V'yacheslav Stetskevych.
+xap/mozilla-thunderbird-3.1.9-i486-2.txz:  Rebuilt.
+  Use --enable-startup-notification.
+  Thanks to V'yacheslav Stetskevych.
+xap/seamonkey-2.1b2-i486-2.txz:  Rebuilt.
+  This patches a security vulnerability by blacklisting several invalid
+  HTTPS certificates.
+  For more information, see:
+    http://www.mozilla.org/security/announce/2011/mfsa2011-11.html
+  (* Security fix *)
+xap/vim-gvim-7.3.143-i486-1.txz:  Upgraded.
+extra/linux-2.6.37.5-nosmp-sdk/*:  Rebuilt.
+isolinux/initrd.img:  Rebuilt.
+  Added memtest86+.  Thanks to Harka Jinen.
+  Improved RAID partition scanning.
+  Thanks to Sander de Jong and Csaba Biegl.
+  Added virtio kernel modules.
+  Thanks to Mario De Chenno.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+  Added memtest86+.  Thanks to Harka Jinen.
+  Improved RAID partition scanning.
+  Thanks to Sander de Jong and Csaba Biegl.
+  Added virtio kernel modules.
+  Thanks to Mario De Chenno.
+testing/source/linux-2.6.38.1-configs/:  Upgraded.

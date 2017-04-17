@@ -1,0 +1,18 @@
++--------------------------+
+Mon Apr 25 13:37:00 UTC 2011
+Slackware 13.37 x86 stable is released!
+
+Thanks to everyone who pitched in on this release: the Slackware team,
+the folks producing upstream code, and linuxquestions.org for providing
+a great forum for collaboration and testing.
+
+The ISOs are off to be replicated, a 6 CD-ROM 32-bit set and a dual-sided
+32-bit/64-bit x86/x86_64 DVD.  Please consider supporting the Slackware
+project by picking up a copy from store.slackware.com.  We're taking
+pre-orders now, and offer a discount if you sign up for a subscription.
+
+As always, thanks to the Slackware community for testing, suggestions,
+and feedback.  :-)
+
+Have fun!
++--------------------------+
