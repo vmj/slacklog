@@ -30,18 +30,26 @@ class SlackLogEntry (object):
 
     Also contains a list of SlackLogPkg objects.
     
-    Since 0.9.1 an identifier was added, which is either None or a unicode String.
-    If using the default parser, the value is a SHA-512 as a HEX string (and never None).
+    Since 0.9.1 a checksum was added, which is either None or a unicode string.
+    If using the default parser, the value is a SHA-512 as a HEX string (and never None),
+    and identifies the entry by content.  Note that two entries in different changelogs
+    may have the same checksum, but different parents.
     
-    Since 0.9.1 a parent was added, which is either None or a unicode String.
+    Since 0.9.1 an identifier was added, which is either None or a unicode string.
+    If using the default parser, the value is a SHA-512 as a HEX string (and never None),
+    and identifies the entry by content and parent.
+    
+    Since 0.9.1 a parent was added, which is either None or a unicode string.
     If using the default parser, the value is the identifier of the next (older) log entry.
     """
 
-    def __init__(self, timestamp, description, log, identifier=None, parent=None):
+    def __init__(self, timestamp, description, log, checksum=None, identifier=None, parent=None):
         assert(isinstance(timestamp, datetime))
         assert(isinstance(description, str))
         assert(isinstance(timestamp.tzinfo, tz.tzutc))
         assert(isinstance(log, SlackLog))
+        if checksum is not None:
+            assert(isinstance(checksum, str))
         if identifier is not None:
             assert(isinstance(identifier, str))
         if parent is not None:
@@ -49,6 +57,7 @@ class SlackLogEntry (object):
         self.timestamp = timestamp
         self.description = description
         self.log = log
+        self.checksum = checksum
         self.identifier = identifier
         self.parent = parent
         self.pkgs = []

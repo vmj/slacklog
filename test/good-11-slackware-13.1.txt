@@ -1,0 +1,22 @@
+Thu Nov 17 02:09:25 UTC 2011
+patches/packages/bind-9.4_ESV_R5_P1-i486-1_slack13.1.txz:  Upgraded.
+        --- 9.4-ESV-R5-P1 released ---
+3218.   [security]      Cache lookup could return RRSIG data associated with
+                        nonexistent records, leading to an assertion
+                        failure. [RT #26590]
+  (* Security fix *)
++--------------------------+
+Fri Nov 11 18:58:21 UTC 2011
+  Good 11-11-11, everyone!  Enjoy some fresh time.  :)
+patches/packages/glibc-zoneinfo-2011i_2011n-noarch-1.txz:  Upgraded.
+  New upstream homepage:  http://www.iana.org/time-zones
++--------------------------+
+Tue Oct 11 07:50:04 UTC 2011
+patches/packages/httpd-2.2.21-i486-1_slack13.1.txz:  Upgraded.
+  Respond with HTTP_NOT_IMPLEMENTED when the method is not
+  recognized.  [Jean-Frederic Clere]  SECURITY: CVE-2011-3348
+  Fix a regression introduced by the CVE-2011-3192 byterange fix in 2.2.20.
+  PR 51748. [<lowprio20 gmail.com>]
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3348
+  (* Security fix *)

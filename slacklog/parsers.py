@@ -60,9 +60,7 @@ class SlackLogParser (object):
         for entry_data in cls.split_log_to_entries(data):
             entry = cls.parse_entry(entry_data, log)
             if entry:
-                if log.entries:
-                    log.entries[-1].parent = entry.identifier
-                log.entries.append(entry)
+                log.entries.insert(0, entry)
             else:
                 break
         return log
@@ -83,6 +81,7 @@ class SlackLogParser (object):
             entry = entry.strip()
             if entry and entry != "":
                 entries.append(entry)
+        entries.reverse()
         return entries
     split_log_to_entries = classmethod(split_log_to_entries)
 
@@ -100,13 +99,18 @@ class SlackLogParser (object):
         assert(isinstance(log, models.SlackLog))
         cls.ENTRY += 1
         cls.PKG = 0
-        sha512 = hashlib.sha512(encode(data, 'utf-8')).hexdigest()
-        identifier = u'%s' % sha512
+        sha512 = u'%s' % hashlib.sha512(encode(data, 'utf-8')).hexdigest()
+        parent = None
+        if log.entries:
+            parent = log.entries[0].identifier
+            identifier = u'%s' % hashlib.sha512(encode(parent + sha512, 'utf-8')).hexdigest()
+        else:
+            identifier = u'%s' % hashlib.sha512(encode(sha512, 'utf-8')).hexdigest()
         timestamp, data = cls.parse_entry_timestamp(data)
         if cls.min_date and cls.min_date > timestamp:
             return None
         description, data = cls.parse_entry_description(data)
-        entry = models.SlackLogEntry(timestamp, description, log, identifier=identifier)
+        entry = models.SlackLogEntry(timestamp, description, log, checksum=sha512, identifier=identifier, parent=parent)
         for pkg_data in cls.split_entry_to_pkgs(data):
             pkg = cls.parse_pkg(pkg_data, entry)
             entry.pkgs.append(pkg)
