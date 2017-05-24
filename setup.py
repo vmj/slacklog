@@ -2,6 +2,13 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup
 import slacklog
+
+import unittest
+def my_test_suite():
+    test_loader = unittest.TestLoader()
+    test_suite = test_loader.discover('test', pattern='*.py')
+    return test_suite
+
 setup(
     name='slacklog',
     version=slacklog.__version__,
@@ -42,5 +49,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content :: News/Diary',
         'Topic :: Utilities',
         ],
-    keywords='slackware changelog rss atom'
+    keywords='slackware changelog rss atom',
+    test_suite='setup.my_test_suite'
     )

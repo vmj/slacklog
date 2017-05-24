@@ -10,7 +10,7 @@ from dateutil import tz
 class ParserTests (unittest.TestCase):
 
     def test_slackware_leet_release_entry(self):
-        log = SlackLogParser.parse(read('./slackware-leet-release-entry.txt', 'iso8859-1'))
+        log = SlackLogParser.parse(read('./test/slackware-leet-release-entry.txt', 'iso8859-1'))
         self.assertTrue(log is not None)
         # The content starts and ends with entry separators.
         # The "empty" entries are ignored.
@@ -25,7 +25,7 @@ class ParserTests (unittest.TestCase):
         self.assertTrue(e.pkgs == [])
 
     def test_slackware_leet_rc3_entry(self):
-        log = SlackLogParser.parse(read('./slackware-leet-rc3-entry.txt', 'iso8859-1'))
+        log = SlackLogParser.parse(read('./test/slackware-leet-rc3-entry.txt', 'iso8859-1'))
         self.assertTrue(log is not None)
         self.assertEquals(len(log.entries), 1)
         e = log.entries[0]
@@ -47,8 +47,8 @@ Very close now!  But we'll likely hold out for 2.6.37.6.
 
     def test_good_11(self):
         # these logs have a the same change in both of them
-        log1 = SlackLogParser.parse(read('./good-11-slackware-13.0.txt', 'iso8859-1'))
-        log2 = SlackLogParser.parse(read('./good-11-slackware-13.1.txt', 'iso8859-1'))
+        log1 = SlackLogParser.parse(read('./test/good-11-slackware-13.0.txt', 'iso8859-1'))
+        log2 = SlackLogParser.parse(read('./test/good-11-slackware-13.1.txt', 'iso8859-1'))
         # even though the entry 1 checksums are the same (exact same change in both logs)...
         self.assertEqual(log1.entries[1].checksum,   log2.entries[1].checksum)
         # ... the next (newer) entries in the logs have different identifiers and parents
