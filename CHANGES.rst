@@ -2,6 +2,13 @@ Release history
 ===============
 
 
+Version 0.9.1 (2017-05-24)
+--------------------------
+
+This release adds checksum, identifier, and parent fields to SlackLogEntry.
+Also, a couple of bugs with recognizing package names was resolved.
+
+
 Verions 0.9.0 (2017-04-05)
 --------------------------
 
