@@ -8,7 +8,6 @@ from __future__ import print_function
 
 import re
 import hashlib
-from datetime import datetime
 from dateutil import parser
 from dateutil import tz
 from slacklog import models
