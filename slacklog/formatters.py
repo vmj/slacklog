@@ -31,16 +31,17 @@ class SlackLogFormatter (object):
     This class is ment for subclassing.
     """
 
-    max_entries = None
-    """If not :py:const:`None`, must be an :py:class:`int`
-    representing how many entries are formatted from the beginning of
-    the log.  Rest of the entries are ignored."""
-    max_pkgs = None
-    """If not :py:const:`None`, must be an :py:class:`int`
-    representing how many packages are formatted from the beginning of
-    each entry.  Rest of the packages are ignored."""
+    def __init__(self):
+        self.max_entries = None
+        """If not :py:const:`None`, must be an :py:class:`int`
+        representing how many entries are formatted from the beginning of
+        the log.  Rest of the entries are ignored."""
+        self.max_pkgs = None
+        """If not :py:const:`None`, must be an :py:class:`int`
+        representing how many packages are formatted from the beginning of
+        each entry.  Rest of the packages are ignored."""
 
-    def format(cls, log):
+    def format(self, log):
         """
         Return unicode representation of the in-memory representation of the log.
 
@@ -58,13 +59,12 @@ class SlackLogFormatter (object):
         """
         assert(isinstance(log, models.SlackLog))
         data = u''
-        data += cls.format_log_preamble(log)
-        data += cls.format_list(log.entries, cls.format_entry, cls.max_entries)
-        data += cls.format_log_postamble(log)
+        data += self.format_log_preamble(log)
+        data += self.format_list(log.entries, self.format_entry, self.max_entries)
+        data += self.format_log_postamble(log)
         return data
-    format = classmethod(format)
 
-    def format_log_preamble(cls, log):
+    def format_log_preamble(self, log):
         """
         Return unicode representation of the log preamble, the part
         before entries.
@@ -78,9 +78,8 @@ class SlackLogFormatter (object):
         """
         assert(isinstance(log, models.SlackLog))
         return u''
-    format_log_preamble = classmethod(format_log_preamble)
 
-    def format_log_postamble(cls, log):
+    def format_log_postamble(self, log):
         """
         Return unicode representation of the log postamble, the part
         after all entries.
@@ -94,9 +93,8 @@ class SlackLogFormatter (object):
         """
         assert(isinstance(log, models.SlackLog))
         return u''
-    format_log_postamble = classmethod(format_log_postamble)
 
-    def format_entry(cls, entry, is_first, is_last):
+    def format_entry(self, entry, is_first, is_last):
         """
         Return unicode representation of a single log entry.
 
@@ -119,14 +117,13 @@ class SlackLogFormatter (object):
         """
         assert(isinstance(entry, models.SlackLogEntry))
         data = u''
-        data += cls.format_entry_separator(is_first, is_last)
-        data += cls.format_entry_preamble(entry)
-        data += cls.format_list(entry.pkgs, cls.format_pkg, cls.max_pkgs)
-        data += cls.format_entry_postamble(entry)
+        data += self.format_entry_separator(is_first, is_last)
+        data += self.format_entry_preamble(entry)
+        data += self.format_list(entry.pkgs, self.format_pkg, self.max_pkgs)
+        data += self.format_entry_postamble(entry)
         return data
-    format_entry = classmethod(format_entry)
 
-    def format_entry_separator(cls, is_first, is_last):
+    def format_entry_separator(self, is_first, is_last):
         """
         Return unicode representation of the log entry separator.
 
@@ -138,9 +135,8 @@ class SlackLogFormatter (object):
         :type: :py:class:`unicode`
         """
         return u''
-    format_entry_separator = classmethod(format_entry_separator)
 
-    def format_entry_preamble(cls, entry):
+    def format_entry_preamble(self, entry):
         """
         Return unicode representation of the log entry preamble, the
         part before packages.
@@ -154,9 +150,8 @@ class SlackLogFormatter (object):
         """
         assert(isinstance(entry, models.SlackLogEntry))
         return u''
-    format_entry_preamble = classmethod(format_entry_preamble)
 
-    def format_entry_postamble(cls, entry):
+    def format_entry_postamble(self, entry):
         """
         Return unicode representation of the log entry postamble, the
         part after packages.
@@ -170,9 +165,8 @@ class SlackLogFormatter (object):
         """
         assert(isinstance(entry, models.SlackLogEntry))
         return u''
-    format_entry_postamble = classmethod(format_entry_postamble)
 
-    def format_pkg(cls, pkg, is_first, is_last):
+    def format_pkg(self, pkg, is_first, is_last):
         """
         Return unicode representation of a single log entry package.
 
@@ -192,13 +186,12 @@ class SlackLogFormatter (object):
         """
         assert(isinstance(pkg, models.SlackLogPkg))
         data = u''
-        data += cls.format_pkg_separator(is_first, is_last)
-        data += cls.format_pkg_preamble(pkg)
-        data += cls.format_pkg_postamble(pkg)
+        data += self.format_pkg_separator(is_first, is_last)
+        data += self.format_pkg_preamble(pkg)
+        data += self.format_pkg_postamble(pkg)
         return data
-    format_pkg = classmethod(format_pkg)
 
-    def format_pkg_separator(cls, is_first, is_last):
+    def format_pkg_separator(self, is_first, is_last):
         """
         Return unicode representation of the log entry package
         separator.
@@ -211,9 +204,8 @@ class SlackLogFormatter (object):
         :type: :py:class:`unicode`
         """
         return u''
-    format_pkg_separator = classmethod(format_pkg_separator)
 
-    def format_pkg_preamble(cls, pkg):
+    def format_pkg_preamble(self, pkg):
         """
         Return unicode representation of the log entry package
         preamble.
@@ -227,9 +219,8 @@ class SlackLogFormatter (object):
         """
         assert(isinstance(pkg, models.SlackLogPkg))
         return u''
-    format_pkg_preamble = classmethod(format_pkg_preamble)
 
-    def format_pkg_postamble(cls, pkg):
+    def format_pkg_postamble(self, pkg):
         """
         Return unicode representation of the log entry package
         postamble.
@@ -243,9 +234,8 @@ class SlackLogFormatter (object):
         """
         assert(isinstance(pkg, models.SlackLogPkg))
         return u''
-    format_pkg_postamble = classmethod(format_pkg_postamble)
 
-    def format_list(cls, list_of_items, item_formatter, max_items=None):
+    def format_list(self, list_of_items, item_formatter, max_items=None):
         """
         Return unicode representation of a list of objects.
 
@@ -278,7 +268,6 @@ class SlackLogFormatter (object):
                 is_last = True
             data += item_formatter(list_of_items[index], is_first, is_last)
         return data
-    format_list = classmethod(format_list)
 
 
 class SlackLogTxtFormatter (SlackLogFormatter):
@@ -287,7 +276,7 @@ class SlackLogTxtFormatter (SlackLogFormatter):
     ChangeLog.txt.
     """
 
-    def format_entry_separator(cls, is_first, is_last):
+    def format_entry_separator(self, is_first, is_last):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_separator`.
 
@@ -299,9 +288,8 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         if not is_first:
             return u'+--------------------------+\n'
         return u''
-    format_entry_separator = classmethod(format_entry_separator)
 
-    def format_entry_preamble(cls, entry):
+    def format_entry_preamble(self, entry):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_preamble`.
 
@@ -319,9 +307,8 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         if entry.description:
             data += entry.description
         return data
-    format_entry_preamble = classmethod(format_entry_preamble)
 
-    def format_pkg_preamble(cls, pkg):
+    def format_pkg_preamble(self, pkg):
         """
         Overrides :py:meth:`SlackLogFormatter.format_pkg_preamble`.
 
@@ -332,7 +319,6 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         """
         assert(isinstance(pkg, models.SlackLogPkg))
         return u'%s:%s' % (pkg.pkg, pkg.description)
-    format_pkg_preamble = classmethod(format_pkg_preamble)
 
 
 class SlackLogRssFormatter (SlackLogFormatter):
@@ -340,26 +326,27 @@ class SlackLogRssFormatter (SlackLogFormatter):
     Concrete SlackLog formatter that generates an RSS feed.
     """
 
-    slackware = None
-    """:py:class:`unicode` description of the distro version.
-    E.g. 'Slackware 13.37' or 'Slackware64 current'."""
-    rssLink = None
-    """:py:class:`unicode`.  Full URL of the RSS feed."""
-    webLink = None
-    """:py:class:`unicode`.  Full URL of the WWW version of the
-    feed."""
-    description = None
-    """:py:class:`unicode` description of the feed."""
-    language = None
-    """:py:class:`unicode` language identifier.  E.g. 'en'."""
-    managingEditor = None
-    """:py:class:`unicode`.  Email, and possibly name, of the feed
-    manager.  E.g. 'jane@doe.net (Jane Doe)'."""
-    webMaster = None
-    """:py:class:`unicode`.  Email, and possibly name, of the
-    webmaster.  E.g. 'john@doe.net (John Doe)'. """
+    def __init__(self):
+        self.slackware = None
+        """:py:class:`unicode` description of the distro version.
+        E.g. 'Slackware 13.37' or 'Slackware64 current'."""
+        self.rssLink = None
+        """:py:class:`unicode`.  Full URL of the RSS feed."""
+        self.webLink = None
+        """:py:class:`unicode`.  Full URL of the WWW version of the
+        feed."""
+        self.description = None
+        """:py:class:`unicode` description of the feed."""
+        self.language = None
+        """:py:class:`unicode` language identifier.  E.g. 'en'."""
+        self.managingEditor = None
+        """:py:class:`unicode`.  Email, and possibly name, of the feed
+        manager.  E.g. 'jane@doe.net (Jane Doe)'."""
+        self.webMaster = None
+        """:py:class:`unicode`.  Email, and possibly name, of the
+        webmaster.  E.g. 'john@doe.net (John Doe)'. """
 
-    def format_log_preamble(cls, log):
+    def format_log_preamble(self, log):
         """
         Overrides :py:meth:`SlackLogFormatter.format_log_preamble`.
 
@@ -372,27 +359,26 @@ class SlackLogRssFormatter (SlackLogFormatter):
         data = u'<?xml version="1.0"?>\n'
         data += u'<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
         data += u'  <channel>\n'
-        data += u'    <atom:link href="%s" rel="self" type="application/rss+xml" />\n' % cls.rssLink
-        data += u'    <title>%s ChangeLog</title>\n' % cls.slackware
-        if cls.webLink:
-            data += u'    <link>%s</link>\n' % cls.webLink
+        data += u'    <atom:link href="%s" rel="self" type="application/rss+xml" />\n' % self.rssLink
+        data += u'    <title>%s ChangeLog</title>\n' % self.slackware
+        if self.webLink:
+            data += u'    <link>%s</link>\n' % self.webLink
         else:
-            data += u'    <link>%s</link>\n' % cls.rssLink
-        if cls.description:
-            data += u'    <description>%s</description>\n' % cls.description
+            data += u'    <link>%s</link>\n' % self.rssLink
+        if self.description:
+            data += u'    <description>%s</description>\n' % self.description
         data += u'    <docs>http://www.rssboard.org/rss-specification</docs>\n'
-        data += u'    <language>%s</language>\n' % cls.language
-        if cls.managingEditor:
-            data += u'    <managingEditor>%s</managingEditor>\n' % cls.managingEditor
-        if cls.webMaster:
-            data += u'    <webMaster>%s</webMaster>\n' % cls.webMaster
+        data += u'    <language>%s</language>\n' % self.language
+        if self.managingEditor:
+            data += u'    <managingEditor>%s</managingEditor>\n' % self.managingEditor
+        if self.webMaster:
+            data += u'    <webMaster>%s</webMaster>\n' % self.webMaster
         data += u'    <pubDate>%s</pubDate>\n' % readable(log.entries[0].timestamp)
         data += u'    <lastBuildDate>%s</lastBuildDate>\n' % readable(datetime.datetime.utcnow())
         data += u'    <generator>SlackLog</generator>\n'
         return data
-    format_log_preamble = classmethod(format_log_preamble)
 
-    def format_log_postamble(cls, log):
+    def format_log_postamble(self, log):
         """
         Overrides :py:meth:`SlackLogFormatter.format_log_postamble`.
 
@@ -403,9 +389,8 @@ class SlackLogRssFormatter (SlackLogFormatter):
         """
         assert(isinstance(log, models.SlackLog))
         return u'  </channel>\n</rss>\n'
-    format_log_postamble = classmethod(format_log_postamble)
 
-    def format_entry_preamble(cls, entry):
+    def format_entry_preamble(self, entry):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_preamble`.
 
@@ -416,22 +401,21 @@ class SlackLogRssFormatter (SlackLogFormatter):
         """
         assert(isinstance(entry, models.SlackLogEntry))
         data = u'    <item>\n'
-        if cls.webLink:
+        if self.webLink:
             perma = u'true'
-            link = u'%s#%s' % (cls.webLink, anchor(entry.timestamp))
+            link = u'%s#%s' % (self.webLink, anchor(entry.timestamp))
         else:
             perma = u'false'
-            link = u'%s-%s' % (cls.slackware.replace(' ', '-'), anchor(entry.timestamp))
+            link = u'%s-%s' % (self.slackware.replace(' ', '-'), anchor(entry.timestamp))
         data += u'      <guid isPermaLink="%s">%s</guid>\n' % (perma, link)
-        data += u'      <title>%s changes for %s</title>\n' % (cls.slackware, readable(entry.timestamp))
+        data += u'      <title>%s changes for %s</title>\n' % (self.slackware, readable(entry.timestamp))
         data += u'      <pubDate>%s</pubDate>\n' % readable(entry.timestamp)
         data += u'      <description><![CDATA[<pre>'
         if entry.description:
             data += entry.description.replace('<', '&lt;')
         return data
-    format_entry_preamble = classmethod(format_entry_preamble)
 
-    def format_entry_postamble(cls, entry):
+    def format_entry_postamble(self, entry):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_postamble`.
 
@@ -442,9 +426,8 @@ class SlackLogRssFormatter (SlackLogFormatter):
         """
         assert(isinstance(entry, models.SlackLogEntry))
         return u'</pre>]]></description>\n    </item>\n'
-    format_entry_postamble = classmethod(format_entry_postamble)
 
-    def format_pkg_preamble(cls, pkg):
+    def format_pkg_preamble(self, pkg):
         """
         Overrides :py:meth:`SlackLogFormatter.format_pkg_preamble`.
 
@@ -455,7 +438,6 @@ class SlackLogRssFormatter (SlackLogFormatter):
         """
         assert(isinstance(pkg, models.SlackLogPkg))
         return u'%s:%s' % (pkg.pkg, pkg.description.replace('<', '&lt;'))
-    format_pkg_preamble = classmethod(format_pkg_preamble)
 
 
 class SlackLogAtomFormatter (SlackLogFormatter):
@@ -463,19 +445,20 @@ class SlackLogAtomFormatter (SlackLogFormatter):
     Concrete SlackLog formatter that generates an Atom feed.
     """
 
-    slackware = None
-    """:py:class:`unicode` description of the distro version.
-    E.g. 'Slackware 13.37' or 'Slackware64 current'."""
-    link = None
-    """:py:class:`unicode`.  Full URL of the Atom feed."""
-    webLink = None
-    """:py:class:`unicode`.  Full URL of the HTML version."""
-    name = None
-    """:py:class:`unicode`.  Name of the feed author."""
-    email = None
-    """:py:class:`unicode`.  Email of the feed author."""
+    def __init__(self):
+        self.slackware = None
+        """:py:class:`unicode` description of the distro version.
+        E.g. 'Slackware 13.37' or 'Slackware64 current'."""
+        self.link = None
+        """:py:class:`unicode`.  Full URL of the Atom feed."""
+        self.webLink = None
+        """:py:class:`unicode`.  Full URL of the HTML version."""
+        self.name = None
+        """:py:class:`unicode`.  Name of the feed author."""
+        self.email = None
+        """:py:class:`unicode`.  Email of the feed author."""
 
-    def format_log_preamble(cls, log):
+    def format_log_preamble(self, log):
         """
         Overrides :py:meth:`SlackLogFormatter.format_log_preamble`.
 
@@ -487,22 +470,21 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         assert(isinstance(log, models.SlackLog))
         data = u'<?xml version="1.0"?>\n'
         data += u'<feed xmlns="http://www.w3.org/2005/Atom">\n'
-        data += u'    <link href="%s" rel="self" type="application/rss+xml" />\n' % cls.link
-        data += u'    <title>%s ChangeLog</title>\n' % cls.slackware
-        if cls.webLink:
-            data += u'    <link href="%s" />\n' % cls.webLink
+        data += u'    <link href="%s" rel="self" type="application/rss+xml" />\n' % self.link
+        data += u'    <title>%s ChangeLog</title>\n' % self.slackware
+        if self.webLink:
+            data += u'    <link href="%s" />\n' % self.webLink
         else:
-            data += u'    <link href="%s" />\n' % cls.link
+            data += u'    <link href="%s" />\n' % self.link
         data += u'    <updated>%s</updated>\n' % datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
         data += u'    <author>\n'
-        data += u'        <name>%s</name>\n' % cls.name
-        data += u'        <email>%s</email>\n' % cls.email
+        data += u'        <name>%s</name>\n' % self.name
+        data += u'        <email>%s</email>\n' % self.email
         data += u'    </author>\n'
-        data += u'    <id>%s</id>\n' % cls.link
+        data += u'    <id>%s</id>\n' % self.link
         return data
-    format_log_preamble = classmethod(format_log_preamble)
 
-    def format_log_postamble(cls, log):
+    def format_log_postamble(self, log):
         """
         Overrides :py:meth:`SlackLogFormatter.format_log_postamble`.
 
@@ -513,9 +495,8 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         """
         assert(isinstance(log, models.SlackLog))
         return u'</feed>\n'
-    format_log_postamble = classmethod(format_log_postamble)
 
-    def format_entry_preamble(cls, entry):
+    def format_entry_preamble(self, entry):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_preamble`.
 
@@ -526,18 +507,17 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         """
         assert(isinstance(entry, models.SlackLogEntry))
         data = u'    <entry>\n'
-        data += u'        <title>%s changes for %s</title>\n' % (cls.slackware, readable(entry.timestamp))
-        if cls.webLink:
-            data += u'        <link href="%s#%s" />\n' % (cls.webLink, anchor(entry.timestamp))
+        data += u'        <title>%s changes for %s</title>\n' % (self.slackware, readable(entry.timestamp))
+        if self.webLink:
+            data += u'        <link href="%s#%s" />\n' % (self.webLink, anchor(entry.timestamp))
         else:
-            data += u'        <link href="%s#%s" />\n' % (cls.link, anchor(entry.timestamp))
+            data += u'        <link href="%s#%s" />\n' % (self.link, anchor(entry.timestamp))
         data += u'        <updated>%s</updated>\n' % entry.timestamp.strftime("%Y-%m-%dT%H:%M:%SZ")
-        data += u'        <id>%s#%s</id>\n' % (cls.link, anchor(entry.timestamp))
+        data += u'        <id>%s#%s</id>\n' % (self.link, anchor(entry.timestamp))
         data += u'        <content type="html"><![CDATA[<pre>'
         return data
-    format_entry_preamble = classmethod(format_entry_preamble)
 
-    def format_entry_postamble(cls, entry):
+    def format_entry_postamble(self, entry):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_postamble`.
 
@@ -548,9 +528,8 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         """
         assert(isinstance(entry, models.SlackLogEntry))
         return u'</pre>]]></content>\n    </entry>\n'
-    format_entry_postamble = classmethod(format_entry_postamble)
 
-    def format_pkg_preamble(cls, pkg):
+    def format_pkg_preamble(self, pkg):
         """
         Overrides :py:meth:`SlackLogFormatter.format_pkg_preamble`.
 
@@ -561,7 +540,6 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         """
         assert(isinstance(pkg, models.SlackLogPkg))
         return u'%s:%s' % (pkg.pkg, pkg.description.replace('<', '&lt;'))
-    format_pkg_preamble = classmethod(format_pkg_preamble)
 
 
 class SlackLogPyblosxomFormatter (SlackLogFormatter):
@@ -569,55 +547,56 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
     Concrete SlackLog formatter that generates Pyblosxom blog entries.
     """
 
-    quiet = False
-    """If :py:const:`True`, """
-    slackware = None
-    """:py:class:`unicode` description of the distro version.
-    E.g. 'Slackware 13.37' or 'Slackware64 current'."""
-    datadir = None
-    """Blog entry directory."""
-    extension = 'txt'
-    """Blog entry filename extension."""
-    encoding = 'utf-8'
-    """Blog entry file encoding."""
-    tags_separator = ','
-    """Separator for tags."""
-    pkg_separator = ':'
-    """Separator for packages."""
-    pyfilemtime = False
-    """If :py:const:`True`, a pyfilemtime compatible filenames are generated."""
-    overwrite = False
-    """If :py:const:`True`, already existing blog entries are overwritten."""
-    backup = True
-    """If :py:const:`True`, already existing blog entries are copied to backups before overwriting."""
+    def __init__(self):
+        self.quiet = False
+        """If :py:const:`True`, """
+        self.slackware = None
+        """:py:class:`unicode` description of the distro version.
+        E.g. 'Slackware 13.37' or 'Slackware64 current'."""
+        self.datadir = None
+        """Blog entry directory."""
+        self.extension = 'txt'
+        """Blog entry filename extension."""
+        self.encoding = 'utf-8'
+        """Blog entry file encoding."""
+        self.tags_separator = ','
+        """Separator for tags."""
+        self.pkg_separator = ':'
+        """Separator for packages."""
+        self.pyfilemtime = False
+        """If :py:const:`True`, a pyfilemtime compatible filenames are generated."""
+        self.overwrite = False
+        """If :py:const:`True`, already existing blog entries are overwritten."""
+        self.backup = True
+        """If :py:const:`True`, already existing blog entries are copied to backups before overwriting."""
 
-    # Subclass can change these
-    entry_preamble = u'<div class="slackLogEntry">\n'
-    """:py:class:`unicode`.  HTML to insert before the entry."""
-    entry_postamble = u'</div>\n'
-    """:py:class:`unicode`.  HTML to insert after the entry."""
-    entry_desc_preamble = u'<div class="slackLogEntryDesc">'
-    """:py:class:`unicode`.  HTML to insert before the entry description."""
-    entry_desc_postamble = u'</div>\n'
-    """:py:class:`unicode`.  HTML to insert after the entry description."""
-    entry_pkgs_preamble = u'<div class="slackLogEntryPkgs">\n'
-    """:py:class:`unicode`.  HTML to insert before the list of packages."""
-    entry_pkgs_postamble = U'</div>\n'
-    """:py:class:`unicode`.  HTML to insert after the list of packages."""
-    pkg_preamble = u'<div class="slackLogPkg">'
-    """:py:class:`unicode`.  HTML to insert before a package."""
-    pkg_postamble = u'</div>\n'
-    """:py:class:`unicode`.  HTML to insert after a package."""
-    pkg_name_preamble = u'<span class="slackLogPkgName">'
-    """:py:class:`unicode`.  HTML to insert before package name."""
-    pkg_name_postamble = u'</span>'
-    """:py:class:`unicode`.  HTML to insert after package name."""
-    pkg_desc_preamble = u'<span class="slackLogPkgDesc">'
-    """:py:class:`unicode`.  HTML to insert before package description."""
-    pkg_desc_postamble = u'</span>'
-    """:py:class:`unicode`.  HTML to insert after package description."""
+        # Subclass can change these
+        self.entry_preamble = u'<div class="slackLogEntry">\n'
+        """:py:class:`unicode`.  HTML to insert before the entry."""
+        self.entry_postamble = u'</div>\n'
+        """:py:class:`unicode`.  HTML to insert after the entry."""
+        self.entry_desc_preamble = u'<div class="slackLogEntryDesc">'
+        """:py:class:`unicode`.  HTML to insert before the entry description."""
+        self.entry_desc_postamble = u'</div>\n'
+        """:py:class:`unicode`.  HTML to insert after the entry description."""
+        self.entry_pkgs_preamble = u'<div class="slackLogEntryPkgs">\n'
+        """:py:class:`unicode`.  HTML to insert before the list of packages."""
+        self.entry_pkgs_postamble = U'</div>\n'
+        """:py:class:`unicode`.  HTML to insert after the list of packages."""
+        self.pkg_preamble = u'<div class="slackLogPkg">'
+        """:py:class:`unicode`.  HTML to insert before a package."""
+        self.pkg_postamble = u'</div>\n'
+        """:py:class:`unicode`.  HTML to insert after a package."""
+        self.pkg_name_preamble = u'<span class="slackLogPkgName">'
+        """:py:class:`unicode`.  HTML to insert before package name."""
+        self.pkg_name_postamble = u'</span>'
+        """:py:class:`unicode`.  HTML to insert after package name."""
+        self.pkg_desc_preamble = u'<span class="slackLogPkgDesc">'
+        """:py:class:`unicode`.  HTML to insert before package description."""
+        self.pkg_desc_postamble = u'</span>'
+        """:py:class:`unicode`.  HTML to insert after package description."""
 
-    def format_entry(cls, entry, is_first, is_last):
+    def format_entry(self, entry, is_first, is_last):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry`.
 
@@ -629,15 +608,15 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         :type: :py:class:`unicode`
         """
         assert(isinstance(entry, models.SlackLogEntry))
-        data = super(SlackLogPyblosxomFormatter, cls).format_entry(entry, is_first, is_last)
+        data = super(SlackLogPyblosxomFormatter, self).format_entry(entry, is_first, is_last)
 
         # generate filename for this entry
-        filename = '%s%s%s' % (cls.datadir,
+        filename = '%s%s%s' % (self.datadir,
                                os.path.sep,
-                               cls.format_entry_basename(entry))
-        if cls.pyfilemtime:
+                               self.format_entry_basename(entry))
+        if self.pyfilemtime:
             filename += entry.timestamp.strftime("-%Y-%m-%d-%H-%M")
-        filename += '.%s' % cls.extension
+        filename += '.%s' % self.extension
         filename = os.path.expanduser(filename)
 
         # Ensure that the directory exists
@@ -649,26 +628,26 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
 
         # Handle the entries that already exist
         if os.path.exists(filename):
-            if cls.overwrite:
-                if cls.backup:
+            if self.overwrite:
+                if self.backup:
                     # Make a backup
                     i = 1
                     backup = "%s~%d~" % (filename, i)
                     while os.path.exists(backup):
                         backup = "%s~%d~" % (filename, i)
                         i += 1
-                    if not cls.quiet:
+                    if not self.quiet:
                         print("Backing up entry: %s" % backup)
                     os.rename(filename, backup)
                 else:
                     print("Overwriting entry: %s" % filename)
             else:
-                if not cls.quiet:
+                if not self.quiet:
                     print("Entry already exists: %s" % filename)
                 return data
 
         # Write the entry
-        file = codecs.open(filename, 'w', cls.encoding)
+        file = codecs.open(filename, 'w', self.encoding)
         file.write(data)
         file.close()
 
@@ -678,9 +657,8 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         os.utime(filename, (timestamp, timestamp))
 
         return data
-    format_entry = classmethod(format_entry)
 
-    def format_entry_preamble(cls, entry):
+    def format_entry_preamble(self, entry):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_preamble`.
 
@@ -690,20 +668,19 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         :type: :py:class:`unicode`
         """
         assert(isinstance(entry, models.SlackLogEntry))
-        data = cls.format_entry_title(entry)
-        if cls.tags_separator:
-            data += u'#tags %s\n' % cls.format_entry_tags(entry)
-        data += cls.entry_preamble
+        data = self.format_entry_title(entry)
+        if self.tags_separator:
+            data += u'#tags %s\n' % self.format_entry_tags(entry)
+        data += self.entry_preamble
         if entry.description:
-            data += u'%s%s%s' % (cls.entry_desc_preamble,
+            data += u'%s%s%s' % (self.entry_desc_preamble,
                                  entry.description,
-                                 cls.entry_desc_postamble)
+                                 self.entry_desc_postamble)
         if entry.pkgs:
-            data += cls.entry_pkgs_preamble
+            data += self.entry_pkgs_preamble
         return data
-    format_entry_preamble = classmethod(format_entry_preamble)
 
-    def format_entry_postamble(cls, entry):
+    def format_entry_postamble(self, entry):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_postamble`.
 
@@ -715,12 +692,11 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         assert(isinstance(entry, models.SlackLogEntry))
         data = u''
         if entry.pkgs:
-            data += cls.entry_pkgs_postamble
-        data += cls.entry_postamble
+            data += self.entry_pkgs_postamble
+        data += self.entry_postamble
         return data
-    format_entry_postamble = classmethod(format_entry_postamble)
 
-    def format_pkg_preamble(cls, pkg):
+    def format_pkg_preamble(self, pkg):
         """
         Overrides :py:meth:`SlackLogFormatter.format_pkg_preamble`.
 
@@ -730,19 +706,18 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         :type: :py:class:`unicode`
         """
         assert(isinstance(pkg, models.SlackLogPkg))
-        data = u'%s%s%s%s%s%s%s%s%s' % (cls.pkg_preamble,
-                                        cls.pkg_name_preamble,
+        data = u'%s%s%s%s%s%s%s%s%s' % (self.pkg_preamble,
+                                        self.pkg_name_preamble,
                                         pkg.pkg,
-                                        cls.pkg_name_postamble,
-                                        cls.pkg_separator,
-                                        cls.pkg_desc_preamble,
+                                        self.pkg_name_postamble,
+                                        self.pkg_separator,
+                                        self.pkg_desc_preamble,
                                         pkg.description,
-                                        cls.pkg_desc_postamble,
-                                        cls.pkg_postamble)
+                                        self.pkg_desc_postamble,
+                                        self.pkg_postamble)
         return data
-    format_pkg_preamble = classmethod(format_pkg_preamble)
 
-    def format_entry_basename(cls, entry):
+    def format_entry_basename(self, entry):
         """
         Return basename for the log entry.
 
@@ -751,10 +726,9 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry name
         :type: :py:class:`unicode`
         """
-        return cls.slackware.replace(' ', '-').replace('.', '_').lower()
-    format_entry_basename = classmethod(format_entry_basename)
+        return self.slackware.replace(' ', '-').replace('.', '_').lower()
 
-    def format_entry_title(cls, entry):
+    def format_entry_title(self, entry):
         """
         Return log entry title.
 
@@ -763,10 +737,9 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry title
         :type: :py:class:`unicode`
         """
-        return u'%s changes for %s\n' % (cls.slackware, readable(entry.timestamp))
-    format_entry_title = classmethod(format_entry_title)
+        return u'%s changes for %s\n' % (self.slackware, readable(entry.timestamp))
 
-    def format_entry_tags(cls, entry):
+    def format_entry_tags(self, entry):
         """
         Return log entry tags.
 
@@ -775,5 +748,4 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry tags
         :type: :py:class:`unicode`
         """
-        return u'%s' % cls.slackware.replace(' ', cls.tags_separator)
-    format_entry_tags = classmethod(format_entry_tags)
+        return u'%s' % self.slackware.replace(' ', self.tags_separator)

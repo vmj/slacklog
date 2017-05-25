@@ -153,12 +153,13 @@ def slacklog2atom():
     parser.quiet = opts.quiet
     parser.min_date = parser.parse_date(u(opts.min_date))
 
-    formatters.SlackLogAtomFormatter.max_entries = i(opts.max_entries)
-    formatters.SlackLogAtomFormatter.slackware = u(opts.slackware)
-    formatters.SlackLogAtomFormatter.link = u(opts.link)
-    formatters.SlackLogAtomFormatter.webLink = u(opts.webLink)
-    formatters.SlackLogAtomFormatter.name = u(opts.name)
-    formatters.SlackLogAtomFormatter.email = u(opts.email)
+    formatter = formatters.SlackLogAtomFormatter()
+    formatter.max_entries = i(opts.max_entries)
+    formatter.slackware = u(opts.slackware)
+    formatter.link = u(opts.link)
+    formatter.webLink = u(opts.webLink)
+    formatter.name = u(opts.name)
+    formatter.email = u(opts.email)
 
     #
     #   Read input
@@ -168,7 +169,7 @@ def slacklog2atom():
     #
     #   Format output
     #
-    atom = formatters.SlackLogAtomFormatter.format(parser.parse(txt))
+    atom = formatter.format(parser.parse(txt))
 
     #
     #   Write output
@@ -220,17 +221,18 @@ def slacklog2pyblosxom():
     parser.quiet = opts.quiet
     parser.min_date = parser.parse_date(u(opts.min_date))
 
-    formatters.SlackLogPyblosxomFormatter.max_entries = i(opts.max_entries)
-    formatters.SlackLogPyblosxomFormatter.quiet = opts.quiet
-    formatters.SlackLogPyblosxomFormatter.slackware = u(opts.slackware)
-    formatters.SlackLogPyblosxomFormatter.datadir = u(opts.datadir)
-    formatters.SlackLogPyblosxomFormatter.extension = u(opts.entry_extension)
-    formatters.SlackLogPyblosxomFormatter.encoding = u(opts.entry_encoding)
-    formatters.SlackLogPyblosxomFormatter.tags_separator = u(opts.tags_separator)
-    formatters.SlackLogPyblosxomFormatter.pkg_separator = u(opts.pkg_separator)
-    formatters.SlackLogPyblosxomFormatter.overwrite = opts.overwrite
-    formatters.SlackLogPyblosxomFormatter.backup = not opts.no_backup
-    formatters.SlackLogPyblosxomFormatter.pyfilemtime = opts.pyfilemtime
+    formatter = formatters.SlackLogPyblosxomFormatter()
+    formatter.max_entries = i(opts.max_entries)
+    formatter.quiet = opts.quiet
+    formatter.slackware = u(opts.slackware)
+    formatter.datadir = u(opts.datadir)
+    formatter.extension = u(opts.entry_extension)
+    formatter.encoding = u(opts.entry_encoding)
+    formatter.tags_separator = u(opts.tags_separator)
+    formatter.pkg_separator = u(opts.pkg_separator)
+    formatter.overwrite = opts.overwrite
+    formatter.backup = not opts.no_backup
+    formatter.pyfilemtime = opts.pyfilemtime
 
     #
     #   Read input
@@ -240,7 +242,7 @@ def slacklog2pyblosxom():
     #
     #   Format output (output goes to files, no need to capture the result)
     #
-    formatters.SlackLogPyblosxomFormatter.format(parser.parse(txt))
+    formatter.format(parser.parse(txt))
 
 
 def slacklog2rss():
@@ -285,14 +287,15 @@ def slacklog2rss():
     parser.quiet = opts.quiet
     parser.min_date = parser.parse_date(u(opts.min_date))
 
-    formatters.SlackLogRssFormatter.max_entries = i(opts.max_entries)
-    formatters.SlackLogRssFormatter.slackware = u(opts.slackware)
-    formatters.SlackLogRssFormatter.rssLink = u(opts.rssLink)
-    formatters.SlackLogRssFormatter.webLink = u(opts.webLink)
-    formatters.SlackLogRssFormatter.description = u(opts.description)
-    formatters.SlackLogRssFormatter.language = u(opts.language)
-    formatters.SlackLogRssFormatter.managingEditor = u(opts.managingEditor)
-    formatters.SlackLogRssFormatter.webMaster = u(opts.webMaster)
+    formatter = formatters.SlackLogRssFormatter()
+    formatter.max_entries = i(opts.max_entries)
+    formatter.slackware = u(opts.slackware)
+    formatter.rssLink = u(opts.rssLink)
+    formatter.webLink = u(opts.webLink)
+    formatter.description = u(opts.description)
+    formatter.language = u(opts.language)
+    formatter.managingEditor = u(opts.managingEditor)
+    formatter.webMaster = u(opts.webMaster)
 
     #
     #   Read input
@@ -302,7 +305,7 @@ def slacklog2rss():
     #
     #   Format output
     #
-    rss = formatters.SlackLogRssFormatter.format(parser.parse(txt))
+    rss = formatter.format(parser.parse(txt))
 
     #
     #   Write output
