@@ -36,17 +36,17 @@ class SlackLogParser (object):
     Parser for recent (13.x) Slackware ChangeLogs.
     """
 
-    quiet = False
-    """If :py:const:`True`, warnings about date parsing are not printed."""
-    min_date = None
-    """If set to a :py:class:`datetime.datetime` object, older log entries are ignored (not parsed)."""
+    def __init__(self):
+        self.quiet = False
+        """If :py:const:`True`, warnings about date parsing are not printed."""
+        self.min_date = None
+        """If set to a :py:class:`datetime.datetime` object, older log entries are ignored (not parsed)."""
+        self.ENTRY = 0
+        """Counter of entries (for debugging)."""
+        self.PKG = 0
+        """Counter of packages (for debugging)."""
 
-    ENTRY = 0
-    """Counter of entries (for debugging)."""
-    PKG = 0
-    """Counter of packages (for debugging)."""
-
-    def parse(cls, data):
+    def parse(self, data):
         """
         Return the in-memory representation of the data.
 
@@ -56,16 +56,15 @@ class SlackLogParser (object):
         """
         assert(isinstance(data, str))
         log = models.SlackLog()
-        for entry_data in cls.split_log_to_entries(data):
-            entry = cls.parse_entry(entry_data, log)
+        for entry_data in self.split_log_to_entries(data):
+            entry = self.parse_entry(entry_data, log)
             if entry:
                 log.entries.insert(0, entry)
             else:
                 break
         return log
-    parse = classmethod(parse)
 
-    def split_log_to_entries(cls, data):
+    def split_log_to_entries(self, data):
         """
         Split the ChangeLog.txt into a list of unparsed entries.
 
@@ -82,9 +81,8 @@ class SlackLogParser (object):
                 entries.append(entry)
         entries.reverse()
         return entries
-    split_log_to_entries = classmethod(split_log_to_entries)
 
-    def parse_entry(cls, data, log):
+    def parse_entry(self, data, log):
         """
         Parse a single ChangeLog entry.
 
@@ -96,8 +94,8 @@ class SlackLogParser (object):
         """
         assert(isinstance(data, str))
         assert(isinstance(log, models.SlackLog))
-        cls.ENTRY += 1
-        cls.PKG = 0
+        self.ENTRY += 1
+        self.PKG = 0
         sha512 = u'%s' % hashlib.sha512(encode(data, 'utf-8')).hexdigest()
         parent = None
         if log.entries:
@@ -105,18 +103,17 @@ class SlackLogParser (object):
             identifier = u'%s' % hashlib.sha512(encode(parent + sha512, 'utf-8')).hexdigest()
         else:
             identifier = u'%s' % hashlib.sha512(encode(sha512, 'utf-8')).hexdigest()
-        timestamp, data = cls.parse_entry_timestamp(data)
-        if cls.min_date and cls.min_date > timestamp:
+        timestamp, data = self.parse_entry_timestamp(data)
+        if self.min_date and self.min_date > timestamp:
             return None
-        description, data = cls.parse_entry_description(data)
+        description, data = self.parse_entry_description(data)
         entry = models.SlackLogEntry(timestamp, description, log, checksum=sha512, identifier=identifier, parent=parent)
-        for pkg_data in cls.split_entry_to_pkgs(data):
-            pkg = cls.parse_pkg(pkg_data, entry)
+        for pkg_data in self.split_entry_to_pkgs(data):
+            pkg = self.parse_pkg(pkg_data, entry)
             entry.pkgs.append(pkg)
         return entry
-    parse_entry = classmethod(parse_entry)
 
-    def parse_entry_timestamp(cls, data):
+    def parse_entry_timestamp(self, data):
         """
         Parse ChangeLog entry timestamp from data.
 
@@ -125,12 +122,11 @@ class SlackLogParser (object):
         :rtype: [:py:class:`datetime.datetime`, :py:class:`unicode`]
         """
         assert(isinstance(data, str))
-        timestamp_str, data = cls.get_line(data)
-        timestamp = cls.parse_date(timestamp_str)
+        timestamp_str, data = self.get_line(data)
+        timestamp = self.parse_date(timestamp_str)
         return [timestamp, data]
-    parse_entry_timestamp = classmethod(parse_entry_timestamp)
 
-    def parse_entry_description(cls, data):
+    def parse_entry_description(self, data):
         """
         Parse ChangeLog entry description from data.
 
@@ -141,12 +137,11 @@ class SlackLogParser (object):
         assert(isinstance(data, str))
         description = u''
         while data and not pkg_name_re.match(data):
-            line, data = cls.get_line(data)
+            line, data = self.get_line(data)
             description += line
         return [description, data]
-    parse_entry_description = classmethod(parse_entry_description)
 
-    def split_entry_to_pkgs(cls, data):
+    def split_entry_to_pkgs(self, data):
         """
         Split ChangeLog entry content into a list of unparsed packages.
 
@@ -173,9 +168,8 @@ class SlackLogParser (object):
         if pkg:
             pkgs.append(pkg)
         return pkgs
-    split_entry_to_pkgs = classmethod(split_entry_to_pkgs)
 
-    def parse_pkg(cls, data, entry):
+    def parse_pkg(self, data, entry):
         """
         Parse a single package.
 
@@ -187,17 +181,16 @@ class SlackLogParser (object):
         """
         assert(isinstance(data, str))
         assert(isinstance(entry, models.SlackLogEntry))
-        cls.PKG += 1
+        self.PKG += 1
         try:
-            pkg, data = cls.parse_pkg_name(data)
+            pkg, data = self.parse_pkg_name(data)
         except ValueError:
             print("data: '%s...'" % data[0:50])
             raise
-        description = cls.parse_pkg_description(data)
+        description = self.parse_pkg_description(data)
         return models.SlackLogPkg(pkg, description, entry)
-    parse_pkg = classmethod(parse_pkg)
 
-    def parse_pkg_name(cls, data):
+    def parse_pkg_name(self, data):
         """
         Parse package name from a package.
 
@@ -207,9 +200,8 @@ class SlackLogParser (object):
         """
         assert(isinstance(data, str))
         return data.split(u':', 1)
-    parse_pkg_name = classmethod(parse_pkg_name)
 
-    def parse_pkg_description(cls, data):
+    def parse_pkg_description(self, data):
         """
         Parse package description from a package.
 
@@ -219,9 +211,8 @@ class SlackLogParser (object):
         """
         assert(isinstance(data, str))
         return data
-    parse_pkg_description = classmethod(parse_pkg_description)
 
-    def get_line(cls, data):
+    def get_line(self, data):
         """
         Consume one line from data.
 
@@ -237,9 +228,8 @@ class SlackLogParser (object):
             line = data
             data = u''
         return [line, data]
-    get_line = classmethod(get_line)
 
-    def parse_date(cls, data):
+    def parse_date(self, data):
         """
         Parse a time string into a timestamp.
 
@@ -253,7 +243,7 @@ class SlackLogParser (object):
         timestamp = parser.parse(data, tzinfos=tzinfos)
         if timestamp.tzinfo is None:
             # Timestamp was ambiguous, assume UTC
-            if not cls.quiet:
+            if not self.quiet:
                 from sys import stderr
                 stderr.write("Warning: Assuming UTC, input was '%s'" % data)
             timestamp = timestamp.replace(tzinfo=tz.tzutc())
@@ -261,9 +251,8 @@ class SlackLogParser (object):
             # Timestamp was in some local timezone,
             # convert to UTC
             tzname = timestamp.tzinfo.tzname(timestamp)
-            if not cls.quiet and tzname not in tzinfos:
+            if not self.quiet and tzname not in tzinfos:
                 from sys import stderr
                 stderr.write("Warning: Converting '%s' to UTC" % tzname)
             timestamp = timestamp.astimezone(tz.tzutc())
         return timestamp
-    parse_date = classmethod(parse_date)
