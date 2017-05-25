@@ -327,6 +327,7 @@ class SlackLogRssFormatter (SlackLogFormatter):
     """
 
     def __init__(self):
+        super(SlackLogRssFormatter, self).__init__()
         self.slackware = None
         """:py:class:`unicode` description of the distro version.
         E.g. 'Slackware 13.37' or 'Slackware64 current'."""
@@ -446,6 +447,7 @@ class SlackLogAtomFormatter (SlackLogFormatter):
     """
 
     def __init__(self):
+        super(SlackLogAtomFormatter, self).__init__()
         self.slackware = None
         """:py:class:`unicode` description of the distro version.
         E.g. 'Slackware 13.37' or 'Slackware64 current'."""
@@ -548,6 +550,7 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
     """
 
     def __init__(self):
+        super(SlackLogPyblosxomFormatter, self).__init__()
         self.quiet = False
         """If :py:const:`True`, """
         self.slackware = None
