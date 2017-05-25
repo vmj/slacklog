@@ -2,6 +2,14 @@ Release history
 ===============
 
 
+Version 0.9.2 (2019-05-25)
+--------------------------
+
+This release is backwards incompatible with the previous releases:
+SlackLogParser and SlackLogFormatter (and subclasses) have to be instantiated,
+and instead of using class methods, instance methods and properties have to be used.
+
+
 Version 0.9.1 (2017-05-24)
 --------------------------
 
