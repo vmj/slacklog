@@ -54,3 +54,12 @@ Very close now!  But we'll likely hold out for 2.6.37.6.
         # ... the next (newer) entries in the logs have different identifiers and parents
         self.assertNotEqual(log1.entries[1].parent,     log2.entries[1].parent)
         self.assertNotEqual(log1.entries[1].identifier, log2.entries[1].identifier)
+
+    def test_single_line_change(self):
+        log = SlackLogParser().parse(u"""Thu May 11 18:09:15 UTC 2017
+l/gtk+3-3.22.14-i586-1.txz:  Upgraded.
+""")
+        self.assertEqual(1, len(log.entries))
+        self.assertEqual(u'', log.entries[0].description)
+        self.assertEqual(1, len(log.entries[0].pkgs))
+        self.assertEqual(u'  Upgraded.\n', log.entries[0].pkgs[0].description)
