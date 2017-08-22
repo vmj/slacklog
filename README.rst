@@ -34,7 +34,7 @@ formats easily::
     from __future__ import print_function
     import codecs
     import locale
-    from slacklog import parsers
+    from slacklog.parsers import SlackLogParser
 
     def read(file):
         '''Return file contents as Unicode.'''
@@ -45,9 +45,9 @@ formats easily::
         print(str.encode(locale.getpreferredencoding()))
 
     # Parse the ChangeLog
-    log = parsers.SlackLogParser.parse(read('ChangeLog.txt'))
+    log = SlackLogParser().parse(read('ChangeLog.txt'))
 
-    # Print a custom format
+    # Just an example of walking the log tree and print it out
     for entry in log.entries:
         write(u'[%s] %s\n' % (entry.timestamp.isoformat(), entry.description))
         for pkg in entry.pkgs:
