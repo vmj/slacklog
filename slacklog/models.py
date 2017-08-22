@@ -19,6 +19,8 @@ class SlackLog (object):
 
     def __init__(self):
         self.entries = []
+        self.startsWithSeparator = False
+        self.endsWithSeparator = False
 
 
 class SlackLogEntry (object):
@@ -40,9 +42,13 @@ class SlackLogEntry (object):
     
     Since 0.9.1 a parent was added, which is either None or a unicode string.
     If using the default parser, the value is the identifier of the next (older) log entry.
+
+    Since 0.9.3 a tz was added, which is either None or a datetime.tzinfo.
+    If using the default parser, the value is the original timezone of the entry.
     """
 
-    def __init__(self, timestamp, description, log, checksum=None, identifier=None, parent=None):
+    def __init__(self, timestamp, description, log, checksum=None, identifier=None, parent=None,
+                 timezone=None):
         assert(isinstance(timestamp, datetime))
         assert(isinstance(description, str))
         assert(timestamp.tzinfo.utcoffset(timestamp).total_seconds() == 0)
@@ -53,12 +59,15 @@ class SlackLogEntry (object):
             assert(isinstance(identifier, str))
         if parent is not None:
             assert(isinstance(parent, str))
+        if timezone is not None:
+            assert(isinstance(timezone, tzinfo))
         self.timestamp = timestamp
         self.description = description
         self.log = log
         self.checksum = checksum
         self.identifier = identifier
         self.parent = parent
+        self.timezone = timezone
         self.pkgs = []
 
 

@@ -13,6 +13,7 @@ import datetime
 import os
 import re
 import time
+from dateutil import tz
 from slacklog import models
 
 
@@ -276,6 +277,35 @@ class SlackLogTxtFormatter (SlackLogFormatter):
     ChangeLog.txt.
     """
 
+
+    def format_log_preamble(self, log):
+        """
+        Overrides :py:meth:`SlackLogFormatter.format_entry_separator`.
+
+        :param log: in-memory representation of the log.
+        :type: :py:class:`slacklog.models.SlackLog`
+        :return: Unicode representation of log preamble.
+        :type: :py:class:`unicode`
+        """
+        assert(isinstance(log, models.SlackLog))
+        if log.startsWithSeparator:
+            return u'+--------------------------+\n'
+        return u''
+
+    def format_log_postamble(self, log):
+        """
+        Overrides :py:meth:`SlackLogFormatter.format_entry_separator`.
+
+        :param log: in-memory representation of the log.
+        :type: :py:class:`slacklog.models.SlackLog`
+        :return: Unicode representation of log postamble.
+        :type: :py:class:`unicode`
+        """
+        assert(isinstance(log, models.SlackLog))
+        if log.endsWithSeparator:
+            return u'+--------------------------+\n'
+        return u''
+
     def format_entry_separator(self, is_first, is_last):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_separator`.
@@ -299,8 +329,11 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         :type: :py:class:`unicode`
         """
         assert(isinstance(entry, models.SlackLogEntry))
+        timestamp = entry.timestamp
+        if entry.timezone is not None and not isinstance(entry.timezone, tz.tzutc):
+            timestamp = timestamp.astimezone(entry.timezone)
         data = u''
-        data += entry.timestamp.strftime("%a %b %d %H:%M:%S %Z %Y")
+        data += timestamp.strftime("%a %b %d %H:%M:%S %Z %Y")
         # Remove leading zero from the day-of-month only
         data = re.sub(r' 0(\d) ', r'  \1 ', data)
         data += u'\n'
@@ -376,7 +409,12 @@ class SlackLogRssFormatter (SlackLogFormatter):
             data += u'    <managingEditor>%s</managingEditor>\n' % self.managingEditor
         if self.webMaster:
             data += u'    <webMaster>%s</webMaster>\n' % self.webMaster
-        data += u'    <pubDate>%s</pubDate>\n' % readable(log.entries[0].timestamp)
+        if len(log.entries) > 0:
+            data += u'    <pubDate>%s</pubDate>\n' % readable(log.entries[0].timestamp)
+        elif self.lastBuildDate:
+            data += u'    <pubDate>%s</pubDate>\n' % readable(self.lastBuildDate)
+        else:
+            data += u'    <pubDate>%s</pubDate>\n' % readable(datetime.datetime.utcnow())
         if self.lastBuildDate:
             data += u'    <lastBuildDate>%s</lastBuildDate>\n' % readable(self.lastBuildDate)
         else:

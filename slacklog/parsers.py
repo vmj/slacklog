@@ -22,7 +22,7 @@ except NameError:
 # a double space.  But description can also contain "something:  ",
 # so "something" should contain either a slash or a dot for it to look like
 # a file name.
-pkg_name_re = re.compile(r'\A[-a-zA-Z0-9_]+[/.][-a-zA-Z0-9_/.]*[*]?:  ')
+pkg_name_re = re.compile(r'\A[-a-zA-Z0-9_]+[/.][-a-zA-Z0-9_+/.]*[*]?:  ')
 
 tzinfos = {
     'CDT': -5 * 60 * 60,
@@ -56,12 +56,23 @@ class SlackLogParser (object):
         """
         assert(isinstance(data, str))
         log = models.SlackLog()
+        log.startsWithSeparator = re.match('\A(\+-+\+[\n]?)', data)
+        log.endsWithSeparator = re.search('[\n](\+-+\+[\n]?)\Z', data)
+        if log.startsWithSeparator:
+            data = data[log.startsWithSeparator.start():]
+            log.startsWithSeparator = True
+        else:
+            log.startsWithSeparator = False
+        if log.endsWithSeparator:
+            data = data[:log.endsWithSeparator.start(1)]
+            log.endsWithSeparator = True
+        else:
+            log.endsWithSeparator = False
+
         for entry_data in self.split_log_to_entries(data):
             entry = self.parse_entry(entry_data, log)
             if entry:
                 log.entries.insert(0, entry)
-            else:
-                break
         return log
 
     def split_log_to_entries(self, data):
@@ -76,7 +87,7 @@ class SlackLogParser (object):
         raw_entries = re.split('\+-+\+', data)
         entries = []
         for entry in raw_entries:
-            entry = entry.strip()
+            entry = entry.lstrip()
             if entry and entry != "":
                 entries.append(entry)
         entries.reverse()
@@ -103,11 +114,12 @@ class SlackLogParser (object):
             identifier = u'%s' % hashlib.sha512(encode(parent + sha512, 'utf-8')).hexdigest()
         else:
             identifier = u'%s' % hashlib.sha512(encode(sha512, 'utf-8')).hexdigest()
-        timestamp, data = self.parse_entry_timestamp(data)
+        timestamp, timezone, data = self.parse_entry_timestamp(data)
         if self.min_date and self.min_date > timestamp:
             return None
         description, data = self.parse_entry_description(data)
-        entry = models.SlackLogEntry(timestamp, description, log, checksum=sha512, identifier=identifier, parent=parent)
+        entry = models.SlackLogEntry(timestamp, description, log, checksum=sha512, identifier=identifier, parent=parent,
+                                     timezone=timezone)
         for pkg_data in self.split_entry_to_pkgs(data):
             pkg = self.parse_pkg(pkg_data, entry)
             entry.pkgs.append(pkg)
@@ -123,8 +135,8 @@ class SlackLogParser (object):
         """
         assert(isinstance(data, str))
         timestamp_str, data = self.get_line(data)
-        timestamp = self.parse_date(timestamp_str)
-        return [timestamp, data]
+        timestamp, timezone = self.parse_date_with_timezone(timestamp_str)
+        return [timestamp, timezone, data]
 
     def parse_entry_description(self, data):
         """
@@ -151,22 +163,23 @@ class SlackLogParser (object):
         """
         assert(isinstance(data, str))
         pkgs = []
-        pkg = u''
+        pkg_lines = []
         if data == u'' or data == u'\n':
             return []
         for line in data.split('\n'):
             if not pkg_name_re.match(line):
-                line += u'\n'
-                pkg += line
+                pkg_lines.append(line)
             else:
-                if pkg:
-                    pkgs.append(pkg)
-                    pkg = u''
+                if pkg_lines:
+                    # pkg_lines is not the last package in
+                    # the entry: add an extra newline
+                    pkgs.append('\n'.join(pkg_lines) + '\n')
+                    pkg_lines = []
                 if line:
-                    line += u'\n'
-                    pkg += line
-        if pkg:
-            pkgs.append(pkg)
+                    pkg_lines.append(line)
+        if pkg_lines:
+            # last package in the entry: no extra newline
+            pkgs.append('\n'.join(pkg_lines))
         return pkgs
 
     def parse_pkg(self, data, entry):
@@ -239,9 +252,23 @@ class SlackLogParser (object):
         """
         if data is None:
             return None
+        timestamp, timezone = self.parse_date_with_timezone(data)
+        return timestamp
+
+    def parse_date_with_timezone(self, data):
+        """
+        Parse a time string into a timestamp.
+
+        :param unicode data: Time string.
+        :return: a two element list: Timestamp in UTC timezone, and the original timezone.
+        :rtype: :py:class:`datetime.datetime`
+        """
+        if data is None:
+            return None
         assert(isinstance(data, str))
         timestamp = parser.parse(data, tzinfos=tzinfos)
-        if timestamp.tzinfo is None:
+        timezone = timestamp.tzinfo
+        if timezone is None:
             # Timestamp was ambiguous, assume UTC
             if not self.quiet:
                 from sys import stderr
@@ -250,9 +277,9 @@ class SlackLogParser (object):
         elif timestamp.tzinfo.utcoffset(timestamp).total_seconds() != 0:
             # Timestamp was in some local timezone,
             # convert to UTC
-            tzname = timestamp.tzinfo.tzname(timestamp)
+            tzname = timezone.tzname(timestamp)
             if not self.quiet and tzname not in tzinfos:
                 from sys import stderr
                 stderr.write("Warning: Converting '%s' to UTC" % tzname)
             timestamp = timestamp.astimezone(tz.tzutc())
-        return timestamp
+        return [timestamp, timezone]
