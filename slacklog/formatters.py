@@ -376,7 +376,12 @@ class SlackLogRssFormatter (SlackLogFormatter):
             data += u'    <managingEditor>%s</managingEditor>\n' % self.managingEditor
         if self.webMaster:
             data += u'    <webMaster>%s</webMaster>\n' % self.webMaster
-        data += u'    <pubDate>%s</pubDate>\n' % readable(log.entries[0].timestamp)
+        if len(log.entries) > 0:
+            data += u'    <pubDate>%s</pubDate>\n' % readable(log.entries[0].timestamp)
+        elif self.lastBuildDate:
+            data += u'    <pubDate>%s</pubDate>\n' % readable(self.lastBuildDate)
+        else:
+            data += u'    <pubDate>%s</pubDate>\n' % readable(datetime.datetime.utcnow())
         if self.lastBuildDate:
             data += u'    <lastBuildDate>%s</lastBuildDate>\n' % readable(self.lastBuildDate)
         else:
