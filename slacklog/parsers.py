@@ -56,6 +56,19 @@ class SlackLogParser (object):
         """
         assert(isinstance(data, str))
         log = models.SlackLog()
+        log.startsWithSeparator = re.match('\A(\+-+\+[\n]?)', data)
+        log.endsWithSeparator = re.search('[\n](\+-+\+[\n]?)\Z', data)
+        if log.startsWithSeparator:
+            data = data[log.startsWithSeparator.start():]
+            log.startsWithSeparator = True
+        else:
+            log.startsWithSeparator = False
+        if log.endsWithSeparator:
+            data = data[:log.endsWithSeparator.start(1)]
+            log.endsWithSeparator = True
+        else:
+            log.endsWithSeparator = False
+
         for entry_data in self.split_log_to_entries(data):
             entry = self.parse_entry(entry_data, log)
             if entry:

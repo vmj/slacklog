@@ -63,3 +63,23 @@ l/gtk+3-3.22.14-i586-1.txz:  Upgraded.
         self.assertEqual(u'', log.entries[0].description)
         self.assertEqual(1, len(log.entries[0].pkgs))
         self.assertEqual(u'  Upgraded.\n', log.entries[0].pkgs[0].description)
+
+    def test_parse_separators(self):
+        p = SlackLogParser()
+
+        def check(str, a, b):
+            log = p.parse(str)
+            self.assertEqual(a, log.startsWithSeparator)
+            self.assertEqual(b, log.endsWithSeparator)
+
+        check(u'', False, False)
+        check(u'+-+', True, False)
+        check(u'\n+-+', False, True)
+        check(u'\n+-+\n', False, True)
+        check(u'+-+\n+-+', True, True)
+        check(u'Thu May 11 18:09:15 UTC 2017\n+-+\nThu May 11 18:09:15 UTC 2017', False, False)
+        check(u'+-+\nThu May 11 18:09:15 UTC 2017\n+-+\nThu May 11 18:09:15 UTC 2017\n+-+', True, True)
+
+
+
+

@@ -20,6 +20,8 @@ class SlackLog (object):
 
     def __init__(self):
         self.entries = []
+        self.startsWithSeparator = False
+        self.endsWithSeparator = False
 
 
 class SlackLogEntry (object):

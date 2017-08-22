@@ -277,6 +277,35 @@ class SlackLogTxtFormatter (SlackLogFormatter):
     ChangeLog.txt.
     """
 
+
+    def format_log_preamble(self, log):
+        """
+        Overrides :py:meth:`SlackLogFormatter.format_entry_separator`.
+
+        :param log: in-memory representation of the log.
+        :type: :py:class:`slacklog.models.SlackLog`
+        :return: Unicode representation of log preamble.
+        :type: :py:class:`unicode`
+        """
+        assert(isinstance(log, models.SlackLog))
+        if log.startsWithSeparator:
+            return u'+--------------------------+\n'
+        return u''
+
+    def format_log_postamble(self, log):
+        """
+        Overrides :py:meth:`SlackLogFormatter.format_entry_separator`.
+
+        :param log: in-memory representation of the log.
+        :type: :py:class:`slacklog.models.SlackLog`
+        :return: Unicode representation of log postamble.
+        :type: :py:class:`unicode`
+        """
+        assert(isinstance(log, models.SlackLog))
+        if log.endsWithSeparator:
+            return u'+--------------------------+\n'
+        return u''
+
     def format_entry_separator(self, is_first, is_last):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_separator`.
