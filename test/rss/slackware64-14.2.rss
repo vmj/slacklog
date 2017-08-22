@@ -1,0 +1,1842 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <atom:link href="http://linuxbox.fi/~vmj/slacklog/slackware64-14.2.rss" rel="self" type="application/rss+xml" />
+    <title>slackware64 14.2 ChangeLog</title>
+    <link>http://linuxbox.fi/~vmj/slacklog/slackware64-14.2.rss</link>
+    <description>Recent changes in slackware64 14.2</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en</language>
+    <managingEditor>vmj@linuxbox.fi (Mikko Värri)</managingEditor>
+    <webMaster>vmj@linuxbox.fi (Mikko Värri)</webMaster>
+    <pubDate>Thu, 17 Aug 2017 05:36:28 GMT</pubDate>
+    <lastBuildDate>Tue, 22 Aug 2017 22:10:26 GMT</lastBuildDate>
+    <generator>SlackLog</generator>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170817T053628Z</guid>
+      <title>slackware64 14.2 changes for Thu, 17 Aug 2017 05:36:28 GMT</title>
+      <pubDate>Thu, 17 Aug 2017 05:36:28 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-52.3.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170815T221612Z</guid>
+      <title>slackware64 14.2 changes for Tue, 15 Aug 2017 22:16:12 GMT</title>
+      <pubDate>Tue, 15 Aug 2017 22:16:12 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/xorg-server-1.18.3-x86_64-3_slack14.2.txz:  Rebuilt.
+  This update fixes two security issues:
+  A user authenticated to an X Session could crash or execute code in the
+  context of the X Server by exploiting a stack overflow in the endianness
+  conversion of X Events.
+  Uninitialized data in endianness conversion in the XEvent handling of the
+  X.Org X Server allowed authenticated malicious users to access potentially
+  privileged data from the X server.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10971
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10972
+  (* Security fix *)
+patches/packages/xorg-server-xephyr-1.18.3-x86_64-3_slack14.2.txz:  Rebuilt.
+patches/packages/xorg-server-xnest-1.18.3-x86_64-3_slack14.2.txz:  Rebuilt.
+patches/packages/xorg-server-xvfb-1.18.3-x86_64-3_slack14.2.txz:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170811T230243Z</guid>
+      <title>slackware64 14.2 changes for Fri, 11 Aug 2017 23:02:43 GMT</title>
+      <pubDate>Fri, 11 Aug 2017 23:02:43 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/git-2.14.1-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixes security issues:
+  A "ssh://..." URL can result in a "ssh" command line with a hostname that
+  begins with a dash "-", which would cause the "ssh" command to instead
+  (mis)treat it as an option. This is now prevented by forbidding such a
+  hostname (which should not impact any real-world usage).
+  Similarly, when GIT_PROXY_COMMAND is configured, the command is run with
+  host and port that are parsed out from "ssh://..." URL; a poorly written
+  GIT_PROXY_COMMAND could be tricked into treating a string that begins with a
+  dash "-" as an option. This is now prevented by forbidding such a hostname
+  and port number (again, which should not impact any real-world usage).
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000117
+  (* Security fix *)
+patches/packages/libsoup-2.52.2-x86_64-3_slack14.2.txz:  Rebuilt.
+  Fixed a chunked decoding buffer overrun that could be exploited against
+  either clients or servers.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-2885
+  (* Security fix *)
+patches/packages/mercurial-4.3.1-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixes security issues:
+  Mercurial's symlink auditing was incomplete prior to 4.3, and could
+  be abused to write to files outside the repository.
+  Mercurial was not sanitizing hostnames passed to ssh, allowing
+  shell injection attacks on clients by specifying a hostname starting
+  with -oProxyCommand.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000115
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000116
+  (* Security fix *)
+patches/packages/subversion-1.9.7-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed client side arbitrary code execution vulnerability.
+  For more information, see:
+    https://subversion.apache.org/security/CVE-2017-9800-advisory.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9800
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170809T202316Z</guid>
+      <title>slackware64 14.2 changes for Wed, 09 Aug 2017 20:23:16 GMT</title>
+      <pubDate>Wed, 09 Aug 2017 20:23:16 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/curl-7.55.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes three security issues:
+  URL globbing out of bounds read
+  TFTP sends more than buffer size
+  FILE buffer read out of bounds
+  For more information, see:
+    https://curl.haxx.se/docs/adv_20170809A.html
+    https://curl.haxx.se/docs/adv_20170809B.html
+    https://curl.haxx.se/docs/adv_20170809C.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000101
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000100
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000099
+  (* Security fix *)
+patches/packages/glibc-2.23-x86_64-4_slack14.2.txz:  Rebuilt.
+  Fixed a regression with the recent glibc patch packages:
+  Don't clobber the libm.so linker script with a symlink.
+  Thanks to guanx.
+patches/packages/glibc-i18n-2.23-x86_64-4_slack14.2.txz:  Rebuilt.
+patches/packages/glibc-profile-2.23-x86_64-4_slack14.2.txz:  Rebuilt.
+patches/packages/glibc-solibs-2.23-x86_64-4_slack14.2.txz:  Rebuilt.
+patches/packages/mozilla-firefox-52.3.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170802T034351Z</guid>
+      <title>slackware64 14.2 changes for Wed, 02 Aug 2017 03:43:51 GMT</title>
+      <pubDate>Wed, 02 Aug 2017 03:43:51 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/gnupg-1.4.22-x86_64-1_slack14.2.txz:  Upgraded.
+  Mitigate a flush+reload side-channel attack on RSA secret keys dubbed
+  "Sliding right into disaster".
+  For more information, see:
+    https://eprint.iacr.org/2017/627
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7526
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170728T202947Z</guid>
+      <title>slackware64 14.2 changes for Fri, 28 Jul 2017 20:29:47 GMT</title>
+      <pubDate>Fri, 28 Jul 2017 20:29:47 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/squashfs-tools-4.3-x86_64-2_slack14.2.txz:  Rebuilt.
+  Patched a couple of denial of service issues and other bugs.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4645
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4646
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170727T010302Z</guid>
+      <title>slackware64 14.2 changes for Thu, 27 Jul 2017 01:03:02 GMT</title>
+      <pubDate>Thu, 27 Jul 2017 01:03:02 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/dbus-1.10.8-x86_64-2_slack14.2.txz:  Rebuilt.
+  Don't demand high-quality entropy from expat-2.2.2+ because 1) dbus doesn't
+  need it and 2) it can cause the boot process to hang if dbus times out.
+  Thanks to SeB for a link to the bug report and patch.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170725T210942Z</guid>
+      <title>slackware64 14.2 changes for Tue, 25 Jul 2017 21:09:42 GMT</title>
+      <pubDate>Tue, 25 Jul 2017 21:09:42 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bind-9.10.5_P3-x86_64-1_slack14.2.txz:  Upgraded.
+  Fix a regression in the previous BIND release that broke verification
+  of TSIG signed TCP message sequences where not all the messages contain
+  TSIG records.
+  Compiled to use libidn rather than the deprecated (and broken) idnkit.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170724T195934Z</guid>
+      <title>slackware64 14.2 changes for Mon, 24 Jul 2017 19:59:34 GMT</title>
+      <pubDate>Mon, 24 Jul 2017 19:59:34 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/tcpdump-4.9.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes an issue where tcpdump 4.9.0 allows remote attackers
+  to cause a denial of service (heap-based buffer over-read and application
+  crash) via crafted packet data.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11108
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170721T200949Z</guid>
+      <title>slackware64 14.2 changes for Fri, 21 Jul 2017 20:09:49 GMT</title>
+      <pubDate>Fri, 21 Jul 2017 20:09:49 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/seamonkey-2.48-x86_64-1_slack14.2.txz:  Upgraded.
+  This update contains security fixes and improvements.
+  For more information, see:
+    http://www.seamonkey-project.org/releases/seamonkey2.48
+  (* Security fix *)
+patches/packages/seamonkey-solibs-2.48-x86_64-1_slack14.2.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170718T231025Z</guid>
+      <title>slackware64 14.2 changes for Tue, 18 Jul 2017 23:10:25 GMT</title>
+      <pubDate>Tue, 18 Jul 2017 23:10:25 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/expat-2.2.2-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixes security issues including:
+  External entity infinite loop DoS
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9233
+    https://libexpat.github.io/doc/cve-2017-9233/
+  (* Security fix *)
+patches/packages/gd-2.2.4-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixes security issues:
+  gdImageCreate() doesn't check for oversized images and as such is prone to
+  DoS vulnerabilities. (CVE-2016-9317)
+  double-free in gdImageWebPtr() (CVE-2016-6912)
+  potential unsigned underflow in gd_interpolation.c (CVE-2016-10166)
+  DOS vulnerability in gdImageCreateFromGd2Ctx() (CVE-2016-10167)
+  Signed Integer Overflow gd_io.c (CVE-2016-10168)
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9317
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6912
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10166
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10167
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10168
+  (* Security fix *)
+patches/packages/libtirpc-1.0.2-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+patches/packages/rpcbind-0.2.4-x86_64-2_slack14.2.txz:  Rebuilt.
+  Fixed a bug in a previous patch where a svc_freeargs() call ended up freeing
+  a static pointer causing rpcbind to crash. Thanks to Jonathan Woithe,
+  Rafael Jorge Csura Szendrodi, and Robby Workman for identifying the problem
+  and helping to test a fix.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170714T221158Z</guid>
+      <title>slackware64 14.2 changes for Fri, 14 Jul 2017 22:11:58 GMT</title>
+      <pubDate>Fri, 14 Jul 2017 22:11:58 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mariadb-10.0.31-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3308
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3309
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3453
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3456
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3464
+  (* Security fix *)
+patches/packages/samba-4.4.15-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes an authentication validation bypass security issue:
+  "Orpheus' Lyre mutual authentication validation bypass"
+  All versions of Samba from 4.0.0 onwards using embedded Heimdal
+  Kerberos are vulnerable to a man-in-the-middle attack impersonating
+  a trusted server, who may gain elevated access to the domain by
+  returning malicious replication or authorization data.
+  Samba binaries built against MIT Kerberos are not vulnerable.
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2017-11103.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11103
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170713T181901Z</guid>
+      <title>slackware64 14.2 changes for Thu, 13 Jul 2017 18:19:01 GMT</title>
+      <pubDate>Thu, 13 Jul 2017 18:19:01 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/httpd-2.4.27-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes two security issues:
+  Read after free in mod_http2 (CVE-2017-9789)
+  Uninitialized memory reflection in mod_auth_digest (CVE-2017-9788)
+  Thanks to Robert Swiecki for reporting these issues.
+  For more information, see:
+    https://httpd.apache.org/security/vulnerabilities_24.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9789
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9788
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170710T214337Z</guid>
+      <title>slackware64 14.2 changes for Mon, 10 Jul 2017 21:43:37 GMT</title>
+      <pubDate>Mon, 10 Jul 2017 21:43:37 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libtirpc-1.0.1-x86_64-3_slack14.2.txz:  Rebuilt.
+  Patched a bug which can cause a denial of service through memory exhaustion.
+  Thanks to Robby Workman.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8779
+  (* Security fix *)
+patches/packages/rpcbind-0.2.4-x86_64-1_slack14.2.txz:  Upgraded.
+  Patched a bug which can cause a denial of service through memory exhaustion.
+  Thanks to Robby Workman.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8779
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170709T203808Z</guid>
+      <title>slackware64 14.2 changes for Sun, 09 Jul 2017 20:38:08 GMT</title>
+      <pubDate>Sun, 09 Jul 2017 20:38:08 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/irssi-1.0.4-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes two remote crash issues as well as a few bugs.
+  For more information, see:
+    https://irssi.org/security/irssi_sa_2017_07.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10965
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10966
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170708T001134Z</guid>
+      <title>slackware64 14.2 changes for Sat, 08 Jul 2017 00:11:34 GMT</title>
+      <pubDate>Sat, 08 Jul 2017 00:11:34 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/ca-certificates-20161130-noarch-1_slack14.2.txz:  Upgraded.
+  This update provides the latest CA certificates to check for the
+  authenticity of SSL connections.
+patches/packages/php-5.6.31-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes bugs and security issues.
+  For more information, see:
+    https://php.net/ChangeLog-5.php#5.6.31
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9224
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9226
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9227
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9228
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9229
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170706T005741Z</guid>
+      <title>slackware64 14.2 changes for Thu, 06 Jul 2017 00:57:41 GMT</title>
+      <pubDate>Thu, 06 Jul 2017 00:57:41 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-2.23-x86_64-3_slack14.2.txz:  Rebuilt.
+  Recompiled with upstream patch from git:
+  "[PATCH] X86: Don't assert on older Intel CPUs [BZ #20647]"
+  This fixes an ldconfig failure on older Intel CPUs including Pentium MMX.
+patches/packages/glibc-i18n-2.23-x86_64-3_slack14.2.txz:  Rebuilt.
+patches/packages/glibc-profile-2.23-x86_64-3_slack14.2.txz:  Rebuilt.
+patches/packages/glibc-solibs-2.23-x86_64-3_slack14.2.txz:  Rebuilt.
+patches/packages/xscreensaver-5.37-x86_64-1_slack14.2.txz:  Upgraded.
+  Here's an upgrade to the latest xscreensaver.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170630T211415Z</guid>
+      <title>slackware64 14.2 changes for Fri, 30 Jun 2017 21:14:15 GMT</title>
+      <pubDate>Fri, 30 Jun 2017 21:14:15 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-2.23-x86_64-2_slack14.2.txz:  Rebuilt.
+  Applied upstream security hardening patches from git.
+  For more information, see:
+    https://sourceware.org/git/?p=glibc.git;a=commit;h=3c7cd21290cabdadd72984fb69bc51e64ff1002d
+    https://sourceware.org/git/?p=glibc.git;a=commit;h=46703a3995aa3ca2b816814aa4ad05ed524194dd
+    https://sourceware.org/git/?p=glibc.git;a=commit;h=c69d4a0f680a24fdbe323764a50382ad324041e9
+    https://sourceware.org/git/?p=glibc.git;a=commit;h=3776f38fcd267c127ba5eb222e2c614c191744aa
+    https://sourceware.org/git/?p=glibc.git;a=commit;h=adc7e06fb412a2a1ee52f8cb788caf436335b9f3
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000366
+  (* Security fix *)
+patches/packages/glibc-i18n-2.23-x86_64-2_slack14.2.txz:  Rebuilt.
+patches/packages/glibc-profile-2.23-x86_64-2_slack14.2.txz:  Rebuilt.
+  (* Security fix *)
+patches/packages/glibc-solibs-2.23-x86_64-2_slack14.2.txz:  Rebuilt.
+  (* Security fix *)
+patches/packages/linux-4.4.75/*:  Upgraded.
+  This kernel fixes security issues that include possible stack exhaustion,
+  memory corruption, and arbitrary code execution.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7482
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000365
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170629T205509Z</guid>
+      <title>slackware64 14.2 changes for Thu, 29 Jun 2017 20:55:09 GMT</title>
+      <pubDate>Thu, 29 Jun 2017 20:55:09 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bind-9.10.5_P2-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a high severity security issue:
+  An error in TSIG handling could permit unauthorized zone transfers
+  or zone updates.
+  For more information, see:
+    https://kb.isc.org/article/AA-01503/0
+    https://kb.isc.org/article/AA-01504/0
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3142
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3143
+  (* Security fix *)
+patches/packages/httpd-2.4.26-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes security issues which may lead to an authentication bypass
+  or a denial of service:
+  important: ap_get_basic_auth_pw() Authentication Bypass CVE-2017-3167
+  important: mod_ssl Null Pointer Dereference CVE-2017-3169
+  important: mod_http2 Null Pointer Dereference CVE-2017-7659
+  important: ap_find_token() Buffer Overread CVE-2017-7668
+  important: mod_mime Buffer Overread CVE-2017-7679
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3167
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3169
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7659
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7668
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7679
+  (* Security fix *)
+patches/packages/libgcrypt-1.7.8-x86_64-1_slack14.2.txz:  Upgraded.
+  Mitigate a local flush+reload side-channel attack on RSA secret keys
+  dubbed "Sliding right into disaster".
+  For more information, see:
+    https://eprint.iacr.org/2017/627
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7526
+  (* Security fix *)
+patches/packages/mkinitrd-1.4.10-x86_64-1_slack14.2.txz:  Upgraded.
+  Added support for -P option and MICROCODE_ARCH in mkinitrd.conf to specify
+  a microcode archive to be prepended to the initrd for early CPU microcode
+  patching by the kernel. Thanks to SeB.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170626T203618Z</guid>
+      <title>slackware64 14.2 changes for Mon, 26 Jun 2017 20:36:18 GMT</title>
+      <pubDate>Mon, 26 Jun 2017 20:36:18 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/linux-4.4.74/*:  Upgraded.
+  This kernel fixes two "Stack Clash" vulnerabilities reported by Qualys.
+  The first issue may allow attackers to execute arbitrary code with elevated
+  privileges. Failed attack attempts will likely result in denial-of-service
+  conditions. The second issue can be exploited to bypass certain security
+  restrictions and perform unauthorized actions.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    https://www.qualys.com/2017/06/19/stack-clash/stack-clash.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000364
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000365
+  (* Security fix *)
+patches/packages/mozilla-thunderbird-52.2.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170623T201100Z</guid>
+      <title>slackware64 14.2 changes for Fri, 23 Jun 2017 20:11:00 GMT</title>
+      <pubDate>Fri, 23 Jun 2017 20:11:00 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/nasm-2.13.01-x86_64-1_slack14.2.txz:  Upgraded.
+  This update is needed for some newer projects to compile properly.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170621T183846Z</guid>
+      <title>slackware64 14.2 changes for Wed, 21 Jun 2017 18:38:46 GMT</title>
+      <pubDate>Wed, 21 Jun 2017 18:38:46 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/openvpn-2.3.17-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes several denial of service issues discovered
+  by Guido Vranken.
+  For more information, see:
+    https://community.openvpn.net/openvpn/wiki/VulnerabilitiesFixedInOpenVPN243
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7508
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7520
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7521
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7512
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7522
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170615T020828Z</guid>
+      <title>slackware64 14.2 changes for Thu, 15 Jun 2017 02:08:28 GMT</title>
+      <pubDate>Thu, 15 Jun 2017 02:08:28 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bind-9.10.5_P1-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed denial of service security issue:
+  Some RPZ configurations could go into an infinite query loop when
+  encountering responses with TTL=0.
+  For more information, see:
+    https://kb.isc.org/article/AA-01495
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3140
+  (* Security fix *)
+patches/packages/mozilla-firefox-52.2.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+patches/packages/mozilla-thunderbird-52.2.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170613T195424Z</guid>
+      <title>slackware64 14.2 changes for Tue, 13 Jun 2017 19:54:24 GMT</title>
+      <pubDate>Tue, 13 Jun 2017 19:54:24 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/pkg-config-0.29.2-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release, and is needed for some updates on slackbuilds.org
+  to compile properly. Thanks to Willy Sudiarto Raharjo.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170607T224204Z</guid>
+      <title>slackware64 14.2 changes for Wed, 07 Jun 2017 22:42:04 GMT</title>
+      <pubDate>Wed, 07 Jun 2017 22:42:04 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/irssi-1.0.3-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed security issues that may result in a denial of service.
+  For more information, see:
+    https://irssi.org/security/irssi_sa_2017_06.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9468
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9469
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170531T230723Z</guid>
+      <title>slackware64 14.2 changes for Wed, 31 May 2017 23:07:23 GMT</title>
+      <pubDate>Wed, 31 May 2017 23:07:23 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/sudo-1.8.20p2-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release:
+  Fixed a bug parsing /proc/pid/stat when the process name contains
+  a newline. This is not exploitable due to the /dev traversal changes
+  made in sudo 1.8.20p1.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170530T173917Z</guid>
+      <title>slackware64 14.2 changes for Tue, 30 May 2017 17:39:17 GMT</title>
+      <pubDate>Tue, 30 May 2017 17:39:17 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/lynx-2.8.8rel.2-x86_64-3_slack14.2.txz:  Rebuilt.
+  Fixed lynx startup without a URL by correcting STARTFILE in lynx.cfg to use
+  the new URL for the Lynx homepage.  Thanks to John David Yost.
+patches/packages/sudo-1.8.20p1-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a potential overwrite of arbitrary system files.
+  This bug was discovered and analyzed by Qualys, Inc.
+  For more information, see:
+    https://www.sudo.ws/alerts/linux_tty.html
+    http://www.openwall.com/lists/oss-security/2017/05/30/16
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000367
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170524T193859Z</guid>
+      <title>slackware64 14.2 changes for Wed, 24 May 2017 19:38:59 GMT</title>
+      <pubDate>Wed, 24 May 2017 19:38:59 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/samba-4.4.14-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a remote code execution vulnerability, allowing a
+  malicious client to upload a shared library to a writable share, and
+  then cause the server to load and execute it.
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2017-7494.html
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7494
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170522T205820Z</guid>
+      <title>slackware64 14.2 changes for Mon, 22 May 2017 20:58:20 GMT</title>
+      <pubDate>Mon, 22 May 2017 20:58:20 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/gkrellm-2.3.10-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release to fix a broken gkrellm.pc.
+patches/packages/mozilla-firefox-52.1.2esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170516T201103Z</guid>
+      <title>slackware64 14.2 changes for Tue, 16 May 2017 20:11:03 GMT</title>
+      <pubDate>Tue, 16 May 2017 20:11:03 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/freetype-2.6.3-x86_64-2_slack14.2.txz:  Rebuilt.
+  This update fixes an out-of-bounds write caused by a heap-based buffer
+  overflow related to the t1_builder_close_contour function in psaux/psobjs.c.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8287
+  (* Security fix *)
+patches/packages/kdelibs-4.14.32-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue with KAuth that can lead to gaining
+  root from an unprivileged account.
+  For more information, see:
+    http://www.openwall.com/lists/oss-security/2017/05/10/3
+    https://www.kde.org/info/security/advisory-20170510-1.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8422
+  (* Security fix *)
+patches/packages/mozilla-thunderbird-52.1.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170501T233102Z</guid>
+      <title>slackware64 14.2 changes for Mon, 01 May 2017 23:31:02 GMT</title>
+      <pubDate>Mon, 01 May 2017 23:31:02 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-52.1.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+patches/packages/rxvt-2.7.10-x86_64-5_slack14.2.txz:  Rebuilt.
+  Patched an integer overflow that can crash rxvt with an escape sequence,
+  or possibly have unspecified other impact.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7483
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170426T230945Z</guid>
+      <title>slackware64 14.2 changes for Wed, 26 Apr 2017 23:09:45 GMT</title>
+      <pubDate>Wed, 26 Apr 2017 23:09:45 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/xfce4-weather-plugin-0.8.9-x86_64-1_slack14.2.txz:  Upgraded.
+  Package upgraded to fix the API used to fetch weather data.
+  Thanks to Robby Workman.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170424T180606Z</guid>
+      <title>slackware64 14.2 changes for Mon, 24 Apr 2017 18:06:06 GMT</title>
+      <pubDate>Mon, 24 Apr 2017 18:06:06 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-firefox-52.1.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170421T224012Z</guid>
+      <title>slackware64 14.2 changes for Fri, 21 Apr 2017 22:40:12 GMT</title>
+      <pubDate>Fri, 21 Apr 2017 22:40:12 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/getmail-4.54.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release to fix a failure to retrieve HTML formatted emails
+  that contain a line longer than 1024 characters.  Thanks to Edward Trumbo.
+patches/packages/ntp-4.2.8p10-x86_64-1_slack14.2.txz:  Upgraded.
+  In addition to bug fixes and enhancements, this release fixes security
+  issues of medium and low severity:
+  Denial of Service via Malformed Config (Medium)
+  Authenticated DoS via Malicious Config Option (Medium)
+  Potential Overflows in ctl_put() functions (Medium)
+  Buffer Overflow in ntpq when fetching reslist from a malicious ntpd (Medium)
+  0rigin DoS (Medium)
+  Buffer Overflow in DPTS Clock (Low)
+  Improper use of snprintf() in mx4200_send() (Low)
+  The following issues do not apply to Linux systems:
+  Privileged execution of User Library code (WINDOWS PPSAPI ONLY) (Low)
+  Stack Buffer Overflow from Command Line (WINDOWS installer ONLY) (Low)
+  Data Structure terminated insufficiently (WINDOWS installer ONLY) (Low)
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6464
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6463
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6458
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6460
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9042
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6462
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6451
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6455
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6452
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6459
+  (* Security fix *)
+patches/packages/proftpd-1.3.5e-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes a security issue:
+  AllowChrootSymlinks off does not check entire DefaultRoot path for symlinks.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7418
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170419T044645Z</guid>
+      <title>slackware64 14.2 changes for Wed, 19 Apr 2017 04:46:45 GMT</title>
+      <pubDate>Wed, 19 Apr 2017 04:46:45 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/minicom-2.7.1-x86_64-1_slack14.2.txz:  Upgraded.
+  Fix an out of bounds data access that can lead to remote code execution.
+  This issue was found by Solar Designer of Openwall during a security audit
+  of the Virtuozzo 7 product, which contains derived downstream code in its
+  prl-vzvncserver component.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7467
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170418T042133Z</guid>
+      <title>slackware64 14.2 changes for Tue, 18 Apr 2017 04:21:33 GMT</title>
+      <pubDate>Tue, 18 Apr 2017 04:21:33 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-52.0.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170413T211945Z</guid>
+      <title>slackware64 14.2 changes for Thu, 13 Apr 2017 21:19:45 GMT</title>
+      <pubDate>Thu, 13 Apr 2017 21:19:45 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bind-9.10.4_P8-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed denial of service security issues.
+  For more information, see:
+    https://kb.isc.org/article/AA-01465
+    https://kb.isc.org/article/AA-01466
+    https://kb.isc.org/article/AA-01471
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3136
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3137
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3138
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170408T162435Z</guid>
+      <title>slackware64 14.2 changes for Sat, 08 Apr 2017 16:24:35 GMT</title>
+      <pubDate>Sat, 08 Apr 2017 16:24:35 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libtiff-4.0.7-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8127
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8665
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8683
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3622
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3623
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3658
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5321
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5323
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5652
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5875
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9273
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9448
+  (* Security fix *)
+patches/packages/mozilla-thunderbird-52.0-x86_64-1_slack14.2.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170401T051659Z</guid>
+      <title>slackware64 14.2 changes for Sat, 01 Apr 2017 05:16:59 GMT</title>
+      <pubDate>Sat, 01 Apr 2017 05:16:59 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/samba-4.4.13-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bug fix release to address a regression introduced by the security
+  fixes for CVE-2017-2619 (Symlink race allows access outside share definition).
+  Please see https://bugzilla.samba.org/show_bug.cgi?id=12721 for details.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170328T203050Z</guid>
+      <title>slackware64 14.2 changes for Tue, 28 Mar 2017 20:30:50 GMT</title>
+      <pubDate>Tue, 28 Mar 2017 20:30:50 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mariadb-10.0.30-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes security issues:
+  Crash in libmysqlclient.so.
+  Difficult to exploit vulnerability allows low privileged attacker with
+  logon to compromise the server.  Successful attacks of this vulnerability
+  can result in unauthorized access to data.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3302
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3313
+  (* Security fix *)
+patches/packages/mozilla-firefox-52.0.2esr-x86_64-1_slack14.2.txz:  Upgraded.
+  Upgraded to new Firefox 52.x ESR branch.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170323T213823Z</guid>
+      <title>slackware64 14.2 changes for Thu, 23 Mar 2017 21:38:23 GMT</title>
+      <pubDate>Thu, 23 Mar 2017 21:38:23 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2017b-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
+patches/packages/mcabber-1.0.5-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue:
+  An incorrect implementation of XEP-0280: Message Carbons in multiple XMPP
+  clients allows a remote attacker to impersonate any user, including
+  contacts, in the vulnerable application's display.  This allows for various
+  kinds of social engineering attacks.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5604
+  (* Security fix *)
+patches/packages/samba-4.4.12-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue:
+  All versions of Samba prior to 4.6.1, 4.5.7, 4.4.12 are vulnerable to
+  a malicious client using a symlink race to allow access to areas of
+  the server file system not exported under the share definition.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-2619
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170316T013705Z</guid>
+      <title>slackware64 14.2 changes for Thu, 16 Mar 2017 01:37:05 GMT</title>
+      <pubDate>Thu, 16 Mar 2017 01:37:05 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/pidgin-2.12.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a minor security issue (out of bounds memory read in
+  purple_markup_unescape_entity).
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-2640
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170308T001736Z</guid>
+      <title>slackware64 14.2 changes for Wed, 08 Mar 2017 00:17:36 GMT</title>
+      <pubDate>Wed, 08 Mar 2017 00:17:36 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-firefox-45.8.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+patches/packages/mozilla-thunderbird-45.8.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/thunderbird.html
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170301T190944Z</guid>
+      <title>slackware64 14.2 changes for Wed, 01 Mar 2017 19:09:44 GMT</title>
+      <pubDate>Wed, 01 Mar 2017 19:09:44 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libcgroup-0.41-x86_64-2_slack14.2.txz:  Rebuilt.
+  This is a bugfix package update.
+  Fixed rc.cgred to source the correct config file.
+  Don't remove the entire cgroup file system with "rc.cgconfig stop".
+  Thanks to chris.willing.
+  NOTE:  Be sure to install any .new config files.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170228T235155Z</guid>
+      <title>slackware64 14.2 changes for Tue, 28 Feb 2017 23:51:55 GMT</title>
+      <pubDate>Tue, 28 Feb 2017 23:51:55 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2017a-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170210T210735Z</guid>
+      <title>slackware64 14.2 changes for Fri, 10 Feb 2017 21:07:35 GMT</title>
+      <pubDate>Fri, 10 Feb 2017 21:07:35 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bind-9.10.4_P6-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a denial-of-service vulnerability.  Under some conditions
+  when using both DNS64 and RPZ to rewrite query responses, query processing
+  can resume in an inconsistent state leading to either an INSIST assertion
+  failure or an attempt to read through a NULL pointer.
+  For more information, see:
+    https://kb.isc.org/article/AA-01453
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3135
+  (* Security fix *)
+patches/packages/libpcap-1.8.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This update is required for the new version of tcpdump.
+patches/packages/mozilla-thunderbird-45.7.1-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed crash when viewing certain IMAP messages (introduced in 45.7.0)
+patches/packages/openssl-1.0.2k-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes security issues:
+  Truncated packet could crash via OOB read (CVE-2017-3731)
+  BN_mod_exp may produce incorrect results on x86_64 (CVE-2017-3732)
+  Montgomery multiplication may produce incorrect results (CVE-2016-7055)
+  For more information, see:
+    https://www.openssl.org/news/secadv/20170126.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3731
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3732
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7055
+  (* Security fix *)
+patches/packages/openssl-solibs-1.0.2k-x86_64-1_slack14.2.txz:  Upgraded.
+patches/packages/php-5.6.30-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes bugs and security issues.
+  For more information, see:
+    https://php.net/ChangeLog-5.php#5.6.30
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10158
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10167
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10168
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10159
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10160
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10161
+  (* Security fix *)
+patches/packages/tcpdump-4.9.0-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed bugs which allow an attacker to crash tcpdump (denial of service).
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7922
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7923
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7924
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7925
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7926
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7927
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7928
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7929
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7930
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7931
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7932
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7933
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7934
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7935
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7936
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7937
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7938
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7939
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7940
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7973
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7974
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7975
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7983
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7984
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7985
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7986
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7992
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7993
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8574
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8575
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5202
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5203
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5204
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5205
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5341
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5342
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5482
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5483
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5484
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5485
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5486
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170126T184229Z</guid>
+      <title>slackware64 14.2 changes for Thu, 26 Jan 2017 18:42:29 GMT</title>
+      <pubDate>Thu, 26 Jan 2017 18:42:29 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-45.7.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/thunderbird.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5375
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5376
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5378
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5380
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5390
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5396
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5383
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5386
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5373
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170123T213013Z</guid>
+      <title>slackware64 14.2 changes for Mon, 23 Jan 2017 21:30:13 GMT</title>
+      <pubDate>Mon, 23 Jan 2017 21:30:13 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-firefox-45.7.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170120T041802Z</guid>
+      <title>slackware64 14.2 changes for Fri, 20 Jan 2017 04:18:02 GMT</title>
+      <pubDate>Fri, 20 Jan 2017 04:18:02 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/seamonkey-2.46-x86_64-3_slack14.2.txz:  Rebuilt.
+  Recompiled with less aggressive optimization (-Os) to fix crashes.
+patches/packages/seamonkey-solibs-2.46-x86_64-3_slack14.2.txz:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170118T203917Z</guid>
+      <title>slackware64 14.2 changes for Wed, 18 Jan 2017 20:39:17 GMT</title>
+      <pubDate>Wed, 18 Jan 2017 20:39:17 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mariadb-10.0.29-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes several security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6664
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3238
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3243
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3244
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3257
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3258
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3265
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3291
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3312
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3317
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3318
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170118T010219Z</guid>
+      <title>slackware64 14.2 changes for Wed, 18 Jan 2017 01:02:19 GMT</title>
+      <pubDate>Wed, 18 Jan 2017 01:02:19 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/seamonkey-2.46-x86_64-2_slack14.2.txz:  Rebuilt.
+  Restored missing nspr/obsolete headers.
+patches/packages/seamonkey-solibs-2.46-x86_64-2_slack14.2.txz:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170114T053432Z</guid>
+      <title>slackware64 14.2 changes for Sat, 14 Jan 2017 05:34:32 GMT</title>
+      <pubDate>Sat, 14 Jan 2017 05:34:32 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/scim-1.4.17-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix package update.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20170112T011552Z</guid>
+      <title>slackware64 14.2 changes for Thu, 12 Jan 2017 01:15:52 GMT</title>
+      <pubDate>Thu, 12 Jan 2017 01:15:52 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bind-9.10.4_P5-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a denial-of-service vulnerability.  An error in handling
+  certain queries can cause an assertion failure when a server is using the
+  nxdomain-redirect feature to cover a zone for which it is also providing
+  authoritative service.  A vulnerable server could be intentionally stopped
+  by an attacker if it was using a configuration that met the criteria for
+  the vulnerability and if the attacker could cause it to accept a query
+  that possessed the required attributes.
+  Please note: This vulnerability affects the "nxdomain-redirect" feature,
+  which is one of two methods of handling NXDOMAIN redirection, and is only
+  available in certain versions of BIND.  Redirection using zones of type
+  "redirect" is not affected by this vulnerability.
+  For more information, see:
+    https://kb.isc.org/article/AA-01442
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9778
+  (* Security fix *)
+patches/packages/gnutls-3.5.8-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes some bugs and security issues.
+  For more information, see:
+    https://gnutls.org/security.html#GNUTLS-SA-2017-1
+    https://gnutls.org/security.html#GNUTLS-SA-2017-2
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5334
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5335
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5336
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5337
+  (* Security fix *)
+patches/packages/irssi-0.8.21-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed security issues that may result in a denial of service.
+  For more information, see:
+    https://irssi.org/security/irssi_sa_2017_01.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5193
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5194
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5195
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5196
+  (* Security fix *)
+patches/packages/python-2.7.13-x86_64-2_slack14.2.txz:  Rebuilt.
+  This is a rebuilt package to fix a build-time regression with the
+  multiprocessing.synchronize module.
+  Thanks to Damien Goutte-Gattat for the bug report.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161230T192913Z</guid>
+      <title>slackware64 14.2 changes for Fri, 30 Dec 2016 19:29:13 GMT</title>
+      <pubDate>Fri, 30 Dec 2016 19:29:13 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libpng-1.6.27-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes an old NULL pointer dereference bug in png_set_text_2()
+  discovered and patched by Patrick Keshishian.  The potential "NULL
+  dereference" bug has existed in libpng since version 0.71 of June 26, 1995.
+  To be vulnerable, an application has to load a text chunk into the png
+  structure, then delete all text, then add another text chunk to the same
+  png structure, which seems to be an unlikely sequence, but it has happened.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10087
+  (* Security fix *)
+patches/packages/mozilla-thunderbird-45.6.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/thunderbird.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9899
+  (* Security fix *)
+patches/packages/seamonkey-2.46-x86_64-1_slack14.2.txz:  Upgraded.
+  This update contains security fixes and improvements.
+  For more information, see:
+    http://www.seamonkey-project.org/releases/seamonkey2.46
+  (* Security fix *)
+patches/packages/seamonkey-solibs-2.46-x86_64-1_slack14.2.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161228T210519Z</guid>
+      <title>slackware64 14.2 changes for Wed, 28 Dec 2016 21:05:19 GMT</title>
+      <pubDate>Wed, 28 Dec 2016 21:05:19 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/python-2.7.13-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes security issues:
+  Issue #27850: Remove 3DES from ssl module's default cipher list to counter
+  measure sweet32 attack (CVE-2016-2183).
+  Issue #27568: Prevent HTTPoxy attack (CVE-2016-1000110). Ignore the
+  HTTP_PROXY variable when REQUEST_METHOD environment is set, which indicates
+  that the script is in CGI mode.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2183
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1000110
+  (* Security fix *)
+patches/packages/samba-4.4.8-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes security issues:
+  CVE-2016-2123 (Samba NDR Parsing ndr_pull_dnsp_name Heap-based Buffer
+    Overflow Remote Code Execution Vulnerability).
+  CVE-2016-2125 (Unconditional privilege delegation to Kerberos servers
+    in trusted realms).
+  CVE-2016-2126 (Flaws in Kerberos PAC validation can trigger privilege
+    elevation).
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2123
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2125
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2126
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161224T181451Z</guid>
+      <title>slackware64 14.2 changes for Sat, 24 Dec 2016 18:14:51 GMT</title>
+      <pubDate>Sat, 24 Dec 2016 18:14:51 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/expat-2.2.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and security issues:
+  Multiple integer overflows in XML_GetBuffer.
+  Fix crash on malformed input.
+  Improve insufficient fix to CVE-2015-1283 / CVE-2015-2716.
+  Use more entropy for hash initialization.
+  Resolve troublesome internal call to srand.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1283
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0718
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4472
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5300
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6702
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161224T023605Z</guid>
+      <title>slackware64 14.2 changes for Sat, 24 Dec 2016 02:36:05 GMT</title>
+      <pubDate>Sat, 24 Dec 2016 02:36:05 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/httpd-2.4.25-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes the following security issues:
+  * CVE-2016-8740: mod_http2: Mitigate DoS memory exhaustion via endless
+    CONTINUATION frames.
+  * CVE-2016-5387: core: Mitigate [f]cgi "httpoxy" issues.
+  * CVE-2016-2161: mod_auth_digest: Prevent segfaults during client entry
+    allocation when the shared memory space is exhausted.
+  * CVE-2016-0736: mod_session_crypto: Authenticate the session data/cookie
+    with a MAC (SipHash) to prevent deciphering or tampering with a padding
+    oracle attack.
+  * CVE-2016-8743: Enforce HTTP request grammar corresponding to RFC7230 for
+    request lines and request headers, to prevent response splitting and
+    cache pollution by malicious clients or downstream proxies.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8740
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5387
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2161
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0736
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8743
+  (* Security fix *)
+patches/packages/openssh-7.4p1-x86_64-1_slack14.2.txz:  Upgraded.
+  This is primarily a bugfix release, and also addresses security issues.
+  ssh-agent(1): Will now refuse to load PKCS#11 modules from paths outside
+    a trusted whitelist.
+  sshd(8): When privilege separation is disabled, forwarded Unix-domain
+    sockets would be created by sshd(8) with the privileges of 'root'.
+  sshd(8): Avoid theoretical leak of host private key material to
+    privilege-separated child processes via realloc().
+  sshd(8): The shared memory manager used by pre-authentication compression
+    support had a bounds checks that could be elided by some optimising
+    compilers to potentially allow attacks against the privileged monitor.
+    process from the sandboxed privilege-separation process.
+  sshd(8): Validate address ranges for AllowUser and DenyUsers directives at
+    configuration load time and refuse to accept invalid ones.  It was
+    previously possible to specify invalid CIDR address ranges
+    (e.g. user@127.1.2.3/55) and these would always match, possibly resulting
+    in granting access where it was not intended.
+  For more information, see:
+    https://www.openssh.com/txt/release-7.4
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10009
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10010
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10011
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10012
+  (* Security fix *)
+patches/packages/xfce4-weather-plugin-0.8.8-x86_64-1_slack14.2.txz:  Upgraded.
+  Package upgraded to fix the API used to fetch weather data.
+  Thanks to Robby Workman.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161218T052025Z</guid>
+      <title>slackware64 14.2 changes for Sun, 18 Dec 2016 05:20:25 GMT</title>
+      <pubDate>Sun, 18 Dec 2016 05:20:25 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2016j-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161213T221413Z</guid>
+      <title>slackware64 14.2 changes for Tue, 13 Dec 2016 22:14:13 GMT</title>
+      <pubDate>Tue, 13 Dec 2016 22:14:13 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-firefox-45.6.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161212T212550Z</guid>
+      <title>slackware64 14.2 changes for Mon, 12 Dec 2016 21:25:50 GMT</title>
+      <pubDate>Mon, 12 Dec 2016 21:25:50 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/linux-4.4.38/*:  Upgraded.
+  This kernel fixes a security issue with a race condition in
+  net/packet/af_packet.c that can be exploited to gain kernel code execution
+  from unprivileged processes.
+  Thanks to Philip Pettersson for discovering the bug and providing a patch.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=84ac7260236a49c79eede91617700174c2c19b0c
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8655
+  (* Security fix *)
+patches/packages/loudmouth-1.5.3-x86_64-1_slack14.2.txz:  Upgraded.
+  This update is needed for the mcabber security update.
+patches/packages/mcabber-1.0.4-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue which can lead to a malicious actor
+  MITMing a conversation, or adding themselves as an entity on a third
+  parties roster (thereby granting themselves the associated priviledges
+  such as observing when the user is online).
+  For more information, see:
+    https://gultsch.de/gajim_roster_push_and_message_interception.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9928
+  (* Security fix *)
+patches/packages/php-5.6.29-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes bugs and security issues.
+  For more information, see:
+    https://php.net/ChangeLog-5.php#5.6.29
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9933
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9934
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9935
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161201T084920Z</guid>
+      <title>slackware64 14.2 changes for Thu, 01 Dec 2016 08:49:20 GMT</title>
+      <pubDate>Thu, 01 Dec 2016 08:49:20 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/intltool-0.51.0-x86_64-3_slack14.2.txz:  Rebuilt.
+  Added a patch to fix issues when $(builddir) != $(srcdir).  This avoids
+  possible build failures when intltool is used with automake >= 1.15.
+  Thanks to Willy Sudiarto Raharjo.
+patches/packages/mozilla-firefox-45.5.1esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9079
+  (* Security fix *)
+patches/packages/mozilla-thunderbird-45.5.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/thunderbird.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9079
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161121T192122Z</guid>
+      <title>slackware64 14.2 changes for Mon, 21 Nov 2016 19:21:22 GMT</title>
+      <pubDate>Mon, 21 Nov 2016 19:21:22 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/ntp-4.2.8p9-x86_64-1_slack14.2.txz:  Upgraded.
+  In addition to bug fixes and enhancements, this release fixes the
+  following 1 high- (Windows only :-), 2 medium-, 2 medium-/low, and
+  5 low-severity vulnerabilities, and provides 28 other non-security
+  fixes and improvements.
+  CVE-2016-9311: Trap crash
+  CVE-2016-9310: Mode 6 unauthenticated trap info disclosure and DDoS vector
+  CVE-2016-7427: Broadcast Mode Replay Prevention DoS
+  CVE-2016-7428: Broadcast Mode Poll Interval Enforcement DoS
+  CVE-2016-9312: Windows: ntpd DoS by oversized UDP packet
+  CVE-2016-7431: Regression: 010-origin: Zero Origin Timestamp Bypass
+  CVE-2016-7434: Null pointer dereference in _IO_str_init_static_internal()
+  CVE-2016-7429: Interface selection attack
+  CVE-2016-7426: Client rate limiting and server responses
+  CVE-2016-7433: Reboot sync calculation problem
+  For more information, see:
+    https://www.kb.cert.org/vuls/id/633847
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9311
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9310
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7427
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7428
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9312
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7431
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7434
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7429
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7426
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7433
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161118T224940Z</guid>
+      <title>slackware64 14.2 changes for Fri, 18 Nov 2016 22:49:40 GMT</title>
+      <pubDate>Fri, 18 Nov 2016 22:49:40 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-firefox-45.5.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    http://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161104T033138Z</guid>
+      <title>slackware64 14.2 changes for Fri, 04 Nov 2016 03:31:38 GMT</title>
+      <pubDate>Fri, 04 Nov 2016 03:31:38 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bind-9.10.4_P4-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a denial-of-service vulnerability.  A defect in BIND's
+  handling of responses containing a DNAME answer can cause a resolver to exit
+  after encountering an assertion failure in db.c or resolver.c.  A server
+  encountering either of these error conditions will stop, resulting in denial
+  of service to clients.  The risk to authoritative servers is minimal;
+  recursive servers are chiefly at risk.
+  For more information, see:
+    https://kb.isc.org/article/AA-01434
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8864
+  (* Security fix *)
+patches/packages/curl-7.51.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes security issues:
+  CVE-2016-8615: cookie injection for other servers
+  CVE-2016-8616: case insensitive password comparison
+  CVE-2016-8617: OOB write via unchecked multiplication
+  CVE-2016-8618: double-free in curl_maprintf
+  CVE-2016-8619: double-free in krb5 code
+  CVE-2016-8620: glob parser write/read out of bounds
+  CVE-2016-8621: curl_getdate read out of bounds
+  CVE-2016-8622: URL unescape heap overflow via integer truncation
+  CVE-2016-8623: Use-after-free via shared cookies
+  CVE-2016-8624: invalid URL parsing with '#'
+  CVE-2016-8625: IDNA 2003 makes curl use wrong host
+  For more information, see:
+    https://curl.haxx.se/docs/adv_20161102A.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8615
+    https://curl.haxx.se/docs/adv_20161102B.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8616
+    https://curl.haxx.se/docs/adv_20161102C.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8617
+    https://curl.haxx.se/docs/adv_20161102D.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8618
+    https://curl.haxx.se/docs/adv_20161102E.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8619
+    https://curl.haxx.se/docs/adv_20161102F.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8620
+    https://curl.haxx.se/docs/adv_20161102G.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8621
+    https://curl.haxx.se/docs/adv_20161102H.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8622
+    https://curl.haxx.se/docs/adv_20161102I.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8623
+    https://curl.haxx.se/docs/adv_20161102J.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8624
+    https://curl.haxx.se/docs/adv_20161102K.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8625
+  (* Security fix *)
+patches/packages/glibc-zoneinfo-2016i-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161031T233824Z</guid>
+      <title>slackware64 14.2 changes for Mon, 31 Oct 2016 23:38:24 GMT</title>
+      <pubDate>Mon, 31 Oct 2016 23:38:24 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libX11-1.6.4-x86_64-1_slack14.2.txz:  Upgraded.
+  Insufficient validation of data from the X server can cause out of boundary
+  memory read in XGetImage() or write in XListFonts().
+  Affected versions libX11 &lt;= 1.6.3.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7942
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7943
+  (* Security fix *)
+patches/packages/libXfixes-5.0.3-x86_64-1_slack14.2.txz:  Upgraded.
+  Insufficient validation of data from the X server can cause an integer
+  overflow on 32 bit architectures.
+  Affected versions : libXfixes &lt;= 5.0.2.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7944
+  (* Security fix *)
+patches/packages/libXi-1.7.8-x86_64-1_slack14.2.txz:  Upgraded.
+  Insufficient validation of data from the X server can cause out of boundary
+  memory access or endless loops (Denial of Service).
+  Affected versions libXi &lt;= 1.7.6.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7945
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7946
+  (* Security fix *)
+patches/packages/libXrandr-1.5.1-x86_64-1_slack14.2.txz:  Upgraded.
+  Insufficient validation of data from the X server can cause out of boundary
+  memory writes.
+  Affected versions: libXrandr &lt;= 1.5.0.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7947
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7948
+  (* Security fix *)
+patches/packages/libXrender-0.9.10-x86_64-1_slack14.2.txz:  Upgraded.
+  Insufficient validation of data from the X server can cause out of boundary
+  memory writes.
+  Affected version: libXrender &lt;= 0.9.9.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7949
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7950
+  (* Security fix *)
+patches/packages/libXtst-1.2.3-x86_64-1_slack14.2.txz:  Upgraded.
+  Insufficient validation of data from the X server can cause out of boundary
+  memory access or endless loops (Denial of Service).
+  Affected version libXtst &lt;= 1.2.2.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7951
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7952
+  (* Security fix *)
+patches/packages/libXv-1.0.11-x86_64-1_slack14.2.txz:  Upgraded.
+  Insufficient validation of data from the X server can cause out of boundary
+  memory and memory corruption.
+  Affected version libXv &lt;= 1.0.10.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5407
+  (* Security fix *)
+patches/packages/libXvMC-1.0.10-x86_64-1_slack14.2.txz:  Upgraded.
+  Insufficient validation of data from the X server can cause a one byte buffer
+  read underrun.
+  Affected version: libXvMC &lt;= 1.0.9.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7953
+  (* Security fix *)
+patches/packages/linux-4.4.29/*:  Upgraded.
+  This kernel fixes a security issue known as "Dirty COW".  A race condition
+  was found in the way the Linux kernel's memory subsystem handled the
+  copy-on-write (COW) breakage of private read-only memory mappings.  An
+  unprivileged local user could use this flaw to gain write access to
+  otherwise read-only memory mappings and thus increase their privileges on
+  the system.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    https://dirtycow.ninja/
+    https://www.kb.cert.org/vuls/id/243144
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5195
+  (* Security fix *)
+patches/packages/mariadb-10.0.28-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes several security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5616
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5624
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5626
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3492
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5629
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8283
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7440
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5584
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6663
+  (* Security fix *)
+patches/packages/php-5.6.27-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes bugs and security issues.
+  For more information, see:
+    https://php.net/ChangeLog-5.php#5.6.27
+  (* Security fix *)
+patches/packages/xscreensaver-5.36-x86_64-1_slack14.2.txz:  Upgraded.
+  Here's an upgrade to the latest xscreensaver.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20161001T171113Z</guid>
+      <title>slackware64 14.2 changes for Sat, 01 Oct 2016 17:11:13 GMT</title>
+      <pubDate>Sat, 01 Oct 2016 17:11:13 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-45.4.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    http://www.mozilla.org/security/known-vulnerabilities/thunderbird.html
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160928T232437Z</guid>
+      <title>slackware64 14.2 changes for Wed, 28 Sep 2016 23:24:37 GMT</title>
+      <pubDate>Wed, 28 Sep 2016 23:24:37 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2016g-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160927T191656Z</guid>
+      <title>slackware64 14.2 changes for Tue, 27 Sep 2016 19:16:56 GMT</title>
+      <pubDate>Tue, 27 Sep 2016 19:16:56 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bind-9.10.4_P3-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a denial-of-service vulnerability.  Testing by ISC has
+  uncovered a critical error condition which can occur when a nameserver is
+  constructing a response.  A defect in the rendering of messages into
+  packets can cause named to exit with an assertion failure in buffer.c while
+  constructing a response to a query that meets certain criteria.
+  For more information, see:
+    https://kb.isc.org/article/AA-01419/0
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2776
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160926T181408Z</guid>
+      <title>slackware64 14.2 changes for Mon, 26 Sep 2016 18:14:08 GMT</title>
+      <pubDate>Mon, 26 Sep 2016 18:14:08 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/openssl-1.0.2j-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue:
+  Missing CRL sanity check (CVE-2016-7052)
+  For more information, see:
+    https://www.openssl.org/news/secadv/20160926.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7052
+  (* Security fix *)
+patches/packages/openssl-solibs-1.0.2j-x86_64-1_slack14.2.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160923T233053Z</guid>
+      <title>slackware64 14.2 changes for Fri, 23 Sep 2016 23:30:53 GMT</title>
+      <pubDate>Fri, 23 Sep 2016 23:30:53 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/php-5.6.26-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes bugs and security issues.
+  For more information, see:
+    https://php.net/ChangeLog-5.php#5.6.26
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7416
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7412
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7414
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7417
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7411
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7413
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7418
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160922T183807Z</guid>
+      <title>slackware64 14.2 changes for Thu, 22 Sep 2016 18:38:07 GMT</title>
+      <pubDate>Thu, 22 Sep 2016 18:38:07 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/openssl-1.0.2i-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes denial-of-service and other security issues.
+  For more information, see:
+    https://www.openssl.org/news/secadv/20160922.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6304
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6305
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2183
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6303
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6302
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2182
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2180
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2177
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2178
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2179
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2181
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6306
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6307
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6308
+  (* Security fix *)
+patches/packages/openssl-solibs-1.0.2i-x86_64-1_slack14.2.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160921T211052Z</guid>
+      <title>slackware64 14.2 changes for Wed, 21 Sep 2016 21:10:52 GMT</title>
+      <pubDate>Wed, 21 Sep 2016 21:10:52 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/irssi-0.8.20-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes two remote crash and heap corruption vulnerabilites
+  in Irssi's format parsing code.  Impact:  Remote crash and heap
+  corruption.  Remote code execution seems difficult since only Nuls are
+  written.  Bugs discovered by, and patches provided by Gabriel Campana
+  and Adrien Guinet from Quarkslab.
+  For more information, see:
+    https://irssi.org/security/irssi_sa_2016.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7044
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7045
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160921T155406Z</guid>
+      <title>slackware64 14.2 changes for Wed, 21 Sep 2016 15:54:06 GMT</title>
+      <pubDate>Wed, 21 Sep 2016 15:54:06 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-firefox-45.4.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    http://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+patches/packages/pidgin-2.11.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes bugs and security issues.
+  For more information, see:
+    https://www.pidgin.im/news/security/
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160915T225452Z</guid>
+      <title>slackware64 14.2 changes for Thu, 15 Sep 2016 22:54:52 GMT</title>
+      <pubDate>Thu, 15 Sep 2016 22:54:52 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/curl-7.50.3-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed heap overflows in four libcurl functions: curl_escape(),
+  curl_easy_escape(), curl_unescape() and curl_easy_unescape().
+  For more information, see:
+    https://curl.haxx.se/docs/adv_20160914.html
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7167
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160913T181332Z</guid>
+      <title>slackware64 14.2 changes for Tue, 13 Sep 2016 18:13:32 GMT</title>
+      <pubDate>Tue, 13 Sep 2016 18:13:32 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mariadb-10.0.27-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a critical vulnerability which can allow local and
+  remote attackers to inject malicious settings into MySQL configuration
+  files (my.cnf).  A successful exploitation could allow attackers to
+  execute arbitrary code with root privileges which would then allow them
+  to fully compromise the server.
+  This issue was discovered and reported by Dawid Golunski.
+  For more information, see:
+    http://legalhackers.com/advisories/MySQL-Exploit-Remote-Root-Code-Execution-Privesc-CVE-2016-6662.html
+    https://jira.mariadb.org/browse/MDEV-10465
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6662
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160912T183903Z</guid>
+      <title>slackware64 14.2 changes for Mon, 12 Sep 2016 18:39:03 GMT</title>
+      <pubDate>Mon, 12 Sep 2016 18:39:03 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/sdl-1.2.15-x86_64-5_slack14.2.txz:  Rebuilt.
+  Fixed a regression that broke MOD support.  Thanks to B Watson.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160910T180442Z</guid>
+      <title>slackware64 14.2 changes for Sat, 10 Sep 2016 18:04:42 GMT</title>
+      <pubDate>Sat, 10 Sep 2016 18:04:42 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/gnutls-3.4.15-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes some bugs and security issues.
+  For more information, see:
+    http://www.gnutls.org/security.html#GNUTLS-SA-2015-2
+    http://www.gnutls.org/security.html#GNUTLS-SA-2015-3
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-6251
+  (* Security fix *)
+patches/packages/gtk+2-2.24.31-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue:  Integer overflow in the
+  gdk_cairo_set_source_pixbuf function in gdk/gdkcairo.c allows remote
+  attackers to cause a denial of service (crash) via a large image file,
+  which triggers a large memory allocation.
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7447
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160908T213502Z</guid>
+      <title>slackware64 14.2 changes for Thu, 08 Sep 2016 21:35:02 GMT</title>
+      <pubDate>Thu, 08 Sep 2016 21:35:02 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/php-5.6.25-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes bugs and security issues.
+  For more information, see:
+    http://php.net/ChangeLog-5.php#5.6.25
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7125
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7126
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7127
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7128
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7129
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7130
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7131
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7132
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7133
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7134
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160831T204310Z</guid>
+      <title>slackware64 14.2 changes for Wed, 31 Aug 2016 20:43:10 GMT</title>
+      <pubDate>Wed, 31 Aug 2016 20:43:10 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-45.3.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    http://www.mozilla.org/security/known-vulnerabilities/thunderbird.html
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160823T194533Z</guid>
+      <title>slackware64 14.2 changes for Tue, 23 Aug 2016 19:45:33 GMT</title>
+      <pubDate>Tue, 23 Aug 2016 19:45:33 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/gnupg-1.4.21-x86_64-1_slack14.2.txz:  Upgraded.
+  Fix critical security bug in the RNG [CVE-2016-6313].  An attacker who
+  obtains 580 bytes from the standard RNG can trivially predict the next
+  20 bytes of output.  (This is according to the NEWS file included in the
+  source.  According to the annoucement linked below, an attacker who obtains
+  4640 bits from the RNG can trivially predict the next 160 bits of output.)
+  Problem detected by Felix Doerre and Vladimir Klebanov, KIT.
+  For more information, see:
+    https://lists.gnupg.org/pipermail/gnupg-announce/2016q3/000395.html
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6313
+  (* Security fix *)
+patches/packages/glib2-2.46.2-x86_64-3_slack14.2.txz:  Rebuilt.
+  Applied upstream patch to fix a use-before-allocate bug in libgio.  Without
+  this fix, Thunar will crash if $HOME is on an NFS volume.
+  Thanks to Jonathan Woithe.
+patches/packages/libgcrypt-1.7.3-x86_64-1_slack14.2.txz:  Upgraded.
+  Fix critical security bug in the RNG [CVE-2016-6313].  An attacker who
+  obtains 580 bytes from the standard RNG can trivially predict the next
+  20 bytes of output.  (This is according to the NEWS file included in the
+  source.  According to the annoucement linked below, an attacker who obtains
+  4640 bits from the RNG can trivially predict the next 160 bits of output.)
+  Problem detected by Felix Doerre and Vladimir Klebanov, KIT.
+  For more information, see:
+    https://lists.gnupg.org/pipermail/gnupg-announce/2016q3/000395.html
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6313
+  (* Security fix *)
+patches/packages/linux-4.4.19/*:  Upgraded.
+  A flaw was found in the implementation of the Linux kernels handling of
+  networking challenge ack where an attacker is able to determine the shared
+  counter.  This may allow an attacker located on different subnet to inject
+  or take over a TCP connection between a server and client without having to
+  be a traditional Man In the Middle (MITM) style attack.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5389
+  (* Security fix *)
+patches/packages/screen-4.4.0-x86_64-2_slack14.2.txz:  Rebuilt.
+  Reverted a change to /etc/screenrc.new that prevented the console from being
+  cleared when a screen session was detached.  Thanks to Stuart Winter.
+patches/packages/stunnel-5.35-x86_64-2_slack14.2.txz:  Rebuilt.
+  Fixed incorrect config file name in generate-stunnel-key.sh.
+  Thanks to Ebben Aries.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160811T185548Z</guid>
+      <title>slackware64 14.2 changes for Thu, 11 Aug 2016 18:55:48 GMT</title>
+      <pubDate>Thu, 11 Aug 2016 18:55:48 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2016f-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160806T192916Z</guid>
+      <title>slackware64 14.2 changes for Sat, 06 Aug 2016 19:29:16 GMT</title>
+      <pubDate>Sat, 06 Aug 2016 19:29:16 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/curl-7.50.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes security issues:
+  TLS: switch off SSL session id when client cert is used
+  TLS: only reuse connections with the same client cert
+  curl_multi_cleanup: clear connection pointer for easy handles
+  For more information, see:
+    https://curl.haxx.se/docs/adv_20160803A.html
+    https://curl.haxx.se/docs/adv_20160803B.html
+    https://curl.haxx.se/docs/adv_20160803C.html
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5419
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5420
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5421
+  (* Security fix *)
+patches/packages/mozilla-firefox-45.3.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    http://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+patches/packages/openssh-7.3p1-x86_64-1_slack14.2.txz:  Upgraded.
+  This is primarily a bugfix release, and also addresses security issues.
+  sshd(8): Mitigate a potential denial-of-service attack against the system's
+  crypt(3) function via sshd(8).
+  sshd(8): Mitigate timing differences in password authentication that could
+  be used to discern valid from invalid account names when long passwords were
+  sent and particular password hashing algorithms are in use on the server.
+  ssh(1), sshd(8): Fix observable timing weakness in the CBC padding oracle
+  countermeasures.
+  ssh(1), sshd(8): Improve operation ordering of MAC verification for
+  Encrypt-then-MAC (EtM) mode transport MAC algorithms to verify the MAC
+  before decrypting any ciphertext.
+  sshd(8): (portable only) Ignore PAM environment vars when UseLogin=yes.
+  For more information, see:
+    http://www.openssh.com/txt/release-7.3
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6210
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8325
+  (* Security fix *)
+patches/packages/stunnel-5.35-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixes security issues:
+  Fixed malfunctioning "verify = 4".
+  Fixed incorrectly enforced client certificate requests.
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160728T181717Z</guid>
+      <title>slackware64 14.2 changes for Thu, 28 Jul 2016 18:17:17 GMT</title>
+      <pubDate>Thu, 28 Jul 2016 18:17:17 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libidn-1.33-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed out-of-bounds read bugs.  Fixed crashes on invalid UTF-8.
+  Thanks to Hanno BÃ¶ck.
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8948
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6261
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6262
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6263
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160722T205123Z</guid>
+      <title>slackware64 14.2 changes for Fri, 22 Jul 2016 20:51:23 GMT</title>
+      <pubDate>Fri, 22 Jul 2016 20:51:23 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bind-9.10.4_P2-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed a security issue:
+  getrrsetbyname with a non absolute name could trigger an infinite
+    recursion bug in lwresd and named with lwres configured if when
+    combined with a search list entry the resulting name is too long.
+    (CVE-2016-2775) [RT #42694]
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2775
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160721T232554Z</guid>
+      <title>slackware64 14.2 changes for Thu, 21 Jul 2016 23:25:54 GMT</title>
+      <pubDate>Thu, 21 Jul 2016 23:25:54 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/gimp-2.8.18-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes a security issue:
+  Use-after-free vulnerability in the xcf_load_image function in
+  app/xcf/xcf-load.c in GIMP allows remote attackers to cause a denial of
+  service (program crash) or possibly execute arbitrary code via a crafted
+  XCF file.
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4994
+  (* Security fix *)
+patches/packages/php-5.6.24-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes bugs and security issues.
+  For more information, see:
+    http://php.net/ChangeLog-5.php#5.6.24
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5385
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6207
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160707T195236Z</guid>
+      <title>slackware64 14.2 changes for Thu, 07 Jul 2016 19:52:36 GMT</title>
+      <pubDate>Thu, 07 Jul 2016 19:52:36 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/samba-4.4.5-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes a security issue:
+  Client side SMB2/3 required signing can be downgraded.
+  It's possible for an attacker to downgrade the required signing for an
+  SMB2/3 client connection, by injecting the SMB2_SESSION_FLAG_IS_GUEST or
+  SMB2_SESSION_FLAG_IS_NULL flags.  This means that the attacker can
+  impersonate a server being connected to by Samba, and return malicious
+  results.
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2119
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20160705T045245Z</guid>
+      <title>slackware64 14.2 changes for Tue, 05 Jul 2016 04:52:45 GMT</title>
+      <pubDate>Tue, 05 Jul 2016 04:52:45 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-45.2.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    http://www.mozilla.org/security/known-vulnerabilities/thunderbird.html
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+  </channel>
+</rss>

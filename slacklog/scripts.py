@@ -317,3 +317,46 @@ def slacklog2rss():
     #   Write output
     #
     write(opts.out, rss)
+
+
+def slacklog2txt():
+    #
+    #   Define and handle command line options
+    #
+    (opts, args) = main(
+        description='Convert Slackware ChangeLog to RSS',
+        options={
+            'changelog': {'help': 'Read input from FILE',
+                          'metavar': 'FILE', 'mandatory': True},
+            'encoding': {'help': 'ChangeLog encoding [default: %default]',
+                         'default': 'iso8859-1'},
+            'out': {'help': 'Write output to FILE',
+                    'metavar': 'FILE', 'mandatory': True},
+            'quiet': {'help': 'Do not print warnings',
+                      'action': 'store_true'}
+        })
+
+    #
+    #   Apply options to parser and formatter
+    #
+    parser = parsers.SlackLogParser()
+    parser.quiet = opts.quiet
+
+    formatter = formatters.SlackLogTxtFormatter()
+
+    #
+    #   Read input
+    #
+    orig = read(opts.changelog, opts.encoding)
+
+    #
+    #   Format output
+    #
+    text = formatter.format(parser.parse(orig))
+
+    #
+    #   Write output
+    #
+    f = codecs.open(opts.out, 'w', opts.encoding)
+    f.write(text)
+    f.close()

@@ -1,8 +1,8 @@
 slacklog -- Convert Slackware Changelog to various formats
 **********************************************************
 
-slacklog provides a program and a library to convert a Slackware
-ChangeLog into other formats.  Currently, RSS, Atom, and PyBlosxom
+slacklog provides programs and a library to convert a Slackware
+ChangeLogs into other formats.  Currently, RSS, Atom, and PyBlosxom
 formats are supported.
 
 | Download: http://pypi.python.org/pypi/slacklog
@@ -87,6 +87,7 @@ Here's one way to hack on this inside a container::
     # apk add --no-cache python py-setuptools py-dateutil curl
     # cd /slacklog
     # python setup.py install
+    # sh examples/fetch-changelogs.sh
     # sh examples/update-slacklog-rss.sh
 
 Obviously, you need Docker installed and working,

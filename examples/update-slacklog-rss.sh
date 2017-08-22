@@ -8,12 +8,17 @@ BASE_URL=http://ftp.osuosl.org/pub/slackware
 #
 #   Where to store the ChangeLogs once downloaded
 #
-BASE_DIR=.
+BASE_DIR=./test/changelogs
 
 #
-#   Temporary storage
+#   Where to store the RSS feeds
 #
-TMP_DIR=/tmp
+RSS_DIR=./test/rss
+
+#
+#   Use one lastBuildDate for every feed for consistency
+#
+LAST_BUILD_DATE="$(date -Iseconds)"
 
 #
 #   A function that knows how to update a single feed.
@@ -23,45 +28,40 @@ update_rss() {
     version=$2
     min_date=$3
 
-    #
-    #   Download the ChangeLog.txt to temporary location.
-    #   Use conditional GET and compression to minimize the
-    #   download.
-    #
-    curl -sS -q --compressed \
-        -z $BASE_DIR/$slackware-$version.txt \
-        -R -o $TMP_DIR/$slackware-$version.txt \
-        $BASE_URL/$slackware-$version/ChangeLog.txt
+    echo -n "Generating RSS for $slackware $version... "
 
     #
-    #   The ChangeLog.txt exists only if it had actually changed.
+    #   Update the RSS feed
     #
-    if [ -f $TMP_DIR/$slackware-$version.txt ] ; then
-        #
-        #   Move the ChangeLog.txt to real location
-        #
-        mv $TMP_DIR/$slackware-$version.txt $BASE_DIR/$slackware-$version.txt
-        #
-        #   Update the RSS feed
-        #
-        LANG=en_US.utf8 slacklog2rss \
-            --changelog $BASE_DIR/$slackware-$version.txt \
-            --min-date="$min_date" \
-            --out $BASE_DIR/$slackware-$version.rss \
-            --slackware="$slackware $version" \
-            --rssLink="http://linuxbox.fi/~vmj/slacklog/$slackware-$version.rss" \
-            --description="Recent changes in $slackware $version" \
-            --managingEditor="vmj@linuxbox.fi (Mikko Värri)" \
-            --webMaster="vmj@linuxbox.fi (Mikko Värri)"
-    fi
+    LANG=en_US.utf8 slacklog2rss \
+        --changelog "$BASE_DIR/$slackware-$version.txt" \
+        --min-date="$min_date" \
+        --out "$RSS_DIR/$slackware-$version.rss" \
+        --slackware="$slackware $version" \
+        --rssLink="http://linuxbox.fi/~vmj/slacklog/$slackware-$version.rss" \
+        --description="Recent changes in $slackware $version" \
+        --managingEditor="vmj@linuxbox.fi (Mikko Värri)" \
+        --webMaster="vmj@linuxbox.fi (Mikko Värri)" \
+        --lastBuildDate="$LAST_BUILD_DATE"
+
+    echo "OK"
 }
 
+mkdir -p "$RSS_DIR"
+
+#
+#   Store the last build date for tests
+#
+echo "$LAST_BUILD_DATE" >"$RSS_DIR-timestamp"
 
 #   Update various feeds.
 
-#   For stable releases, the date is the date of the first patch,
-#   since the next entry would be the announcement of the previous
-#   release.
+#   For stable releases, the below date is the date of the first
+#   patch to the -current branch.  I.e. the slackware 13.0 feed
+#   would then contain all the changes made to the -current until
+#   it became a release, and all the changes after that.
+update_rss slackware   12.0    'Wed Oct 25 15:45:46 CDT 2006'
+update_rss slackware   12.1    'Thu Jul 19 12:50:36 CDT 2007'
 update_rss slackware   13.0    'Wed May  7 16:13:31 CDT 2008'
 update_rss slackware64 13.0    'Tue May 19 15:36:49 CDT 2009'
 update_rss slackware   13.1    'Mon Sep  7 20:58:42 CDT 2009'
