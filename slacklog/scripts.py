@@ -11,8 +11,8 @@ import codecs
 import locale
 from optparse import OptionParser
 import slacklog
-from slacklog import parsers
-from slacklog import formatters
+from slacklog.parsers import SlackLogParser
+from slacklog.formatters import SlackLogAtomFormatter, SlackLogRssFormatter, SlackLogTxtFormatter, SlackLogPyblosxomFormatter
 
 try:
     str = unicode
@@ -151,11 +151,11 @@ def slacklog2atom():
     #
     #   Apply options to parser and formatter
     #
-    parser = parsers.SlackLogParser()
+    parser = SlackLogParser()
     parser.quiet = opts.quiet
     parser.min_date = parser.parse_date(u(opts.min_date))
 
-    formatter = formatters.SlackLogAtomFormatter()
+    formatter = SlackLogAtomFormatter()
     formatter.max_entries = i(opts.max_entries)
     formatter.slackware = u(opts.slackware)
     formatter.link = u(opts.link)
@@ -220,11 +220,11 @@ def slacklog2pyblosxom():
     #
     #   Apply options to parser and formatter
     #
-    parser = parsers.SlackLogParser()
+    parser = SlackLogParser()
     parser.quiet = opts.quiet
     parser.min_date = parser.parse_date(u(opts.min_date))
 
-    formatter = formatters.SlackLogPyblosxomFormatter()
+    formatter = SlackLogPyblosxomFormatter()
     formatter.max_entries = i(opts.max_entries)
     formatter.quiet = opts.quiet
     formatter.slackware = u(opts.slackware)
@@ -288,11 +288,11 @@ def slacklog2rss():
     #
     #   Apply options to parser and formatter
     #
-    parser = parsers.SlackLogParser()
+    parser = SlackLogParser()
     parser.quiet = opts.quiet
     parser.min_date = parser.parse_date(u(opts.min_date))
 
-    formatter = formatters.SlackLogRssFormatter()
+    formatter = SlackLogRssFormatter()
     formatter.max_entries = i(opts.max_entries)
     formatter.slackware = u(opts.slackware)
     formatter.rssLink = u(opts.rssLink)
@@ -339,10 +339,10 @@ def slacklog2txt():
     #
     #   Apply options to parser and formatter
     #
-    parser = parsers.SlackLogParser()
+    parser = SlackLogParser()
     parser.quiet = opts.quiet
 
-    formatter = formatters.SlackLogTxtFormatter()
+    formatter = SlackLogTxtFormatter()
 
     #
     #   Read input

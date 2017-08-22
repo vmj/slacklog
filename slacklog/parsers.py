@@ -10,7 +10,7 @@ import re
 import hashlib
 from dateutil import parser
 from dateutil import tz
-from slacklog import models
+from slacklog.models import SlackLog, SlackLogEntry, SlackLogPkg
 from codecs import encode
 
 try:
@@ -55,7 +55,7 @@ class SlackLogParser (object):
         :rtype: :py:class:`slacklog.models.SlackLog`
         """
         assert(isinstance(data, str))
-        log = models.SlackLog()
+        log = SlackLog()
         log.startsWithSeparator = re.match('\A(\+-+\+[\n]?)', data)
         log.endsWithSeparator = re.search('[\n](\+-+\+[\n]?)\Z', data)
         if log.startsWithSeparator:
@@ -104,7 +104,7 @@ class SlackLogParser (object):
         :rtype: :py:class:`slacklog.models.SlackLogEntry`
         """
         assert(isinstance(data, str))
-        assert(isinstance(log, models.SlackLog))
+        assert(isinstance(log, SlackLog))
         self.ENTRY += 1
         self.PKG = 0
         sha512 = u'%s' % hashlib.sha512(encode(data, 'utf-8')).hexdigest()
@@ -118,7 +118,7 @@ class SlackLogParser (object):
         if self.min_date and self.min_date > timestamp:
             return None
         description, data = self.parse_entry_description(data)
-        entry = models.SlackLogEntry(timestamp, description, log, checksum=sha512, identifier=identifier, parent=parent,
+        entry = SlackLogEntry(timestamp, description, log, checksum=sha512, identifier=identifier, parent=parent,
                                      timezone=timezone)
         for pkg_data in self.split_entry_to_pkgs(data):
             pkg = self.parse_pkg(pkg_data, entry)
@@ -193,7 +193,7 @@ class SlackLogParser (object):
         :rtype: :py:class:`slacklog.models.SlackLogPkg`
         """
         assert(isinstance(data, str))
-        assert(isinstance(entry, models.SlackLogEntry))
+        assert(isinstance(entry, SlackLogEntry))
         self.PKG += 1
         try:
             pkg, data = self.parse_pkg_name(data)
@@ -201,7 +201,7 @@ class SlackLogParser (object):
             print("data: '%s...'" % data[0:50])
             raise
         description = self.parse_pkg_description(data)
-        return models.SlackLogPkg(pkg, description, entry)
+        return SlackLogPkg(pkg, description, entry)
 
     def parse_pkg_name(self, data):
         """

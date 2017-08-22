@@ -14,7 +14,7 @@ import os
 import re
 import time
 from dateutil import tz
-from slacklog import models
+from slacklog.models import SlackLog, SlackLogEntry, SlackLogPkg
 
 
 def readable(d):
@@ -58,7 +58,7 @@ class SlackLogFormatter (object):
         :return: Unicode representation of the log.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(log, models.SlackLog))
+        assert(isinstance(log, SlackLog))
         data = u''
         data += self.format_log_preamble(log)
         data += self.format_list(log.entries, self.format_entry, self.max_entries)
@@ -77,7 +77,7 @@ class SlackLogFormatter (object):
         :return: Unicode representation of log preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(log, models.SlackLog))
+        assert(isinstance(log, SlackLog))
         return u''
 
     def format_log_postamble(self, log):
@@ -92,7 +92,7 @@ class SlackLogFormatter (object):
         :return: Unicode representation of log postamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(log, models.SlackLog))
+        assert(isinstance(log, SlackLog))
         return u''
 
     def format_entry(self, entry, is_first, is_last):
@@ -116,7 +116,7 @@ class SlackLogFormatter (object):
         :return: Unicode representation of log entry.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(entry, models.SlackLogEntry))
+        assert(isinstance(entry, SlackLogEntry))
         data = u''
         data += self.format_entry_separator(is_first, is_last)
         data += self.format_entry_preamble(entry)
@@ -149,7 +149,7 @@ class SlackLogFormatter (object):
         :return: Unicode representation of log entry preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(entry, models.SlackLogEntry))
+        assert(isinstance(entry, SlackLogEntry))
         return u''
 
     def format_entry_postamble(self, entry):
@@ -164,7 +164,7 @@ class SlackLogFormatter (object):
         :return: Unicode representation of log entry postamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(entry, models.SlackLogEntry))
+        assert(isinstance(entry, SlackLogEntry))
         return u''
 
     def format_pkg(self, pkg, is_first, is_last):
@@ -185,7 +185,7 @@ class SlackLogFormatter (object):
         :return: Unicode representation of log entry package.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(pkg, models.SlackLogPkg))
+        assert(isinstance(pkg, SlackLogPkg))
         data = u''
         data += self.format_pkg_separator(is_first, is_last)
         data += self.format_pkg_preamble(pkg)
@@ -218,7 +218,7 @@ class SlackLogFormatter (object):
         :return: Unicode representation of log entry package preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(pkg, models.SlackLogPkg))
+        assert(isinstance(pkg, SlackLogPkg))
         return u''
 
     def format_pkg_postamble(self, pkg):
@@ -233,7 +233,7 @@ class SlackLogFormatter (object):
         :return: Unicode representation of log entry package postamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(pkg, models.SlackLogPkg))
+        assert(isinstance(pkg, SlackLogPkg))
         return u''
 
     def format_list(self, list_of_items, item_formatter, max_items=None):
@@ -287,7 +287,7 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         :return: Unicode representation of log preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(log, models.SlackLog))
+        assert(isinstance(log, SlackLog))
         if log.startsWithSeparator:
             return u'+--------------------------+\n'
         return u''
@@ -301,7 +301,7 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         :return: Unicode representation of log postamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(log, models.SlackLog))
+        assert(isinstance(log, SlackLog))
         if log.endsWithSeparator:
             return u'+--------------------------+\n'
         return u''
@@ -328,7 +328,7 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(entry, models.SlackLogEntry))
+        assert(isinstance(entry, SlackLogEntry))
         timestamp = entry.timestamp
         if entry.timezone is not None and not isinstance(entry.timezone, tz.tzutc):
             timestamp = timestamp.astimezone(entry.timezone)
@@ -350,7 +350,7 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry package preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(pkg, models.SlackLogPkg))
+        assert(isinstance(pkg, SlackLogPkg))
         return u'%s:%s' % (pkg.pkg, pkg.description)
 
 
@@ -391,7 +391,7 @@ class SlackLogRssFormatter (SlackLogFormatter):
         :return: Unicode representation of log preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(log, models.SlackLog))
+        assert(isinstance(log, SlackLog))
         data = u'<?xml version="1.0"?>\n'
         data += u'<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
         data += u'  <channel>\n'
@@ -431,7 +431,7 @@ class SlackLogRssFormatter (SlackLogFormatter):
         :return: Unicode representation of log postamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(log, models.SlackLog))
+        assert(isinstance(log, SlackLog))
         return u'  </channel>\n</rss>\n'
 
     def format_entry_preamble(self, entry):
@@ -443,7 +443,7 @@ class SlackLogRssFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(entry, models.SlackLogEntry))
+        assert(isinstance(entry, SlackLogEntry))
         data = u'    <item>\n'
         if self.webLink:
             perma = u'true'
@@ -468,7 +468,7 @@ class SlackLogRssFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry postamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(entry, models.SlackLogEntry))
+        assert(isinstance(entry, SlackLogEntry))
         return u'</pre>]]></description>\n    </item>\n'
 
     def format_pkg_preamble(self, pkg):
@@ -480,7 +480,7 @@ class SlackLogRssFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry package preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(pkg, models.SlackLogPkg))
+        assert(isinstance(pkg, SlackLogPkg))
         return u'%s:%s' % (pkg.pkg, pkg.description.replace('<', '&lt;'))
 
 
@@ -514,7 +514,7 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         :return: Unicode representation of log preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(log, models.SlackLog))
+        assert(isinstance(log, SlackLog))
         data = u'<?xml version="1.0"?>\n'
         data += u'<feed xmlns="http://www.w3.org/2005/Atom">\n'
         data += u'    <link href="%s" rel="self" type="application/rss+xml" />\n' % self.link
@@ -543,7 +543,7 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         :return: Unicode representation of log postamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(log, models.SlackLog))
+        assert(isinstance(log, SlackLog))
         return u'</feed>\n'
 
     def format_entry_preamble(self, entry):
@@ -555,7 +555,7 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(entry, models.SlackLogEntry))
+        assert(isinstance(entry, SlackLogEntry))
         data = u'    <entry>\n'
         data += u'        <title>%s changes for %s</title>\n' % (self.slackware, readable(entry.timestamp))
         if self.webLink:
@@ -576,7 +576,7 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry postamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(entry, models.SlackLogEntry))
+        assert(isinstance(entry, SlackLogEntry))
         return u'</pre>]]></content>\n    </entry>\n'
 
     def format_pkg_preamble(self, pkg):
@@ -588,7 +588,7 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry package preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(pkg, models.SlackLogPkg))
+        assert(isinstance(pkg, SlackLogPkg))
         return u'%s:%s' % (pkg.pkg, pkg.description.replace('<', '&lt;'))
 
 
@@ -658,7 +658,7 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(entry, models.SlackLogEntry))
+        assert(isinstance(entry, SlackLogEntry))
         data = super(SlackLogPyblosxomFormatter, self).format_entry(entry, is_first, is_last)
 
         # generate filename for this entry
@@ -718,7 +718,7 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(entry, models.SlackLogEntry))
+        assert(isinstance(entry, SlackLogEntry))
         data = self.format_entry_title(entry)
         if self.tags_separator:
             data += u'#tags %s\n' % self.format_entry_tags(entry)
@@ -740,7 +740,7 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry postamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(entry, models.SlackLogEntry))
+        assert(isinstance(entry, SlackLogEntry))
         data = u''
         if entry.pkgs:
             data += self.entry_pkgs_postamble
@@ -756,7 +756,7 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         :return: Unicode representation of log entry package preamble.
         :type: :py:class:`unicode`
         """
-        assert(isinstance(pkg, models.SlackLogPkg))
+        assert(isinstance(pkg, SlackLogPkg))
         data = u'%s%s%s%s%s%s%s%s%s' % (self.pkg_preamble,
                                         self.pkg_name_preamble,
                                         pkg.pkg,
