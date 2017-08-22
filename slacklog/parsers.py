@@ -274,7 +274,7 @@ class SlackLogParser (object):
                 from sys import stderr
                 stderr.write("Warning: Assuming UTC, input was '%s'" % data)
             timestamp = timestamp.replace(tzinfo=tz.tzutc())
-        elif not isinstance(timezone, tz.tzutc):
+        elif timestamp.tzinfo.utcoffset(timestamp).total_seconds() != 0:
             # Timestamp was in some local timezone,
             # convert to UTC
             tzname = timezone.tzname(timestamp)

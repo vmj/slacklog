@@ -5,7 +5,6 @@ SlackLog models
 SlackLog models represent the ChangeLog.txt after parsing.
 """
 from datetime import datetime, tzinfo
-from dateutil import tz
 
 try:
     str = unicode
@@ -52,7 +51,7 @@ class SlackLogEntry (object):
                  timezone=None):
         assert(isinstance(timestamp, datetime))
         assert(isinstance(description, str))
-        assert(isinstance(timestamp.tzinfo, tz.tzutc))
+        assert(timestamp.tzinfo.utcoffset(timestamp).total_seconds() == 0)
         assert(isinstance(log, SlackLog))
         if checksum is not None:
             assert(isinstance(checksum, str))
