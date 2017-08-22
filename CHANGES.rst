@@ -2,7 +2,7 @@ Release history
 ===============
 
 
-Version 0.9.3 (2017-05-25)
+Version 0.9.3 (2017-08-23)
 --------------------------
 
 This release is mainly bug fixing.  RSS and atom formatters learnt to take
