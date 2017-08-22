@@ -2,7 +2,14 @@ Release history
 ===============
 
 
-Version 0.9.2 (2019-05-25)
+Version 0.9.3 (2017-05-25)
+--------------------------
+
+This release is mainly bug fixing.  RSS and atom formatters learnt to take
+the feed build time (optionally) as an argument, which makes them more testable.
+
+
+Version 0.9.2 (2017-05-25)
 --------------------------
 
 This release is backwards incompatible with the previous releases:
