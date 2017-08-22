@@ -13,6 +13,7 @@ import datetime
 import os
 import re
 import time
+from dateutil import tz
 from slacklog import models
 
 
@@ -299,8 +300,11 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         :type: :py:class:`unicode`
         """
         assert(isinstance(entry, models.SlackLogEntry))
+        timestamp = entry.timestamp
+        if entry.timezone is not None and not isinstance(entry.timezone, tz.tzutc):
+            timestamp = timestamp.astimezone(entry.timezone)
         data = u''
-        data += entry.timestamp.strftime("%a %b %d %H:%M:%S %Z %Y")
+        data += timestamp.strftime("%a %b %d %H:%M:%S %Z %Y")
         # Remove leading zero from the day-of-month only
         data = re.sub(r' 0(\d) ', r'  \1 ', data)
         data += u'\n'

@@ -103,11 +103,12 @@ class SlackLogParser (object):
             identifier = u'%s' % hashlib.sha512(encode(parent + sha512, 'utf-8')).hexdigest()
         else:
             identifier = u'%s' % hashlib.sha512(encode(sha512, 'utf-8')).hexdigest()
-        timestamp, data = self.parse_entry_timestamp(data)
+        timestamp, timezone, data = self.parse_entry_timestamp(data)
         if self.min_date and self.min_date > timestamp:
             return None
         description, data = self.parse_entry_description(data)
-        entry = models.SlackLogEntry(timestamp, description, log, checksum=sha512, identifier=identifier, parent=parent)
+        entry = models.SlackLogEntry(timestamp, description, log, checksum=sha512, identifier=identifier, parent=parent,
+                                     timezone=timezone)
         for pkg_data in self.split_entry_to_pkgs(data):
             pkg = self.parse_pkg(pkg_data, entry)
             entry.pkgs.append(pkg)
@@ -123,8 +124,8 @@ class SlackLogParser (object):
         """
         assert(isinstance(data, str))
         timestamp_str, data = self.get_line(data)
-        timestamp = self.parse_date(timestamp_str)
-        return [timestamp, data]
+        timestamp, timezone = self.parse_date_with_timezone(timestamp_str)
+        return [timestamp, timezone, data]
 
     def parse_entry_description(self, data):
         """
@@ -240,20 +241,34 @@ class SlackLogParser (object):
         """
         if data is None:
             return None
+        timestamp, timezone = self.parse_date_with_timezone(data)
+        return timestamp
+
+    def parse_date_with_timezone(self, data):
+        """
+        Parse a time string into a timestamp.
+
+        :param unicode data: Time string.
+        :return: a two element list: Timestamp in UTC timezone, and the original timezone.
+        :rtype: :py:class:`datetime.datetime`
+        """
+        if data is None:
+            return None
         assert(isinstance(data, str))
         timestamp = parser.parse(data, tzinfos=tzinfos)
-        if timestamp.tzinfo is None:
+        timezone = timestamp.tzinfo
+        if timezone is None:
             # Timestamp was ambiguous, assume UTC
             if not self.quiet:
                 from sys import stderr
                 stderr.write("Warning: Assuming UTC, input was '%s'" % data)
             timestamp = timestamp.replace(tzinfo=tz.tzutc())
-        elif not isinstance(timestamp.tzinfo, tz.tzutc):
+        elif not isinstance(timezone, tz.tzutc):
             # Timestamp was in some local timezone,
             # convert to UTC
-            tzname = timestamp.tzinfo.tzname(timestamp)
+            tzname = timezone.tzname(timestamp)
             if not self.quiet and tzname not in tzinfos:
                 from sys import stderr
                 stderr.write("Warning: Converting '%s' to UTC" % tzname)
             timestamp = timestamp.astimezone(tz.tzutc())
-        return timestamp
+        return [timestamp, timezone]
