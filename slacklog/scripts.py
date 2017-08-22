@@ -280,7 +280,9 @@ def slacklog2rss():
             'managingEditor': {'help': 'EMAIL, and possibly NAME, of the editor',
                                'metavar': 'EMAIL (NAME)'},
             'webMaster': {'help': 'EMAIL, and possibly NAME, of the web master',
-                          'metavar': 'EMAIL (NAME)'}
+                          'metavar': 'EMAIL (NAME)'},
+            'lastBuildDate': {'help': 'Timestamp when this feed was last generated.',
+                              'metavar': 'DATE'}
         })
 
     #
@@ -299,6 +301,7 @@ def slacklog2rss():
     formatter.language = u(opts.language)
     formatter.managingEditor = u(opts.managingEditor)
     formatter.webMaster = u(opts.webMaster)
+    formatter.lastBuildDate = parser.parse_date(u(opts.lastBuildDate))
 
     #
     #   Read input
