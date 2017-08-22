@@ -4,7 +4,7 @@ SlackLog models
 
 SlackLog models represent the ChangeLog.txt after parsing.
 """
-from datetime import datetime
+from datetime import datetime, tzinfo
 
 try:
     str = unicode
