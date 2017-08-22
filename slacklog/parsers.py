@@ -76,7 +76,7 @@ class SlackLogParser (object):
         raw_entries = re.split('\+-+\+', data)
         entries = []
         for entry in raw_entries:
-            entry = entry.strip()
+            entry = entry.lstrip()
             if entry and entry != "":
                 entries.append(entry)
         entries.reverse()
@@ -151,22 +151,23 @@ class SlackLogParser (object):
         """
         assert(isinstance(data, str))
         pkgs = []
-        pkg = u''
+        pkg_lines = []
         if data == u'' or data == u'\n':
             return []
         for line in data.split('\n'):
             if not pkg_name_re.match(line):
-                line += u'\n'
-                pkg += line
+                pkg_lines.append(line)
             else:
-                if pkg:
-                    pkgs.append(pkg)
-                    pkg = u''
+                if pkg_lines:
+                    # pkg_lines is not the last package in
+                    # the entry: add an extra newline
+                    pkgs.append('\n'.join(pkg_lines) + '\n')
+                    pkg_lines = []
                 if line:
-                    line += u'\n'
-                    pkg += line
-        if pkg:
-            pkgs.append(pkg)
+                    pkg_lines.append(line)
+        if pkg_lines:
+            # last package in the entry: no extra newline
+            pkgs.append('\n'.join(pkg_lines))
         return pkgs
 
     def parse_pkg(self, data, entry):
