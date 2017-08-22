@@ -18,9 +18,9 @@ class ParserTests (unittest.TestCase):
         e = log.entries[0]
         self.assertEqual(e.timestamp, datetime(2011, 4, 25, 13, 37, 00, tzinfo=tz.tzutc()))
         self.assertTrue(e.description.startswith(u'Slackware 13.37 x86 stable is released!\n\n'))
-        self.assertTrue(e.description.endswith(u'\nHave fun!'))
-        self.assertEqual(e.checksum, u'420a2b6d560f5a26c5369565b4ab18281b93f83f05d8defb7efeecaa43e990225819891638147ce2ee9edde5e56a7364583b4334e25b0283f6a4eb98ce7ccda0')
-        self.assertEqual(e.identifier, u'4b3a291e203f9a92507d7982e2badc27653f265839306d906cf285be136bae114015508c099ce4d90d0e1e13553e42749957e4557da31ee684ed99a987d6658d')
+        self.assertTrue(e.description.endswith(u'\nHave fun!\n'))
+        self.assertEqual(e.checksum, u'b69d2c808b87e4aeeecfc4a3023ed8024473e9a3337e33246ae0d357aa88abd33c78e7a0f7ffc2ba27f0205c35bbe8bffc7269b41cdc1443b5a15ab7969b2245')
+        self.assertEqual(e.identifier, u'e22d108e36d622759515b5e495e0b58927bf514a8315dce9d269743826a6c0908cce7b515b3ecd76d6fadf62bb1e56aa11bd8dea1a37cb68044b27ff86c4b0c0')
         self.assertTrue(e.parent is None)
         self.assertTrue(e.pkgs == [])
 
