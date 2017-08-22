@@ -459,6 +459,8 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         """:py:class:`unicode`.  Name of the feed author."""
         self.email = None
         """:py:class:`unicode`.  Email of the feed author."""
+        self.updated = None
+        """:py:class:`datetime.datetime`.  Timestamp when this feed was last generated."""
 
     def format_log_preamble(self, log):
         """
@@ -478,7 +480,10 @@ class SlackLogAtomFormatter (SlackLogFormatter):
             data += u'    <link href="%s" />\n' % self.webLink
         else:
             data += u'    <link href="%s" />\n' % self.link
-        data += u'    <updated>%s</updated>\n' % datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        if self.updated:
+            data += u'    <updated>%s</updated>\n' % self.updated.strftime("%Y-%m-%dT%H:%M:%SZ")
+        else:
+            data += u'    <updated>%s</updated>\n' % datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
         data += u'    <author>\n'
         data += u'        <name>%s</name>\n' % self.name
         data += u'        <email>%s</email>\n' % self.email

@@ -143,7 +143,9 @@ def slacklog2atom():
             'name': {'help': 'NAME of the feed author',
                      'metavar': 'NAME'},
             'email': {'help': 'EMAIL of the feed author',
-                      'metavar': 'EMAIL'}
+                      'metavar': 'EMAIL'},
+            'updated': {'help': 'Timestamp when this feed was last generated.',
+                        'metavar': 'DATE'}
         })
 
     #
@@ -160,6 +162,7 @@ def slacklog2atom():
     formatter.webLink = u(opts.webLink)
     formatter.name = u(opts.name)
     formatter.email = u(opts.email)
+    formatter.updated = parser.parse_date(u(opts.updated))
 
     #
     #   Read input
