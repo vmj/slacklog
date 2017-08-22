@@ -73,8 +73,6 @@ class SlackLogParser (object):
             entry = self.parse_entry(entry_data, log)
             if entry:
                 log.entries.insert(0, entry)
-            else:
-                break
         return log
 
     def split_log_to_entries(self, data):
