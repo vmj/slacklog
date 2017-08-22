@@ -22,7 +22,7 @@ except NameError:
 # a double space.  But description can also contain "something:  ",
 # so "something" should contain either a slash or a dot for it to look like
 # a file name.
-pkg_name_re = re.compile(r'\A[-a-zA-Z0-9_]+[/.][-a-zA-Z0-9_/.]*[*]?:  ')
+pkg_name_re = re.compile(r'\A[-a-zA-Z0-9_]+[/.][-a-zA-Z0-9_+/.]*[*]?:  ')
 
 tzinfos = {
     'CDT': -5 * 60 * 60,
