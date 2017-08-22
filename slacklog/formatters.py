@@ -346,6 +346,8 @@ class SlackLogRssFormatter (SlackLogFormatter):
         self.webMaster = None
         """:py:class:`unicode`.  Email, and possibly name, of the
         webmaster.  E.g. 'john@doe.net (John Doe)'. """
+        self.lastBuildDate = None
+        """:py:class:`datetime.datetime`.  Timestamp when this feed was last generated."""
 
     def format_log_preamble(self, log):
         """
@@ -375,7 +377,10 @@ class SlackLogRssFormatter (SlackLogFormatter):
         if self.webMaster:
             data += u'    <webMaster>%s</webMaster>\n' % self.webMaster
         data += u'    <pubDate>%s</pubDate>\n' % readable(log.entries[0].timestamp)
-        data += u'    <lastBuildDate>%s</lastBuildDate>\n' % readable(datetime.datetime.utcnow())
+        if self.lastBuildDate:
+            data += u'    <lastBuildDate>%s</lastBuildDate>\n' % readable(self.lastBuildDate)
+        else:
+            data += u'    <lastBuildDate>%s</lastBuildDate>\n' % readable(datetime.datetime.utcnow())
         data += u'    <generator>SlackLog</generator>\n'
         return data
 
