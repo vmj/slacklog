@@ -14,37 +14,33 @@ except NameError:
 
 class SlackLog (object):
     """
-    Little more than a list of SlackLogEntry objects.
+    Little more than a list of :py:class:`slacklog.models.SlackLogEntry` objects.
     """
 
     def __init__(self):
         self.entries = []
+        """The list of :py:class:`slacklog.models.SlackLogEntry` objects. Empty by default."""
         self.startsWithSeparator = False
+        """Whether the log started with entry separator.
+        
+        If this is :py:const:`True`, it implies that the empty element preceding that separator
+        was dropped.
+        
+        This defaults to :py:const:`False`.
+        """
         self.endsWithSeparator = False
+        """Whether the log ended with entry separator.
+        
+        If this is :py:const:`True`, it implies that the empty element following that separator
+        was dropped.
+        
+        This defaults to :py:const:`False`.
+        """
 
 
 class SlackLogEntry (object):
     """
-    An entry in a SlackLog.
-
-    Consist of a timestamp in UTC, and a unicode description which may be empty.
-
-    Also contains a list of SlackLogPkg objects.
-    
-    Since 0.9.1 a checksum was added, which is either None or a unicode string.
-    If using the default parser, the value is a SHA-512 as a HEX string (and never None),
-    and identifies the entry by content.  Note that two entries in different changelogs
-    may have the same checksum, but different parents.
-    
-    Since 0.9.1 an identifier was added, which is either None or a unicode string.
-    If using the default parser, the value is a SHA-512 as a HEX string (and never None),
-    and identifies the entry by content and parent.
-    
-    Since 0.9.1 a parent was added, which is either None or a unicode string.
-    If using the default parser, the value is the identifier of the next (older) log entry.
-
-    Since 0.9.3 a tz was added, which is either None or a datetime.tzinfo.
-    If using the default parser, the value is the original timezone of the entry.
+    An entry in a :py:class:`slacklog.models.SlackLog`.
     """
 
     def __init__(self, timestamp, description, log, checksum=None, identifier=None, parent=None,
@@ -62,20 +58,33 @@ class SlackLogEntry (object):
         if timezone is not None:
             assert(isinstance(timezone, tzinfo))
         self.timestamp = timestamp
+        """A :py:class:`datetime.datetime` timestamp in UTC."""
         self.description = description
+        """A unicode description which may be empty."""
         self.log = log
+        """Reference to the :py:class:`slacklog.models.SlackLog` that contains this entry."""
         self.checksum = checksum
+        """A unicode checksum or :py:const:`None`.
+        
+        This should identify the entry by content.  Two different logs may have the same entry,
+        but those entries have different parent.
+        """
         self.identifier = identifier
+        """A unicode identifier or :py:const:`None`.
+        
+        This should identify the entry by content and parent.
+        """
         self.parent = parent
+        """A unicode parent identifier or :py:const:`None`."""
         self.timezone = timezone
+        """The original timezone of the entry as :py:class:`datetime.tzinfo` or :py:const:`None`."""
         self.pkgs = []
+        """The list of :py:class:`slacklog.models.SlackLogPkg` objects. Empty by default."""
 
 
 class SlackLogPkg (object):
     """
     An entry in a SlackLogEntry.
-
-    Consists of a unicode package identifier and a unicode description.
     """
 
     def __init__(self, pkg, description, entry):
@@ -83,5 +92,8 @@ class SlackLogPkg (object):
         assert(isinstance(description, str))
         assert(isinstance(entry, SlackLogEntry))
         self.pkg = pkg
+        """A unicode package identifier."""
         self.description = description
+        """A unicode description."""
         self.entry = entry
+        """Reference to the :py:class:`slacklog.models.SlackLogEntry` that contains this package."""
