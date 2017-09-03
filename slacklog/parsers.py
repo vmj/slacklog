@@ -107,23 +107,48 @@ class SlackLogParser (object):
         assert(isinstance(log, SlackLog))
         self.ENTRY += 1
         self.PKG = 0
-        sha512 = u'%s' % hashlib.sha512(encode(data, 'utf-8')).hexdigest()
+        checksum = self.gen_entry_checksum(data)
         parent = None
         if log.entries:
             parent = log.entries[0].identifier
-            identifier = u'%s' % hashlib.sha512(encode(parent + sha512, 'utf-8')).hexdigest()
+            identifier = self.gen_entry_identifier(data, checksum, parent)
         else:
-            identifier = u'%s' % hashlib.sha512(encode(sha512, 'utf-8')).hexdigest()
+            identifier = self.gen_entry_identifier(data, checksum, None)
         timestamp, timezone, data = self.parse_entry_timestamp(data)
         if self.min_date and self.min_date > timestamp:
             return None
         description, data = self.parse_entry_description(data)
-        entry = SlackLogEntry(timestamp, description, log, checksum=sha512, identifier=identifier, parent=parent,
+        entry = SlackLogEntry(timestamp, description, log, checksum=checksum, identifier=identifier, parent=parent,
                                      timezone=timezone)
         for pkg_data in self.split_entry_to_pkgs(data):
             pkg = self.parse_pkg(pkg_data, entry)
             entry.pkgs.append(pkg)
         return entry
+
+    def gen_entry_checksum(self, data):
+        """
+        Generate ChangeLog entry checksum from data.
+
+        :param unicode data: ChangeLog entry content.
+        :return: Entry checksum.
+        :rtype: :py:class:`unicode`
+        """
+        assert(isinstance(data, str))
+        return u'%s' % hashlib.sha512(encode(data, 'utf-8')).hexdigest()
+
+    def gen_entry_identifier(self, data, checksum, parent):
+        """
+        Generate ChangeLog entry identifier from data, checksum, and/or parent identifier.
+
+        :param unicode data: ChangeLog entry content.
+        :param unicode checksum: ChangeLog entry checksum.
+        :param parent: Parent entry identifier or :py:const:`None`
+        :return: Entry identifier.
+        :rtype: :py:class:`unicode`
+        """
+        if parent is not None:
+            return u'%s' % hashlib.sha512(encode(parent + checksum, 'utf-8')).hexdigest()
+        return u'%s' % hashlib.sha512(encode(checksum, 'utf-8')).hexdigest()
 
     def parse_entry_timestamp(self, data):
         """
