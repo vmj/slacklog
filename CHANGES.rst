@@ -2,6 +2,14 @@ Release history
 ===============
 
 
+Version 0.9.4 (2017-09-03)
+--------------------------
+
+The parser subclass can now overwrite the generation of entry identifier and/or checksum.
+
+Other than that, tests were updated to use python-dateutil 2.6.1, and documentation was fixed.
+
+
 Version 0.9.3 (2017-08-23)
 --------------------------
 

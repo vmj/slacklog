@@ -1,3 +1,13 @@
+.. image:: https://img.shields.io/pypi/v/slacklog.svg?style=plastic
+   :target: http://pypi.python.org/pypi/slacklog
+   :alt: Download
+.. image:: https://travis-ci.org/vmj/slacklog.svg?branch=master
+   :target: https://travis-ci.org/vmj/slacklog
+   :alt: Build Status
+.. image:: http://readthedocs.org/projects/slacklog/badge/?version=latest
+   :target: http://slacklog.readthedocs.io/en/latest/?badge=latest
+   :alt: Docs
+
 slacklog -- Convert Slackware Changelog to various formats
 **********************************************************
 
