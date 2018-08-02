@@ -9,9 +9,995 @@
     <language>en</language>
     <managingEditor>vmj@linuxbox.fi (Mikko Värri)</managingEditor>
     <webMaster>vmj@linuxbox.fi (Mikko Värri)</webMaster>
-    <pubDate>Tue, 15 Aug 2017 22:16:12 GMT</pubDate>
-    <lastBuildDate>Tue, 22 Aug 2017 22:10:26 GMT</lastBuildDate>
+    <pubDate>Tue, 31 Jul 2018 05:53:40 GMT</pubDate>
+    <lastBuildDate>Thu, 02 Aug 2018 12:54:20 GMT</lastBuildDate>
     <generator>SlackLog</generator>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180731T055340Z</guid>
+      <title>slackware 14.0 changes for Tue, 31 Jul 2018 05:53:40 GMT</title>
+      <pubDate>Tue, 31 Jul 2018 05:53:40 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/file-5.34-i486-1_slack14.0.txz:  Upgraded.
+  Fixed a denial of service crash when processing a crafted ELF file.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10360
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180720T231632Z</guid>
+      <title>slackware 14.0 changes for Fri, 20 Jul 2018 23:16:32 GMT</title>
+      <pubDate>Fri, 20 Jul 2018 23:16:32 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/php-5.6.37-i486-1_slack14.0.txz:  Upgraded.
+  Several security bugs have been fixed in this release, including:
+  Int Overflow lead to Heap OverFlow in exif_thumbnail_extract of exif.c
+  heap-buffer-overflow (READ of size 48) while reading exif data
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180718T224116Z</guid>
+      <title>slackware 14.0 changes for Wed, 18 Jul 2018 22:41:16 GMT</title>
+      <pubDate>Wed, 18 Jul 2018 22:41:16 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/httpd-2.4.34-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes two denial of service issues:
+  mod_md: DoS via Coredumps on specially crafted requests
+  mod_http2: DoS for HTTP/2 connections by specially crafted requests
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8011
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1333
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180717T211610Z</guid>
+      <title>slackware 14.0 changes for Tue, 17 Jul 2018 21:16:10 GMT</title>
+      <pubDate>Tue, 17 Jul 2018 21:16:10 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mutt-1.10.1-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes bugs and security issues. Upstream strongly recommends
+  that all IMAP and POP users upgrade as soon as possible.
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180712T015007Z</guid>
+      <title>slackware 14.0 changes for Thu, 12 Jul 2018 01:50:07 GMT</title>
+      <pubDate>Thu, 12 Jul 2018 01:50:07 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bind-9.9.13-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes security issues:
+  Fixed a bug where extraordinarily large zone transfers caused several
+  problems, with possible outcomes including corrupted journal files or
+  server exit due to assertion failure.
+  Don't permit recursive query service to unauthorized clients.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5738
+  (* Security fix *)
+patches/packages/curl-7.61.0-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes a buffer overflow in SMTP send.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0500
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180619T223525Z</guid>
+      <title>slackware 14.0 changes for Tue, 19 Jun 2018 22:35:25 GMT</title>
+      <pubDate>Tue, 19 Jun 2018 22:35:25 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/gnupg-1.4.23-i486-1_slack14.0.txz:  Upgraded.
+  Sanitize the diagnostic output of the original file name in verbose mode.
+  By using a made up file name in the message it was possible to fake status
+  messages. Using this technique it was for example possible to fake the
+  verification status of a signed mail.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12020
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180608T203706Z</guid>
+      <title>slackware 14.0 changes for Fri, 08 Jun 2018 20:37:06 GMT</title>
+      <pubDate>Fri, 08 Jun 2018 20:37:06 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/gnupg2-2.0.31-i486-1_slack14.0.txz:  Upgraded.
+  Sanitize the diagnostic output of the original file name in verbose mode.
+  By using a made up file name in the message it was possible to fake status
+  messages. Using this technique it was for example possible to fake the
+  verification status of a signed mail.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12020
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180601T212810Z</guid>
+      <title>slackware 14.0 changes for Fri, 01 Jun 2018 21:28:10 GMT</title>
+      <pubDate>Fri, 01 Jun 2018 21:28:10 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/git-2.14.4-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes security issues:
+  Submodule "names" come from the untrusted .gitmodules file, but we
+  blindly append them to $GIT_DIR/modules to create our on-disk repo
+  paths. This means you can do bad things by putting "../" into the
+  name. We now enforce some rules for submodule names which will cause
+  Git to ignore these malicious names (CVE-2018-11235).
+  Credit for finding this vulnerability and the proof of concept from
+  which the test script was adapted goes to Etienne Stalmans.
+  It was possible to trick the code that sanity-checks paths on NTFS
+  into reading random piece of memory (CVE-2018-11233).
+  Credit for fixing for these bugs goes to Jeff King, Johannes
+  Schindelin and others.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11235
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11233
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180525T232936Z</guid>
+      <title>slackware 14.0 changes for Fri, 25 May 2018 23:29:36 GMT</title>
+      <pubDate>Fri, 25 May 2018 23:29:36 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2018e-noarch-2_slack14.0.txz:  Rebuilt.
+  Handle removal of US/Pacific-New timezone. If we see that the machine is
+  using this, it will be automatically switched to US/Pacific.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180517T041316Z</guid>
+      <title>slackware 14.0 changes for Thu, 17 May 2018 04:13:16 GMT</title>
+      <pubDate>Thu, 17 May 2018 04:13:16 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/curl-7.60.0-i486-1_slack14.0.txz:  Upgraded.
+  This release contains security fixes:
+  FTP: shutdown response buffer overflow
+  RTSP: bad headers buffer over-read
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000300
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000301
+  (* Security fix *)
+patches/packages/php-5.6.36-i486-1_slack14.0.txz:  Upgraded.
+  This fixes many bugs, including some security issues:
+  Heap Buffer Overflow (READ: 1786) in exif_iif_add_value
+  stream filter convert.iconv leads to infinite loop on invalid sequence
+  Malicious LDAP-Server Response causes crash
+  fix for CVE-2018-5712 may not be complete
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10549
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10546
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10548
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10547
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180510T012419Z</guid>
+      <title>slackware 14.0 changes for Thu, 10 May 2018 01:24:19 GMT</title>
+      <pubDate>Thu, 10 May 2018 01:24:19 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2018e-noarch-1_slack14.0.txz:  Upgraded.
+  This package provides the latest timezone updates.
+patches/packages/wget-1.19.5-i486-1_slack14.0.txz:  Upgraded.
+  Fixed a security issue where a malicious web server could inject arbitrary
+  cookies into the cookie jar file.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0494
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180504T194052Z</guid>
+      <title>slackware 14.0 changes for Fri, 04 May 2018 19:40:52 GMT</title>
+      <pubDate>Fri, 04 May 2018 19:40:52 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/python-2.7.15-i486-1_slack14.0.txz:  Upgraded.
+  Updated to the latest 2.7.x release.
+  This fixes some security issues in difflib and poplib (regexes vulnerable
+  to denial of service attacks), as well as security issues with the bundled
+  expat library.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0876
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0718
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0718
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4472
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5300
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9063
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9233
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1060
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1061
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180430T223543Z</guid>
+      <title>slackware 14.0 changes for Mon, 30 Apr 2018 22:35:43 GMT</title>
+      <pubDate>Mon, 30 Apr 2018 22:35:43 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libwmf-0.2.8.4-i486-6_slack14.0.txz:  Rebuilt.
+  Patched denial of service and possible execution of arbitrary code
+  security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0941
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3376
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0455
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2756
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3472
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3473
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3477
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3546
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0848
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4588
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4695
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4696
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10167
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10168
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9011
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9317
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6362
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180427T035848Z</guid>
+      <title>slackware 14.0 changes for Fri, 27 Apr 2018 03:58:48 GMT</title>
+      <pubDate>Fri, 27 Apr 2018 03:58:48 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/openvpn-2.4.6-i486-1_slack14.0.txz:  Upgraded.
+  This is a security update fixing a potential double-free() in Interactive
+  Service. This usually only leads to a process crash (DoS by an unprivileged
+  local account) but since it could possibly lead to memory corruption if
+  happening while multiple other threads are active at the same time,
+  CVE-2018-9336 has been assigned to acknowledge this risk.
+  For more information, see:
+    https://github.com/OpenVPN/openvpn/commit/1394192b210cb3c6624a7419bcf3ff966742e79b
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-9336
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180406T204743Z</guid>
+      <title>slackware 14.0 changes for Fri, 06 Apr 2018 20:47:43 GMT</title>
+      <pubDate>Fri, 06 Apr 2018 20:47:43 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/patch-2.7.6-i486-1_slack14.0.txz:  Upgraded.
+  Fix arbitrary shell execution possible with obsolete ed format patches.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000156
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180401T194512Z</guid>
+      <title>slackware 14.0 changes for Sun, 01 Apr 2018 19:45:12 GMT</title>
+      <pubDate>Sun, 01 Apr 2018 19:45:12 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libidn-1.34-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes security issues:
+  Fix integer overflow in combine_hangul()
+  Fix integer overflow in punycode decoder
+  Fix NULL pointer dereference in g_utf8_normalize()
+  Fix NULL pointer dereference in stringprep_ucs4_nfkc_normalize()
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180401T025326Z</guid>
+      <title>slackware 14.0 changes for Sun, 01 Apr 2018 02:53:26 GMT</title>
+      <pubDate>Sun, 01 Apr 2018 02:53:26 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/php-5.6.35-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes a security issue where sensitive data belonging to other
+  accounts might be accessed by a local user.
+  For more information, see:
+    http://bugs.php.net/75605
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180323T222820Z</guid>
+      <title>slackware 14.0 changes for Fri, 23 Mar 2018 22:28:20 GMT</title>
+      <pubDate>Fri, 23 Mar 2018 22:28:20 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2018d-noarch-1_slack14.0.txz:  Upgraded.
+  This package provides the latest timezone updates.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180318T005539Z</guid>
+      <title>slackware 14.0 changes for Sun, 18 Mar 2018 00:55:39 GMT</title>
+      <pubDate>Sun, 18 Mar 2018 00:55:39 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libvorbis-1.3.6-i486-1_slack14.0.txz:  Upgraded.
+  This release fixes security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14632
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14633
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5146
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180316T022929Z</guid>
+      <title>slackware 14.0 changes for Fri, 16 Mar 2018 02:29:29 GMT</title>
+      <pubDate>Fri, 16 Mar 2018 02:29:29 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/curl-7.59.0-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes security issues:
+  FTP path trickery leads to NIL byte out of bounds write
+  LDAP NULL pointer dereference
+  RTSP RTP buffer over-read
+  For more information, see:
+    https://curl.haxx.se/docs/adv_2018-9cd6.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000120
+    https://curl.haxx.se/docs/adv_2018-97a2.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000121
+    https://curl.haxx.se/docs/adv_2018-b047.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000122
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180313T211251Z</guid>
+      <title>slackware 14.0 changes for Tue, 13 Mar 2018 21:12:51 GMT</title>
+      <pubDate>Tue, 13 Mar 2018 21:12:51 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/samba-4.4.16-i486-3_slack14.0.txz:  Rebuilt.
+  This is a security update in order to patch the following defect:
+    On a Samba 4 AD DC the LDAP server in all versions of Samba from
+  4.0.0 onwards incorrectly validates permissions to modify passwords
+  over LDAP allowing authenticated users to change any other users`
+  passwords, including administrative users.
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2018-1057.html
+    https://wiki.samba.org/index.php/CVE-2018-1057
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1057
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180308T070745Z</guid>
+      <title>slackware 14.0 changes for Thu, 08 Mar 2018 07:07:45 GMT</title>
+      <pubDate>Thu, 08 Mar 2018 07:07:45 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/openssh-7.4p1-i486-2_slack14.0.txz:  Rebuilt.
+  sftp-server: in read-only mode, sftp-server was incorrectly permitting
+  creation of zero-length files. Reported by Michal Zalewski.
+  Thanks to arny (of Bluewhite64 fame) for the heads-up.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15906
+  (* Security fix *)
+patches/packages/php-5.6.34-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes a stack buffer overflow vulnerability.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7584
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180301T232454Z</guid>
+      <title>slackware 14.0 changes for Thu, 01 Mar 2018 23:24:54 GMT</title>
+      <pubDate>Thu, 01 Mar 2018 23:24:54 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/dhcp-4.4.1-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes two security issues:
+    Corrected an issue where large sized 'X/x' format options were causing
+  option handling logic to overwrite memory when expanding them to human
+  readable form. Reported by Felix Wilhelm, Google Security Team.
+    Option reference count was not correctly decremented in error path
+  when parsing buffer for options. Reported by Felix Wilhelm, Google
+  Security Team.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5732
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5733
+  (* Security fix *)
+patches/packages/ntp-4.2.8p11-i486-1_slack14.0.txz:  Upgraded.
+  This release addresses five security issues in ntpd:
+  * LOW/MEDIUM: Sec 3012 / CVE-2016-1549 / VU#961909: Sybil vulnerability:
+    ephemeral association attack. While fixed in ntp-4.2.8p7, there are
+    significant additional protections for this issue in 4.2.8p11.
+    Reported by Matt Van Gundy of Cisco.
+  * INFO/MEDIUM: Sec 3412 / CVE-2018-7182 / VU#961909: ctl_getitem(): buffer
+    read overrun leads to undefined behavior and information leak.
+    Reported by Yihan Lian of Qihoo 360.
+  * LOW: Sec 3415 / CVE-2018-7170 / VU#961909: Multiple authenticated
+    ephemeral associations. Reported on the questions@ list.
+  * LOW: Sec 3453 / CVE-2018-7184 / VU#961909: Interleaved symmetric mode
+    cannot recover from bad state. Reported by Miroslav Lichvar of Red Hat.
+  * LOW/MEDIUM: Sec 3454 / CVE-2018-7185 / VU#961909: Unauthenticated packet
+    can reset authenticated interleaved association.
+    Reported by Miroslav Lichvar of Red Hat.
+  For more information, see:
+    http://support.ntp.org/bin/view/Main/SecurityNotice#February_2018_ntp_4_2_8p11_NTP_S
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1549
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7182
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7170
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7184
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7185
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180224T074140Z</guid>
+      <title>slackware 14.0 changes for Sat, 24 Feb 2018 07:41:40 GMT</title>
+      <pubDate>Sat, 24 Feb 2018 07:41:40 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/wget-1.19.4-i486-2_slack14.0.txz:  Rebuilt.
+  Applied upstream patch to fix logging in background mode.
+  Thanks to Willy Sudiarto Raharjo.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180216T031936Z</guid>
+      <title>slackware 14.0 changes for Fri, 16 Feb 2018 03:19:36 GMT</title>
+      <pubDate>Fri, 16 Feb 2018 03:19:36 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/irssi-1.0.7-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes bugs and security issues.
+  For more information, see:
+    https://irssi.org/security/html/irssi_sa_2018_02
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7054
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7053
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7050
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7052
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7051
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180204T051327Z</guid>
+      <title>slackware 14.0 changes for Sun, 04 Feb 2018 05:13:27 GMT</title>
+      <pubDate>Sun, 04 Feb 2018 05:13:27 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/php-5.6.33-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes bugs and security issues, including:
+  Potential infinite loop in gdImageCreateFromGifCtx.
+  Reflected XSS in .phar 404 page.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5711
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5712
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180201T182415Z</guid>
+      <title>slackware 14.0 changes for Thu, 01 Feb 2018 18:24:15 GMT</title>
+      <pubDate>Thu, 01 Feb 2018 18:24:15 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/rsync-3.1.3-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes two security issues:
+  Fixed a buffer overrun in the protocol's handling of xattr names and
+  ensure that the received name is null terminated.
+  Fix an issue with --protect-args where the user could specify the arg in
+  the protected-arg list and short-circuit some of the arg-sanitizing code.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16548
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5764
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180125T022404Z</guid>
+      <title>slackware 14.0 changes for Thu, 25 Jan 2018 02:24:04 GMT</title>
+      <pubDate>Thu, 25 Jan 2018 02:24:04 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/curl-7.58.0-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes security issues:
+  HTTP authentication leak in redirects
+  HTTP/2 trailer out-of-bounds read
+  For more information, see:
+    https://curl.haxx.se/docs/adv_2018-b3bf.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000007
+    https://curl.haxx.se/docs/adv_2018-824a.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000005
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180124T042144Z</guid>
+      <title>slackware 14.0 changes for Wed, 24 Jan 2018 04:21:44 GMT</title>
+      <pubDate>Wed, 24 Jan 2018 04:21:44 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2018c-noarch-1_slack14.0.txz:  Upgraded.
+  This package provides the latest timezone updates.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180122T224747Z</guid>
+      <title>slackware 14.0 changes for Mon, 22 Jan 2018 22:47:47 GMT</title>
+      <pubDate>Mon, 22 Jan 2018 22:47:47 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/wget-1.19.4-i486-1_slack14.0.txz:  Upgraded.
+  More bug fixes:
+  A major bug that caused GZip'ed pages to never be decompressed has been fixed
+  Support for Content-Encoding and Transfer-Encoding have been marked as
+  experimental and disabled by default
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180120T160051Z</guid>
+      <title>slackware 14.0 changes for Sat, 20 Jan 2018 16:00:51 GMT</title>
+      <pubDate>Sat, 20 Jan 2018 16:00:51 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/wget-1.19.3-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes various non-security bugs, including this one:
+  Prevent erroneous decompression of .gz and .tgz files with broken servers.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180117T213623Z</guid>
+      <title>slackware 14.0 changes for Wed, 17 Jan 2018 21:36:23 GMT</title>
+      <pubDate>Wed, 17 Jan 2018 21:36:23 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bind-9.9.11_P1-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes a high severity security issue:
+  Improper sequencing during cleanup can lead to a use-after-free error,
+  triggering an assertion failure and crash in named.
+  For more information, see:
+    https://kb.isc.org/article/AA-01542
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3145
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180115T231301Z</guid>
+      <title>slackware 14.0 changes for Mon, 15 Jan 2018 23:13:01 GMT</title>
+      <pubDate>Mon, 15 Jan 2018 23:13:01 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/linux-3.2.98/*:  Upgraded.
+  This kernel includes mitigations for the Spectre (variant 2) and Meltdown
+  speculative side channel attacks.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5715
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5754
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20180109T005419Z</guid>
+      <title>slackware 14.0 changes for Tue, 09 Jan 2018 00:54:19 GMT</title>
+      <pubDate>Tue, 09 Jan 2018 00:54:19 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/irssi-1.0.6-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes multiple security vulnerabilities.
+  For more information, see:
+    https://irssi.org/security/irssi_sa_2018_01.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5205
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5206
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5207
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5208
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20171225T000016Z</guid>
+      <title>slackware 14.0 changes for Mon, 25 Dec 2017 00:00:16 GMT</title>
+      <pubDate>Mon, 25 Dec 2017 00:00:16 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/xscreensaver-5.38-i486-1_slack14.0.txz:  Upgraded.
+  Here's an upgrade to the latest xscreensaver.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20171129T214833Z</guid>
+      <title>slackware 14.0 changes for Wed, 29 Nov 2017 21:48:33 GMT</title>
+      <pubDate>Wed, 29 Nov 2017 21:48:33 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/curl-7.57.0-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes security issues:
+  SSL out of buffer access
+  FTP wildcard out of bounds read
+  NTLM buffer overflow via integer overflow
+  For more information, see:
+    https://curl.haxx.se/docs/adv_2017-af0a.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8818
+    https://curl.haxx.se/docs/adv_2017-ae72.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8817
+    https://curl.haxx.se/docs/adv_2017-12e7.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8816
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20171129T081509Z</guid>
+      <title>slackware 14.0 changes for Wed, 29 Nov 2017 08:15:09 GMT</title>
+      <pubDate>Wed, 29 Nov 2017 08:15:09 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libXcursor-1.1.15-i486-1_slack14.0.txz:  Upgraded.
+  Fix heap overflows when parsing malicious files. (CVE-2017-16612)
+  It is possible to trigger heap overflows due to an integer overflow
+  while parsing images and a signedness issue while parsing comments.
+  The integer overflow occurs because the chosen limit 0x10000 for
+  dimensions is too large for 32 bit systems, because each pixel takes
+  4 bytes. Properly chosen values allow an overflow which in turn will
+  lead to less allocated memory than needed for subsequent reads.
+  The signedness bug is triggered by reading the length of a comment
+  as unsigned int, but casting it to int when calling the function
+  XcursorCommentCreate. Turning length into a negative value allows the
+  check against XCURSOR_COMMENT_MAX_LEN to pass, and the following
+  addition of sizeof (XcursorComment) + 1 makes it possible to allocate
+  less memory than needed for subsequent reads.
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16612
+  (* Security fix *)
+patches/packages/libXfont-1.4.7-i486-2_slack14.0.txz:  Rebuilt.
+  Open files with O_NOFOLLOW. (CVE-2017-16611)
+  A non-privileged X client can instruct X server running under root
+  to open any file by creating own directory with "fonts.dir",
+  "fonts.alias" or any font file being a symbolic link to any other
+  file in the system. X server will then open it. This can be issue
+  with special files such as /dev/watchdog (which could then reboot
+  the system).
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16611
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20171128T062003Z</guid>
+      <title>slackware 14.0 changes for Tue, 28 Nov 2017 06:20:03 GMT</title>
+      <pubDate>Tue, 28 Nov 2017 06:20:03 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/samba-4.4.16-i486-2_slack14.0.txz:  Rebuilt.
+  This is a security update in order to patch the following defects:
+  CVE-2017-14746 (Use-after-free vulnerability.)
+    All versions of Samba from 4.0.0 onwards are vulnerable to a use after
+    free vulnerability, where a malicious SMB1 request can be used to
+    control the contents of heap memory via a deallocated heap pointer. It
+    is possible this may be used to compromise the SMB server.
+  CVE-2017-15275 (Server heap memory information leak.)
+    All versions of Samba from 3.6.0 onwards are vulnerable to a heap
+    memory information leak, where server allocated heap memory may be
+    returned to the client without being cleared.
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2017-14746.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14746
+    https://www.samba.org/samba/security/CVE-2017-15275.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15275
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20171027T203435Z</guid>
+      <title>slackware 14.0 changes for Fri, 27 Oct 2017 20:34:35 GMT</title>
+      <pubDate>Fri, 27 Oct 2017 20:34:35 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/php-5.6.32-i486-1_slack14.0.txz:  Upgraded.
+  Several security bugs were fixed in this release:
+  Out of bounds read in timelib_meridian().
+  The arcfour encryption stream filter crashes PHP.
+  Applied upstream patch for PCRE (CVE-2016-1283).
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1283
+  (* Security fix *)
+patches/packages/wget-1.19.2-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes stack and heap overflows in in HTTP protocol handling.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13089
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13090
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20171025T190926Z</guid>
+      <title>slackware 14.0 changes for Wed, 25 Oct 2017 19:09:26 GMT</title>
+      <pubDate>Wed, 25 Oct 2017 19:09:26 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2017c-noarch-1_slack14.0.txz:  Upgraded.
+  This package provides the latest timezone updates.
+patches/packages/httpd-2.4.29-i486-1_slack14.0.txz:  Upgraded.
+  This is a bugfix release.
+patches/packages/irssi-1.0.5-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes some remote denial of service issues.
+  For more information, see:
+    https://irssi.org/security/irssi_sa_2017_10.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15228
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15227
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15721
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15723
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15722
+  (* Security fix *)
+patches/packages/xfce4-weather-plugin-0.8.10-i486-1_slack14.0.txz:  Upgraded.
+  This has a bugfix related to setting the location:
+  https://bugzilla.xfce.org/show_bug.cgi?id=13877
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20171024T053118Z</guid>
+      <title>slackware 14.0 changes for Tue, 24 Oct 2017 05:31:18 GMT</title>
+      <pubDate>Tue, 24 Oct 2017 05:31:18 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/curl-7.56.1-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes a security issue:
+  IMAP FETCH response out of bounds read may cause a crash or information leak.
+  For more information, see:
+    https://curl.haxx.se/docs/adv_20171023.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000257
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20171018T182118Z</guid>
+      <title>slackware 14.0 changes for Wed, 18 Oct 2017 18:21:18 GMT</title>
+      <pubDate>Wed, 18 Oct 2017 18:21:18 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/wpa_supplicant-2.6-i486-1_slack14.0.txz:  Upgraded.
+  This update includes patches to mitigate the WPA2 protocol issues known
+  as "KRACK" (Key Reinstallation AttaCK), which may be used to decrypt data,
+  hijack TCP connections, and to forge and inject packets. This is the
+  list of vulnerabilities that are addressed here:
+  CVE-2017-13077: Reinstallation of the pairwise encryption key (PTK-TK) in the
+    4-way handshake.
+  CVE-2017-13078: Reinstallation of the group key (GTK) in the 4-way handshake.
+  CVE-2017-13079: Reinstallation of the integrity group key (IGTK) in the 4-way
+    handshake.
+  CVE-2017-13080: Reinstallation of the group key (GTK) in the group key
+    handshake.
+  CVE-2017-13081: Reinstallation of the integrity group key (IGTK) in the group
+    key handshake.
+  CVE-2017-13082: Accepting a retransmitted Fast BSS Transition (FT)
+    Reassociation Request and reinstalling the pairwise encryption key (PTK-TK)
+    while processing it.
+  CVE-2017-13084: Reinstallation of the STK key in the PeerKey handshake.
+  CVE-2017-13086: reinstallation of the Tunneled Direct-Link Setup (TDLS)
+    PeerKey (TPK) key in the TDLS handshake.
+  CVE-2017-13087: reinstallation of the group key (GTK) when processing a
+    Wireless Network Management (WNM) Sleep Mode Response frame.
+  CVE-2017-13088: reinstallation of the integrity group key (IGTK) when
+    processing a Wireless Network Management (WNM) Sleep Mode Response frame.
+  For more information, see:
+    https://www.krackattacks.com/
+    https://w1.fi/security/2017-1/wpa-packet-number-reuse-with-replayed-messages.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13077
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13078
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13079
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13080
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13081
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13082
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13084
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13086
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13087
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13088
+  (* Security fix *)
+patches/packages/xorg-server-1.12.4-i486-5_slack14.0.txz:  Rebuilt.
+  This update fixes integer overflows and other possible security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12176
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12183
+  (* Security fix *)
+patches/packages/xorg-server-xephyr-1.12.4-i486-5_slack14.0.txz:  Rebuilt.
+patches/packages/xorg-server-xnest-1.12.4-i486-5_slack14.0.txz:  Rebuilt.
+patches/packages/xorg-server-xvfb-1.12.4-i486-5_slack14.0.txz:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20171006T063232Z</guid>
+      <title>slackware 14.0 changes for Fri, 06 Oct 2017 06:32:32 GMT</title>
+      <pubDate>Fri, 06 Oct 2017 06:32:32 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/curl-7.56.0-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes a security issue:
+  libcurl may read outside of a heap allocated buffer when doing FTP.
+  For more information, see:
+    https://curl.haxx.se/docs/adv_20171004.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000254
+  (* Security fix *)
+patches/packages/xorg-server-1.12.4-i486-4_slack14.0.txz:  Rebuilt.
+  This update fixes a security issue:
+  Generating strings for XKB data used a single shared static buffer,
+  which offered several opportunities for errors. Use a ring of
+  resizable buffers instead, to avoid problems when strings end up
+  longer than anticipated.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13723
+  (* Security fix *)
+patches/packages/xorg-server-xephyr-1.12.4-i486-4_slack14.0.txz:  Rebuilt.
+patches/packages/xorg-server-xnest-1.12.4-i486-4_slack14.0.txz:  Rebuilt.
+patches/packages/xorg-server-xvfb-1.12.4-i486-4_slack14.0.txz:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20171002T171606Z</guid>
+      <title>slackware 14.0 changes for Mon, 02 Oct 2017 17:16:06 GMT</title>
+      <pubDate>Mon, 02 Oct 2017 17:16:06 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/dnsmasq-2.78-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes bugs and remotely exploitable security issues that may
+  have impacts including denial of service, information leak, and execution
+  of arbitrary code. Thanks to Felix Wilhelm, Fermin J. Serna, Gabriel Campana,
+  Kevin Hamacher, Ron Bowes, and Gynvael Coldwind of the Google Security Team.
+  For more information, see:
+    https://security.googleblog.com/2017/10/behind-masq-yet-more-dns-and-dhcp.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13704
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14491
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14492
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14493
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14494
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14495
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14496
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20170928T053120Z</guid>
+      <title>slackware 14.0 changes for Thu, 28 Sep 2017 05:31:20 GMT</title>
+      <pubDate>Thu, 28 Sep 2017 05:31:20 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/gegl-0.2.0-i486-2_slack14.0.txz:  Rebuilt.
+  Patched integer overflows in operations/external/ppm-load.c that could allow
+  a denial of service (application crash) or possibly the execution of
+  arbitrary code via a large width or height value in a ppm image.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4433
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20170923T010232Z</guid>
+      <title>slackware 14.0 changes for Sat, 23 Sep 2017 01:02:32 GMT</title>
+      <pubDate>Sat, 23 Sep 2017 01:02:32 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libxml2-2.9.5-i486-1_slack14.0.txz:  Upgraded.
+  This release fixes some security issues:
+  Detect infinite recursion in parameter entities (Nick Wellnhofer),
+  Fix handling of parameter-entity references (Nick Wellnhofer),
+  Disallow namespace nodes in XPointer ranges (Nick Wellnhofer),
+  Fix XPointer paths beginning with range-to (Nick Wellnhofer).
+  (* Security fix *)
+patches/packages/python-2.7.14-i486-1_slack14.0.txz:  Upgraded.
+  Updated to the latest 2.7.x release.
+  This fixes some security issues related to the bundled expat library.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0718
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4472
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9063
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9233
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20170921T012324Z</guid>
+      <title>slackware 14.0 changes for Thu, 21 Sep 2017 01:23:24 GMT</title>
+      <pubDate>Thu, 21 Sep 2017 01:23:24 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/samba-4.4.16-i486-1_slack14.0.txz:  Upgraded.
+  This is a security release in order to address the following defects:
+  SMB1/2/3 connections may not require signing where they should. A man in the
+  middle attack may hijack client connections.
+  SMB3 connections don't keep encryption across DFS redirects. A man in the
+  middle attack can read and may alter confidential documents transferred via
+  a client connection, which are reached via DFS redirect when the original
+  connection used SMB3.
+  Server memory information leak over SMB1. Client with write access to a share
+  can cause server memory contents to be written into a file or printer.
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2017-12150.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12150
+    https://www.samba.org/samba/security/CVE-2017-12151.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12151
+    https://www.samba.org/samba/security/CVE-2017-12163.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12163
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20170918T191503Z</guid>
+      <title>slackware 14.0 changes for Mon, 18 Sep 2017 19:15:03 GMT</title>
+      <pubDate>Mon, 18 Sep 2017 19:15:03 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/httpd-2.4.27-i486-2_slack14.0.txz:  Rebuilt.
+  This update patches a security issue ("Optionsbleed") with the OPTIONS http
+  method which may leak arbitrary pieces of memory to a potential attacker.
+  Thanks to Hanno Bo:ck.
+  For more information, see:
+    http://seclists.org/oss-sec/2017/q3/477
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9798
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20170915T173157Z</guid>
+      <title>slackware 14.0 changes for Fri, 15 Sep 2017 17:31:57 GMT</title>
+      <pubDate>Fri, 15 Sep 2017 17:31:57 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bluez-4.99-i486-3_slack14.0.txz:  Rebuilt.
+  Fixed an information disclosure vulnerability which allows remote attackers
+  to obtain sensitive information from the bluetoothd process memory. This
+  vulnerability lies in the processing of SDP search attribute requests.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000250
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20170912T221851Z</guid>
+      <title>slackware 14.0 changes for Tue, 12 Sep 2017 22:18:51 GMT</title>
+      <pubDate>Tue, 12 Sep 2017 22:18:51 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/emacs-25.3-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes a security vulnerability in Emacs. Gnus no longer
+  supports "richtext" and "enriched" inline MIME objects. This support
+  was disabled to avoid evaluation of arbitrary Lisp code contained in
+  email messages and news articles.
+  For more information, see:
+    http://seclists.org/oss-sec/2017/q3/422
+    https://bugs.gnu.org/28350
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-14.0-20170908T175601Z</guid>
+      <title>slackware 14.0 changes for Fri, 08 Sep 2017 17:56:01 GMT</title>
+      <pubDate>Fri, 08 Sep 2017 17:56:01 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bash-4.2.053-i486-2_slack14.0.txz:  Rebuilt.
+  This update fixes two security issues found in bash before 4.4:
+  The expansion of '\h' in the prompt string allows remote authenticated users
+  to execute arbitrary code via shell metacharacters placed in 'hostname' of a
+  machine. The theoretical attack vector is a hostile DHCP server providing a
+  crafted hostname, but this is unlikely to occur in a normal Slackware
+  configuration as we ignore the hostname provided by DHCP.
+  Specially crafted SHELLOPTS+PS4 environment variables used against bogus
+  setuid binaries using system()/popen() allowed local attackers to execute
+  arbitrary code as root.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0634
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7543
+  (* Security fix *)
+patches/packages/tcpdump-4.9.2-i486-1_slack14.0.txz:  Upgraded.
+  This update fixes bugs and many security issues (see the included
+  CHANGES file).
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11541
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11541
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11542
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11542
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11543
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11543
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12893
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12894
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12895
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12896
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12897
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12898
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12899
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12900
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12901
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12902
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12985
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12986
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12987
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12988
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12989
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12990
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12991
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12992
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12993
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12994
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12995
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12996
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12997
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12998
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12999
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13000
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13001
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13002
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13003
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13004
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13005
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13006
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13007
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13008
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13009
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13010
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13011
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13012
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13013
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13014
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13015
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13016
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13017
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13018
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13019
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13020
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13021
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13022
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13023
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13024
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13025
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13026
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13027
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13028
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13029
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13030
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13031
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13032
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13033
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13034
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13035
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13036
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13037
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13038
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13039
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13040
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13041
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13042
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13043
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13044
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13045
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13046
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13047
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13048
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13049
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13050
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13051
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13052
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13053
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13054
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13055
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13687
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13688
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13689
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13690
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13725
+  (* Security fix *)
+</pre>]]></description>
+    </item>
     <item>
       <guid isPermaLink="false">slackware-14.0-20170815T221612Z</guid>
       <title>slackware 14.0 changes for Tue, 15 Aug 2017 22:16:12 GMT</title>

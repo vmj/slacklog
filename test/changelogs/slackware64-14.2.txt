@@ -1,3 +1,1336 @@
+Wed Aug  1 22:38:53 UTC 2018
+patches/packages/blueman-2.0.6-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes an issue where blueman-mechanism did not enforce the
+  polkit action 'org.blueman.network.setup' for which a polkit policy is
+  shipped. This meant that any user with access to the D-Bus system bus was
+  able to access the related API without authentication. The result was an
+  unspecified impact on the networking stack.
+  Thanks to Matthias Gerstner for discovering this issue.
+  (* Security fix *)
++--------------------------+
+Tue Jul 31 05:53:40 UTC 2018
+patches/packages/file-5.34-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed a denial of service crash when processing a crafted ELF file.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10360
+  (* Security fix *)
+patches/packages/seamonkey-2.49.4-x86_64-1_slack14.2.txz:  Upgraded.
+  This update contains security fixes and improvements.
+  For more information, see:
+    http://www.seamonkey-project.org/releases/seamonkey2.49.4
+  (* Security fix *)
+patches/packages/seamonkey-solibs-2.49.4-x86_64-1_slack14.2.txz:  Upgraded.
++--------------------------+
+Fri Jul 27 21:01:22 UTC 2018
+patches/packages/linux-4.4.144/*:  Upgraded.
+  This kernel update enables additional mitigations for spectre_v2 (IBPB and
+  IBRS_FW). It also enables reporting on the Speculative Store Bypass
+  vulnerability (aka GPZ Variant 4) which affects Intel processors and must
+  be patched with a microcode update.
+  To see the status of CPU vulnerability mitigations on your system, look at
+  the files in: /sys/devices/system/cpu/vulnerabilities
+  In addition, these kernels enable SMB2. Here's the complete list of kernel
+  config changes from the previous 4.4.132:
+    -X86_DEBUG_STATIC_CPU_HAS n
+     CIFS_SMB2 n -> y
+    +CC_OPTIMIZE_FOR_PERFORMANCE y
+    +CIFS_SMB311 n
+    +X86_FAST_FEATURE_TESTS y
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3639
+  (* Security fix *)
++--------------------------+
+Fri Jul 20 23:16:32 UTC 2018
+patches/packages/php-5.6.37-x86_64-1_slack14.2.txz:  Upgraded.
+  Several security bugs have been fixed in this release, including:
+  Int Overflow lead to Heap OverFlow in exif_thumbnail_extract of exif.c
+  heap-buffer-overflow (READ of size 48) while reading exif data
+  (* Security fix *)
++--------------------------+
+Wed Jul 18 22:41:16 UTC 2018
+patches/packages/httpd-2.4.34-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes two denial of service issues:
+  mod_md: DoS via Coredumps on specially crafted requests
+  mod_http2: DoS for HTTP/2 connections by specially crafted requests
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8011
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1333
+  (* Security fix *)
++--------------------------+
+Tue Jul 17 21:16:10 UTC 2018
+patches/packages/mutt-1.10.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and security issues. Upstream strongly recommends
+  that all IMAP and POP users upgrade as soon as possible.
+  (* Security fix *)
++--------------------------+
+Thu Jul 12 01:50:07 UTC 2018
+patches/packages/bind-9.10.8-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes security issues:
+  Fixed a bug where extraordinarily large zone transfers caused several
+  problems, with possible outcomes including corrupted journal files or
+  server exit due to assertion failure.
+  Don't permit recursive query service to unauthorized clients.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5738
+  (* Security fix *)
+patches/packages/curl-7.61.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a buffer overflow in SMTP send.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0500
+  (* Security fix *)
+patches/packages/zlib-1.2.11-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix package update to fix decompression errors when zlib is
+  used with recent versions of Node.js. Thanks to Ken Zalewski for the report.
++--------------------------+
+Tue Jul 10 21:57:11 UTC 2018
+patches/packages/mozilla-thunderbird-52.9.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/en-US/thunderbird/52.9.1/releasenotes/
+    https://www.mozilla.org/security/known-vulnerabilities/thunderbird.html
+  (* Security fix *)
++--------------------------+
+Thu Jul  5 18:32:28 UTC 2018
+patches/packages/mozilla-thunderbird-52.9.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/en-US/thunderbird/52.9.0/releasenotes/
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-18/
+  (* Security fix *)
++--------------------------+
+Mon Jun 25 21:22:04 UTC 2018
+patches/packages/mozilla-firefox-52.9.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
++--------------------------+
+Tue Jun 19 22:35:25 UTC 2018
+patches/packages/gnupg-1.4.23-x86_64-1_slack14.2.txz:  Upgraded.
+  Sanitize the diagnostic output of the original file name in verbose mode.
+  By using a made up file name in the message it was possible to fake status
+  messages. Using this technique it was for example possible to fake the
+  verification status of a signed mail.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12020
+  (* Security fix *)
++--------------------------+
+Fri Jun 15 00:03:49 UTC 2018
+patches/packages/libcgroup-0.41-x86_64-5_slack14.2.txz:  Rebuilt.
+  This is a bugfix package update.
+  Make cgexec setgid root (setuid root is an unnecessarily large hammer).
+  Added /etc/cgconfig.d/ directory.
+  Added "LANG=C" in build script to avoid a bug where rc.cgred reports syntax
+  errors at start.
+  These changes are tested here, and work with unprivileged containers.
+  Thanks to chris.willing.
++--------------------------+
+Wed Jun 13 21:55:19 UTC 2018
+patches/packages/libcgroup-0.41-x86_64-4_slack14.2.txz:  Rebuilt.
+  This is a bugfix package update.
+  Make cgexec setuid root, since the cgred group doesn't exist on 14.2.
+  This is how the -2 build was, but the change was indavertantly dropped
+  in the previous update.
+patches/packages/libgcrypt-1.7.10-x86_64-1_slack14.2.txz:  Upgraded.
+  Use blinding for ECDSA signing to mitigate a novel side-channel attack.
+  For more information, see:
+    https://www.nccgroup.trust/us/our-research/technical-advisory-return-of-the-hidden-number-problem/
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0495
+  (* Security fix *)
++--------------------------+
+Wed Jun 13 05:43:00 UTC 2018
+patches/packages/libcgroup-0.41-x86_64-3_slack14.2.txz:  Rebuilt.
+  This is a bugfix package update.
+  Apply all post 0.41 patches from git, including one for an infinite loop
+  bug that causes 100% CPU usage on one core. Thanks to chris.willing.
++--------------------------+
+Fri Jun  8 20:37:06 UTC 2018
+patches/packages/gnupg2-2.0.31-x86_64-1_slack14.2.txz:  Upgraded.
+  Sanitize the diagnostic output of the original file name in verbose mode.
+  By using a made up file name in the message it was possible to fake status
+  messages. Using this technique it was for example possible to fake the
+  verification status of a signed mail.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12020
+  (* Security fix *)
++--------------------------+
+Wed Jun  6 22:19:01 UTC 2018
+patches/packages/elilo-3.16-x86_64-3_slack14.2.txz:  Rebuilt.
+  Patched and rebuilt to fix issues with larger kernels.
+patches/packages/mozilla-firefox-52.8.1esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
++--------------------------+
+Fri Jun  1 21:28:10 UTC 2018
+patches/packages/git-2.14.4-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes security issues:
+  Submodule "names" come from the untrusted .gitmodules file, but we
+  blindly append them to $GIT_DIR/modules to create our on-disk repo
+  paths. This means you can do bad things by putting "../" into the
+  name. We now enforce some rules for submodule names which will cause
+  Git to ignore these malicious names (CVE-2018-11235).
+  Credit for finding this vulnerability and the proof of concept from
+  which the test script was adapted goes to Etienne Stalmans.
+  It was possible to trick the code that sanity-checks paths on NTFS
+  into reading random piece of memory (CVE-2018-11233).
+  Credit for fixing for these bugs goes to Jeff King, Johannes
+  Schindelin and others.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11235
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11233
+  (* Security fix *)
++--------------------------+
+Fri May 25 23:29:36 UTC 2018
+patches/packages/glibc-zoneinfo-2018e-noarch-2_slack14.2.txz:  Rebuilt.
+  Handle removal of US/Pacific-New timezone. If we see that the machine is
+  using this, it will be automatically switched to US/Pacific.
++--------------------------+
+Wed May 23 04:42:29 UTC 2018
+patches/packages/linux-4.4.132/*:  Upgraded.
+  This kernel upgrade is being provided primarily to fix a regression in the
+  getsockopt() function, but it also contains fixes for two denial-of-service
+  security issues.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000004
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1092
+  (* Security fix *)
+patches/packages/mozilla-thunderbird-52.8.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/en-US/thunderbird/52.8.0/releasenotes/
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-13/
+  (* Security fix *)
+patches/packages/procps-ng-3.3.15-x86_64-1_slack14.2.txz:  Upgraded.
+  Shared library .so-version bump.
+  This update fixes bugs and security issues:
+  library: Fix integer overflow and LPE in file2strvec
+  library: Use size_t for alloc functions
+  pgrep: Fix stack-based buffer overflow
+  ps: Fix buffer overflow in output buffer, causing DOS
+  top: Don't use cwd for location of config
+  For more information, see:
+    https://www.qualys.com/2018/05/17/procps-ng-audit-report-advisory.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1124
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1126
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1125
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1123
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1122
+  (* Security fix *)
++--------------------------+
+Thu May 17 04:13:16 UTC 2018
+patches/packages/curl-7.60.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes:
+  FTP: shutdown response buffer overflow
+  RTSP: bad headers buffer over-read
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000300
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000301
+  (* Security fix *)
+patches/packages/php-5.6.36-x86_64-1_slack14.2.txz:  Upgraded.
+  This fixes many bugs, including some security issues:
+  Heap Buffer Overflow (READ: 1786) in exif_iif_add_value
+  stream filter convert.iconv leads to infinite loop on invalid sequence
+  Malicious LDAP-Server Response causes crash
+  fix for CVE-2018-5712 may not be complete
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10549
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10546
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10548
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10547
+  (* Security fix *)
++--------------------------+
+Thu May 10 21:01:11 UTC 2018
+patches/packages/mariadb-10.0.35-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2782
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2784
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2787
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2766
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2755
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2819
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2817
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2761
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2781
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2771
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2813
+  (* Security fix *)
++--------------------------+
+Thu May 10 01:24:19 UTC 2018
+patches/packages/glibc-zoneinfo-2018e-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
+patches/packages/mozilla-firefox-52.8.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-12/
+  (* Security fix *)
+patches/packages/wget-1.19.5-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed a security issue where a malicious web server could inject arbitrary
+  cookies into the cookie jar file.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0494
+  (* Security fix *)
++--------------------------+
+Fri May  4 19:40:52 UTC 2018
+patches/packages/python-2.7.15-x86_64-1_slack14.2.txz:  Upgraded.
+  Updated to the latest 2.7.x release.
+  This fixes some security issues in difflib and poplib (regexes vulnerable
+  to denial of service attacks), as well as security issues with the bundled
+  expat library.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0876
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0718
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0718
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4472
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5300
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9063
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9233
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1060
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1061
+  (* Security fix *)
++--------------------------+
+Thu May  3 22:42:35 UTC 2018
+patches/packages/seamonkey-2.49.3-x86_64-1_slack14.2.txz:  Upgraded.
+  This update contains security fixes and improvements.
+  For more information (when it appears), see:
+    http://www.seamonkey-project.org/releases/seamonkey2.49.3
+  (* Security fix *)
+patches/packages/seamonkey-solibs-2.49.3-x86_64-1_slack14.2.txz:  Upgraded.
++--------------------------+
+Tue May  1 06:24:40 UTC 2018
+patches/packages/libwmf-0.2.8.4-x86_64-7_slack14.2.txz:  Rebuilt.
+  Renamed package to fix wrong package tag (was slack14.1, should be
+  slack14.2). Thanks to rworkman for the heads-up.
++--------------------------+
+Mon Apr 30 22:35:43 UTC 2018
+patches/packages/libwmf-0.2.8.4-x86_64-7_slack14.1.txz:  Rebuilt.
+  Patched denial of service and possible execution of arbitrary code
+  security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0941
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3376
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0455
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2756
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3472
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3473
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3477
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3546
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0848
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4588
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4695
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4696
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10167
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10168
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9011
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9317
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6362
+  (* Security fix *)
+patches/packages/mozilla-firefox-52.7.4esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
++--------------------------+
+Fri Apr 27 03:58:48 UTC 2018
+patches/packages/openvpn-2.4.6-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a security update fixing a potential double-free() in Interactive
+  Service. This usually only leads to a process crash (DoS by an unprivileged
+  local account) but since it could possibly lead to memory corruption if
+  happening while multiple other threads are active at the same time,
+  CVE-2018-9336 has been assigned to acknowledge this risk.
+  For more information, see:
+    https://github.com/OpenVPN/openvpn/commit/1394192b210cb3c6624a7419bcf3ff966742e79b
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-9336
+  (* Security fix *)
++--------------------------+
+Thu Apr 19 01:04:06 UTC 2018
+patches/packages/gd-2.2.5-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes two security issues:
+  Double-free in gdImagePngPtr() (denial of service).
+  Buffer over-read into uninitialized memory (information leak).
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6362
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7890
+  (* Security fix *)
++--------------------------+
+Fri Apr  6 20:47:43 UTC 2018
+patches/packages/patch-2.7.6-x86_64-1_slack14.2.txz:  Upgraded.
+  Fix arbitrary shell execution possible with obsolete ed format patches.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000156
+  (* Security fix *)
++--------------------------+
+Sun Apr  1 19:45:12 UTC 2018
+patches/packages/libidn-1.34-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes security issues:
+  Fix integer overflow in combine_hangul()
+  Fix integer overflow in punycode decoder
+  Fix NULL pointer dereference in g_utf8_normalize()
+  Fix NULL pointer dereference in stringprep_ucs4_nfkc_normalize()
+  (* Security fix *)
++--------------------------+
+Sun Apr  1 02:53:26 UTC 2018
+patches/packages/php-5.6.35-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue where sensitive data belonging to other
+  accounts might be accessed by a local user.
+  For more information, see:
+    http://bugs.php.net/75605
+  (* Security fix *)
++--------------------------+
+Thu Mar 29 20:48:28 UTC 2018
+patches/packages/ruby-2.2.10-x86_64-1_slack14.2.txz:  Upgraded.
+  This release includes some bug fixes and some security fixes:
+  HTTP response splitting in WEBrick.
+  Unintentional file and directory creation with directory traversal in
+  tempfile and tmpdir.
+  DoS by large request in WEBrick.
+  Buffer under-read in String#unpack.
+  Unintentional socket creation by poisoned NUL byte in UNIXServer
+  and UNIXSocket.
+  Unintentional directory traversal by poisoned NUL byte in Dir.
+  Multiple vulnerabilities in RubyGems.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17742
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6914
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8777
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8778
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8779
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8780
+  (* Security fix *)
++--------------------------+
+Thu Mar 29 01:02:50 UTC 2018
+patches/packages/openssl-1.0.2o-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue:
+  Constructed ASN.1 types with a recursive definition could exceed the stack.
+  For more information, see:
+    https://www.openssl.org/news/secadv/20180327.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0739
+  (* Security fix *)
+patches/packages/openssl-solibs-1.0.2o-x86_64-1_slack14.2.txz:  Upgraded.
++--------------------------+
+Mon Mar 26 22:06:38 UTC 2018
+patches/packages/mozilla-firefox-52.7.3esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-10/
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
++--------------------------+
+Fri Mar 23 22:28:20 UTC 2018
+patches/packages/glibc-zoneinfo-2018d-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
+patches/packages/mozilla-thunderbird-52.7.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/en-US/thunderbird/52.7.0/releasenotes/
+  (* Security fix *)
++--------------------------+
+Sun Mar 18 00:55:39 UTC 2018
+patches/packages/libvorbis-1.3.6-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14632
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14633
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5146
+  (* Security fix *)
++--------------------------+
+Sat Mar 17 03:25:26 UTC 2018
+patches/packages/mozilla-firefox-52.7.2esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-08/
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
++--------------------------+
+Fri Mar 16 02:29:29 UTC 2018
+patches/packages/curl-7.59.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes security issues:
+  FTP path trickery leads to NIL byte out of bounds write
+  LDAP NULL pointer dereference
+  RTSP RTP buffer over-read
+  For more information, see:
+    https://curl.haxx.se/docs/adv_2018-9cd6.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000120
+    https://curl.haxx.se/docs/adv_2018-97a2.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000121
+    https://curl.haxx.se/docs/adv_2018-b047.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000122
+  (* Security fix *)
++--------------------------+
+Tue Mar 13 21:12:51 UTC 2018
+patches/packages/mozilla-firefox-52.7.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-07/
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+patches/packages/samba-4.4.16-x86_64-3_slack14.2.txz:  Rebuilt.
+  This is a security update in order to patch the following defect:
+    On a Samba 4 AD DC the LDAP server in all versions of Samba from
+  4.0.0 onwards incorrectly validates permissions to modify passwords
+  over LDAP allowing authenticated users to change any other users`
+  passwords, including administrative users.
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2018-1057.html
+    https://wiki.samba.org/index.php/CVE-2018-1057
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1057
+  (* Security fix *)
++--------------------------+
+Thu Mar  8 07:07:45 UTC 2018
+patches/packages/libtool-2.4.6-x86_64-5_slack14.2.txz:  Rebuilt.
+  Rebuilt to fix the embedded GCC version number. Thanks to David Spencer.
+patches/packages/openssh-7.4p1-x86_64-2_slack14.2.txz:  Rebuilt.
+  sftp-server: in read-only mode, sftp-server was incorrectly permitting
+  creation of zero-length files. Reported by Michal Zalewski.
+  Thanks to arny (of Bluewhite64 fame) for the heads-up.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15906
+  (* Security fix *)
+patches/packages/php-5.6.34-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a stack buffer overflow vulnerability.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7584
+  (* Security fix *)
++--------------------------+
+Thu Mar  1 23:24:54 UTC 2018
+patches/packages/dhcp-4.4.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes two security issues:
+    Corrected an issue where large sized 'X/x' format options were causing
+  option handling logic to overwrite memory when expanding them to human
+  readable form. Reported by Felix Wilhelm, Google Security Team.
+    Option reference count was not correctly decremented in error path
+  when parsing buffer for options. Reported by Felix Wilhelm, Google
+  Security Team.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5732
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5733
+  (* Security fix *)
+patches/packages/ntp-4.2.8p11-x86_64-1_slack14.2.txz:  Upgraded.
+  This release addresses five security issues in ntpd:
+  * LOW/MEDIUM: Sec 3012 / CVE-2016-1549 / VU#961909: Sybil vulnerability:
+    ephemeral association attack. While fixed in ntp-4.2.8p7, there are
+    significant additional protections for this issue in 4.2.8p11.
+    Reported by Matt Van Gundy of Cisco.
+  * INFO/MEDIUM: Sec 3412 / CVE-2018-7182 / VU#961909: ctl_getitem(): buffer
+    read overrun leads to undefined behavior and information leak.
+    Reported by Yihan Lian of Qihoo 360.
+  * LOW: Sec 3415 / CVE-2018-7170 / VU#961909: Multiple authenticated
+    ephemeral associations. Reported on the questions@ list.
+  * LOW: Sec 3453 / CVE-2018-7184 / VU#961909: Interleaved symmetric mode
+    cannot recover from bad state. Reported by Miroslav Lichvar of Red Hat.
+  * LOW/MEDIUM: Sec 3454 / CVE-2018-7185 / VU#961909: Unauthenticated packet
+    can reset authenticated interleaved association.
+    Reported by Miroslav Lichvar of Red Hat.
+  For more information, see:
+    http://support.ntp.org/bin/view/Main/SecurityNotice#February_2018_ntp_4_2_8p11_NTP_S
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1549
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7182
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7170
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7184
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7185
+  (* Security fix *)
++--------------------------+
+Mon Feb 26 21:32:03 UTC 2018
+patches/packages/linux-4.4.118/*:  Upgraded.
+  This kernel includes __user pointer sanitization mitigation for the Spectre
+  (variant 1) speculative side channel attack.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5753
+  (* Security fix *)
++--------------------------+
+Sat Feb 24 07:41:40 UTC 2018
+patches/packages/wget-1.19.4-x86_64-2_slack14.2.txz:  Rebuilt.
+  Applied upstream patch to fix logging in background mode.
+  Thanks to Willy Sudiarto Raharjo.
++--------------------------+
+Fri Feb 16 03:19:36 UTC 2018
+patches/packages/irssi-1.0.7-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and security issues.
+  For more information, see:
+    https://irssi.org/security/html/irssi_sa_2018_02
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7054
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7053
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7050
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7052
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7051
+  (* Security fix *)
++--------------------------+
+Wed Feb 14 19:48:51 UTC 2018
+patches/packages/seamonkey-2.49.2-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+patches/packages/seamonkey-solibs-2.49.2-x86_64-1_slack14.2.txz:  Upgraded.
++--------------------------+
+Wed Feb  7 04:28:48 UTC 2018
+patches/packages/gcc-5.5.0-x86_64-1_slack14.2.txz:  Upgraded.
+  Upgraded to the latest gcc-5 release, with patches to support
+  -mindirect-branch=thunk-extern, allowing full mitigation of Spectre v2
+  in the kernel (when CONFIG_RETPOLINE is used).
+patches/packages/gcc-g++-5.5.0-x86_64-1_slack14.2.txz:  Upgraded.
+patches/packages/gcc-gfortran-5.5.0-x86_64-1_slack14.2.txz:  Upgraded.
+patches/packages/gcc-gnat-5.5.0-x86_64-1_slack14.2.txz:  Upgraded.
+patches/packages/gcc-go-5.5.0-x86_64-1_slack14.2.txz:  Upgraded.
+patches/packages/gcc-java-5.5.0-x86_64-1_slack14.2.txz:  Upgraded.
+patches/packages/gcc-objc-5.5.0-x86_64-1_slack14.2.txz:  Upgraded.
+patches/packages/linux-4.4.115/*:  Upgraded.
+  This kernel includes full retpoline mitigation for the Spectre (variant 2)
+  speculative side channel attack.
+  Please note that this kernel was compiled with gcc-5.5.0, also provided as
+  an update for Slackware 14.2. You'll need to install the updated gcc in order
+  to compile kernel modules that will load into this updated kernel.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5715
+  (* Security fix *)
++--------------------------+
+Sun Feb  4 05:13:27 UTC 2018
+patches/packages/php-5.6.33-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and security issues, including:
+  Potential infinite loop in gdImageCreateFromGifCtx.
+  Reflected XSS in .phar 404 page.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5711
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5712
+  (* Security fix *)
++--------------------------+
+Thu Feb  1 18:24:15 UTC 2018
+patches/packages/mariadb-10.0.34-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2562
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2622
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2640
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2665
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-2668
+  (* Security fix *)
+patches/packages/rsync-3.1.3-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes two security issues:
+  Fixed a buffer overrun in the protocol's handling of xattr names and
+  ensure that the received name is null terminated.
+  Fix an issue with --protect-args where the user could specify the arg in
+  the protected-arg list and short-circuit some of the arg-sanitizing code.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16548
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5764
+  (* Security fix *)
++--------------------------+
+Fri Jan 26 03:46:16 UTC 2018
+patches/packages/curl-7.58.0-x86_64-2_slack14.2.txz:  Rebuilt.
+  Recompiled using --with-libssh2, which is evidently no longer a default
+  option. Thanks to Markus Wiesner.
+patches/packages/mozilla-thunderbird-52.6.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/en-US/thunderbird/52.6.0/releasenotes/
+  (* Security fix *)
++--------------------------+
+Thu Jan 25 02:24:04 UTC 2018
+patches/packages/curl-7.58.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes security issues:
+  HTTP authentication leak in redirects
+  HTTP/2 trailer out-of-bounds read
+  For more information, see:
+    https://curl.haxx.se/docs/adv_2018-b3bf.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000007
+    https://curl.haxx.se/docs/adv_2018-824a.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000005
+  (* Security fix *)
++--------------------------+
+Wed Jan 24 04:21:44 UTC 2018
+patches/packages/glibc-zoneinfo-2018c-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
++--------------------------+
+Mon Jan 22 22:47:47 UTC 2018
+patches/packages/wget-1.19.4-x86_64-1_slack14.2.txz:  Upgraded.
+  More bug fixes:
+  A major bug that caused GZip'ed pages to never be decompressed has been fixed
+  Support for Content-Encoding and Transfer-Encoding have been marked as
+  experimental and disabled by default
++--------------------------+
+Sat Jan 20 16:00:51 UTC 2018
+patches/packages/mozilla-firefox-52.6.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  Specifically, this update contains performance.now() mitigations for Spectre.
+  For more information, see:
+    https://blog.mozilla.org/security/2018/01/03/mitigations-landing-new-class-timing-attack/
+    http://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+patches/packages/wget-1.19.3-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes various non-security bugs, including this one:
+  Prevent erroneous decompression of .gz and .tgz files with broken servers.
++--------------------------+
+Wed Jan 17 21:36:23 UTC 2018
+patches/packages/bind-9.10.6_P1-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a high severity security issue:
+  Improper sequencing during cleanup can lead to a use-after-free error,
+  triggering an assertion failure and crash in named.
+  For more information, see:
+    https://kb.isc.org/article/AA-01542
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3145
+  (* Security fix *)
++--------------------------+
+Mon Jan 15 23:13:01 UTC 2018
+patches/packages/linux-4.4.111/*:  Upgraded.
+  This kernel includes mitigations for the Spectre (variant 2) and Meltdown
+  speculative side channel attacks.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5715
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5754
+  (* Security fix *)
++--------------------------+
+Tue Jan  9 00:54:19 UTC 2018
+patches/packages/irssi-1.0.6-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes multiple security vulnerabilities.
+  For more information, see:
+    https://irssi.org/security/irssi_sa_2018_01.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5205
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5206
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5207
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5208
+  (* Security fix *)
++--------------------------+
+Fri Dec 29 23:09:14 UTC 2017
+patches/packages/mozilla-firefox-52.5.3esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
++--------------------------+
+Mon Dec 25 00:00:16 UTC 2017
+patches/packages/xscreensaver-5.38-x86_64-1_slack14.2.txz:  Upgraded.
+  Here's an upgrade to the latest xscreensaver.
++--------------------------+
+Fri Dec 22 21:49:01 UTC 2017
+patches/packages/mozilla-thunderbird-52.5.2-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/en-US/thunderbird/52.5.2/releasenotes/
+  (* Security fix *)
++--------------------------+
+Wed Dec 20 03:05:58 UTC 2017
+patches/packages/ruby-2.2.9-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue:
+  Net::FTP#get, getbinaryfile, gettextfile, put, putbinaryfile, and puttextfile
+  use Kernel#open to open a local file. If the localfile argument starts with
+  the pipe character "|", the command following the pipe character is executed.
+  The default value of localfile is File.basename(remotefile), so malicious FTP
+  servers could cause arbitrary command execution.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17405
+  (* Security fix *)
++--------------------------+
+Sat Dec  9 00:02:28 UTC 2017
+patches/packages/openssl-1.0.2n-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes security issues:
+  Read/write after SSL object in error state
+  rsaz_1024_mul_avx2 overflow bug on x86_64
+  For more information, see:
+    https://www.openssl.org/news/secadv/20171207.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3737
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3738
+  (* Security fix *)
+patches/packages/openssl-solibs-1.0.2n-x86_64-1_slack14.2.txz:  Upgraded.
++--------------------------+
+Fri Dec  8 05:54:21 UTC 2017
+patches/packages/mozilla-firefox-52.5.2esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
++--------------------------+
+Sat Dec  2 20:32:45 UTC 2017
+patches/packages/mozilla-firefox-52.5.1esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
++--------------------------+
+Wed Nov 29 21:48:33 UTC 2017
+patches/packages/curl-7.57.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes security issues:
+  SSL out of buffer access
+  FTP wildcard out of bounds read
+  NTLM buffer overflow via integer overflow
+  For more information, see:
+    https://curl.haxx.se/docs/adv_2017-af0a.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8818
+    https://curl.haxx.se/docs/adv_2017-ae72.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8817
+    https://curl.haxx.se/docs/adv_2017-12e7.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8816
+  (* Security fix *)
++--------------------------+
+Wed Nov 29 08:15:09 UTC 2017
+patches/packages/libXcursor-1.1.15-x86_64-1_slack14.2.txz:  Upgraded.
+  Fix heap overflows when parsing malicious files. (CVE-2017-16612)
+  It is possible to trigger heap overflows due to an integer overflow
+  while parsing images and a signedness issue while parsing comments.
+  The integer overflow occurs because the chosen limit 0x10000 for
+  dimensions is too large for 32 bit systems, because each pixel takes
+  4 bytes. Properly chosen values allow an overflow which in turn will
+  lead to less allocated memory than needed for subsequent reads.
+  The signedness bug is triggered by reading the length of a comment
+  as unsigned int, but casting it to int when calling the function
+  XcursorCommentCreate. Turning length into a negative value allows the
+  check against XCURSOR_COMMENT_MAX_LEN to pass, and the following
+  addition of sizeof (XcursorComment) + 1 makes it possible to allocate
+  less memory than needed for subsequent reads.
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16612
+  (* Security fix *)
+patches/packages/libXfont-1.5.1-x86_64-2_slack14.2.txz:  Rebuilt.
+  Open files with O_NOFOLLOW. (CVE-2017-16611)
+  A non-privileged X client can instruct X server running under root
+  to open any file by creating own directory with "fonts.dir",
+  "fonts.alias" or any font file being a symbolic link to any other
+  file in the system. X server will then open it. This can be issue
+  with special files such as /dev/watchdog (which could then reboot
+  the system).
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16611
+  (* Security fix *)
++--------------------------+
+Tue Nov 28 06:20:03 UTC 2017
+patches/packages/samba-4.4.16-x86_64-2_slack14.2.txz:  Rebuilt.
+  This is a security update in order to patch the following defects:
+  CVE-2017-14746 (Use-after-free vulnerability.)
+    All versions of Samba from 4.0.0 onwards are vulnerable to a use after
+    free vulnerability, where a malicious SMB1 request can be used to
+    control the contents of heap memory via a deallocated heap pointer. It
+    is possible this may be used to compromise the SMB server.
+  CVE-2017-15275 (Server heap memory information leak.)
+    All versions of Samba from 3.6.0 onwards are vulnerable to a heap
+    memory information leak, where server allocated heap memory may be
+    returned to the client without being cleared.
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2017-14746.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14746
+    https://www.samba.org/samba/security/CVE-2017-15275.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15275
+  (* Security fix *)
++--------------------------+
+Sat Nov 25 07:44:07 UTC 2017
+patches/packages/mozilla-thunderbird-52.5.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
++--------------------------+
+Tue Nov 21 05:05:41 UTC 2017
+patches/packages/libtiff-4.0.9-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8128
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5318
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10095
+  (* Security fix *)
++--------------------------+
+Fri Nov 17 00:56:25 UTC 2017
+patches/packages/libplist-2.0.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes several security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6440
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6439
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6438
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6437
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6436
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6435
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5836
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5835
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5834
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5545
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5209
+  (* Security fix *)
+patches/packages/mozilla-firefox-52.5.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
++--------------------------+
+Fri Nov  3 03:31:56 UTC 2017
+patches/packages/mariadb-10.0.33-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and security issues.
+  For more information, see:
+    https://jira.mariadb.org/browse/MDEV-13819
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10268
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10378
+  (* Security fix *)
+patches/packages/openssl-1.0.2m-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue:
+  There is a carry propagating bug in the x64 Montgomery squaring procedure.
+  No EC algorithms are affected. Analysis suggests that attacks against RSA
+  and DSA as a result of this defect would be very difficult to perform and
+  are not believed likely. Attacks against DH are considered just feasible
+  (although very difficult) because most of the work necessary to deduce
+  information about a private key may be performed offline. The amount of
+  resources required for such an attack would be very significant and likely
+  only accessible to a limited number of attackers. An attacker would
+  additionally need online access to an unpatched system using the target
+  private key in a scenario with persistent DH parameters and a private
+  key that is shared between multiple clients.
+  This only affects processors that support the BMI1, BMI2 and ADX extensions
+  like Intel Broadwell (5th generation) and later or AMD Ryzen.
+  For more information, see:
+    https://www.openssl.org/news/secadv/20171102.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3736
+  (* Security fix *)
+patches/packages/openssl-solibs-1.0.2m-x86_64-1_slack14.2.txz:  Upgraded.
++--------------------------+
+Fri Oct 27 20:34:35 UTC 2017
+patches/packages/NetworkManager-1.8.4-x86_64-1_slack14.2.txz:  Upgraded.
+  This update is provided to address issues with wifi scanning when using the
+  new wpa_supplicant with certain hardware drivers.  If you're not having
+  problems, you don't need this update (but it probably won't hurt).
+patches/packages/network-manager-applet-1.8.4-x86_64-1_slack14.2.txz:  Upgraded.
+  This package goes along with the optional NetworkManager update.
+patches/packages/php-5.6.32-x86_64-1_slack14.2.txz:  Upgraded.
+  Several security bugs were fixed in this release:
+  Out of bounds read in timelib_meridian().
+  The arcfour encryption stream filter crashes PHP.
+  Applied upstream patch for PCRE (CVE-2016-1283).
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1283
+  (* Security fix *)
+patches/packages/wget-1.19.2-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes stack and heap overflows in in HTTP protocol handling.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13089
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13090
+  (* Security fix *)
++--------------------------+
+Wed Oct 25 19:09:26 UTC 2017
+patches/packages/glibc-zoneinfo-2017c-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
+patches/packages/httpd-2.4.29-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+patches/packages/irssi-1.0.5-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes some remote denial of service issues.
+  For more information, see:
+    https://irssi.org/security/irssi_sa_2017_10.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15228
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15227
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15721
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15723
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15722
+  (* Security fix *)
+patches/packages/xfce4-weather-plugin-0.8.10-x86_64-1_slack14.2.txz:  Upgraded.
+  This has a bugfix related to setting the location:
+  https://bugzilla.xfce.org/show_bug.cgi?id=13877
++--------------------------+
+Tue Oct 24 05:31:18 UTC 2017
+patches/packages/curl-7.56.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue:
+  IMAP FETCH response out of bounds read may cause a crash or information leak.
+  For more information, see:
+    https://curl.haxx.se/docs/adv_20171023.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000257
+  (* Security fix *)
+patches/packages/seamonkey-2.49.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+patches/packages/seamonkey-solibs-2.49.1-x86_64-1_slack14.2.txz:  Upgraded.
++--------------------------+
+Wed Oct 18 18:21:18 UTC 2017
+patches/packages/libXres-1.2.0-x86_64-1_slack14.2.txz:  Upgraded.
+  Integer overflows may allow X servers to trigger allocation of insufficient
+  memory and a buffer overflow via vectors related to the (1)
+  XResQueryClients and (2) XResQueryClientResources functions.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1988
+  (* Security fix *)
+patches/packages/wpa_supplicant-2.6-x86_64-1_slack14.2.txz:  Upgraded.
+  This update includes patches to mitigate the WPA2 protocol issues known
+  as "KRACK" (Key Reinstallation AttaCK), which may be used to decrypt data,
+  hijack TCP connections, and to forge and inject packets. This is the
+  list of vulnerabilities that are addressed here:
+  CVE-2017-13077: Reinstallation of the pairwise encryption key (PTK-TK) in the
+    4-way handshake.
+  CVE-2017-13078: Reinstallation of the group key (GTK) in the 4-way handshake.
+  CVE-2017-13079: Reinstallation of the integrity group key (IGTK) in the 4-way
+    handshake.
+  CVE-2017-13080: Reinstallation of the group key (GTK) in the group key
+    handshake.
+  CVE-2017-13081: Reinstallation of the integrity group key (IGTK) in the group
+    key handshake.
+  CVE-2017-13082: Accepting a retransmitted Fast BSS Transition (FT)
+    Reassociation Request and reinstalling the pairwise encryption key (PTK-TK)
+    while processing it.
+  CVE-2017-13084: Reinstallation of the STK key in the PeerKey handshake.
+  CVE-2017-13086: reinstallation of the Tunneled Direct-Link Setup (TDLS)
+    PeerKey (TPK) key in the TDLS handshake.
+  CVE-2017-13087: reinstallation of the group key (GTK) when processing a
+    Wireless Network Management (WNM) Sleep Mode Response frame.
+  CVE-2017-13088: reinstallation of the integrity group key (IGTK) when
+    processing a Wireless Network Management (WNM) Sleep Mode Response frame.
+  For more information, see:
+    https://www.krackattacks.com/
+    https://w1.fi/security/2017-1/wpa-packet-number-reuse-with-replayed-messages.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13077
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13078
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13079
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13080
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13081
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13082
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13084
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13086
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13087
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13088
+  (* Security fix *)
+patches/packages/xorg-server-1.18.3-x86_64-5_slack14.2.txz:  Rebuilt.
+  This update fixes integer overflows and other possible security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12176
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12177
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12178
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12179
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12180
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12181
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12182
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12183
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12184
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12185
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12186
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12187
+  (* Security fix *)
+patches/packages/xorg-server-xephyr-1.18.3-x86_64-5_slack14.2.txz:  Rebuilt.
+patches/packages/xorg-server-xnest-1.18.3-x86_64-5_slack14.2.txz:  Rebuilt.
+patches/packages/xorg-server-xvfb-1.18.3-x86_64-5_slack14.2.txz:  Rebuilt.
++--------------------------+
+Sat Oct  7 02:53:31 UTC 2017
+patches/packages/mozilla-thunderbird-52.4.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
++--------------------------+
+Fri Oct  6 06:32:32 UTC 2017
+patches/packages/curl-7.56.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue:
+  libcurl may read outside of a heap allocated buffer when doing FTP.
+  For more information, see:
+    https://curl.haxx.se/docs/adv_20171004.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000254
+  (* Security fix *)
+patches/packages/openjpeg-2.3.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes security issues which may lead to a denial of service
+  or possibly remote code execution.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9572
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9573
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9580
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9581
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12982
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14039
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14040
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14041
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14151
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14152
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14164
+  (* Security fix *)
+patches/packages/xorg-server-1.18.3-x86_64-4_slack14.2.txz:  Rebuilt.
+  This update fixes two security issues:
+  Xext/shm: Validate shmseg resource id, otherwise it can belong to a
+  non-existing client and abort X server with FatalError "client not
+  in use", or overwrite existing segment of another existing client.
+  Generating strings for XKB data used a single shared static buffer,
+  which offered several opportunities for errors. Use a ring of
+  resizable buffers instead, to avoid problems when strings end up
+  longer than anticipated.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13721
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13723
+  (* Security fix *)
+patches/packages/xorg-server-xephyr-1.18.3-x86_64-4_slack14.2.txz:  Rebuilt.
+patches/packages/xorg-server-xnest-1.18.3-x86_64-4_slack14.2.txz:  Rebuilt.
+patches/packages/xorg-server-xvfb-1.18.3-x86_64-4_slack14.2.txz:  Rebuilt.
++--------------------------+
+Mon Oct  2 17:16:06 UTC 2017
+patches/packages/dnsmasq-2.78-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and remotely exploitable security issues that may
+  have impacts including denial of service, information leak, and execution
+  of arbitrary code. Thanks to Felix Wilhelm, Fermin J. Serna, Gabriel Campana,
+  Kevin Hamacher, Ron Bowes, and Gynvael Coldwind of the Google Security Team.
+  For more information, see:
+    https://security.googleblog.com/2017/10/behind-masq-yet-more-dns-and-dhcp.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13704
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14491
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14492
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14493
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14494
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14495
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14496
+  (* Security fix *)
++--------------------------+
+Sun Oct  1 19:19:08 UTC 2017
+patches/packages/openexr-2.2.0-x86_64-2_slack14.2.txz:  Rebuilt.
+  Patched bugs that may lead to program crashes or possibly execution of
+  arbitrary code. Thanks to Thomas Choi for the patch.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9110
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9111
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9112
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9113
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9114
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9115
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9116
+  (* Security fix *)
++--------------------------+
+Thu Sep 28 21:03:26 UTC 2017
+patches/packages/mozilla-firefox-52.4.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
++--------------------------+
+Thu Sep 28 05:31:20 UTC 2017
+patches/packages/gegl-0.2.0-x86_64-4_slack14.2.txz:  Rebuilt.
+  Patched integer overflows in operations/external/ppm-load.c that could allow
+  a denial of service (application crash) or possibly the execution of
+  arbitrary code via a large width or height value in a ppm image.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4433
+  (* Security fix *)
++--------------------------+
+Sat Sep 23 01:02:32 UTC 2017
+patches/packages/libxml2-2.9.5-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes some security issues:
+  Detect infinite recursion in parameter entities (Nick Wellnhofer),
+  Fix handling of parameter-entity references (Nick Wellnhofer),
+  Disallow namespace nodes in XPointer ranges (Nick Wellnhofer),
+  Fix XPointer paths beginning with range-to (Nick Wellnhofer).
+  (* Security fix *)
+patches/packages/python-2.7.14-x86_64-1_slack14.2.txz:  Upgraded.
+  Updated to the latest 2.7.x release.
+  This fixes some security issues related to the bundled expat library.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0718
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4472
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9063
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9233
+  (* Security fix *)
++--------------------------+
+Thu Sep 21 01:23:24 UTC 2017
+patches/packages/samba-4.4.16-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a security release in order to address the following defects:
+  SMB1/2/3 connections may not require signing where they should. A man in the
+  middle attack may hijack client connections.
+  SMB3 connections don't keep encryption across DFS redirects. A man in the
+  middle attack can read and may alter confidential documents transferred via
+  a client connection, which are reached via DFS redirect when the original
+  connection used SMB3.
+  Server memory information leak over SMB1. Client with write access to a share
+  can cause server memory contents to be written into a file or printer.
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2017-12150.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12150
+    https://www.samba.org/samba/security/CVE-2017-12151.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12151
+    https://www.samba.org/samba/security/CVE-2017-12163.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12163
+  (* Security fix *)
++--------------------------+
+Mon Sep 18 19:15:03 UTC 2017
+patches/packages/httpd-2.4.27-x86_64-2_slack14.2.txz:  Rebuilt.
+  This update patches a security issue ("Optionsbleed") with the OPTIONS http
+  method which may leak arbitrary pieces of memory to a potential attacker.
+  Thanks to Hanno Bo:ck.
+  For more information, see:
+    http://seclists.org/oss-sec/2017/q3/477
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9798
+  (* Security fix *)
+patches/packages/libgcrypt-1.7.9-x86_64-1_slack14.2.txz:  Upgraded.
+  Mitigate a local side-channel attack on Curve25519 dubbed "May
+  the Fourth be With You".
+  For more information, see:
+    https://eprint.iacr.org/2017/806
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0379
+  (* Security fix *)
+patches/packages/ruby-2.2.8-x86_64-1_slack14.2.txz:  Upgraded.
+  This release includes several security fixes.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0898
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0899
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0900
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0901
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0902
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10784
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14033
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14064
+  (* Security fix *)
++--------------------------+
+Fri Sep 15 17:31:57 UTC 2017
+patches/packages/bluez-5.47-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed an information disclosure vulnerability which allows remote attackers
+  to obtain sensitive information from the bluetoothd process memory. This
+  vulnerability lies in the processing of SDP search attribute requests.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000250
+  (* Security fix *)
+patches/packages/linux-4.4.88/*:  Upgraded.
+  This update fixes the security vulnerability known as "BlueBorne".
+  The native Bluetooth stack in the Linux Kernel (BlueZ), starting at
+  Linux kernel version 3.3-rc1 is vulnerable to a stack overflow in
+  the processing of L2CAP configuration responses resulting in remote
+  code execution in kernel space.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000251
+    https://www.armis.com/blueborne
+  (* Security fix *)
++--------------------------+
+Tue Sep 12 22:18:51 UTC 2017
+patches/packages/emacs-25.3-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security vulnerability in Emacs. Gnus no longer
+  supports "richtext" and "enriched" inline MIME objects. This support
+  was disabled to avoid evaluation of arbitrary Lisp code contained in
+  email messages and news articles.
+  For more information, see:
+    http://seclists.org/oss-sec/2017/q3/422
+    https://bugs.gnu.org/28350
+  (* Security fix *)
+patches/packages/libzip-1.0.1-x86_64-3_slack14.2.txz:  Rebuilt.
+  Fix a denial of service security issue.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14107
+  (* Security fix *)
++--------------------------+
+Fri Sep  8 17:56:01 UTC 2017
+patches/packages/bash-4.3.048-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes two security issues found in bash before 4.4:
+  The expansion of '\h' in the prompt string allows remote authenticated users
+  to execute arbitrary code via shell metacharacters placed in 'hostname' of a
+  machine. The theoretical attack vector is a hostile DHCP server providing a
+  crafted hostname, but this is unlikely to occur in a normal Slackware
+  configuration as we ignore the hostname provided by DHCP.
+  Specially crafted SHELLOPTS+PS4 environment variables used against bogus
+  setuid binaries using system()/popen() allowed local attackers to execute
+  arbitrary code as root.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0634
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7543
+  (* Security fix *)
+patches/packages/mariadb-10.0.32-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3636
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3641
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3653
+  (* Security fix *)
+patches/packages/mozilla-nss-3.31.1-x86_64-1_slack14.2.txz:  Upgraded.
+  Upgraded to nss-3.31.1 and nspr-4.16.
+  This is a bugfix release.
+patches/packages/tcpdump-4.9.2-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and many security issues (see the included
+  CHANGES file).
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11541
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11541
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11542
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11542
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11543
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11543
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12893
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12894
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12895
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12896
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12897
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12898
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12899
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12900
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12901
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12902
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12985
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12986
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12987
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12988
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12989
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12990
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12991
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12992
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12993
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12994
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12995
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12996
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12997
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12998
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12999
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13000
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13001
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13002
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13003
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13004
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13005
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13006
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13007
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13008
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13009
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13010
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13011
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13012
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13013
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13014
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13015
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13016
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13017
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13018
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13019
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13020
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13021
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13022
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13023
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13024
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13025
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13026
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13027
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13028
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13029
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13030
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13031
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13032
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13033
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13034
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13035
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13036
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13037
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13038
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13039
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13040
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13041
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13042
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13043
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13044
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13045
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13046
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13047
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13048
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13049
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13050
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13051
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13052
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13053
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13054
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13055
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13687
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13688
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13689
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13690
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13725
+  (* Security fix *)
++--------------------------+
 Thu Aug 17 05:36:28 UTC 2017
 patches/packages/mozilla-thunderbird-52.3.0-x86_64-1_slack14.2.txz:  Upgraded.
   This is a bugfix release.

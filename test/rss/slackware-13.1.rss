@@ -9,9 +9,392 @@
     <language>en</language>
     <managingEditor>vmj@linuxbox.fi (Mikko Värri)</managingEditor>
     <webMaster>vmj@linuxbox.fi (Mikko Värri)</webMaster>
-    <pubDate>Tue, 15 Aug 2017 22:16:12 GMT</pubDate>
-    <lastBuildDate>Tue, 22 Aug 2017 22:10:26 GMT</lastBuildDate>
+    <pubDate>Tue, 19 Jun 2018 22:35:25 GMT</pubDate>
+    <lastBuildDate>Thu, 02 Aug 2018 12:54:20 GMT</lastBuildDate>
     <generator>SlackLog</generator>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180619T223525Z</guid>
+      <title>slackware 13.1 changes for Tue, 19 Jun 2018 22:35:25 GMT</title>
+      <pubDate>Tue, 19 Jun 2018 22:35:25 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/gnupg-1.4.23-i486-1_slack13.1.txz:  Upgraded.
+  Sanitize the diagnostic output of the original file name in verbose mode.
+  By using a made up file name in the message it was possible to fake status
+  messages. Using this technique it was for example possible to fake the
+  verification status of a signed mail.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12020
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180601T212810Z</guid>
+      <title>slackware 13.1 changes for Fri, 01 Jun 2018 21:28:10 GMT</title>
+      <pubDate>Fri, 01 Jun 2018 21:28:10 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/git-2.14.4-i486-1_slack13.1.txz:  Upgraded.
+  This update fixes security issues:
+  Submodule "names" come from the untrusted .gitmodules file, but we
+  blindly append them to $GIT_DIR/modules to create our on-disk repo
+  paths. This means you can do bad things by putting "../" into the
+  name. We now enforce some rules for submodule names which will cause
+  Git to ignore these malicious names (CVE-2018-11235).
+  Credit for finding this vulnerability and the proof of concept from
+  which the test script was adapted goes to Etienne Stalmans.
+  It was possible to trick the code that sanity-checks paths on NTFS
+  into reading random piece of memory (CVE-2018-11233).
+  Credit for fixing for these bugs goes to Jeff King, Johannes
+  Schindelin and others.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11235
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11233
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180525T232936Z</guid>
+      <title>slackware 13.1 changes for Fri, 25 May 2018 23:29:36 GMT</title>
+      <pubDate>Fri, 25 May 2018 23:29:36 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2018e-noarch-2_slack13.1.txz:  Rebuilt.
+  Handle removal of US/Pacific-New timezone. If we see that the machine is
+  using this, it will be automatically switched to US/Pacific.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180510T012419Z</guid>
+      <title>slackware 13.1 changes for Thu, 10 May 2018 01:24:19 GMT</title>
+      <pubDate>Thu, 10 May 2018 01:24:19 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2018e-noarch-1_slack13.1.txz:  Upgraded.
+  This package provides the latest timezone updates.
+patches/packages/wget-1.19.5-i486-1_slack13.1.txz:  Upgraded.
+  Fixed a security issue where a malicious web server could inject arbitrary
+  cookies into the cookie jar file.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0494
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180430T223543Z</guid>
+      <title>slackware 13.1 changes for Mon, 30 Apr 2018 22:35:43 GMT</title>
+      <pubDate>Mon, 30 Apr 2018 22:35:43 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libwmf-0.2.8.4-i486-6_slack13.1.txz:  Rebuilt.
+  Patched denial of service and possible execution of arbitrary code
+  security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0941
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3376
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0455
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2756
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3472
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3473
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3477
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3546
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0848
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4588
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4695
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4696
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10167
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10168
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9011
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9317
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6362
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180427T035848Z</guid>
+      <title>slackware 13.1 changes for Fri, 27 Apr 2018 03:58:48 GMT</title>
+      <pubDate>Fri, 27 Apr 2018 03:58:48 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/openvpn-2.4.6-i486-1_slack13.1.txz:  Upgraded.
+  This is a security update fixing a potential double-free() in Interactive
+  Service. This usually only leads to a process crash (DoS by an unprivileged
+  local account) but since it could possibly lead to memory corruption if
+  happening while multiple other threads are active at the same time,
+  CVE-2018-9336 has been assigned to acknowledge this risk.
+  For more information, see:
+    https://github.com/OpenVPN/openvpn/commit/1394192b210cb3c6624a7419bcf3ff966742e79b
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-9336
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180406T204743Z</guid>
+      <title>slackware 13.1 changes for Fri, 06 Apr 2018 20:47:43 GMT</title>
+      <pubDate>Fri, 06 Apr 2018 20:47:43 GMT</pubDate>
+      <description><![CDATA[<pre>####################################################################
+# NOTICE OF INPENDING EOL (END OF LIFE) FOR OLD SLACKWARE VERSIONS #
+#                                                                  #
+# Effective July 5, 2018, security patches will no longer be       #
+# provided for the following versions of Slackware (which will all #
+# be more than 7 years old at that time):                          #
+#   Slackware 13.0, Slackware 13.1, Slackware 13.37.               #
+# If you are still running these versions you should consider      #
+# migrating to a newer version (preferably as recent as possible). #
+# Alternately, you may make arrangements to handle your own        #
+# security patches.                                                #
+####################################################################
+patches/packages/patch-2.7.4-i486-2_slack13.1.txz:  Rebuilt.
+  Fix arbitrary shell execution possible with obsolete ed format patches.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000156
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180401T194512Z</guid>
+      <title>slackware 13.1 changes for Sun, 01 Apr 2018 19:45:12 GMT</title>
+      <pubDate>Sun, 01 Apr 2018 19:45:12 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libidn-1.34-i486-1_slack13.1.txz:  Upgraded.
+  This update fixes security issues:
+  Fix integer overflow in combine_hangul()
+  Fix integer overflow in punycode decoder
+  Fix NULL pointer dereference in g_utf8_normalize()
+  Fix NULL pointer dereference in stringprep_ucs4_nfkc_normalize()
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180323T222820Z</guid>
+      <title>slackware 13.1 changes for Fri, 23 Mar 2018 22:28:20 GMT</title>
+      <pubDate>Fri, 23 Mar 2018 22:28:20 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2018d-noarch-1_slack13.1.txz:  Upgraded.
+  This package provides the latest timezone updates.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180308T070745Z</guid>
+      <title>slackware 13.1 changes for Thu, 08 Mar 2018 07:07:45 GMT</title>
+      <pubDate>Thu, 08 Mar 2018 07:07:45 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/openssh-7.4p1-i486-2_slack13.1.txz:  Rebuilt.
+  sftp-server: in read-only mode, sftp-server was incorrectly permitting
+  creation of zero-length files. Reported by Michal Zalewski.
+  Thanks to arny (of Bluewhite64 fame) for the heads-up.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15906
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180301T232454Z</guid>
+      <title>slackware 13.1 changes for Thu, 01 Mar 2018 23:24:54 GMT</title>
+      <pubDate>Thu, 01 Mar 2018 23:24:54 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/dhcp-4.4.1-i486-1_slack13.1.txz:  Upgraded.
+  This update fixes two security issues:
+    Corrected an issue where large sized 'X/x' format options were causing
+  option handling logic to overwrite memory when expanding them to human
+  readable form. Reported by Felix Wilhelm, Google Security Team.
+    Option reference count was not correctly decremented in error path
+  when parsing buffer for options. Reported by Felix Wilhelm, Google
+  Security Team.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5732
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5733
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180224T074140Z</guid>
+      <title>slackware 13.1 changes for Sat, 24 Feb 2018 07:41:40 GMT</title>
+      <pubDate>Sat, 24 Feb 2018 07:41:40 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/wget-1.19.4-i486-2_slack13.1.txz:  Rebuilt.
+  Applied upstream patch to fix logging in background mode.
+  Thanks to Willy Sudiarto Raharjo.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180201T182415Z</guid>
+      <title>slackware 13.1 changes for Thu, 01 Feb 2018 18:24:15 GMT</title>
+      <pubDate>Thu, 01 Feb 2018 18:24:15 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/rsync-3.1.3-i486-1_slack13.1.txz:  Upgraded.
+  This update fixes two security issues:
+  Fixed a buffer overrun in the protocol's handling of xattr names and
+  ensure that the received name is null terminated.
+  Fix an issue with --protect-args where the user could specify the arg in
+  the protected-arg list and short-circuit some of the arg-sanitizing code.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16548
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5764
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180124T042144Z</guid>
+      <title>slackware 13.1 changes for Wed, 24 Jan 2018 04:21:44 GMT</title>
+      <pubDate>Wed, 24 Jan 2018 04:21:44 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2018c-noarch-1_slack13.1.txz:  Upgraded.
+  This package provides the latest timezone updates.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180122T224747Z</guid>
+      <title>slackware 13.1 changes for Mon, 22 Jan 2018 22:47:47 GMT</title>
+      <pubDate>Mon, 22 Jan 2018 22:47:47 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/wget-1.19.4-i486-1_slack13.1.txz:  Upgraded.
+  More bug fixes:
+  A major bug that caused GZip'ed pages to never be decompressed has been fixed
+  Support for Content-Encoding and Transfer-Encoding have been marked as
+  experimental and disabled by default
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180120T160051Z</guid>
+      <title>slackware 13.1 changes for Sat, 20 Jan 2018 16:00:51 GMT</title>
+      <pubDate>Sat, 20 Jan 2018 16:00:51 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/wget-1.19.3-i486-1_slack13.1.txz:  Upgraded.
+  This update fixes various non-security bugs, including this one:
+  Prevent erroneous decompression of .gz and .tgz files with broken servers.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20180117T213623Z</guid>
+      <title>slackware 13.1 changes for Wed, 17 Jan 2018 21:36:23 GMT</title>
+      <pubDate>Wed, 17 Jan 2018 21:36:23 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bind-9.9.11_P1-i486-1_slack13.1.txz:  Upgraded.
+  This update fixes a high severity security issue:
+  Improper sequencing during cleanup can lead to a use-after-free error,
+  triggering an assertion failure and crash in named.
+  For more information, see:
+    https://kb.isc.org/article/AA-01542
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3145
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20171129T081509Z</guid>
+      <title>slackware 13.1 changes for Wed, 29 Nov 2017 08:15:09 GMT</title>
+      <pubDate>Wed, 29 Nov 2017 08:15:09 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libXcursor-1.1.15-i486-1_slack13.1.txz:  Upgraded.
+  Fix heap overflows when parsing malicious files. (CVE-2017-16612)
+  It is possible to trigger heap overflows due to an integer overflow
+  while parsing images and a signedness issue while parsing comments.
+  The integer overflow occurs because the chosen limit 0x10000 for
+  dimensions is too large for 32 bit systems, because each pixel takes
+  4 bytes. Properly chosen values allow an overflow which in turn will
+  lead to less allocated memory than needed for subsequent reads.
+  The signedness bug is triggered by reading the length of a comment
+  as unsigned int, but casting it to int when calling the function
+  XcursorCommentCreate. Turning length into a negative value allows the
+  check against XCURSOR_COMMENT_MAX_LEN to pass, and the following
+  addition of sizeof (XcursorComment) + 1 makes it possible to allocate
+  less memory than needed for subsequent reads.
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16612
+  (* Security fix *)
+patches/packages/libXfont-1.4.7-i486-2_slack13.1.txz:  Rebuilt.
+  Open files with O_NOFOLLOW. (CVE-2017-16611)
+  A non-privileged X client can instruct X server running under root
+  to open any file by creating own directory with "fonts.dir",
+  "fonts.alias" or any font file being a symbolic link to any other
+  file in the system. X server will then open it. This can be issue
+  with special files such as /dev/watchdog (which could then reboot
+  the system).
+  For more information, see:
+    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16611
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20171027T203435Z</guid>
+      <title>slackware 13.1 changes for Fri, 27 Oct 2017 20:34:35 GMT</title>
+      <pubDate>Fri, 27 Oct 2017 20:34:35 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/wget-1.19.2-i486-1_slack13.1.txz:  Upgraded.
+  This update fixes stack and heap overflows in in HTTP protocol handling.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13089
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13090
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20171025T190926Z</guid>
+      <title>slackware 13.1 changes for Wed, 25 Oct 2017 19:09:26 GMT</title>
+      <pubDate>Wed, 25 Oct 2017 19:09:26 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2017c-noarch-1_slack13.1.txz:  Upgraded.
+  This package provides the latest timezone updates.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20171002T171606Z</guid>
+      <title>slackware 13.1 changes for Mon, 02 Oct 2017 17:16:06 GMT</title>
+      <pubDate>Mon, 02 Oct 2017 17:16:06 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/dnsmasq-2.78-i486-1_slack13.1.txz:  Upgraded.
+  This update fixes bugs and remotely exploitable security issues that may
+  have impacts including denial of service, information leak, and execution
+  of arbitrary code. Thanks to Felix Wilhelm, Fermin J. Serna, Gabriel Campana,
+  Kevin Hamacher, Ron Bowes, and Gynvael Coldwind of the Google Security Team.
+  For more information, see:
+    https://security.googleblog.com/2017/10/behind-masq-yet-more-dns-and-dhcp.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13704
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14491
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14492
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14493
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14494
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14495
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14496
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20170918T191503Z</guid>
+      <title>slackware 13.1 changes for Mon, 18 Sep 2017 19:15:03 GMT</title>
+      <pubDate>Mon, 18 Sep 2017 19:15:03 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/httpd-2.2.34-i486-2_slack13.1.txz:  Rebuilt.
+  This update patches a security issue ("Optionsbleed") with the OPTIONS http
+  method which may leak arbitrary pieces of memory to a potential attacker.
+  Thanks to Hanno Bo:ck.
+  For more information, see:
+    http://seclists.org/oss-sec/2017/q3/477
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9798
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20170915T173157Z</guid>
+      <title>slackware 13.1 changes for Fri, 15 Sep 2017 17:31:57 GMT</title>
+      <pubDate>Fri, 15 Sep 2017 17:31:57 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bluez-4.64-i486-2_slack13.1.txz:  Rebuilt.
+  Fixed an information disclosure vulnerability which allows remote attackers
+  to obtain sensitive information from the bluetoothd process memory. This
+  vulnerability lies in the processing of SDP search attribute requests.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000250
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20170912T221851Z</guid>
+      <title>slackware 13.1 changes for Tue, 12 Sep 2017 22:18:51 GMT</title>
+      <pubDate>Tue, 12 Sep 2017 22:18:51 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/emacs-25.3-i486-1_slack13.1.txz:  Upgraded.
+  This update fixes a security vulnerability in Emacs. Gnus no longer
+  supports "richtext" and "enriched" inline MIME objects. This support
+  was disabled to avoid evaluation of arbitrary Lisp code contained in
+  email messages and news articles.
+  For more information, see:
+    http://seclists.org/oss-sec/2017/q3/422
+    https://bugs.gnu.org/28350
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware-13.1-20170908T175601Z</guid>
+      <title>slackware 13.1 changes for Fri, 08 Sep 2017 17:56:01 GMT</title>
+      <pubDate>Fri, 08 Sep 2017 17:56:01 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/bash-4.1.017-i486-2_slack13.1.txz:  Rebuilt.
+  This update fixes two security issues found in bash before 4.4:
+  The expansion of '\h' in the prompt string allows remote authenticated users
+  to execute arbitrary code via shell metacharacters placed in 'hostname' of a
+  machine. The theoretical attack vector is a hostile DHCP server providing a
+  crafted hostname, but this is unlikely to occur in a normal Slackware
+  configuration as we ignore the hostname provided by DHCP.
+  Specially crafted SHELLOPTS+PS4 environment variables used against bogus
+  setuid binaries using system()/popen() allowed local attackers to execute
+  arbitrary code as root.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0634
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7543
+  (* Security fix *)
+</pre>]]></description>
+    </item>
     <item>
       <guid isPermaLink="false">slackware-13.1-20170815T221612Z</guid>
       <title>slackware 13.1 changes for Tue, 15 Aug 2017 22:16:12 GMT</title>
