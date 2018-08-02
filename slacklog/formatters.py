@@ -380,7 +380,7 @@ class SlackLogRssFormatter (SlackLogFormatter):
         """:py:class:`unicode`.  Email, and possibly name, of the
         webmaster.  E.g. 'john@doe.net (John Doe)'. """
         self.lastBuildDate = None
-        """:py:class:`datetime.datetime`.  Timestamp when this feed was last generated."""
+        """:py:class:`datetime.datetime`.  Timestamp when this feed was last generated.  UTC assumed."""
 
     def format_log_preamble(self, log):
         """
@@ -503,7 +503,7 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         self.email = None
         """:py:class:`unicode`.  Email of the feed author."""
         self.updated = None
-        """:py:class:`datetime.datetime`.  Timestamp when this feed was last generated."""
+        """:py:class:`datetime.datetime`.  Timestamp when this feed was last generated.  UTC assumed."""
 
     def format_log_preamble(self, log):
         """
