@@ -33,7 +33,7 @@ update_rss() {
     #
     #   Update the RSS feed
     #
-    LANG=en_US.utf8 slacklog2rss \
+    LANG=C.UTF-8 slacklog2rss \
         --changelog "$BASE_DIR/$slackware-$version.txt" \
         --min-date="$min_date" \
         --out "$RSS_DIR/$slackware-$version.rss" \
