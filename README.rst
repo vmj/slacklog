@@ -63,7 +63,7 @@ formats easily::
         for pkg in entry.pkgs:
             write(u'%s:%s' % (pkg.pkg, pkg.description))
 
-Note that slacklog package deals solely in Unicode; parser expect to
+Note that slacklog package deals solely in Unicode; parser expects to
 be given Unicode input and formatters generate Unicode data.
 
 
@@ -73,7 +73,7 @@ Requirements
 In addition to Python, `python-dateutil
 <http://pypi.python.org/pypi/python-dateutil>`_ is required.
 
-Python versions 2.7 and 3.3 - 3.6 are tested, together with python-dateutil versions 2.1 - 2.6.
+Python versions 2.7 and 3.3 - 3.6 are tested, together with python-dateutil versions 2.1 - 2.7.
 
 
 Installation
