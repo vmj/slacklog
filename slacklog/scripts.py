@@ -74,7 +74,11 @@ def write(out, data):
     :param data: Unicode data.    
     """
     f = codecs.open(out, 'w', 'utf-8')
-    f.write(data)
+    try:
+        f.write(data)
+    except UnicodeEncodeError as e:
+        print("%s: %s-%s: %s: %s" % (out, e.start, e.end, data[e.start:e.end], e.reason))
+        exit(-1)
     f.close()
 
 
