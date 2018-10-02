@@ -8,7 +8,7 @@ BASE_URL=http://ftp.osuosl.org/pub/slackware
 #
 #   Where to store the ChangeLogs once downloaded
 #
-ORIG_DIR=./test/changelogs
+DST_DIR=./test/changelogs
 
 #
 #   Temporary storage
@@ -29,7 +29,7 @@ fetch_changelog() {
     #   download.
     #
     curl -sS -q --compressed \
-        -z "$ORIG_DIR/$slackware-$version.txt" \
+        -z "$DST_DIR/$slackware-$version.txt" \
         -R -o "$TMP_DIR/$slackware-$version.txt" \
         "$BASE_URL/$slackware-$version/ChangeLog.txt"
 
@@ -41,7 +41,7 @@ fetch_changelog() {
         #   Move the ChangeLog.txt to real location
         #
         mv "$TMP_DIR/$slackware-$version.txt" \
-           "$ORIG_DIR/$slackware-$version.txt"
+           "$DST_DIR/$slackware-$version.txt"
         echo "OK"
     else
         echo "UP-TO-DATE"
@@ -49,7 +49,7 @@ fetch_changelog() {
 }
 
 mkdir -p "$TMP_DIR"
-mkdir -p "$ORIG_DIR"
+mkdir -p "$DST_DIR"
 
 
 fetch_changelog slackware   12.0

@@ -1,19 +1,14 @@
 #!/bin/sh
 
 #
-#   Where to fetch the ChangeLogs from:
+#   Where are the ChangeLogs stored
 #
-BASE_URL=http://ftp.osuosl.org/pub/slackware
-
-#
-#   Where to store the ChangeLogs once downloaded
-#
-BASE_DIR=./test/changelogs
+SRC_DIR=./test/changelogs
 
 #
 #   Where to store the RSS feeds
 #
-RSS_DIR=./test/rss
+DST_DIR=./test/rss
 
 #
 #   Use one lastBuildDate for every feed for consistency
@@ -34,9 +29,9 @@ update_rss() {
     #   Update the RSS feed
     #
     LANG=C.UTF-8 slacklog2rss \
-        --changelog "$BASE_DIR/$slackware-$version.txt" \
+        --changelog "$SRC_DIR/$slackware-$version.txt" \
         --min-date="$min_date" \
-        --out "$RSS_DIR/$slackware-$version.rss" \
+        --out "$DST_DIR/$slackware-$version.rss" \
         --slackware="$slackware $version" \
         --rssLink="http://linuxbox.fi/~vmj/slacklog/$slackware-$version.rss" \
         --description="Recent changes in $slackware $version" \
@@ -47,12 +42,12 @@ update_rss() {
     echo "OK"
 }
 
-mkdir -p "$RSS_DIR"
+mkdir -p "$DST_DIR"
 
 #
 #   Store the last build date for tests
 #
-echo "$LAST_BUILD_DATE" >"$RSS_DIR-timestamp"
+echo "$LAST_BUILD_DATE" >"$DST_DIR-timestamp"
 
 #   Update various feeds.
 
