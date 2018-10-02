@@ -2,6 +2,15 @@ Release history
 ===============
 
 
+Version 0.9.5 (2018-10-02)
+--------------------------
+
+This release adds the JSON formatter.
+
+As for dependencies, support for Python 3.3 was dropped since it had it's end-of-life a year ago. Also, dateutil 2.7 is
+tested to be good.
+
+
 Version 0.9.4 (2017-09-03)
 --------------------------
 
