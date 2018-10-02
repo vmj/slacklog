@@ -4,7 +4,8 @@ import unittest
 from datetime import datetime
 from dateutil import tz
 from slacklog.models import SlackLog
-from slacklog.formatters import SlackLogRssFormatter
+from slacklog.formatters import SlackLogRssFormatter, SlackLogJsonFormatter
+from slacklog.parsers import SlackLogParser
 
 
 class FormatterTests (unittest.TestCase):
@@ -33,3 +34,13 @@ class FormatterTests (unittest.TestCase):
   </channel>
 </rss>
 """, data)
+
+    def test_json_timezone(self):
+        log = SlackLogParser().parse(u'''Sun Oct  1 23:50:53 CDT 2006
+Slackware 11.0 is released.  Thanks to everyone who helped out and made this
+release possible.  If I forgot you in the ChangeLog, mea culpa, but you know
+who you are, and thanks.  :-)
+Enjoy!  -P.
+''')
+        json = SlackLogJsonFormatter().format(log)
+        self.assertIn('"timezone":"CDT"', json)

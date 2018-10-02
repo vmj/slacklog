@@ -22,7 +22,8 @@ setup(
             'slacklog2atom      = slacklog.scripts:slacklog2atom',
             'slacklog2pyblosxom = slacklog.scripts:slacklog2pyblosxom',
             'slacklog2rss       = slacklog.scripts:slacklog2rss',
-            'slacklog2txt       = slacklog.scripts:slacklog2txt'
+            'slacklog2txt       = slacklog.scripts:slacklog2txt',
+            'slacklog2json      = slacklog.scripts:slacklog2json'
         ]
     },
     url='http://pypi.python.org/pypi/slacklog/',

@@ -13,6 +13,7 @@ import datetime
 import os
 import re
 import time
+from json import dumps, JSONEncoder
 from dateutil import tz
 from slacklog.models import SlackLog, SlackLogEntry, SlackLogPkg
 
@@ -276,7 +277,6 @@ class SlackLogTxtFormatter (SlackLogFormatter):
     Concrete SlackLog formatter that tries to regenerate the original
     ChangeLog.txt.
     """
-
 
     def format_log_preamble(self, log):
         """
@@ -800,3 +800,64 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         :type: :py:class:`unicode`
         """
         return u'%s' % self.slackware.replace(' ', self.tags_separator)
+
+
+class SlackLogJsonFormatter (SlackLogFormatter):
+    """
+    Concrete SlackLog formatter that generates JSON dump.
+    """
+
+    class SlackLogEncoder (JSONEncoder):
+        """
+        JSON encoder that knows how to turn a SlackLog into a dict.
+        """
+
+        def default(self, o):
+            if isinstance(o, SlackLog):
+                return {'startsWithSeparator': o.startsWithSeparator,
+                        'endsWithSeparator': o.endsWithSeparator,
+                        'entries': o.entries}
+            if isinstance(o, SlackLogEntry):
+                timezone = None
+                if o.timezone is not None:
+                    timezone = o.timezone.tzname(o.timestamp)
+                return {'checksum': o.checksum,
+                        'identifier': o.identifier,
+                        'parent': o.parent,
+                        'timezone': timezone,
+                        'timestamp': o.timestamp.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                        'description': o.description,
+                        'pkgs': o.pkgs}
+            if isinstance(o, SlackLogPkg):
+                return {'pkg': o.pkg,
+                        'description': o.description}
+            # Let the base class default method raise the TypeError
+            return JSONEncoder.default(self, o)
+
+    def __init__(self):
+        super(SlackLogJsonFormatter, self).__init__()
+        self.indent = None
+        """If not :py:const:`None`, must be an :py:class:`int`
+        representing how many how many spaces to indent the array elements and object keys."""
+
+    def format(self, log):
+        """
+        Return unicode representation of the in-memory representation of the log.
+
+        :param log: in-memory representation of the log.
+        :type: :py:class:`slacklog.models.SlackLog`
+        :return: Unicode representation of the log.
+        :type: :py:class:`unicode`
+        """
+        assert(isinstance(log, SlackLog))
+        if self.indent is None:
+            separators = (',', ':')
+        else:
+            separators = (',', ': ')
+        return dumps(log,
+                     ensure_ascii=False,
+                     allow_nan=False,
+                     sort_keys=True,
+                     indent=self.indent,
+                     separators=separators,
+                     cls=self.SlackLogEncoder)

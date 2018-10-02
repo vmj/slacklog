@@ -12,7 +12,8 @@ import locale
 from optparse import OptionParser
 import slacklog
 from slacklog.parsers import SlackLogParser
-from slacklog.formatters import SlackLogAtomFormatter, SlackLogRssFormatter, SlackLogTxtFormatter, SlackLogPyblosxomFormatter
+from slacklog.formatters import SlackLogAtomFormatter, SlackLogRssFormatter, SlackLogTxtFormatter, \
+    SlackLogPyblosxomFormatter, SlackLogJsonFormatter
 
 try:
     str = unicode
@@ -364,3 +365,47 @@ def slacklog2txt():
     f = codecs.open(opts.out, 'w', opts.encoding)
     f.write(text)
     f.close()
+
+
+def slacklog2json():
+    #
+    #   Define and handle command line options
+    #
+    (opts, args) = main(
+        description='Convert Slackware ChangeLog to JSON',
+        options={
+            'changelog': {'help': 'Read input from FILE',
+                          'metavar': 'FILE', 'mandatory': True},
+            'encoding': {'help': 'ChangeLog encoding [default: %default]',
+                         'default': 'iso8859-1'},
+            'out': {'help': 'Write output to FILE',
+                    'metavar': 'FILE', 'mandatory': True},
+            'indent': {'help': 'Number of spaces to use for indent',
+                       'metavar': 'NUM'},
+            'quiet': {'help': 'Do not print warnings',
+                      'action': 'store_true'}
+        })
+
+    #
+    #   Apply options to parser and formatter
+    #
+    parser = SlackLogParser()
+    parser.quiet = opts.quiet
+
+    formatter = SlackLogJsonFormatter()
+    formatter.indent = i(opts.indent)
+
+    #
+    #   Read input
+    #
+    orig = read(opts.changelog, opts.encoding)
+
+    #
+    #   Format output
+    #
+    json = formatter.format(parser.parse(orig))
+
+    #
+    #   Write output
+    #
+    write(opts.out, json)
