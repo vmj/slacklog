@@ -1,3 +1,245 @@
+Tue Sep 25 02:17:44 UTC 2018
+patches/packages/httpd-2.4.35-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes bugs and regressions in httpd-2.4.34, adds an
+  apache2ctl -> apachectl symlink, and no longer automatically
+  overwrites rc.httpd when upgraded.
++--------------------------+
+Mon Sep 24 21:37:09 UTC 2018
+extra/llvm/llvm-6.0.1-x86_64-1_slack14.2.txz:  Upgraded.
+  Moved this package from /patches, since it is not really a required patch.
+  Unless you're planning to rebuild Firefox or Thunderbird (or have some
+  other use-case for a more recent LLVM than was shipped with Slackware 14.2)
+  you probably don't need to upgrade to this package, and it was reported
+  that doing so impacted at least one package provided by slackbuilds.org.
+  So, /extra seems like a better place for this package.
++--------------------------+
+Sat Sep 22 22:41:41 UTC 2018
+patches/packages/mozilla-firefox-60.2.1esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+   A potentially exploitable crash in TransportSecurityInfo used for SSL
+   can be triggered by data stored in the local cache in the user profile
+   directory. This issue is only exploitable in combination with another
+   vulnerability allowing an attacker to write data into the local cache
+   or from locally installed malware. This issue also triggers a
+   non-exploitable startup crash for users switching between the Nightly
+   and Release versions of Firefox if the same profile is used.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-23/
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12383
+  (* Security fix *)
++--------------------------+
+Fri Sep 21 18:51:07 UTC 2018
+patches/packages/linux-4.4.157/*:  Upgraded.
+  This kernel removes the unnecessary vmacache_flush_all code which could have
+  led to a use-after-free situation and potentially local privilege escalation.
+  In addition, it fixes some regressions which may have led to diminished X
+  performance.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17182
+  (* Security fix *)
++--------------------------+
+Fri Sep 14 23:06:26 UTC 2018
+patches/packages/php-5.6.38-x86_64-1_slack14.2.txz:  Upgraded.
+  One security bug has been fixed in this release: 
+  Apache2: XSS due to the header Transfer-Encoding: chunked
+  For more information, see:
+    https://php.net/ChangeLog-5.php#5.6.38
+  (* Security fix *)
++--------------------------+
+Thu Sep 13 21:41:51 UTC 2018
+patches/packages/ghostscript-9.25-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes problems with argument handling, some unintended
+  results of the security fixes to the SAFER file access restrictions
+  (specifically accessing ICC profile files), and some additional
+  security issues over the recent 9.24 release.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16509
+  (* Security fix *)
++--------------------------+
+Mon Sep 10 21:00:00 UTC 2018
+patches/packages/lxc-2.0.1-x86_64-5_slack14.2.txz:  Rebuilt.
+  Added libunistring to the list of initial packages in the Slackware
+  template since it is now required by wget, and without it slackpkg will
+  not function properly. Thanks to mralk3.
++--------------------------+
+Fri Sep  7 20:02:52 UTC 2018
+patches/packages/ghostscript-9.24-x86_64-3_slack14.2.txz:  Rebuilt.
+  Added two upstream patches to fix PDF printing. Thanks to Petri Kaukasoina.
++--------------------------+
+Thu Sep  6 23:22:45 UTC 2018
+patches/packages/ghostscript-9.24-x86_64-2_slack14.2.txz:  Rebuilt.
+  Applied upstream patch to fix "Filter failed". Thanks to th_r and bamunds.
++--------------------------+
+Thu Sep  6 05:28:05 UTC 2018
+Hey folks, in light of Firefox 52.x ESR reaching EOL a few hours ago, I'm
+providing some updates. This required adding Rust and a newer version of
+LLVM as optional updates for Slackware 14.2. And in case it doesn't work
+for you (perhaps there's an extension you need that's not supported by 60.x
+ESR), the last Firefox and Thunderbird 52.x EST have been moved to /pasture
+as a fallback. If there are any more updates to those (but I don't think
+there will be), I'll make those updates in /pasture as well.
+pasture/mozilla-firefox-52.9.0esr-x86_64-1_slack14.2.txz:  Added.
+  Moved here from patches/packages/.
+pasture/mozilla-thunderbird-52.9.1-x86_64-1_slack14.2.txz:  Added.
+  Moved here from patches/packages/.
+patches/packages/curl-7.61.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes an NTLM password overflow via integer overflow.
+  For more information, see:
+    https://curl.haxx.se/docs/CVE-2018-14618.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14618
+  (* Security fix *)
+patches/packages/ghostscript-9.24-x86_64-1_slack14.2.txz:  Upgraded.
+  Patched multiple -dSAFER sandbox bypass vulnerabilities.
+  Thanks to Tavis Ormandy.
+  For more information, see:
+    https://www.ghostscript.com/doc/9.24/News.htm
+    https://www.kb.cert.org/vuls/id/332928
+  (* Security fix *)
+patches/packages/llvm-6.0.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This upgrade to LLVM is provided because Firefox and Thunderbird require
+  a newer version than what was shipped with Slackware 14.2. The libLLVM
+  shared library from llvm-3.8.0 is also included in this package, so it
+  should be safe to upgrade on Slackware 14.2 systems without breaking
+  anything, but unless you are planning to recompile Firefox or Thunderbird,
+  or you need a newer version of LLVM for some reason, it is optional.
+patches/packages/mozilla-firefox-60.2.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+patches/packages/mozilla-thunderbird-60.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/en-US/thunderbird/60.0/releasenotes/
+    https://www.mozilla.org/security/known-vulnerabilities/thunderbird.html
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-19/
+  (* Security fix *)
+patches/packages/rust-1.28.0-x86_64-1_slack14.2.txz:  Added.
+  Since Rust is now a requirement to compile Firefox and Thunderbird we
+  are adding it here. Unless you will need to recompile those (or need to
+  compile other code written in Rust), it is an optional addition.
++--------------------------+
+Tue Aug 28 22:05:19 UTC 2018
+patches/packages/linux-4.4.153/*:  Upgraded.
+  This kernel update enables mitigations for L1 Terminal Fault aka
+  Foreshadow and Foreshadow-NG vulnerabilities.
+  Thanks to Bernhard Kaindl for bisecting the boot issue that was preventing
+  us from upgrading to earlier 4.4.x kernels that contained this fix.
+  To see the status of CPU vulnerability mitigations on your system, look at
+  the files in: /sys/devices/system/cpu/vulnerabilities
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3615
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3620
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3646
+  (* Security fix *)
++--------------------------+
+Tue Aug 21 18:39:27 UTC 2018
+patches/packages/libX11-1.6.6-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes some security issues:
+  Fixed crash on invalid reply (CVE-2018-14598).
+  Fixed off-by-one writes (CVE-2018-14599).
+  Fixed out of boundary write (CVE-2018-14600).
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14598
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14599
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14600
+  (* Security fix *)
++--------------------------+
+Fri Aug 17 16:52:04 UTC 2018
+patches/packages/ntp-4.2.8p12-x86_64-1_slack14.2.txz:  Upgraded.
+  This release improves on one security fix in ntpd:
+    LOW/MEDIUM: Sec 3012: Sybil vulnerability: ephemeral association attack
+    While fixed in ntp-4.2.8p7 and with significant additional protections for
+    this issue in 4.2.8p11, ntp-4.2.8p12 includes a fix for an edge case in
+    the new noepeer support. Originally reported by Matt Van Gundy of Cisco.
+    Edge-case hole reported by Martin Burnicki of Meinberg.
+  And fixes another security issue in ntpq and ntpdc:
+    LOW: Sec 3505: The openhost() function used during command-line hostname
+    processing by ntpq and ntpdc can write beyond its buffer limit, which
+    could allow  an attacker to achieve code execution or escalate to higher
+    privileges via a long string as the argument for an IPv4 or IPv6
+    command-line parameter. NOTE: It is unclear whether there are any common
+    situations in which ntpq or ntpdc is used with a command line from an
+    untrusted source. Reported by Fakhri Zulkifli.
+  For more information, see:
+    http://support.ntp.org/bin/view/Main/SecurityNotice#August_2018_ntp_4_2_8p12_NTP_Rel
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1549
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12327
+  (* Security fix *)
+patches/packages/samba-4.6.16-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a security release in order to address the following defects:
+  Insufficient input validation on client directory listing in libsmbclient.
+  A malicious server could return a directory entry that could corrupt
+  libsmbclient memory.
+  Confidential attribute disclosure from the AD LDAP server.
+  Missing access control checks allow discovery of confidential attribute
+  values via authenticated LDAP search expressions.
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2018-10858.html
+    https://www.samba.org/samba/security/CVE-2018-10919.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10858
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10919
+  (* Security fix *)
++--------------------------+
+Tue Aug 14 22:56:09 UTC 2018
+patches/packages/blueman-2.0.6-x86_64-3_slack14.2.txz:  Rebuilt.
+  Fixed install script to rename config file from .new.
+patches/packages/openssl-1.0.2p-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes two low severity security issues:
+  Client DoS due to large DH parameter.
+  Cache timing vulnerability in RSA Key Generation.
+  For more information, see:
+    https://www.openssl.org/news/secadv/20180612.txt
+    https://www.openssl.org/news/secadv/20180416.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737
+  (* Security fix *)
+patches/packages/openssl-solibs-1.0.2p-x86_64-1_slack14.2.txz:  Upgraded.
+patches/packages/xscreensaver-5.40-x86_64-1_slack14.2.txz:  Upgraded.
+  Here's an upgrade to the latest xscreensaver.
++--------------------------+
+Tue Aug 14 00:10:54 UTC 2018
+patches/packages/blueman-2.0.6-x86_64-2_slack14.2.txz:  Rebuilt.
+  Allow users in the netdev group to make changes.
+  Thanks to voleg, kgha, and zakame.
++--------------------------+
+Fri Aug 10 22:42:55 UTC 2018
+patches/packages/bind-9.10.8_P1-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed a security issue where named could crash during recursive processing
+  of DNAME records when "deny-answer-aliases" was in use resulting in a
+  denial of service. Note that "deny-answer-aliases" is rarely used.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5740
+  (* Security fix *)
++--------------------------+
+Sat Aug  4 06:38:01 UTC 2018
+patches/packages/librsvg-2.40.20-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a regression when using libxml2-2.9.5 that causes some
+  .svgz files to not be handled properly. Thanks to SeB.
++--------------------------+
+Thu Aug  2 20:12:10 UTC 2018
+patches/packages/lftp-4.8.4-x86_64-1_slack14.2.txz:  Upgraded.
+  It has been discovered that lftp up to and including version 4.8.3 does
+  not properly sanitize remote file names, leading to a loss of integrity
+  on the local system when reverse mirroring is used. A remote attacker
+  may trick a user to use reverse mirroring on an attacker controlled FTP
+  server, resulting in the removal of all files in the current working
+  directory of the victim's system.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10916
+  (* Security fix *)
++--------------------------+
 Wed Aug  1 22:38:53 UTC 2018
 patches/packages/blueman-2.0.6-x86_64-1_slack14.2.txz:  Upgraded.
   This update fixes an issue where blueman-mechanism did not enforce the

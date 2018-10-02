@@ -9,9 +9,912 @@
     <language>en</language>
     <managingEditor>vmj@linuxbox.fi (Mikko Värri)</managingEditor>
     <webMaster>vmj@linuxbox.fi (Mikko Värri)</webMaster>
-    <pubDate>Wed, 01 Aug 2018 22:38:53 GMT</pubDate>
-    <lastBuildDate>Thu, 02 Aug 2018 12:54:20 GMT</lastBuildDate>
+    <pubDate>Sat, 29 Sep 2018 20:01:29 GMT</pubDate>
+    <lastBuildDate>Tue, 02 Oct 2018 14:17:34 GMT</lastBuildDate>
     <generator>SlackLog</generator>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180929T200129Z</guid>
+      <title>slackware64 current changes for Sat, 29 Sep 2018 20:01:29 GMT</title>
+      <pubDate>Sat, 29 Sep 2018 20:01:29 GMT</pubDate>
+      <description><![CDATA[<pre>a/kernel-generic-4.14.73-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.73-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.73-x86_64-1.txz:  Upgraded.
+d/kernel-headers-4.14.73-x86-1.txz:  Upgraded.
+k/kernel-source-4.14.73-noarch-1.txz:  Upgraded.
+l/librsvg-2.44.6-x86_64-1.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180928T035556Z</guid>
+      <title>slackware64 current changes for Fri, 28 Sep 2018 03:55:56 GMT</title>
+      <pubDate>Fri, 28 Sep 2018 03:55:56 GMT</pubDate>
+      <description><![CDATA[<pre>ap/sqlite-3.25.2-x86_64-1.txz:  Upgraded.
+d/rust-1.29.1-x86_64-1.txz:  Upgraded.
+l/apr-1.6.5-x86_64-1.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180926T211833Z</guid>
+      <title>slackware64 current changes for Wed, 26 Sep 2018 21:18:33 GMT</title>
+      <pubDate>Wed, 26 Sep 2018 21:18:33 GMT</pubDate>
+      <description><![CDATA[<pre>a/aaa_terminfo-6.1_20180923-x86_64-1.txz:  Upgraded.
+a/eudev-3.2.6-x86_64-3.txz:  Rebuilt.
+  Fixed issues with the default rules. Thanks to zuriel.
+a/kernel-generic-4.14.72-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.72-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.72-x86_64-1.txz:  Upgraded.
+ap/vim-8.1.0436-x86_64-1.txz:  Upgraded.
+d/kernel-headers-4.14.72-x86-1.txz:  Upgraded.
+d/re2c-1.1.1-x86_64-1.txz:  Upgraded.
+k/kernel-source-4.14.72-noarch-1.txz:  Upgraded.
+l/ncurses-6.1_20180923-x86_64-1.txz:  Upgraded.
+n/fetchmail-6.3.26-x86_64-5.txz:  Rebuilt.
+  Patched to fix certificate verification failures with OpenSSL 1.1.1.
+  Thanks to Jurgen Van Ham.
+n/gnutls-3.6.4-x86_64-1.txz:  Upgraded.
+x/xf86-video-intel-20180906_25c9a2fc-x86_64-1.txz:  Upgraded.
+xap/vim-gvim-8.1.0436-x86_64-1.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180924T213709Z</guid>
+      <title>slackware64 current changes for Mon, 24 Sep 2018 21:37:09 GMT</title>
+      <pubDate>Mon, 24 Sep 2018 21:37:09 GMT</pubDate>
+      <description><![CDATA[<pre>d/Cython-0.28.5-x86_64-1.txz:  Upgraded.
+d/help2man-1.47.7-x86_64-1.txz:  Upgraded.
+d/meson-0.48.0-x86_64-1.txz:  Upgraded.
+d/python-setuptools-40.4.3-x86_64-1.txz:  Upgraded.
+l/M2Crypto-0.30.1-x86_64-1.txz:  Upgraded.
+l/cairo-1.15.14-x86_64-1.txz:  Upgraded.
+l/librsvg-2.44.4-x86_64-1.txz:  Upgraded.
+l/pycairo-1.17.1-x86_64-1.txz:  Upgraded.
+l/pycurl-7.43.0.2-x86_64-1.txz:  Upgraded.
+l/pyparsing-2.2.1-x86_64-1.txz:  Upgraded.
+n/ModemManager-1.8.2-x86_64-1.txz:  Upgraded.
+n/bind-9.12.2_P2-x86_64-1.txz:  Upgraded.
+  This update fixes security issues:
+  There was a long-existing flaw in the documentation for ms-self, krb5-self,
+  ms-subdomain, and krb5-subdomain rules in update-policy statements. Though
+  the policies worked as intended, operators who configured their servers
+  according to the misleading documentation may have thought zone updates were
+  more restricted than they were; users of these rule types are advised to
+  review the documentation and correct their configurations if necessary. New
+  rule types matching the previously documented behavior will be introduced in
+  a future maintenance release.
+  named could crash during recursive processing of DNAME records when
+  deny-answer-aliases was in use. This flaw is disclosed in CVE-2018-5740.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5740
+  (* Security fix *)
+n/httpd-2.4.35-x86_64-1.txz:  Upgraded.
+  This release fixes bugs and regressions in httpd-2.4.34, adds an
+  apache2ctl -> apachectl symlink, and no longer automatically
+  overwrites rc.httpd when upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180922T224141Z</guid>
+      <title>slackware64 current changes for Sat, 22 Sep 2018 22:41:41 GMT</title>
+      <pubDate>Sat, 22 Sep 2018 22:41:41 GMT</pubDate>
+      <description><![CDATA[<pre>a/eudev-3.2.6-x86_64-2.txz:  Rebuilt.
+  Removed unneeded groups "render" and "kvm" from 50-udev-default.rules.
+  Thanks to Richard David Sherman.
+a/grub-2.02-x86_64-4.txz:  Rebuilt.
+  Applied a patch needed when compiling with recent binutils. Thanks to ivandi.
+d/parallel-20180922-noarch-1.txz:  Upgraded.
+x/xterm-337-x86_64-1.txz:  Upgraded.
+xap/mozilla-firefox-60.2.1esr-x86_64-1.txz:  Upgraded.
+  This release contains security fixes and improvements.
+   A potentially exploitable crash in TransportSecurityInfo used for SSL
+   can be triggered by data stored in the local cache in the user profile
+   directory. This issue is only exploitable in combination with another
+   vulnerability allowing an attacker to write data into the local cache
+   or from locally installed malware. This issue also triggers a
+   non-exploitable startup crash for users switching between the Nightly
+   and Release versions of Firefox if the same profile is used.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-23/
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12383
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180921T185107Z</guid>
+      <title>slackware64 current changes for Fri, 21 Sep 2018 18:51:07 GMT</title>
+      <pubDate>Fri, 21 Sep 2018 18:51:07 GMT</pubDate>
+      <description><![CDATA[<pre>a/eudev-3.2.6-x86_64-1.txz:  Upgraded.
+a/glibc-solibs-2.28-x86_64-2.txz:  Upgraded.
+a/grub-2.02-x86_64-3.txz:  Rebuilt.
+  Patched to fix compatibility with recent xfsprogs. Thanks to Markus Wiesner.
+a/kernel-generic-4.14.71-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.71-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.71-x86_64-1.txz:  Upgraded.
+ap/opus-tools-0.2-x86_64-1.txz:  Upgraded.
+ap/sqlite-3.25.1-x86_64-1.txz:  Upgraded.
+d/icecream-20180905_cdc6ff8-x86_64-1.txz:  Upgraded.
+d/kernel-headers-4.14.71-x86-1.txz:  Upgraded.
+d/llvm-7.0.0-x86_64-1.txz:  Upgraded.
+  Shared library .so-version bump.
+k/kernel-source-4.14.71-noarch-1.txz:  Upgraded.
+l/ffmpeg-3.4.4-x86_64-2.txz:  Rebuilt.
+  Don't try to link with Samba since the latest version is not compatible.
+l/glibc-2.28-x86_64-2.txz:  Upgraded.
+  All packages have been patched where needed for glibc-2.28 and compile
+  tested here. Thanks to nobodino for the help.
+l/glibc-i18n-2.28-x86_64-2.txz:  Upgraded.
+l/glibc-profile-2.28-x86_64-2.txz:  Upgraded.
+l/gst-plugins-base-1.14.3-x86_64-1.txz:  Upgraded.
+l/gst-plugins-good-1.14.3-x86_64-1.txz:  Upgraded.
+l/gst-plugins-libav-1.14.3-x86_64-1.txz:  Upgraded.
+l/gstreamer-1.14.3-x86_64-1.txz:  Upgraded.
+l/imagemagick-6.9.10_11-x86_64-1.txz:  Upgraded.
+l/libopusenc-0.2-x86_64-1.txz:  Added.
+l/librsvg-2.44.3-x86_64-1.txz:  Upgraded.
+l/opus-1.3_rc2-x86_64-1.txz:  Upgraded.
+l/opusfile-0.11-x86_64-1.txz:  Upgraded.
+l/soprano-2.9.4-x86_64-3.txz:  Rebuilt.
+  Recompiled to drop virtuoso dependency.
+l/virtuoso-ose-6.1.8-x86_64-9.txz:  Removed.
+  Even KDE4 has migrated away from actually using this for anything. The last
+  thing in Slackware that was dependent on it was Soprano, which has been
+  recompiled to no longer use it.
+n/postfix-3.3.1-x86_64-2.txz:  Rebuilt.
+  Recompiled so that it quits whining about OpenSSL. Thanks to shastah.
+x/mesa-18.2.1-x86_64-1.txz:  Upgraded.
+  Compiled against llvm-7.0.0.
+x/xf86-video-vmware-13.3.0-x86_64-2.txz:  Rebuilt.
+  Recompiled against llvm-7.0.0.
+x/xterm-336-x86_64-1.txz:  Upgraded.
+extra/pure-alsa-system/ffmpeg-3.4.4-x86_64-2_alsa.txz:  Rebuilt.
+  Don't try to link with Samba since the latest version is not compatible.
+extra/pure-alsa-system/gst-plugins-good-1.14.3-x86_64-1_alsa.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180918T192230Z</guid>
+      <title>slackware64 current changes for Tue, 18 Sep 2018 19:22:30 GMT</title>
+      <pubDate>Tue, 18 Sep 2018 19:22:30 GMT</pubDate>
+      <description><![CDATA[<pre>ap/dmidecode-3.2-x86_64-1.txz:  Upgraded.
+ap/nano-3.1-x86_64-1.txz:  Upgraded.
+ap/slackpkg-2.83.0-noarch-4.txz:  Rebuilt.
+  Merged two patches from git:
+  Clarify that a press of "Enter" is needed to confirm kernel change
+  Mention possible stale mirror if CHECKSUMS.md5 gpg verify fails
+  Thanks to Mario Preksavec and Robby Workman.
+ap/sqlite-3.25.0-x86_64-1.txz:  Upgraded.
+ap/xorriso-1.5.0-x86_64-1.txz:  Upgraded.
+l/lmdb-0.9.22-x86_64-2.txz:  Rebuilt.
+  Fixed the build script to clear out the build area properly - previously
+  it was possible for binaries of the wrong $ARCH to end up in the package.
+  Thanks to reddog83.
+n/gnutls-3.6.3-x86_64-2.txz:  Rebuilt.
+  Merged backported SSL/TLS fixes. Thanks to orbea.
+n/samba-4.9.0-x86_64-2.txz:  Rebuilt.
+  Recompiled in case the lmdb package was broken.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180915T211923Z</guid>
+      <title>slackware64 current changes for Sat, 15 Sep 2018 21:19:23 GMT</title>
+      <pubDate>Sat, 15 Sep 2018 21:19:23 GMT</pubDate>
+      <description><![CDATA[<pre>a/kernel-firmware-20180913_44d4fca-noarch-1.txz:  Upgraded.
+a/kernel-generic-4.14.70-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.70-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.70-x86_64-1.txz:  Upgraded.
+ap/hplip-3.18.7-x86_64-4.txz:  Rebuilt.
+  Applied fixed patch - this has a better chance of working now. I've checked
+  and hpcups no longer links to libImageProcessor. Which, by the way, the
+  previous build dumped onto my main system (not even in "make install"),
+  but not into the package itself. I no longer own an HP printer and will
+  never buy another one, so if there are any remaining problems please report.
+  Thanks to Matteo Bernardini.
+d/kernel-headers-4.14.70-x86-1.txz:  Upgraded.
+k/kernel-source-4.14.70-noarch-1.txz:  Upgraded.
+  Config changes since 4.14.69:
+   CLEANCACHE n -> y
+   CMA n -> y
+   MEMORY_FAILURE n -> y
+   NUMA n -> y
+   X86_CHECK_BIOS_CORRUPTION n -> y
+   Z3FOLD m -> y
+   ZBUD m -> y
+   ZSMALLOC m -> y
+  +ACPI_APEI_MEMORY_FAILURE y
+  +ACPI_NUMA y
+  +AMD_NUMA y
+  +CMA_AREAS 7
+  +CMA_DEBUG n
+  +CMA_DEBUGFS n
+  +DMA_CMA n
+  +HWPOISON_INJECT m
+  +NEED_MULTIPLE_NODES y
+  +NODES_SHIFT 6
+  +NODES_SPAN_OTHER_NODES y
+  +NUMA_BALANCING n
+  +NUMA_EMU n
+  +RAS_CEC n
+  +USE_PERCPU_NUMA_NODE_ID y
+  +X86_64_ACPI_NUMA y
+  +X86_BOOTPARAM_MEMORY_CORRUPTION_CHECK n
+n/NetworkManager-1.14.0-x86_64-1.txz:  Upgraded.
+  Added new options:  --enable-json-validation --enable-ovs
+xap/network-manager-applet-1.8.18-x86_64-1.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+pasture/php-5.6.38-x86_64-1.txz:  Upgraded.
+  One security bug has been fixed in this release:
+  Apache2: XSS due to the header Transfer-Encoding: chunked
+  For more information, see:
+    https://php.net/ChangeLog-5.php#5.6.38
+  (* Security fix *)
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180914T230626Z</guid>
+      <title>slackware64 current changes for Fri, 14 Sep 2018 23:06:26 GMT</title>
+      <pubDate>Fri, 14 Sep 2018 23:06:26 GMT</pubDate>
+      <description><![CDATA[<pre>ap/hplip-3.18.7-x86_64-3.txz:  Rebuilt.
+  Throw away the broken and ill-advised libImageProcessor closed-source blob.
+  Thanks to Matteo Bernardini.
+ap/zsh-5.6.2-x86_64-1.txz:  Upgraded.
+d/rust-1.29.0-x86_64-1.txz:  Upgraded.
+l/lmdb-0.9.22-x86_64-1.txz:  Added.
+  This is a new dependency of Samba.
+n/php-7.2.10-x86_64-1.txz:  Upgraded.
+  This is a security release which also contains several minor bug fixes.
+  For more information, see:
+    https://php.net/ChangeLog-7.php#7.2.10
+  (* Security fix *)
+n/samba-4.9.0-x86_64-1.txz:  Upgraded.
+x/xf86-video-amdgpu-18.1.0-x86_64-1.txz:  Upgraded.
+x/xf86-video-ati-18.1.0-x86_64-1.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180913T214151Z</guid>
+      <title>slackware64 current changes for Thu, 13 Sep 2018 21:41:51 GMT</title>
+      <pubDate>Thu, 13 Sep 2018 21:41:51 GMT</pubDate>
+      <description><![CDATA[<pre>a/sysvinit-scripts-2.1-noarch-20.txz:  Rebuilt.
+  rc.6: it was reported by birdboy that JFS is not properly unmounted unless
+  the order of unmounting local filesystems followed by remounting the root
+  filesystem read-only is inverted. I tried that, and although it did get rid
+  of a "/ filesystem is busy" error during shutdown, the JFS / filesystem was
+  still checked at boot (and found to be clean). I believe that the existing
+  order of unmounting non-root filesystems followed by remounting the root
+  filesystem as read-only is the correct order, and found that putting
+  another sync between these also gets rid of the error on shutdown, so I've
+  done that. When using JFS as the root filesystem there's still another
+  similar error message that's generated earlier in the boot, though. I'm
+  unable to find any way to shut down a JFS root partition in a way that
+  leaves it clean enough that fsck will not check it at boot, but it is always
+  found to be clean so this should only be cosmetic. I recall this behavior of
+  JFS going all the way back to when it was first added to the kernel. If
+  anyone has a better fix, I'll take a look at it, but in my opinion it's not
+  really anything to worry about.
+ap/ghostscript-9.25-x86_64-1.txz:  Upgraded.
+  This release fixes problems with argument handling, some unintended
+  results of the security fixes to the SAFER file access restrictions
+  (specifically accessing ICC profile files), and some additional
+  security issues over the recent 9.24 release.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16509
+  (* Security fix *)
+ap/squashfs-tools-20180612_6e242dc-x86_64-1.txz:  Upgraded.
+  Linked against libzstd.so.1. Thanks to alienBOB.
+ap/sudo-1.8.25p1-x86_64-1.txz:  Upgraded.
+d/binutils-2.31.1-x86_64-4.txz:  Rebuilt.
+  Since baldzhang has pointed out a valid use case for windres on Linux,
+  we are restoring the "Windows only" utilities, as none of them are
+  very large and there may be valid uses for the other ones as well.
+l/freetype-2.9.1-x86_64-2.txz:  Rebuilt.
+  Patched to build properly if windres is present on the machine.
+l/sg3_utils-1.44-x86_64-1.txz:  Upgraded.
+l/zstd-1.3.5-x86_64-1.txz:  Added.
+  Thanks to alienBOB.
+xfce/tumbler-0.2.3-x86_64-1.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+  Use the ter-114v terminus font. It has been reported that the font we were
+  using (ter-v14v) restricts the available console colors from 16 to 8 due
+  to needing an extra bit for the higher number of available glyphs (though
+  in testing here I couldn't see any difference). The new font covers
+  ISO8859-1, ISO8859-15, and Windows-1252 codepages. I'm still not sure it's
+  the best choice, so additional input is welcomed.
+  Thanks to bormant.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+  Use the ter-114v terminus font.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180912T211938Z</guid>
+      <title>slackware64 current changes for Wed, 12 Sep 2018 21:19:38 GMT</title>
+      <pubDate>Wed, 12 Sep 2018 21:19:38 GMT</pubDate>
+      <description><![CDATA[<pre>a/elilo-3.16-x86_64-8.txz:  Rebuilt.
+  eliloconfig: this was occasionally failing and the issue was traced to the
+  script's use of tr (not sure why still). Replaced the construct with sed
+  and the issue seems to have gone away.
+a/openssl-solibs-1.1.1-x86_64-1.txz:  Upgraded.
+d/binutils-2.31.1-x86_64-3.txz:  Rebuilt.
+  Do not install the Windows-specific tools. Not only are these useless on
+  Linux, but the presence of windres fools freetype into thinking that it is
+  on a Windows system, leading to a build failure.
+d/git-2.19.0-x86_64-1.txz:  Upgraded.
+l/freetype-2.9.1-x86_64-1.txz:  Upgraded.
+l/harfbuzz-1.9.0-x86_64-1.txz:  Upgraded.
+l/media-player-info-24-noarch-1.txz:  Upgraded.
+l/pcre2-10.32-x86_64-1.txz:  Upgraded.
+l/sg3_utils-1.43-x86_64-1.txz:  Upgraded.
+n/openssl-1.1.1-x86_64-1.txz:  Upgraded.
+x/fontconfig-2.13.1-x86_64-1.txz:  Upgraded.
+  We had problem reports with fontconfig-2.13.0 which led to it being reverted
+  but we'll try it again. Please let me know if the issues (with Wine iirc)
+  persist.
+x/libinput-1.12.0-x86_64-1.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180910T210000Z</guid>
+      <title>slackware64 current changes for Mon, 10 Sep 2018 21:00:00 GMT</title>
+      <pubDate>Mon, 10 Sep 2018 21:00:00 GMT</pubDate>
+      <description><![CDATA[<pre>a/kernel-generic-4.14.69-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.69-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.69-x86_64-1.txz:  Upgraded.
+a/xfsprogs-4.18.0-x86_64-1.txz:  Upgraded.
+ap/nano-3.0-x86_64-1.txz:  Upgraded.
+d/cmake-3.12.2-x86_64-1.txz:  Upgraded.
+d/kernel-headers-4.14.69-x86-1.txz:  Upgraded.
+k/kernel-source-4.14.69-noarch-1.txz:  Upgraded.
+  Config changes since 4.14.68:
+   CRYPTO_LZO m -> y
+   FRONTSWAP n -> y
+   ZBUD n -> m
+   ZPOOL m -> y
+  +ZSWAP y
+  Thanks to Darth Vader.
+l/glib2-2.56.2-x86_64-2.txz:  Rebuilt.
+  Make links in the documentation directory to all of the API documentation
+  found under /usr/share/gtk-doc/html. Thanks to Didier Spaier.
+l/libarchive-3.3.3-x86_64-1.txz:  Upgraded.
+n/links-2.17-x86_64-1.txz:  Upgraded.
+xfce/tumbler-0.2.2-x86_64-1.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180907T230006Z</guid>
+      <title>slackware64 current changes for Fri, 07 Sep 2018 23:00:06 GMT</title>
+      <pubDate>Fri, 07 Sep 2018 23:00:06 GMT</pubDate>
+      <description><![CDATA[<pre>x/mesa-18.2.0-x86_64-1.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180907T200252Z</guid>
+      <title>slackware64 current changes for Fri, 07 Sep 2018 20:02:52 GMT</title>
+      <pubDate>Fri, 07 Sep 2018 20:02:52 GMT</pubDate>
+      <description><![CDATA[<pre>ap/ghostscript-9.24-x86_64-3.txz:  Rebuilt.
+  Added two upstream patches to fix PDF printing. Thanks to Petri Kaukasoina.
+l/librsvg-2.44.2-x86_64-1.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180906T232245Z</guid>
+      <title>slackware64 current changes for Thu, 06 Sep 2018 23:22:45 GMT</title>
+      <pubDate>Thu, 06 Sep 2018 23:22:45 GMT</pubDate>
+      <description><![CDATA[<pre>a/pkgtools-15.0-noarch-23.txz:  Rebuilt.
+  Removed stray cat and loop kludges for lack of reported size, since this
+  is fixed now in tar.
+a/tar-1.30-x86_64-3.txz:  Rebuilt.
+  Fixed a bug in the nolonezero patch that was evidently causing all of the
+  issues in installpkg that we'd been kludging around (e.g. the "stray cat").
+  Thanks *very* much to NonNonBa for the patch, and to SeB for the initial
+  analysis of the problem.
+ap/ghostscript-9.24-x86_64-2.txz:  Rebuilt.
+  Applied upstream patch to fix "Filter failed". Thanks to th_r and bamunds.
+d/gdb-8.2-x86_64-1.txz:  Upgraded.
+d/indent-2.2.12-x86_64-1.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180906T061546Z</guid>
+      <title>slackware64 current changes for Thu, 06 Sep 2018 06:15:46 GMT</title>
+      <pubDate>Thu, 06 Sep 2018 06:15:46 GMT</pubDate>
+      <description><![CDATA[<pre>a/acpid-2.0.30-x86_64-1.txz:  Upgraded.
+a/etc-15.0-x86_64-9.txz:  Rebuilt.
+  Added support for /etc/ld.so.conf.d/. Thanks to Qury.
+a/kernel-firmware-20180904_85c5d90-noarch-1.txz:  Upgraded.
+a/kernel-generic-4.14.68-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.68-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.68-x86_64-1.txz:  Upgraded.
+a/pkgtools-15.0-noarch-22.txz:  Rebuilt.
+  installpkg: prevent noise from the "stray cat" if tar hands it a broken
+  pipe. Thanks to ivandi.
+  Also (in the comments) provide a possibly better but untested solution.
+  Thanks to SeB.
+a/sysvinit-2.90-x86_64-2.txz:  Rebuilt.
+  sysvinit-2.90 added an undocumented feature that tries to spawn agetty
+  if it sees console= in the kernel command line. Avoiding the debate about
+  whether this code belongs in init at all, at least such a change should
+  be documented, and probably made opt-in. This patch disables the new
+  behavior unless "sysvinit_agetty" is also seen in the kernel command line.
+  It seems like this might have been something added for Hurd, and it might
+  be wise to stick to what we've got rather than following upstream on this
+  particular package. If anyone notices any other odd behavior, please let
+  me know. Thanks to shastah.
+a/sysvinit-scripts-2.1-noarch-19.txz:  Rebuilt.
+  When checking for intel_pstate, direct the stderr to /dev/null in case
+  the file doesn't exist in /sys. Thanks to ivandi.
+  Allow forcing an option by editing /etc/default/cpufreq.
+ap/cups-filters-1.21.2-x86_64-1.txz:  Upgraded.
+ap/ghostscript-9.24-x86_64-1.txz:  Upgraded.
+  Patched multiple -dSAFER sandbox bypass vulnerabilities.
+  Thanks to Tavis Ormandy.
+  For more information, see:
+    https://www.ghostscript.com/doc/9.24/News.htm
+    https://www.kb.cert.org/vuls/id/332928
+  (* Security fix *)
+ap/sudo-1.8.25-x86_64-1.txz:  Upgraded.
+d/binutils-2.31.1-x86_64-2.txz:  Rebuilt.
+  elf.c (_bfd_elf_get_symbol_version_string): Return _("&lt;corrupt>") for
+  corrupt symbol version info.
+  elflink.c (bfd_elf_record_link_assignment): Always clear h->verinfo.verdef
+  when overriding a dynamic definition.
+  Thanks to Michael Short for pointing out the upstream patches.
+d/ccache-3.4.3-x86_64-1.txz:  Upgraded.
+d/kernel-headers-4.14.68-x86-1.txz:  Upgraded.
+d/llvm-6.0.1-x86_64-2.txz:  Rebuilt.
+  Recompiled with -DCLANG_BUILD_SHARED_LIBS=ON to fix issues when multiple
+  OpenCL drivers are installed. Thanks to Heinz Wiesinger.
+d/mercurial-4.7.1-x86_64-1.txz:  Upgraded.
+k/kernel-source-4.14.68-noarch-1.txz:  Upgraded.
+l/mozilla-nss-3.39-x86_64-1.txz:  Upgraded.
+n/curl-7.61.1-x86_64-1.txz:  Upgraded.
+  This update fixes an NTLM password overflow via integer overflow.
+  For more information, see:
+    https://curl.haxx.se/docs/CVE-2018-14618.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14618
+  (* Security fix *)
+n/gnupg2-2.2.10-x86_64-1.txz:  Upgraded.
+n/libtirpc-1.1.4-x86_64-1.txz:  Upgraded.
+n/netatalk-3.1.11-x86_64-2.txz:  Rebuilt.
+  rc.atalk: fixed errors in status output. Thanks to marav.
+n/nghttp2-1.33.0-x86_64-1.txz:  Upgraded.
+n/p11-kit-0.23.14-x86_64-1.txz:  Upgraded.
+n/stunnel-5.49-x86_64-1.txz:  Upgraded.
+x/libdrm-2.4.94-x86_64-1.txz:  Upgraded.
+x/xf86-video-ati-20180824_de88ea27-x86_64-1.txz:  Upgraded.
+xap/hexchat-2.14.2-x86_64-1.txz:  Upgraded.
+xap/mozilla-firefox-60.2.0esr-x86_64-1.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+xap/xlockmore-5.56-x86_64-1.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180828T220519Z</guid>
+      <title>slackware64 current changes for Tue, 28 Aug 2018 22:05:19 GMT</title>
+      <pubDate>Tue, 28 Aug 2018 22:05:19 GMT</pubDate>
+      <description><![CDATA[<pre>a/sysvinit-scripts-2.1-noarch-18.txz:  Rebuilt.
+  rc.cpufreq: for CPUs that use intel_pstate, default to the performance
+  governor. The performance governor provides power savings while avoiding
+  the ramp-up lag caused by using "ondemand", which defaults to "powersave"
+  on these systems. Thanks to EdGr.
+d/bison-3.1-x86_64-1.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180827T202722Z</guid>
+      <title>slackware64 current changes for Mon, 27 Aug 2018 20:27:22 GMT</title>
+      <pubDate>Mon, 27 Aug 2018 20:27:22 GMT</pubDate>
+      <description><![CDATA[<pre>a/kernel-firmware-20180825_fea76a0-noarch-1.txz:  Upgraded.
+ap/vim-8.1.0328-x86_64-1.txz:  Upgraded.
+d/meson-0.47.2-x86_64-1.txz:  Upgraded.
+d/python-setuptools-40.2.0-x86_64-1.txz:  Upgraded.
+l/python-certifi-2018.8.24-x86_64-1.txz:  Upgraded.
+l/python-idna-2.7-x86_64-1.txz:  Upgraded.
+l/python-packaging-17.1-x86_64-1.txz:  Upgraded.
+l/python-pillow-5.2.0-x86_64-1.txz:  Upgraded.
+l/python-requests-2.19.1-x86_64-1.txz:  Upgraded.
+l/python-urllib3-1.23-x86_64-1.txz:  Upgraded.
+l/talloc-2.1.14-x86_64-1.txz:  Upgraded.
+l/tdb-1.3.16-x86_64-1.txz:  Upgraded.
+l/tevent-0.9.37-x86_64-1.txz:  Upgraded.
+n/ethtool-4.18-x86_64-1.txz:  Upgraded.
+n/openssh-7.8p1-x86_64-1.txz:  Upgraded.
+n/samba-4.8.5-x86_64-1.txz:  Upgraded.
+x/xauth-1.0.10-x86_64-3.txz:  Rebuilt.
+  Patched to fix a bug where changing the hostname caused X access to be lost.
+  Thanks to TurboBlaze.
+xap/vim-gvim-8.1.0328-x86_64-1.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180824T230652Z</guid>
+      <title>slackware64 current changes for Fri, 24 Aug 2018 23:06:52 GMT</title>
+      <pubDate>Fri, 24 Aug 2018 23:06:52 GMT</pubDate>
+      <description><![CDATA[<pre>a/kernel-generic-4.14.67-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.67-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.67-x86_64-1.txz:  Upgraded.
+d/kernel-headers-4.14.67-x86-1.txz:  Upgraded.
+d/parallel-20180822-noarch-1.txz:  Upgraded.
+k/kernel-source-4.14.67-noarch-1.txz:  Upgraded.
+x/mesa-18.1.7-x86_64-1.txz:  Upgraded.
+xap/gparted-0.32.0-x86_64-1.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180822T234425Z</guid>
+      <title>slackware64 current changes for Wed, 22 Aug 2018 23:44:25 GMT</title>
+      <pubDate>Wed, 22 Aug 2018 23:44:25 GMT</pubDate>
+      <description><![CDATA[<pre>a/findutils-4.6.0-x86_64-1.txz:  Upgraded.
+a/kernel-firmware-20180821_1d17c18-noarch-1.txz:  Upgraded.
+a/kernel-generic-4.14.66-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.66-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.66-x86_64-1.txz:  Upgraded.
+ap/man-db-2.8.4-x86_64-2.txz:  Rebuilt.
+  Rebuilt to get it on the slackpkg upgrade list since the previous texlive
+  package clobbered /usr/bin/man and we need to fix that.
+d/kernel-headers-4.14.66-x86-1.txz:  Upgraded.
+k/kernel-source-4.14.66-noarch-1.txz:  Upgraded.
+l/glib2-2.56.2-x86_64-1.txz:  Upgraded.
+t/texlive-2018.180822-x86_64-1.txz:  Upgraded.
+  Added some patches that I'd dropped - sorry, my bad.
+  Don't clobber /usr/bin/man.
+  Thanks to Johannes Schoepfer.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180821T183927Z</guid>
+      <title>slackware64 current changes for Tue, 21 Aug 2018 18:39:27 GMT</title>
+      <pubDate>Tue, 21 Aug 2018 18:39:27 GMT</pubDate>
+      <description><![CDATA[<pre>a/openssl-solibs-1.1.0i-x86_64-2.txz:  Rebuilt.
+ap/cups-filters-1.21.0-x86_64-1.txz:  Upgraded.
+  Compiled against poppler-0.68.0.
+ap/qpdf-8.2.1-x86_64-1.txz:  Upgraded.
+kde/calligra-2.9.11-x86_64-25.txz:  Rebuilt.
+  Recompiled against poppler-0.68.0.
+l/babl-0.1.56-x86_64-1.txz:  Upgraded.
+l/gdbm-1.18-x86_64-1.txz:  Upgraded.
+l/gegl-0.4.8-x86_64-1.txz:  Upgraded.
+l/jmtpfs-0.5-x86_64-1.txz:  Added.
+l/pango-1.42.4-x86_64-1.txz:  Upgraded.
+l/poppler-0.68.0-x86_64-1.txz:  Upgraded.
+  Shared library .so-version bump.
+n/dhcpcd-7.0.8-x86_64-1.txz:  Upgraded.
+n/openssl-1.1.0i-x86_64-2.txz:  Rebuilt.
+  Fixed c_rehash script.
+n/php-7.2.9-x86_64-1.txz:  Upgraded.
+t/texlive-2018.180820-x86_64-1.txz:  Upgraded.
+  Compiled against poppler-0.68.0.
+  texdoc fixed - a cache file was missing
+  synctex header was missing (for building third-party apps)
+  xindy was broken - recompiled from source
+  Thanks to Johannes Schoepfer.
+x/libX11-1.6.6-x86_64-1.txz:  Upgraded.
+  This update fixes some security issues:
+  Fixed crash on invalid reply (CVE-2018-14598).
+  Fixed off-by-one writes (CVE-2018-14599).
+  Fixed out of boundary write (CVE-2018-14600).
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14598
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14599
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14600
+  (* Security fix *)
+xap/gimp-2.10.6-x86_64-1.txz:  Upgraded.
+xfce/tumbler-0.2.1-x86_64-6.txz:  Rebuilt.
+  Recompiled against poppler-0.68.0.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180819T235917Z</guid>
+      <title>slackware64 current changes for Sun, 19 Aug 2018 23:59:17 GMT</title>
+      <pubDate>Sun, 19 Aug 2018 23:59:17 GMT</pubDate>
+      <description><![CDATA[<pre>a/e2fsprogs-1.44.4-x86_64-1.txz:  Upgraded.
+a/kernel-generic-4.14.65-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.65-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.65-x86_64-1.txz:  Upgraded.
+ap/jove-4.16.0.73-x86_64-6.txz:  Rebuilt.
+  Fixed getline() namespace collision patch.
+ap/sudo-1.8.24-x86_64-1.txz:  Upgraded.
+d/icecream-20180808-x86_64-1.txz:  Upgraded.
+  Use sources from git, which avoids timeouts and hangs that have been
+  observed with version 1.1, and adds additional support for clang.
+d/kernel-headers-4.14.65-x86-1.txz:  Upgraded.
+k/kernel-source-4.14.65-noarch-1.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180818T020951Z</guid>
+      <title>slackware64 current changes for Sat, 18 Aug 2018 02:09:51 GMT</title>
+      <pubDate>Sat, 18 Aug 2018 02:09:51 GMT</pubDate>
+      <description><![CDATA[<pre>a/kernel-generic-4.14.64-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.64-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.64-x86_64-1.txz:  Upgraded.
+d/kernel-headers-4.14.64-x86-1.txz:  Upgraded.
+k/kernel-source-4.14.64-noarch-1.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180817T165204Z</guid>
+      <title>slackware64 current changes for Fri, 17 Aug 2018 16:52:04 GMT</title>
+      <pubDate>Fri, 17 Aug 2018 16:52:04 GMT</pubDate>
+      <description><![CDATA[<pre>a/kernel-firmware-20180814_f1b95fe-noarch-1.txz:  Upgraded.
+a/kernel-generic-4.14.63-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.63-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.63-x86_64-1.txz:  Upgraded.
+ap/jove-4.16.0.73-x86_64-5.txz:  Rebuilt.
+  Avoid a namespace conflict with glibc's getline() function.
+  Increase some hardcoded buffer sizes.
+  Thanks to TTK.
+ap/mariadb-10.3.9-x86_64-1.txz:  Upgraded.
+  This update fixes bugs and security issues.
+  For more information, see:
+    https://mariadb.com/kb/en/mariadb-1039-release-notes/
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3060
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3064
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3063
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3058
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3066
+  (* Security fix *)
+d/kernel-headers-4.14.63-x86-1.txz:  Upgraded.
+k/kernel-source-4.14.63-noarch-1.txz:  Upgraded.
+   EFI_VARS m -> y
+   EFI_VARS_PSTORE m -> y
+  +HOTPLUG_SMT y
+l/expat-2.2.6-x86_64-1.txz:  Upgraded.
+n/ntp-4.2.8p12-x86_64-1.txz:  Upgraded.
+  This release improves on one security fix in ntpd:
+    LOW/MEDIUM: Sec 3012: Sybil vulnerability: ephemeral association attack
+    While fixed in ntp-4.2.8p7 and with significant additional protections for
+    this issue in 4.2.8p11, ntp-4.2.8p12 includes a fix for an edge case in
+    the new noepeer support. Originally reported by Matt Van Gundy of Cisco.
+    Edge-case hole reported by Martin Burnicki of Meinberg.
+  And fixes another security issue in ntpq and ntpdc:
+    LOW: Sec 3505: The openhost() function used during command-line hostname
+    processing by ntpq and ntpdc can write beyond its buffer limit, which
+    could allow  an attacker to achieve code execution or escalate to higher
+    privileges via a long string as the argument for an IPv4 or IPv6
+    command-line parameter. NOTE: It is unclear whether there are any common
+    situations in which ntpq or ntpdc is used with a command line from an
+    untrusted source. Reported by Fakhri Zulkifli.
+  For more information, see:
+    http://support.ntp.org/bin/view/Main/SecurityNotice#August_2018_ntp_4_2_8p12_NTP_Rel
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1549
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12327
+  (* Security fix *)
+n/samba-4.8.4-x86_64-1.txz:  Upgraded.
+  This is a security update in order to patch the following defects:
+  Weak authentication protocol allowed.
+  Denial of Service Attack on DNS and LDAP server.
+  Insufficient input validation on client directory listing in libsmbclient.
+  Denial of Service Attack on AD DC DRSUAPI server.
+  Confidential attribute disclosure from the AD LDAP server.
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2018-1139.html
+    https://www.samba.org/samba/security/CVE-2018-1140.html
+    https://www.samba.org/samba/security/CVE-2018-10858.html
+    https://www.samba.org/samba/security/CVE-2018-10918.html
+    https://www.samba.org/samba/security/CVE-2018-10919.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1139
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1140
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10858
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10918
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10919
+  (* Security fix *)
+x/xf86-video-v4l-0.3.0-x86_64-1.txz:  Upgraded.
+x/xterm-335-x86_64-1.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180814T225609Z</guid>
+      <title>slackware64 current changes for Tue, 14 Aug 2018 22:56:09 GMT</title>
+      <pubDate>Tue, 14 Aug 2018 22:56:09 GMT</pubDate>
+      <description><![CDATA[<pre>a/kernel-firmware-20180814_fdd3468-noarch-1.txz:  Upgraded.
+a/openssl-solibs-1.1.0i-x86_64-1.txz:  Upgraded.
+d/strace-4.24-x86_64-1.txz:  Upgraded.
+l/harfbuzz-1.8.8-x86_64-1.txz:  Upgraded.
+n/iproute2-4.18.0-x86_64-1.txz:  Upgraded.
+n/openssl-1.1.0i-x86_64-1.txz:  Upgraded.
+  This update fixes two low severity security issues:
+  Client DoS due to large DH parameter.
+  Cache timing vulnerability in RSA Key Generation.
+  For more information, see:
+    https://www.openssl.org/news/secadv/20180612.txt
+    https://www.openssl.org/news/secadv/20180416.txt
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737
+  (* Security fix *)
+x/mesa-18.1.6-x86_64-1.txz:  Upgraded.
+xap/xscreensaver-5.40-x86_64-1.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180814T001054Z</guid>
+      <title>slackware64 current changes for Tue, 14 Aug 2018 00:10:54 GMT</title>
+      <pubDate>Tue, 14 Aug 2018 00:10:54 GMT</pubDate>
+      <description><![CDATA[<pre>a/etc-15.0-x86_64-8.txz:  Rebuilt.
+  /etc/passwd: Added icecc (UID 49).
+  /etc/group: Added icecc (GID 49).
+a/pciutils-3.6.2-x86_64-1.txz:  Upgraded.
+a/sysvinit-scripts-2.1-noarch-17.txz:  Rebuilt.
+  rc.M: start rc.icecc-scheduler and rc.iceccd.
+d/icecream-1.1-x86_64-1.txz:  Added.
+  Thanks to Heinz Wiesinger for the SBo reference build script.
+n/libmbim-1.16.2-x86_64-1.txz:  Upgraded.
+n/libqmi-1.20.2-x86_64-1.txz:  Upgraded.
+n/p11-kit-0.23.13-x86_64-1.txz:  Upgraded.
+x/xterm-334-x86_64-1.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180811T050149Z</guid>
+      <title>slackware64 current changes for Sat, 11 Aug 2018 05:01:49 GMT</title>
+      <pubDate>Sat, 11 Aug 2018 05:01:49 GMT</pubDate>
+      <description><![CDATA[<pre>xap/mozilla-thunderbird-60.0-x86_64-2.txz:  Rebuilt.
+  Applied upstream patch to fix crash with folder name with special characters.
+  Thanks to Karl Magnus KolstÃ¸ for the bug report and link to the patch.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180810T224255Z</guid>
+      <title>slackware64 current changes for Fri, 10 Aug 2018 22:42:55 GMT</title>
+      <pubDate>Fri, 10 Aug 2018 22:42:55 GMT</pubDate>
+      <description><![CDATA[<pre>a/kernel-generic-4.14.62-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.62-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.62-x86_64-1.txz:  Upgraded.
+ap/pamixer-1.3.1-x86_64-7.txz:  Rebuilt.
+  Recompiled against boost-1.68.0.
+d/cmake-3.12.1-x86_64-1.txz:  Upgraded.
+d/distcc-3.3-x86_64-3.txz:  Rebuilt.
+  Install masquerade symlinks in /usr/lib${LIBDIRSUFFIX}/distcc/.
+d/kernel-headers-4.14.62-x86-1.txz:  Upgraded.
+k/kernel-source-4.14.62-noarch-1.txz:  Upgraded.
+kde/calligra-2.9.11-x86_64-24.txz:  Rebuilt.
+  Recompiled against boost-1.68.0.
+l/akonadi-1.13.0-x86_64-10.txz:  Rebuilt.
+  Recompiled against boost-1.68.0.
+l/boost-1.68.0-x86_64-1.txz:  Upgraded.
+  Shared library .so-version bump.
+l/harfbuzz-1.8.7-x86_64-1.txz:  Upgraded.
+l/libgsf-1.14.44-x86_64-1.txz:  Upgraded.
+l/librsvg-2.42.6-x86_64-1.txz:  Upgraded.
+l/libsoup-2.62.3-x86_64-1.txz:  Upgraded.
+n/bind-9.12.2_P1-x86_64-1.txz:  Upgraded.
+  Fixed a security issue where named could crash during recursive processing
+  of DNAME records when "deny-answer-aliases" was in use resulting in a
+  denial of service. Note that "deny-answer-aliases" is rarely used.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5740
+  (* Security fix *)
+xap/audacious-3.10-x86_64-1.txz:  Upgraded.
+xap/audacious-plugins-3.10-x86_64-1.txz:  Upgraded.
+extra/pure-alsa-system/audacious-plugins-3.10-x86_64-1_alsa.txz:  Upgraded.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180807T232417Z</guid>
+      <title>slackware64 current changes for Tue, 07 Aug 2018 23:24:17 GMT</title>
+      <pubDate>Tue, 07 Aug 2018 23:24:17 GMT</pubDate>
+      <description><![CDATA[<pre>a/btrfs-progs-v4.17.1-x86_64-1.txz:  Upgraded.
+a/sysvinit-scripts-2.1-noarch-16.txz:  Rebuilt.
+  rc.M: call update-gdk-pixbuf-loaders with HOME=/root to prevent creating
+  a .cache directory in /. Thanks to Konrad Rzepecki.
+n/NetworkManager-1.12.2-x86_64-2.txz:  Rebuilt.
+  Fix libnm compile errors due to NM_AVAILABLE_IN_1_12_2 macro.
+x/xorg-server-1.20.1-x86_64-1.txz:  Upgraded.
+x/xorg-server-xephyr-1.20.1-x86_64-1.txz:  Upgraded.
+x/xorg-server-xnest-1.20.1-x86_64-1.txz:  Upgraded.
+x/xorg-server-xvfb-1.20.1-x86_64-1.txz:  Upgraded.
+xap/network-manager-applet-1.8.16-x86_64-1.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180807T055128Z</guid>
+      <title>slackware64 current changes for Tue, 07 Aug 2018 05:51:28 GMT</title>
+      <pubDate>Tue, 07 Aug 2018 05:51:28 GMT</pubDate>
+      <description><![CDATA[<pre>a/kernel-generic-4.14.61-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.61-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.61-x86_64-1.txz:  Upgraded.
+a/sysvinit-scripts-2.1-noarch-15.txz:  Rebuilt.
+  rc.S: clean up files in /var/lib/pkgtools/setup/tmp. Thanks to burdi01.
+ap/hplip-3.18.7-x86_64-2.txz:  Rebuilt.
+  Patched to fix libImageProcessor installation. Thanks to Matteo Bernardini.
+d/kernel-headers-4.14.61-x86-1.txz:  Upgraded.
+k/kernel-source-4.14.61-noarch-1.txz:  Upgraded.
+l/opus-1.3_rc-x86_64-1.txz:  Upgraded.
+n/iputils-s20180629-x86_64-1.txz:  Upgraded.
+xap/mozilla-thunderbird-60.0-x86_64-1.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/en-US/thunderbird/60.0/releasenotes/
+    https://www.mozilla.org/security/known-vulnerabilities/thunderbird.html
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-19/
+  (* Security fix *)
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180804T073834Z</guid>
+      <title>slackware64 current changes for Sat, 04 Aug 2018 07:38:34 GMT</title>
+      <pubDate>Sat, 04 Aug 2018 07:38:34 GMT</pubDate>
+      <description><![CDATA[<pre>a/dbus-1.12.10-x86_64-1.txz:  Upgraded.
+a/kernel-generic-4.14.60-x86_64-1.txz:  Upgraded.
+a/kernel-huge-4.14.60-x86_64-1.txz:  Upgraded.
+a/kernel-modules-4.14.60-x86_64-1.txz:  Upgraded.
+d/kernel-headers-4.14.60-x86-1.txz:  Upgraded.
+d/mercurial-4.7-x86_64-1.txz:  Upgraded.
+d/rust-1.28.0-x86_64-1.txz:  Upgraded.
+k/kernel-source-4.14.60-noarch-1.txz:  Upgraded.
+xap/blueman-2.0.6-x86_64-2.txz:  Rebuilt.
+  Allow users in the netdev group to make changes.
+  Thanks to voleg, kgha, and zakame.
+isolinux/initrd.img:  Rebuilt.
+kernels/*:  Upgraded.
+testing/packages/glibc-2.28-x86_64-2.txz:  Rebuilt.
+  Fixed compile issues when linking with libpthread.
+testing/packages/glibc-i18n-2.28-x86_64-2.txz:  Rebuilt.
+testing/packages/glibc-profile-2.28-x86_64-2.txz:  Rebuilt.
+testing/packages/glibc-solibs-2.28-x86_64-2.txz:  Rebuilt.
+usb-and-pxe-installers/usbboot.img:  Rebuilt.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-current-20180802T201210Z</guid>
+      <title>slackware64 current changes for Thu, 02 Aug 2018 20:12:10 GMT</title>
+      <pubDate>Thu, 02 Aug 2018 20:12:10 GMT</pubDate>
+      <description><![CDATA[<pre>ap/hplip-3.18.7-x86_64-1.txz:  Upgraded.
+l/harfbuzz-1.8.5-x86_64-1.txz:  Upgraded.
+n/lftp-4.8.4-x86_64-1.txz:  Upgraded.
+  It has been discovered that lftp up to and including version 4.8.3 does
+  not properly sanitize remote file names, leading to a loss of integrity
+  on the local system when reverse mirroring is used. A remote attacker
+  may trick a user to use reverse mirroring on an attacker controlled FTP
+  server, resulting in the removal of all files in the current working
+  directory of the victim's system.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10916
+  (* Security fix *)
+x/fonttosfnt-1.0.5-x86_64-1.txz:  Upgraded.
+</pre>]]></description>
+    </item>
     <item>
       <guid isPermaLink="false">slackware64-current-20180801T223853Z</guid>
       <title>slackware64 current changes for Wed, 01 Aug 2018 22:38:53 GMT</title>

@@ -1,3 +1,98 @@
+Tue Sep 25 02:17:44 UTC 2018
+patches/packages/httpd-2.4.35-i486-1_slack14.1.txz:  Upgraded.
+  This release fixes bugs and regressions in httpd-2.4.34, adds an
+  apache2ctl -> apachectl symlink, and no longer automatically
+  overwrites rc.httpd when upgraded.
++--------------------------+
+Fri Sep 14 23:06:26 UTC 2018
+patches/packages/php-5.6.38-i486-1_slack14.1.txz:  Upgraded.
+  One security bug has been fixed in this release: 
+  Apache2: XSS due to the header Transfer-Encoding: chunked
+  For more information, see:
+    https://php.net/ChangeLog-5.php#5.6.38
+  (* Security fix *)
++--------------------------+
+Thu Sep  6 05:28:05 UTC 2018
+patches/packages/curl-7.61.1-i486-1_slack14.1.txz:  Upgraded.
+  This update fixes an NTLM password overflow via integer overflow.
+  For more information, see:
+    https://curl.haxx.se/docs/CVE-2018-14618.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14618
+  (* Security fix *)
++--------------------------+
+Tue Aug 21 18:39:27 UTC 2018
+patches/packages/libX11-1.6.6-i486-1_slack14.1.txz:  Upgraded.
+  This update fixes some security issues:
+  Fixed crash on invalid reply (CVE-2018-14598).
+  Fixed off-by-one writes (CVE-2018-14599).
+  Fixed out of boundary write (CVE-2018-14600).
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14598
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14599
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14600
+  (* Security fix *)
++--------------------------+
+Fri Aug 17 16:52:04 UTC 2018
+patches/packages/ntp-4.2.8p12-i486-1_slack14.1.txz:  Upgraded.
+  This release improves on one security fix in ntpd:
+    LOW/MEDIUM: Sec 3012: Sybil vulnerability: ephemeral association attack
+    While fixed in ntp-4.2.8p7 and with significant additional protections for
+    this issue in 4.2.8p11, ntp-4.2.8p12 includes a fix for an edge case in
+    the new noepeer support. Originally reported by Matt Van Gundy of Cisco.
+    Edge-case hole reported by Martin Burnicki of Meinberg.
+  And fixes another security issue in ntpq and ntpdc:
+    LOW: Sec 3505: The openhost() function used during command-line hostname
+    processing by ntpq and ntpdc can write beyond its buffer limit, which
+    could allow  an attacker to achieve code execution or escalate to higher
+    privileges via a long string as the argument for an IPv4 or IPv6
+    command-line parameter. NOTE: It is unclear whether there are any common
+    situations in which ntpq or ntpdc is used with a command line from an
+    untrusted source. Reported by Fakhri Zulkifli.
+  For more information, see:
+    http://support.ntp.org/bin/view/Main/SecurityNotice#August_2018_ntp_4_2_8p12_NTP_Rel
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1549
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12327
+  (* Security fix *)
+patches/packages/samba-4.6.16-i486-1_slack14.1.txz:  Upgraded.
+  This is a security release in order to address the following defects:
+  Insufficient input validation on client directory listing in libsmbclient.
+  A malicious server could return a directory entry that could corrupt
+  libsmbclient memory.
+  Confidential attribute disclosure from the AD LDAP server.
+  Missing access control checks allow discovery of confidential attribute
+  values via authenticated LDAP search expressions.
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2018-10858.html
+    https://www.samba.org/samba/security/CVE-2018-10919.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10858
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10919
+  (* Security fix *)
++--------------------------+
+Tue Aug 14 22:56:09 UTC 2018
+patches/packages/xscreensaver-5.40-i486-1_slack14.1.txz:  Upgraded.
+  Here's an upgrade to the latest xscreensaver.
++--------------------------+
+Fri Aug 10 22:42:55 UTC 2018
+patches/packages/bind-9.9.13_P1-i486-1_slack14.1.txz:  Upgraded.
+  Fixed a security issue where named could crash during recursive processing
+  of DNAME records when "deny-answer-aliases" was in use resulting in a
+  denial of service. Note that "deny-answer-aliases" is rarely used.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5740
+  (* Security fix *)
++--------------------------+
+Thu Aug  2 20:12:10 UTC 2018
+patches/packages/lftp-4.8.4-i486-1_slack14.1.txz:  Upgraded.
+  It has been discovered that lftp up to and including version 4.8.3 does
+  not properly sanitize remote file names, leading to a loss of integrity
+  on the local system when reverse mirroring is used. A remote attacker
+  may trick a user to use reverse mirroring on an attacker controlled FTP
+  server, resulting in the removal of all files in the current working
+  directory of the victim's system.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10916
+  (* Security fix *)
++--------------------------+
 Tue Jul 31 05:53:40 UTC 2018
 patches/packages/file-5.34-i486-1_slack14.1.txz:  Upgraded.
   Fixed a denial of service crash when processing a crafted ELF file.
