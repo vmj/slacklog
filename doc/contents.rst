@@ -6,10 +6,9 @@
 Welcome to slacklog's documentation!
 ====================================
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
+   :caption: Contents:
 
    Introduction <README>
    CHANGES
