@@ -16,6 +16,11 @@ setup(
     author_email='vmj@linuxbox.fi',
     maintainer='Mikko Värri',
     maintainer_email='vmj@linuxbox.fi',
+    project_urls={
+        'Documentation': 'https://slacklog.readthedocs.org',
+        'Source': 'https://github.com/vmj/slacklog',
+        'Build status': 'https://travis-ci.org/vmj/slacklog'
+    },
     packages=['slacklog', ],
     entry_points={
         'console_scripts': [
@@ -27,14 +32,14 @@ setup(
         ]
     },
     url='http://pypi.python.org/pypi/slacklog/',
-    license='GNU GPLv3',
     description=slacklog.__doc__,
     long_description=''.join([
             open('README.rst').read(),
             '\n\n',
             open('CHANGES.rst').read()
             ]),
-    install_requires=['python-dateutil', ],
+    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, <4',
+    install_requires=['python-dateutil>=2.1,<3', ],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',
@@ -47,6 +52,7 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content :: News/Diary',
         'Topic :: Utilities',
         ],
