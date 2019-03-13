@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 #
 #   Where to fetch the ChangeLogs from:
@@ -13,7 +13,7 @@ DST_DIR=./test/changelogs
 #
 #   Temporary storage
 #
-TMP_DIR=/tmp/slacklog/tmp
+TMP_DIR="$(mktemp -d)"
 
 #
 #   A function that knows how to download one ChangeLog
@@ -48,7 +48,10 @@ fetch_changelog() {
     fi
 }
 
-mkdir -p "$TMP_DIR"
+cleanup() {
+    rm -rf "$TMP_DIR"
+}
+trap cleanup EXIT
 mkdir -p "$DST_DIR"
 
 
