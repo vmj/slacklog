@@ -5,6 +5,17 @@ SlackLog formatters
 
 SlackLog formatter takes an in-memory representation of a Slackware ChangeLog.txt and produces a different
 representation of it.
+
+The in-memory representation is an instance of :any:`SlackLog`.
+
+Currently, the following formatters are provided:
+
+  * :py:class:`SlackLogTxtFormatter` tries to reproduce the original ChangeLog.txt.
+  * :py:class:`SlackLogRssFormatter` produces an RSS feed.
+  * :py:class:`SlackLogAtomFormatter` produces an Atom feed.
+  * :py:class:`SlackLogJsonFormatter` produces a JSON representation.
+  * :py:class:`SlackLogPyblosxomFormatter` writes the log entries to PyBlosxom HTML entries.
+
 """
 from __future__ import print_function
 
@@ -30,7 +41,7 @@ class SlackLogFormatter (object):
     """
     Base class for SlackLog formatters.
 
-    This class is ment for subclassing.
+    This class is meant for subclassing.
     """
 
     def __init__(self):
@@ -54,10 +65,8 @@ class SlackLogFormatter (object):
         The return value is the concatenation of the return values of
         the mentioned functions.
 
-        :param log: in-memory representation of the log.
-        :type: :py:class:`slacklog.models.SlackLog`
-        :return: Unicode representation of the log.
-        :type: :py:class:`unicode`
+        :param log: :any:`SlackLog` -- in-memory representation of the log.
+        :return: :py:class:`unicode` -- Unicode representation of the log.
         """
         assert(isinstance(log, SlackLog))
         data = u''
@@ -73,10 +82,8 @@ class SlackLogFormatter (object):
 
         Default implementation returns empty string.
 
-        :param log: in-memory representation of the log.
-        :type: :py:class:`slacklog.models.SlackLog`
-        :return: Unicode representation of log preamble.
-        :type: :py:class:`unicode`
+        :param log: :any:`SlackLog` -- in-memory representation of the log.
+        :return: :py:class:`unicode` -- Unicode representation of log preamble.
         """
         assert(isinstance(log, SlackLog))
         return u''
@@ -88,10 +95,8 @@ class SlackLogFormatter (object):
 
         Default implementation returns empty string.
 
-        :param log: in-memory representation of the log.
-        :type: :py:class:`slacklog.models.SlackLog`
-        :return: Unicode representation of log postamble.
-        :type: :py:class:`unicode`
+        :param log: :any:`SlackLog` -- in-memory representation of the log.
+        :return: :py:class:`unicode` -- Unicode representation of log postamble.
         """
         assert(isinstance(log, SlackLog))
         return u''
@@ -110,12 +115,10 @@ class SlackLogFormatter (object):
         The return value is the concatenation of the return values of
         the mentioned functions.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :param bool is_first: :py:const:`True` if this is first entry, :py:const:`False` otherwise.
-        :param bool is_last: :py:const:`True` if this is last entry, :py:const:`False` otherwise.
-        :return: Unicode representation of log entry.
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :param is_first: :py:class:`bool` -- :py:const:`True` if this is first entry, :py:const:`False` otherwise.
+        :param is_last: :py:class:`bool` -- :py:const:`True` if this is last entry, :py:const:`False` otherwise.
+        :return: :py:class:`unicode` -- Unicode representation of log entry.
         """
         assert(isinstance(entry, SlackLogEntry))
         data = u''
@@ -131,10 +134,9 @@ class SlackLogFormatter (object):
 
         Default implementation returns an empty string.
 
-        :param bool is_first: :py:const:`True` if this is first entry, :py:const:`False` otherwise.
-        :param bool is_last: :py:const:`True` if this is last entry, :py:const:`False` otherwise.
-        :return: Unicode representation of log entry separator.
-        :type: :py:class:`unicode`
+        :param is_first: :py:class:`bool` -- :py:const:`True` if this is first entry, :py:const:`False` otherwise.
+        :param is_last: :py:class:`bool` -- :py:const:`True` if this is last entry, :py:const:`False` otherwise.
+        :return: :py:class:`unicode` -- Unicode representation of log entry separator.
         """
         return u''
 
@@ -145,10 +147,8 @@ class SlackLogFormatter (object):
 
         Default implementation returns an empty string.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: Unicode representation of log entry preamble.
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :return: :py:class:`unicode` -- Unicode representation of log entry preamble.
         """
         assert(isinstance(entry, SlackLogEntry))
         return u''
@@ -160,10 +160,8 @@ class SlackLogFormatter (object):
 
         Default implementation returns an empty string.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: Unicode representation of log entry postamble.
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :return: :py:class:`unicode` -- Unicode representation of log entry postamble.
         """
         assert(isinstance(entry, SlackLogEntry))
         return u''
@@ -179,12 +177,10 @@ class SlackLogFormatter (object):
         The return value is the concatenation of the return values of
         the mentioned functions.
 
-        :param pkg: in-memory representation of the log entry package
-        :type: :py:class:`slacklog.models.SlackLogPkg`
-        :param bool is_first: :py:const:`True` if this is first package, :py:const:`False` otherwise.
-        :param bool is_last: :py:const:`True` if this is last package, :py:const:`False` otherwise.
-        :return: Unicode representation of log entry package.
-        :type: :py:class:`unicode`
+        :param pkg: :py:class:`SlackLogPkg` -- in-memory representation of the log entry package
+        :param is_first: :py:class:`bool` -- :py:const:`True` if this is first package, :py:const:`False` otherwise.
+        :param is_last: :py:class:`bool` -- :py:const:`True` if this is last package, :py:const:`False` otherwise.
+        :return: :py:class:`unicode` -- Unicode representation of log entry package.
         """
         assert(isinstance(pkg, SlackLogPkg))
         data = u''
@@ -200,10 +196,9 @@ class SlackLogFormatter (object):
 
         Default implementation returns an empty string.
 
-        :param bool is_first: :py:const:`True` if this is first package, :py:const:`False` otherwise.
-        :param bool is_last: :py:const:`True` if this is last package, :py:const:`False` otherwise.
-        :return: Unicode representation of log entry package separator.
-        :type: :py:class:`unicode`
+        :param is_first: :py:class:`bool` -- :py:const:`True` if this is first package, :py:const:`False` otherwise.
+        :param is_last: :py:class:`bool` -- :py:const:`True` if this is last package, :py:const:`False` otherwise.
+        :return: :py:class:`unicode` -- Unicode representation of log entry package separator.
         """
         return u''
 
@@ -214,10 +209,8 @@ class SlackLogFormatter (object):
 
         Default implementation returns an empty string.
 
-        :param pkg: in-memory representation of the log entry package
-        :type: :py:class:`slacklog.models.SlackLogPkg`
-        :return: Unicode representation of log entry package preamble.
-        :type: :py:class:`unicode`
+        :param pkg: :any:`SlackLogPkg` -- in-memory representation of the log entry package
+        :return: :py:class:`unicode` -- Unicode representation of log entry package preamble.
         """
         assert(isinstance(pkg, SlackLogPkg))
         return u''
@@ -229,10 +222,8 @@ class SlackLogFormatter (object):
 
         Default implementation returns an empty string.
 
-        :param pkg: in-memory representation of the log entry package
-        :type: :py:class:`slacklog.models.SlackLogPkg`
-        :return: Unicode representation of log entry package postamble.
-        :type: :py:class:`unicode`
+        :param pkg: :any:`SlackLogPkg` -- in-memory representation of the log entry package
+        :return: :py:class:`unicode` -- Unicode representation of log entry package postamble.
         """
         assert(isinstance(pkg, SlackLogPkg))
         return u''
@@ -241,19 +232,17 @@ class SlackLogFormatter (object):
         """
         Return unicode representation of a list of objects.
 
-        This method is not ment for subclassing.
+        This method is not meant for subclassing.
 
-        :param list_of_items: List of items to format.
-        :type: list
+        :param list list_of_items: List of items to format.
         :param item_formatter: Function that formats one item.
-        :type: A callable that takes one item as the first positional
-               argument, two booleans `is_first` and `is_last` as
-               second and third positional arguments, and returns a
-               :py:class:`unicode` string.
-        :param max_items: Maximum number of items to format.  If falsy, all items are formatted.
-        :type: :py:class:`int` or falsy.
-        :return: Formatted data.
-        :rtype: :py:class:`unicode`
+            A callable that takes one item as the first positional
+            argument, two booleans `is_first` and `is_last` as
+            second and third positional arguments, and returns a
+            :py:class:`unicode` string.
+        :param max_items: :py:class:`int` or falsy -- Maximum number of items to format.
+            If falsy, all items are formatted.
+        :return: :py:class:`unicode` -- Formatted data.
         """
         data = u''
         num_items = len(list_of_items)
@@ -282,10 +271,8 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_separator`.
 
-        :param log: in-memory representation of the log.
-        :type: :py:class:`slacklog.models.SlackLog`
-        :return: Unicode representation of log preamble.
-        :type: :py:class:`unicode`
+        :param log: :any:`SlackLog` -- in-memory representation of the log.
+        :return: :py:class:`unicode` -- Unicode representation of log preamble.
         """
         assert(isinstance(log, SlackLog))
         if log.startsWithSeparator:
@@ -296,10 +283,8 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_separator`.
 
-        :param log: in-memory representation of the log.
-        :type: :py:class:`slacklog.models.SlackLog`
-        :return: Unicode representation of log postamble.
-        :type: :py:class:`unicode`
+        :param log: :any:`SlackLog` -- in-memory representation of the log.
+        :return: :py:class:`unicode` -- Unicode representation of log postamble.
         """
         assert(isinstance(log, SlackLog))
         if log.endsWithSeparator:
@@ -310,10 +295,9 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_separator`.
 
-        :param bool is_first: :py:const:`True` if this is first entry, :py:const:`False` otherwise.
-        :param bool is_last: :py:const:`True` if this is last entry, :py:const:`False` otherwise.
-        :return: Unicode representation of log entry separator.
-        :type: :py:class:`unicode`
+        :param is_first: :py:class:`bool` -- :py:const:`True` if this is first entry, :py:const:`False` otherwise.
+        :param is_last: :py:class:`bool` -- :py:const:`True` if this is last entry, :py:const:`False` otherwise.
+        :return: :py:class:`unicode` -- Unicode representation of log entry separator.
         """
         if not is_first:
             return u'+--------------------------+\n'
@@ -323,10 +307,8 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_preamble`.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: Unicode representation of log entry preamble.
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :return: :py:class:`unicode` -- Unicode representation of log entry preamble.
         """
         assert(isinstance(entry, SlackLogEntry))
         timestamp = entry.timestamp
@@ -345,10 +327,8 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_pkg_preamble`.
 
-        :param pkg: in-memory representation of the log entry package
-        :type: :py:class:`slacklog.models.SlackLogPkg`
-        :return: Unicode representation of log entry package preamble.
-        :type: :py:class:`unicode`
+        :param pkg: :any:`SlackLogPkg` -- in-memory representation of the log entry package
+        :return: :py:class:`unicode` -- Unicode representation of log entry package preamble.
         """
         assert(isinstance(pkg, SlackLogPkg))
         return u'%s:%s' % (pkg.pkg, pkg.description)
@@ -386,10 +366,8 @@ class SlackLogRssFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_log_preamble`.
 
-        :param log: in-memory representation of the log.
-        :type: :py:class:`slacklog.models.SlackLog`
-        :return: Unicode representation of log preamble.
-        :type: :py:class:`unicode`
+        :param log: :any:`SlackLog` -- in-memory representation of the log.
+        :return: :py:class:`unicode` -- Unicode representation of log preamble.
         """
         assert(isinstance(log, SlackLog))
         data = u'<?xml version="1.0"?>\n'
@@ -426,10 +404,8 @@ class SlackLogRssFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_log_postamble`.
 
-        :param log: in-memory representation of the log.
-        :type: :py:class:`slacklog.models.SlackLog`
-        :return: Unicode representation of log postamble.
-        :type: :py:class:`unicode`
+        :param log: :any:`SlackLog` -- in-memory representation of the log.
+        :return: :py:class:`unicode` -- Unicode representation of log postamble.
         """
         assert(isinstance(log, SlackLog))
         return u'  </channel>\n</rss>\n'
@@ -438,10 +414,8 @@ class SlackLogRssFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_preamble`.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: Unicode representation of log entry preamble.
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :return: :py:class:`unicode` -- Unicode representation of log entry preamble.
         """
         assert(isinstance(entry, SlackLogEntry))
         data = u'    <item>\n'
@@ -463,10 +437,8 @@ class SlackLogRssFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_postamble`.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: Unicode representation of log entry postamble.
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :return: :py:class:`unicode` -- Unicode representation of log entry postamble.
         """
         assert(isinstance(entry, SlackLogEntry))
         return u'</pre>]]></description>\n    </item>\n'
@@ -475,10 +447,8 @@ class SlackLogRssFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_pkg_preamble`.
 
-        :param pkg: in-memory representation of the log entry package
-        :type: :py:class:`slacklog.models.SlackLogPkg`
-        :return: Unicode representation of log entry package preamble.
-        :type: :py:class:`unicode`
+        :param pkg: :any:`SlackLogPkg` -- in-memory representation of the log entry package
+        :return: :py:class:`unicode` -- Unicode representation of log entry package preamble.
         """
         assert(isinstance(pkg, SlackLogPkg))
         return u'%s:%s' % (pkg.pkg, pkg.description.replace('<', '&lt;'))
@@ -509,10 +479,8 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_log_preamble`.
 
-        :param log: in-memory representation of the log.
-        :type: :py:class:`slacklog.models.SlackLog`
-        :return: Unicode representation of log preamble.
-        :type: :py:class:`unicode`
+        :param log: :any:`SlackLog` -- in-memory representation of the log.
+        :return: :py:class:`unicode` -- Unicode representation of log preamble.
         """
         assert(isinstance(log, SlackLog))
         data = u'<?xml version="1.0"?>\n'
@@ -538,10 +506,8 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_log_postamble`.
 
-        :param log: in-memory representation of the log.
-        :type: :py:class:`slacklog.models.SlackLog`
-        :return: Unicode representation of log postamble.
-        :type: :py:class:`unicode`
+        :param log: :any:`SlackLog` -- in-memory representation of the log.
+        :return: :py:class:`unicode` -- Unicode representation of log postamble.
         """
         assert(isinstance(log, SlackLog))
         return u'</feed>\n'
@@ -550,10 +516,8 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_preamble`.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: Unicode representation of log entry preamble.
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :return: :py:class:`unicode` -- Unicode representation of log entry preamble.
         """
         assert(isinstance(entry, SlackLogEntry))
         data = u'    <entry>\n'
@@ -571,10 +535,8 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_postamble`.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: Unicode representation of log entry postamble.
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :return: :py:class:`unicode` -- Unicode representation of log entry postamble.
         """
         assert(isinstance(entry, SlackLogEntry))
         return u'</pre>]]></content>\n    </entry>\n'
@@ -583,10 +545,8 @@ class SlackLogAtomFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_pkg_preamble`.
 
-        :param pkg: in-memory representation of the log entry package
-        :type: :py:class:`slacklog.models.SlackLogPkg`
-        :return: Unicode representation of log entry package preamble.
-        :type: :py:class:`unicode`
+        :param pkg: :any:`SlackLogPkg` -- in-memory representation of the log entry package
+        :return: :py:class:`unicode` -- Unicode representation of log entry package preamble.
         """
         assert(isinstance(pkg, SlackLogPkg))
         return u'%s:%s' % (pkg.pkg, pkg.description.replace('<', '&lt;'))
@@ -651,12 +611,10 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry`.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :param bool is_first: :py:const:`True` if this is first entry, :py:const:`False` otherwise.
-        :param bool is_last: :py:const:`True` if this is last entry, :py:const:`False` otherwise.
-        :return: Unicode representation of log entry.
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :param is_first: :py:class:`bool` -- :py:const:`True` if this is first entry, :py:const:`False` otherwise.
+        :param is_last: :py:class:`bool` -- :py:const:`True` if this is last entry, :py:const:`False` otherwise.
+        :return: :py:class:`unicode` -- Unicode representation of log entry.
         """
         assert(isinstance(entry, SlackLogEntry))
         data = super(SlackLogPyblosxomFormatter, self).format_entry(entry, is_first, is_last)
@@ -713,10 +671,8 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_preamble`.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: Unicode representation of log entry preamble.
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :return: :py:class:`unicode` -- Unicode representation of log entry preamble.
         """
         assert(isinstance(entry, SlackLogEntry))
         data = self.format_entry_title(entry)
@@ -735,10 +691,8 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_entry_postamble`.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: Unicode representation of log entry postamble.
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :return: :py:class:`unicode` -- Unicode representation of log entry postamble.
         """
         assert(isinstance(entry, SlackLogEntry))
         data = u''
@@ -751,10 +705,8 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         """
         Overrides :py:meth:`SlackLogFormatter.format_pkg_preamble`.
 
-        :param pkg: in-memory representation of the log entry package
-        :type: :py:class:`slacklog.models.SlackLogPkg`
-        :return: Unicode representation of log entry package preamble.
-        :type: :py:class:`unicode`
+        :param pkg: :any:`SlackLogPkg` -- in-memory representation of the log entry package
+        :return: :py:class:`unicode` -- Unicode representation of log entry package preamble.
         """
         assert(isinstance(pkg, SlackLogPkg))
         data = u'%s%s%s%s%s%s%s%s%s' % (self.pkg_preamble,
@@ -772,10 +724,8 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         """
         Return basename for the log entry.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: Unicode representation of log entry name
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :return: :py:class:`unicode` -- Unicode representation of log entry name
         """
         return self.slackware.replace(' ', '-').replace('.', '_').lower()
 
@@ -783,10 +733,8 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         """
         Return log entry title.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: Unicode representation of log entry title
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :return: :py:class:`unicode` -- Unicode representation of log entry title
         """
         return u'%s changes for %s\n' % (self.slackware, readable(entry.timestamp))
 
@@ -794,10 +742,8 @@ class SlackLogPyblosxomFormatter (SlackLogFormatter):
         """
         Return log entry tags.
 
-        :param entry: in-memory representation of the log entry.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: Unicode representation of log entry tags
-        :type: :py:class:`unicode`
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the log entry.
+        :return: :py:class:`unicode` -- Unicode representation of log entry tags
         """
         return u'%s' % self.slackware.replace(' ', self.tags_separator)
 
@@ -838,16 +784,14 @@ class SlackLogJsonFormatter (SlackLogFormatter):
         super(SlackLogJsonFormatter, self).__init__()
         self.indent = None
         """If not :py:const:`None`, must be an :py:class:`int`
-        representing how many how many spaces to indent the array elements and object keys."""
+        representing how many spaces to indent the array elements and object keys."""
 
     def format(self, log):
         """
         Return unicode representation of the in-memory representation of the log.
 
-        :param log: in-memory representation of the log.
-        :type: :py:class:`slacklog.models.SlackLog`
-        :return: Unicode representation of the log.
-        :type: :py:class:`unicode`
+        :param log: :any:`SlackLog` -- in-memory representation of the log.
+        :return: :py:class:`unicode` -- Unicode representation of the log.
         """
         assert(isinstance(log, SlackLog))
         if self.indent is None:

@@ -2,7 +2,10 @@
 SlackLog parsers
 ================
 
-SlackLog parser reads a Slackware ChangeLog.txt and builds an in-memory representation of it using SlackLog models.
+SlackLog parser takes a unicode representation of a Slackware ChangeLog.txt and produces an in-memory representation
+of it.
+
+The in-memory representation is an instance of :any:`SlackLog`.
 """
 from __future__ import print_function
 
@@ -33,7 +36,7 @@ tzinfos = {
 
 class SlackLogParser (object):
     """
-    Parser for recent (13.x) Slackware ChangeLogs.
+    Parser for Slackware ChangeLog.txt files.  This implementation works for 12.x and newer Slackware versions.
     """
 
     def __init__(self):
@@ -50,9 +53,8 @@ class SlackLogParser (object):
         """
         Return the in-memory representation of the data.
 
-        :param unicode data: the ChangeLog.txt content.
-        :returns: in-memory representation of data
-        :rtype: :py:class:`slacklog.models.SlackLog`
+        :param data: :py:class:`unicode` -- the ChangeLog.txt content.
+        :returns: :any:`SlackLog` -- in-memory representation of data
         """
         assert(isinstance(data, str))
         log = SlackLog()
@@ -79,9 +81,8 @@ class SlackLogParser (object):
         """
         Split the ChangeLog.txt into a list of unparsed entries.
 
-        :param unicode data: the ChangeLog.txt content.
-        :returns: list of unparsed entries, separators removed.
-        :rtype: [:py:class:`unicode`]
+        :param data: :py:class:`unicode` --the ChangeLog.txt content.
+        :returns: [:py:class:`unicode`] -- list of unparsed entries, separators removed.
         """
         assert(isinstance(data, str))
         raw_entries = re.split('\+-+\+', data)
@@ -97,11 +98,9 @@ class SlackLogParser (object):
         """
         Parse a single ChangeLog entry.
 
-        :param unicode data: ChangeLog entry content.
-        :param log: in-memory representation that is being parsed.
-        :type: :py:class:`slacklog.models.SlackLog`
-        :return: in-memory representation of the ChangeLog entry.
-        :rtype: :py:class:`slacklog.models.SlackLogEntry`
+        :param data: :py:class:`unicode` -- ChangeLog entry content.
+        :param log: :any:`SlackLog` -- in-memory representation that is being parsed.
+        :return: :any:`SlackLogEntry` -- in-memory representation of the ChangeLog entry.
         """
         assert(isinstance(data, str))
         assert(isinstance(log, SlackLog))
@@ -129,9 +128,8 @@ class SlackLogParser (object):
         """
         Generate ChangeLog entry checksum from data.
 
-        :param unicode data: ChangeLog entry content.
-        :return: Entry checksum.
-        :rtype: :py:class:`unicode`
+        :param data: :py:class:`unicode` -- ChangeLog entry content.
+        :return: :py:class:`unicode` -- Entry checksum.
         """
         assert(isinstance(data, str))
         return u'%s' % hashlib.sha512(encode(data, 'utf-8')).hexdigest()
@@ -140,11 +138,10 @@ class SlackLogParser (object):
         """
         Generate ChangeLog entry identifier from data, checksum, and/or parent identifier.
 
-        :param unicode data: ChangeLog entry content.
-        :param unicode checksum: ChangeLog entry checksum.
-        :param parent: Parent entry identifier or :py:const:`None`
-        :return: Entry identifier.
-        :rtype: :py:class:`unicode`
+        :param data: :py:class:`unicode` -- ChangeLog entry content.
+        :param checksum: :py:class:`unicode` -- ChangeLog entry checksum.
+        :param parent: :py:class:`unicode` -- Parent entry identifier or :py:const:`None`
+        :return: :py:class:`unicode` -- Entry identifier.
         """
         if parent is not None:
             return u'%s' % hashlib.sha512(encode(parent + checksum, 'utf-8')).hexdigest()
@@ -154,9 +151,8 @@ class SlackLogParser (object):
         """
         Parse ChangeLog entry timestamp from data.
 
-        :param unicode data: ChangeLog entry content.
-        :returns: a two element list: timestamp and the rest of the entry.
-        :rtype: [:py:class:`datetime.datetime`, :py:class:`unicode`]
+        :param data: :py:class:`unicode` -- ChangeLog entry content.
+        :returns: [:py:class:`datetime.datetime`, :py:class:`unicode`] -- a two element list: timestamp and the rest of the entry.
         """
         assert(isinstance(data, str))
         timestamp_str, data = self.get_line(data)
@@ -167,9 +163,8 @@ class SlackLogParser (object):
         """
         Parse ChangeLog entry description from data.
 
-        :param unicode data: ChangeLog entry content (without timestamp).
-        :returns: a two element list: description and the rest of the entry.
-        :rtype: [:py:class:`unicode`, :py:class:`unicode`]
+        :param data: :py:class:`unicode` -- ChangeLog entry content (without timestamp).
+        :returns: [:py:class:`unicode`, :py:class:`unicode`] -- a two element list: description and the rest of the entry.
         """
         assert(isinstance(data, str))
         description = u''
@@ -182,9 +177,8 @@ class SlackLogParser (object):
         """
         Split ChangeLog entry content into a list of unparsed packages.
 
-        :param unicode data: ChangeLog entry content (without timestamp or description).
-        :return: a list of unparsed packages.
-        :rtype: [:py:class:`unicode`]
+        :param data: :py:class:`unicode` -- ChangeLog entry content (without timestamp or description).
+        :return: [:py:class:`unicode`] -- a list of unparsed packages.
         """
         assert(isinstance(data, str))
         pkgs = []
@@ -211,11 +205,9 @@ class SlackLogParser (object):
         """
         Parse a single package.
 
-        :param unicode data:  Package name and description of the update.
-        :param entry: in-memory representation of the ChangeLog entry being parsed.
-        :type: :py:class:`slacklog.models.SlackLogEntry`
-        :return: in-memory representation of the package.
-        :rtype: :py:class:`slacklog.models.SlackLogPkg`
+        :param data: :py:class:`unicode` -- Package name and description of the update.
+        :param entry: :any:`SlackLogEntry` -- in-memory representation of the ChangeLog entry being parsed.
+        :return: :any:`SlackLogPkg` -- in-memory representation of the package.
         """
         assert(isinstance(data, str))
         assert(isinstance(entry, SlackLogEntry))
@@ -232,9 +224,8 @@ class SlackLogParser (object):
         """
         Parse package name from a package.
 
-        :param unicode data: Package name and description.
-        :return: a two element list: package name and package description.
-        :rtype: [:py:class:`unicode`, :py:class:`unicode`]
+        :param data: :py:class:`unicode` -- Package name and description.
+        :return: [:py:class:`unicode`, :py:class:`unicode`] -- a two element list: package name and package description.
         """
         assert(isinstance(data, str))
         return data.split(u':', 1)
@@ -243,9 +234,8 @@ class SlackLogParser (object):
         """
         Parse package description from a package.
 
-        :param unicode data: Package description.
-        :return: Package description.
-        :rtype: :py:class:`unicode`
+        :param data: :py:class:`unicode` -- Package description.
+        :return: :py:class:`unicode` -- Package description.
         """
         assert(isinstance(data, str))
         return data
@@ -254,9 +244,8 @@ class SlackLogParser (object):
         """
         Consume one line from data.
 
-        :param unicode data: Data.
-        :return: a two element list: first line, rest of the data.
-        :rtype: [:py:class:`unicode`, :py:class:`unicode`]
+        :param data: :py:class:`unicode` -- Data.
+        :return: [:py:class:`unicode`, :py:class:`unicode`] -- a two element list: first line, rest of the data.
         """
         assert(isinstance(data, str))
         try:
@@ -271,9 +260,8 @@ class SlackLogParser (object):
         """
         Parse a time string into a timestamp.
 
-        :param unicode data: Time string.
-        :return: Timestamp in UTC timezone.
-        :rtype: :py:class:`datetime.datetime`
+        :param data: :py:class:`unicode` -- Time string.
+        :return: :py:class:`datetime.datetime` -- Timestamp in UTC timezone.
         """
         if data is None:
             return None
@@ -284,9 +272,8 @@ class SlackLogParser (object):
         """
         Parse a time string into a timestamp.
 
-        :param unicode data: Time string.
-        :return: a two element list: Timestamp in UTC timezone, and the original timezone.
-        :rtype: :py:class:`datetime.datetime`
+        :param data: :py:class:`unicode` -- Time string.
+        :return: [:py:class:`datetime.datetime`, :py:class:`tzinfo`] -- a two element list: Timestamp in UTC timezone, and the original timezone.
         """
         if data is None:
             return None

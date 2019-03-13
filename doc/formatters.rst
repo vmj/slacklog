@@ -2,5 +2,5 @@
    :members:
    :member-order: bysource
    :undoc-members:
-   :exclude-members: foo
+   :exclude-members: readable, anchor, SlackLogEncoder
    :show-inheritance:

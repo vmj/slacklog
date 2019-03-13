@@ -14,12 +14,12 @@ except NameError:
 
 class SlackLog (object):
     """
-    Little more than a list of :py:class:`slacklog.models.SlackLogEntry` objects.
+    Little more than a list of :any:`SlackLogEntry` objects.
     """
 
     def __init__(self):
         self.entries = []
-        """The list of :py:class:`slacklog.models.SlackLogEntry` objects. Empty by default."""
+        """The list of :any:`SlackLogEntry` objects. Empty by default."""
         self.startsWithSeparator = False
         """Whether the log started with entry separator.
         
@@ -40,7 +40,7 @@ class SlackLog (object):
 
 class SlackLogEntry (object):
     """
-    An entry in a :py:class:`slacklog.models.SlackLog`.
+    An entry in a :any:`SlackLog`.
     """
 
     def __init__(self, timestamp, description, log, checksum=None, identifier=None, parent=None,
@@ -62,7 +62,7 @@ class SlackLogEntry (object):
         self.description = description
         """A unicode description which may be empty."""
         self.log = log
-        """Reference to the :py:class:`slacklog.models.SlackLog` that contains this entry."""
+        """Reference to the :any:`SlackLog` that contains this entry."""
         self.checksum = checksum
         """A unicode checksum or :py:const:`None`.
         
@@ -79,12 +79,12 @@ class SlackLogEntry (object):
         self.timezone = timezone
         """The original timezone of the entry as :py:class:`datetime.tzinfo` or :py:const:`None`."""
         self.pkgs = []
-        """The list of :py:class:`slacklog.models.SlackLogPkg` objects. Empty by default."""
+        """The list of :any:`SlackLogPkg` objects. Empty by default."""
 
 
 class SlackLogPkg (object):
     """
-    An entry in a SlackLogEntry.
+    An entry in a :any:`SlackLogEntry`.
     """
 
     def __init__(self, pkg, description, entry):
@@ -96,4 +96,4 @@ class SlackLogPkg (object):
         self.description = description
         """A unicode description."""
         self.entry = entry
-        """Reference to the :py:class:`slacklog.models.SlackLogEntry` that contains this package."""
+        """Reference to the :any:`SlackLogEntry` that contains this package."""
