@@ -1,11 +1,11 @@
 .. image:: https://img.shields.io/pypi/v/slacklog.svg?style=plastic
-   :target: http://pypi.python.org/pypi/slacklog
+   :target: https://pypi.python.org/pypi/slacklog
    :alt: Download
 .. image:: https://travis-ci.org/vmj/slacklog.svg?branch=master
    :target: https://travis-ci.org/vmj/slacklog
    :alt: Build Status
-.. image:: http://readthedocs.org/projects/slacklog/badge/?version=latest
-   :target: http://slacklog.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/slacklog/badge/?version=latest
+   :target: https://slacklog.readthedocs.io/en/latest/?badge=latest
    :alt: Docs
 
 slacklog -- Convert Slackware Changelog to various formats
@@ -15,10 +15,10 @@ slacklog provides programs and a library to convert a Slackware
 ChangeLogs into other formats.  Currently, RSS, Atom, JSON, and PyBlosxom
 formats are supported.
 
-| Download: http://pypi.python.org/pypi/slacklog
-| Source code: http://github.com/vmj/slacklog
+| Download: https://pypi.python.org/pypi/slacklog
+| Source code: https://github.com/vmj/slacklog
 | Builds status: https://travis-ci.org/vmj/slacklog
-| Docs: http://slacklog.readthedocs.org
+| Documentation: https://slacklog.readthedocs.org
 
 .. contents::
 
@@ -71,7 +71,7 @@ Requirements
 ============
 
 In addition to Python, `python-dateutil
-<http://pypi.python.org/pypi/python-dateutil>`_ is required.
+<https://pypi.python.org/pypi/python-dateutil>`_ is required.
 
 Python versions 2.7 and 3.4 - 3.6 are tested, together with python-dateutil versions 2.1 - 2.7.
 
@@ -83,7 +83,7 @@ Use either ``pip install slacklog`` or download the source archive and
 use ``python setup.py install``.
 
 The source code is available at `Python Package Index (PyPI)
-<http://pypi.python.org/pypi/slacklog>`_ or, if you want the
+<https://pypi.python.org/pypi/slacklog>`_ or, if you want the
 unreleased version, from `Github <https://github.com/vmj/slacklog>`_
 git repository.
 
