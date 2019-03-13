@@ -1,3 +1,247 @@
+Fri Mar  8 18:28:40 UTC 2019
+patches/packages/ca-certificates-20190308-noarch-1_slack14.0.txz:  Upgraded.
+  This update provides the latest CA certificates to check for the
+  authenticity of SSL connections.
+patches/packages/ntp-4.2.8p13-x86_64-1_slack14.0.txz:  Upgraded.
+  This release fixes a bug that allows an attacker with access to an explicitly
+  trusted source to send a crafted malicious mode 6 (ntpq) packet that can
+  trigger a NULL pointer dereference, crashing ntpd.
+  It also provides 17 other bugfixes and 1 other improvement.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8936
+  (* Security fix *)
++--------------------------+
+Sun Mar  3 22:03:39 UTC 2019
+patches/packages/python-2.7.16-x86_64-1_slack14.0.txz:  Upgraded.
+  Updated to the latest 2.7.x release, which fixes a few security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1752
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14647
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5010
+  (* Security fix *)
++--------------------------+
+Fri Mar  1 20:46:01 UTC 2019
+patches/packages/infozip-6.0-x86_64-2_slack14.0.txz:  Rebuilt.
+  Added some patches that should fix extracting archives with non-latin
+  characters in the filenames. Thanks to saahriktu.
+  This update also fixes various security issues in zip and unzip.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8139
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8140
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8141
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9844
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18384
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000035
+  (* Security fix *)
++--------------------------+
+Wed Feb 27 23:21:15 UTC 2019
+patches/packages/curl-7.64.0-x86_64-2_slack14.0.txz:  Rebuilt.
+  Applied upstream patch to fix log spam:
+  [PATCH] multi: remove verbose "Expire in" ... messages
+  Thanks to compassnet.
++--------------------------+
+Wed Feb 27 03:09:41 UTC 2019
+patches/packages/ca-certificates-20181210-noarch-1_slack14.0.txz:  Upgraded.
+  This update provides the latest CA certificates to check for the
+  authenticity of SSL connections.
++--------------------------+
+Sat Feb 23 20:41:38 UTC 2019
+patches/packages/file-5.36-x86_64-1_slack14.0.txz:  Upgraded.
+  Fix out-of-bounds read and denial-of-service security issues:
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8906
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8907
+  (* Security fix *)
++--------------------------+
+Thu Feb  7 22:28:19 UTC 2019
+patches/packages/php-5.6.40-x86_64-1_slack14.0.txz:  Upgraded.
+  Several security bugs have been fixed in this release:
+  GD:
+  Fixed bug #77269 (efree() on uninitialized Heap data in imagescale leads
+  to use-after-free).
+  Fixed bug #77270 (imagecolormatch Out Of Bounds Write on Heap).
+  Mbstring:
+  Fixed bug #77370 (Buffer overflow on mb regex functions - fetch_token).
+  Fixed bug #77371 (heap buffer overflow in mb regex functions -
+  compile_string_node).
+  Fixed bug #77381 (heap buffer overflow in multibyte match_at).
+  Fixed bug #77382 (heap buffer overflow due to incorrect length in
+  expand_case_fold_string).
+  Fixed bug #77385 (buffer overflow in fetch_token).
+  Fixed bug #77394 (Buffer overflow in multibyte case folding - unicode).
+  Fixed bug #77418 (Heap overflow in utf32be_mbc_to_code).
+  Phar:
+  Fixed bug #77247 (heap buffer overflow in phar_detect_phar_fname_ext).
+  Xmlrpc:
+  Fixed bug #77242 (heap out of bounds read in xmlrpc_decode()).
+  Fixed bug #77380 (Global out of bounds read in xmlrpc base64 code).
+  For more information, see:
+    https://php.net/ChangeLog-5.php#5.6.40
+  (* Security fix *)
++--------------------------+
+Wed Feb  6 22:44:32 UTC 2019
+patches/packages/curl-7.64.0-x86_64-1_slack14.0.txz:  Upgraded.
+  This release fixes the following security issues:
+  NTLM type-2 out-of-bounds buffer read.
+  NTLMv2 type-3 header stack buffer overflow.
+  SMTP end-of-response out-of-bounds read.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16890
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3822
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3823
+  (* Security fix *)
++--------------------------+
+Wed Jan 23 04:39:04 UTC 2019
+patches/packages/httpd-2.4.38-x86_64-1_slack14.0.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  mod_session: mod_session_cookie does not respect expiry time allowing
+  sessions to be reused.  [Hank Ibell]
+  mod_http2: fixes a DoS attack vector. By sending slow request bodies
+  to resources not consuming them, httpd cleanup code occupies a server
+  thread unnecessarily. This was changed to an immediate stream reset
+  which discards all stream state and incoming data.  [Stefan Eissing]
+  mod_ssl: Fix infinite loop triggered by a client-initiated
+  renegotiation in TLSv1.2 (or earlier) with OpenSSL 1.1.1 and
+  later.  PR 63052.  [Joe Orton]
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17199
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17189
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0190
+  (* Security fix *)
++--------------------------+
+Mon Jan 14 04:30:43 UTC 2019
+patches/packages/zsh-5.6.2-x86_64-1_slack14.0.txz:  Upgraded.
+  This release fixes security issues, including ones that could allow a local
+  attacker to execute arbitrary code.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18205
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18206
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1071
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1083
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1100
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7548
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7549
+  (* Security fix *)
++--------------------------+
+Fri Jan 11 21:15:41 UTC 2019
+patches/packages/glibc-zoneinfo-2018i-noarch-1_slack14.0.txz:  Upgraded.
+  This package provides the latest timezone updates.
+patches/packages/irssi-1.1.2-x86_64-1_slack14.0.txz:  Upgraded.
+  This update addresses bugs including security and stability issues:
+  A NULL pointer dereference occurs for an "empty" nick.
+  Certain nick names could result in out-of-bounds access when printing
+  theme strings.
+  Crash due to a NULL pointer dereference w hen the number of windows
+  exceeds the available space.
+  Use-after-free when SASL messages are received in an unexpected order.
+  Use-after-free when a server is disconnected during netsplits.
+  Use-after-free when hidden lines were expired from the scroll buffer.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7050
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7051
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7052
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7053
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7054
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5882
+  (* Security fix *)
++--------------------------+
+Sun Dec 30 20:33:37 UTC 2018
+patches/packages/xscreensaver-5.42-x86_64-1_slack14.0.txz:  Upgraded.
+  Here's an upgrade to the latest xscreensaver.
++--------------------------+
+Sat Dec 22 04:38:27 UTC 2018
+patches/packages/netatalk-3.1.12-x86_64-1_slack14.0.txz:  Upgraded.
+  Netatalk before 3.1.12 is vulnerable to an out of bounds write in
+  dsi_opensess.c. This is due to lack of bounds checking on attacker
+  controlled data. A remote unauthenticated attacker can leverage
+  this vulnerability to achieve arbitrary code execution.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1160
+  (* Security fix *)
++--------------------------+
+Sat Dec  8 04:10:45 UTC 2018
+patches/packages/php-5.6.39-x86_64-1_slack14.0.txz:  Upgraded.
+  Several security bugs have been fixed in this release: 
+  Segfault when using convert.quoted-printable-encode filter.
+  Null pointer dereference in imap_mail.
+  imap_open allows to run arbitrary shell commands via mailbox parameter.
+  PharData always creates new files with mode 0666.
+  Heap Buffer Overflow (READ: 4) in phar_parse_pharfile.
+  For more information, see:
+    https://php.net/ChangeLog-5.php#5.6.39
+  (* Security fix *)
++--------------------------+
+Thu Nov 29 05:53:27 UTC 2018
+patches/packages/samba-4.6.16-x86_64-2_slack14.0.txz:  Rebuilt.
+  This update patches some security issues:
+  CVE-2018-14629: Unprivileged adding of CNAME record causing loop in AD
+    Internal DNS server
+  CVE-2018-16841: Double-free in Samba AD DC KDC with PKINIT
+  CVE-2018-16851: NULL pointer de-reference in Samba AD DC LDAP server
+  CVE-2018-16852: NULL pointer de-reference in Samba AD DC DNS servers
+  CVE-2018-16853: Samba AD DC S4U2Self crash in experimental MIT Kerberos
+    configuration (unsupported)
+  CVE-2018-16857: Bad password count in AD DC not always effective
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2018-14629.html
+    https://www.samba.org/samba/security/CVE-2018-16841.html
+    https://www.samba.org/samba/security/CVE-2018-16851.html
+    https://www.samba.org/samba/security/CVE-2018-16852.html
+    https://www.samba.org/samba/security/CVE-2018-16853.html
+    https://www.samba.org/samba/security/CVE-2018-16857.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14629
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16841
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16851
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16852
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16853
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16857
+  (* Security fix *)
++--------------------------+
+Wed Oct 31 22:49:36 UTC 2018
+patches/packages/curl-7.62.0-x86_64-1_slack14.0.txz:  Upgraded.
+  This release fixes the following security issues:
+  SASL password overflow via integer overflow.
+  Use-after-free in handle close.
+  Warning message out-of-buffer read.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16839
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16840
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16842
+  (* Security fix *)
++--------------------------+
+Mon Oct 29 20:02:38 UTC 2018
+patches/packages/glibc-zoneinfo-2018g-noarch-1_slack14.0.txz:  Upgraded.
+  This package provides the latest timezone updates.
++--------------------------+
+Wed Oct 24 21:22:04 UTC 2018
+patches/packages/httpd-2.4.37-x86_64-1_slack14.0.txz:  Upgraded.
+  This is the latest release from the Apache HTTP Server 2.4.x stable branch.
++--------------------------+
+Fri Oct 19 19:59:54 UTC 2018
+patches/packages/glibc-zoneinfo-2018f-noarch-1_slack14.0.txz:  Upgraded.
+  This package provides the latest timezone updates.
++--------------------------+
+Wed Oct 17 03:11:25 UTC 2018
+patches/packages/libssh-0.7.6-x86_64-1_slack14.0.txz:  Upgraded.
+  Fixed authentication bypass vulnerability.
+  For more information, see:
+    https://www.libssh.org/2018/10/16/libssh-0-8-4-and-0-7-6-security-and-bugfix-release/
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10933
+  (* Security fix *)
++--------------------------+
+Wed Oct 10 23:09:36 UTC 2018
+patches/packages/git-2.14.5-x86_64-1_slack14.0.txz:  Upgraded.
+  This update fixes a security issue:
+  Submodules' "URL"s come from the untrusted .gitmodules file, but we
+  blindly gave it to "git clone" to clone submodules when "git clone
+  --recurse-submodules" was used to clone a project that has such a
+  submodule. The code has been hardened to reject such malformed URLs
+  (e.g. one that begins with a dash). Credit for finding and fixing this
+  vulnerability goes to joernchen and Jeff King, respectively.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17456
+  (* Security fix *)
++--------------------------+
 Tue Sep 25 02:17:44 UTC 2018
 patches/packages/httpd-2.4.35-x86_64-1_slack14.0.txz:  Upgraded.
   This release fixes bugs and regressions in httpd-2.4.34, adds an

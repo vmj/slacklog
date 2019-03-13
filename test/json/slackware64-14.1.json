@@ -2,6 +2,350 @@
     "endsWithSeparator": false,
     "entries": [
         {
+            "checksum": "d71733688d070d26270160162c3334a05057e37b8dd8277f7b4d862b145c1cddb6346daa5840b993cdc1174ec9333b880ff5f5b1d6b53235ede1018a68b72a31",
+            "description": "",
+            "identifier": "87deeed36901e74c0e38cc2100a074d7417b63f846b0ddfcbecb9ad57a1f817c31b66f756c549ec9401eb7ad3157563a4eb0b4402242f14444a5ce418eddb54f",
+            "parent": "119df3c9ef628dd4cae81eb663480212802a6c20d00368e1c4b76ee6b618be2f37d74249c6222433d5d370f9a3707bb3332ebe48c21caf5cede8a22e9b2afd12",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This update provides the latest CA certificates to check for the\n  authenticity of SSL connections.\n",
+                    "pkg": "patches/packages/ca-certificates-20190308-noarch-1_slack14.1.txz"
+                },
+                {
+                    "description": "  Upgraded.\n  This release fixes a bug that allows an attacker with access to an explicitly\n  trusted source to send a crafted malicious mode 6 (ntpq) packet that can\n  trigger a NULL pointer dereference, crashing ntpd.\n  It also provides 17 other bugfixes and 1 other improvement.\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8936\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/ntp-4.2.8p13-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2019-03-08T18:28:40Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "3113191e49f349ff336a2a3468b372e6eaa7816a0a4d46331a21db7c0c93ecfd8ff7d58c0c2e14ca7e867d9e7967f519bd6f3b8d935b9110405c6362638e0be5",
+            "description": "",
+            "identifier": "119df3c9ef628dd4cae81eb663480212802a6c20d00368e1c4b76ee6b618be2f37d74249c6222433d5d370f9a3707bb3332ebe48c21caf5cede8a22e9b2afd12",
+            "parent": "a5cadedec05452dcfb9ecade10c0a48f8cb2661b97fbc4fbafd9e1ee58f3d7483119d5aab22604c6a87b3dee18e3d8dbf6b297376b944bd1391004c2ec34ced4",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  Updated to the latest 2.7.x release, which fixes a few security issues.\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1752\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14647\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5010\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/python-2.7.16-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2019-03-03T22:03:39Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "4398942a71dfe009db463d7cbfac172483c5d8eeec178396bbc9e33cbea469908d9609dbb73c86a7580d21e98c12340d47a7bf9b3ff5fe47e52c14b8af7c6b7c",
+            "description": "",
+            "identifier": "a5cadedec05452dcfb9ecade10c0a48f8cb2661b97fbc4fbafd9e1ee58f3d7483119d5aab22604c6a87b3dee18e3d8dbf6b297376b944bd1391004c2ec34ced4",
+            "parent": "a33ae73610cd1e1d6a57d6ac2caecfdddffeb7dec03798b34bfb1e1d52dd485b0c478883b11300ca57a687178b6766e1d6b5a43401ee8a4d42f9a0d944180483",
+            "pkgs": [
+                {
+                    "description": "  Rebuilt.\n  Added some patches that should fix extracting archives with non-latin\n  characters in the filenames. Thanks to saahriktu.\n  This update also fixes various security issues in zip and unzip.\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8139\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8140\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8141\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9844\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18384\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000035\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/infozip-6.0-x86_64-4_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2019-03-01T20:46:01Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "00b5dbef61e36d5640d0818f0661a06aa2507450e78979bef733a1a61288eb89c609ce436b5560b89009dbd8f9c346881560f4c1082b01bfc4c83c2fe6340680",
+            "description": "",
+            "identifier": "a33ae73610cd1e1d6a57d6ac2caecfdddffeb7dec03798b34bfb1e1d52dd485b0c478883b11300ca57a687178b6766e1d6b5a43401ee8a4d42f9a0d944180483",
+            "parent": "63f6766bfbb40a73a3d824cfbed983ba3639ceccc41bf88dde363a2ecb8b70acef66461600e5f190baf6549ab2bf25c552ba1b17a4fb53fc92386b059a2efdf7",
+            "pkgs": [
+                {
+                    "description": "  Rebuilt.\n  Applied upstream patch to fix log spam:\n  [PATCH] multi: remove verbose \"Expire in\" ... messages\n  Thanks to compassnet.\n",
+                    "pkg": "patches/packages/curl-7.64.0-x86_64-2_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2019-02-27T23:21:15Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "f89f6600327e952aa090b8e99398993802d3d123b38970e1d913237abb551312da504779bff7266c9da8dc87a74e8796ccf339413205987896bdb0b1ae05d726",
+            "description": "",
+            "identifier": "63f6766bfbb40a73a3d824cfbed983ba3639ceccc41bf88dde363a2ecb8b70acef66461600e5f190baf6549ab2bf25c552ba1b17a4fb53fc92386b059a2efdf7",
+            "parent": "9e9053bfb8449ee7cb873f6c4e5611d49d5b65cec4bed9045098bfdc30a6b0c815ce28107105143cea566bcb6b037b699a09282fc1c478a35c6fd10aeadca687",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This update provides the latest CA certificates to check for the\n  authenticity of SSL connections.\n",
+                    "pkg": "patches/packages/ca-certificates-20181210-noarch-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2019-02-27T03:09:41Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "fc9c9056d23896fd1ea63dce37aeee7654c47030b1b6746a63c25474d38e0b67b111024661111612072ee510258c530cd916636146e185553e4bbbc4520d59d7",
+            "description": "",
+            "identifier": "9e9053bfb8449ee7cb873f6c4e5611d49d5b65cec4bed9045098bfdc30a6b0c815ce28107105143cea566bcb6b037b699a09282fc1c478a35c6fd10aeadca687",
+            "parent": "40575f21e0bd52d4a6a7b431e30f5b78d820ec56b042ae4ef7995ff44df727f9386dbbea7bcaf4f8585eb33577a01edd40437fe9adb24320b2767de9c98a334b",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  Fix out-of-bounds read and denial-of-service security issues:\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8906\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8907\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/file-5.36-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2019-02-23T20:41:38Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "7ab003f0542f6d112759cb7db5ce5f33f2c9b21b277d7f32e635ea87b38bab6672d704e5cf17597661c63ecd24c31c209f439d0a0c8484ebdaffc0d634561480",
+            "description": "",
+            "identifier": "40575f21e0bd52d4a6a7b431e30f5b78d820ec56b042ae4ef7995ff44df727f9386dbbea7bcaf4f8585eb33577a01edd40437fe9adb24320b2767de9c98a334b",
+            "parent": "c45fc00de5db0b99ab2951543895fa27bd602d6c1c76400a3f73f789feeca92a8d6ef71401f17894558379ac13efdde2027064baefc3c910b478f8e103e44593",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  Several security bugs have been fixed in this release:\n  GD:\n  Fixed bug #77269 (efree() on uninitialized Heap data in imagescale leads\n  to use-after-free).\n  Fixed bug #77270 (imagecolormatch Out Of Bounds Write on Heap).\n  Mbstring:\n  Fixed bug #77370 (Buffer overflow on mb regex functions - fetch_token).\n  Fixed bug #77371 (heap buffer overflow in mb regex functions -\n  compile_string_node).\n  Fixed bug #77381 (heap buffer overflow in multibyte match_at).\n  Fixed bug #77382 (heap buffer overflow due to incorrect length in\n  expand_case_fold_string).\n  Fixed bug #77385 (buffer overflow in fetch_token).\n  Fixed bug #77394 (Buffer overflow in multibyte case folding - unicode).\n  Fixed bug #77418 (Heap overflow in utf32be_mbc_to_code).\n  Phar:\n  Fixed bug #77247 (heap buffer overflow in phar_detect_phar_fname_ext).\n  Xmlrpc:\n  Fixed bug #77242 (heap out of bounds read in xmlrpc_decode()).\n  Fixed bug #77380 (Global out of bounds read in xmlrpc base64 code).\n  For more information, see:\n    https://php.net/ChangeLog-5.php#5.6.40\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/php-5.6.40-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2019-02-07T22:28:19Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "0a6fabde3e4beb2fa6b76c80f93dbb02253cce869fec06785ce140abf8f7d9421b9c4e86c36d7088a9272b25673fc3130c269df1979a5335b3c310563291da9f",
+            "description": "",
+            "identifier": "c45fc00de5db0b99ab2951543895fa27bd602d6c1c76400a3f73f789feeca92a8d6ef71401f17894558379ac13efdde2027064baefc3c910b478f8e103e44593",
+            "parent": "793393da41064edcad8671625cdc030a16fb2fba98b2e149d12aced44ad1fce2bc828af028c3c91d6859079f9f712e8594cef138d660719de60c3d246d54bb1b",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This release fixes the following security issues:\n  NTLM type-2 out-of-bounds buffer read.\n  NTLMv2 type-3 header stack buffer overflow.\n  SMTP end-of-response out-of-bounds read.\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16890\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3822\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3823\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/curl-7.64.0-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2019-02-06T22:44:32Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "96c2be644e696b0f467020a35c525bf34e5e8a1cdb6ff1b1faf5ff96e856dfba839869aa39e7ca9a6ed6185806ca9cc93e62d372c293aeaafe1686933243422f",
+            "description": "",
+            "identifier": "793393da41064edcad8671625cdc030a16fb2fba98b2e149d12aced44ad1fce2bc828af028c3c91d6859079f9f712e8594cef138d660719de60c3d246d54bb1b",
+            "parent": "74bc19e7aac0873a51afdee3421088190627377eb29f9fd2fc26d5360f91e1a22fa98b06f2210509c7ccf590d665dc6a6420b7ba0e0f590d582bc6212f8a9893",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This update fixes bugs and security issues.\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2529\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/mariadb-5.5.63-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2019-02-01T23:13:13Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "8a26decbf142f0c2aa296223ed3875dea18410126c002cbb6b31f9a587eb2f4d6eac4e722429f6d1651853b4b33e9ddaef0a0fdd262ae78d1f69eb83e34d01f7",
+            "description": "",
+            "identifier": "74bc19e7aac0873a51afdee3421088190627377eb29f9fd2fc26d5360f91e1a22fa98b06f2210509c7ccf590d665dc6a6420b7ba0e0f590d582bc6212f8a9893",
+            "parent": "1c1d34714b2de19611bccf9a63a09820cbbe3e58bcf165fac49a8aff768d7935e71bf1ae68edb9318011e42937abc8cf7d7fa64e3d9c8c37f8060d9526ba8767",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This release contains security fixes and improvements.\n  mod_session: mod_session_cookie does not respect expiry time allowing\n  sessions to be reused.  [Hank Ibell]\n  mod_http2: fixes a DoS attack vector. By sending slow request bodies\n  to resources not consuming them, httpd cleanup code occupies a server\n  thread unnecessarily. This was changed to an immediate stream reset\n  which discards all stream state and incoming data.  [Stefan Eissing]\n  mod_ssl: Fix infinite loop triggered by a client-initiated\n  renegotiation in TLSv1.2 (or earlier) with OpenSSL 1.1.1 and\n  later.  PR 63052.  [Joe Orton]\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17199\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17189\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0190\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/httpd-2.4.38-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2019-01-23T04:39:04Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "3ff408644f3e8dbfaab5884286a869e950d46e4b9fcd8e15e6cdf0feb2b5de2b08e9f7721b0a37de308b83373211d330ac0cbafcfca1a9f5ddb2e44fc3b50f79",
+            "description": "",
+            "identifier": "1c1d34714b2de19611bccf9a63a09820cbbe3e58bcf165fac49a8aff768d7935e71bf1ae68edb9318011e42937abc8cf7d7fa64e3d9c8c37f8060d9526ba8767",
+            "parent": "d79e7e446ce3b3d365e628e9f15223ab31091778c1ce88801c4072e792ff65c18e27ffb251e1007f62baa1fc8fb662f4418da6abd21d5e6579e4d6a67256f791",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This release fixes security issues, including ones that could allow a local\n  attacker to execute arbitrary code.\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18205\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18206\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1071\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1083\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1100\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7548\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7549\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/zsh-5.6.2-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2019-01-14T04:30:43Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "b5660dba93c2f3dda30e4d36d9ccf67f102d43938b74da6c038238d2057573ba196636628b5eef18519b130918cc617587896f6963902f27e5f5f94d7ff758ab",
+            "description": "",
+            "identifier": "d79e7e446ce3b3d365e628e9f15223ab31091778c1ce88801c4072e792ff65c18e27ffb251e1007f62baa1fc8fb662f4418da6abd21d5e6579e4d6a67256f791",
+            "parent": "163040e6d0b8a6957784464dcfaff8ab56f3a81b02e4d93ae7a6c0c8f61649b947ada5c3458ac18e4cbddc774de934f7efcc3edff6425a205e2da98547024700",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This package provides the latest timezone updates.\n",
+                    "pkg": "patches/packages/glibc-zoneinfo-2018i-noarch-1_slack14.1.txz"
+                },
+                {
+                    "description": "  Upgraded.\n  This update addresses bugs including security and stability issues:\n  A NULL pointer dereference occurs for an \"empty\" nick.\n  Certain nick names could result in out-of-bounds access when printing\n  theme strings.\n  Crash due to a NULL pointer dereference w hen the number of windows\n  exceeds the available space.\n  Use-after-free when SASL messages are received in an unexpected order.\n  Use-after-free when a server is disconnected during netsplits.\n  Use-after-free when hidden lines were expired from the scroll buffer.\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7050\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7051\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7052\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7053\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7054\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5882\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/irssi-1.1.2-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2019-01-11T21:15:41Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "93dd57e39d33d7d19740c7d9c9c6c92ab27655d4c001bd607b736243eb1c72f00fe791fbafbfa750e2f4f7cbcfa2951433fd416f164ffeb7f2865ecdcba8f18d",
+            "description": "",
+            "identifier": "163040e6d0b8a6957784464dcfaff8ab56f3a81b02e4d93ae7a6c0c8f61649b947ada5c3458ac18e4cbddc774de934f7efcc3edff6425a205e2da98547024700",
+            "parent": "1ca11d64a41cc94549ed918b2ffa5cc59db78c4efbbc12507c4cee45a9e594cd65726ccf8ec1bd58bc0d8e75c420437507529e0207473597307aa43202b512c2",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  Here's an upgrade to the latest xscreensaver.\n",
+                    "pkg": "patches/packages/xscreensaver-5.42-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2018-12-30T20:33:37Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "123744b6baf1d112259e5e9bfa0faad27ccf7ffe84e27b51f7ca211f214ec8b058f0b270de0b56eef10449fc6ce0a383c915f8da64f97287ec910ad4005fd7dc",
+            "description": "",
+            "identifier": "1ca11d64a41cc94549ed918b2ffa5cc59db78c4efbbc12507c4cee45a9e594cd65726ccf8ec1bd58bc0d8e75c420437507529e0207473597307aa43202b512c2",
+            "parent": "a1d8aa8f6cf3c0c6b663182f9a77ad3fa377156bbf511ba037ac309eff05bbcacdb2125e5f4e656ffe8cbaa7b08a198a26d1dabcc45e8020ec45628a0b53f1a0",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  Netatalk before 3.1.12 is vulnerable to an out of bounds write in\n  dsi_opensess.c. This is due to lack of bounds checking on attacker\n  controlled data. A remote unauthenticated attacker can leverage\n  this vulnerability to achieve arbitrary code execution.\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1160\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/netatalk-3.1.12-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2018-12-22T04:38:27Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "48a61e154eb466a1b9e79b0bdafe57078e6f25169720bc6ec475ccc4555d6f1a38b407494b8983eb1e2101a764c855edc5ed2f94fb91011b646941acce7f0c7b",
+            "description": "",
+            "identifier": "a1d8aa8f6cf3c0c6b663182f9a77ad3fa377156bbf511ba037ac309eff05bbcacdb2125e5f4e656ffe8cbaa7b08a198a26d1dabcc45e8020ec45628a0b53f1a0",
+            "parent": "47654865529f51012ea1208a32fde2bca23de9fd1a89c81a7bcd0f861905a039a39b9105fd7d953f2359488c6c0c5d9ed41c05d97da0f5643c531c001a19d577",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  Several security bugs have been fixed in this release: \n  Segfault when using convert.quoted-printable-encode filter.\n  Null pointer dereference in imap_mail.\n  imap_open allows to run arbitrary shell commands via mailbox parameter.\n  PharData always creates new files with mode 0666.\n  Heap Buffer Overflow (READ: 4) in phar_parse_pharfile.\n  For more information, see:\n    https://php.net/ChangeLog-5.php#5.6.39\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/php-5.6.39-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2018-12-08T04:10:45Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "807a34c8050a3892ee55d702456bbc96c990938a92e344701934925a75aa8aca894b893f5209c32b9c35e45b11f0349995ba1388830ed1973aa9593333482802",
+            "description": "",
+            "identifier": "47654865529f51012ea1208a32fde2bca23de9fd1a89c81a7bcd0f861905a039a39b9105fd7d953f2359488c6c0c5d9ed41c05d97da0f5643c531c001a19d577",
+            "parent": "148d787761dd20a503c30d15a7fafa3be1d10887c6b3901bef8681fb33f4df59988a4cf99f5504924cf4ecf71eb3b7b8dd9d72bdb2b7fbbc71f9422079f11f18",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  Upgraded to nss-3.40.1 and nspr-4.20.\n  Mitigate cache side-channel variant of the Bleichenbacher attack.\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12404\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/mozilla-nss-3.40.1-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2018-12-03T20:59:30Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "3875356c9ccdd13a3fbb096ea9a80cbf059300e7177f850a56a2c8641c7f3313a39aef653b64b25eb8e4ff8d697f066979a4262cdb1d0392b7056491c8253368",
+            "description": "",
+            "identifier": "148d787761dd20a503c30d15a7fafa3be1d10887c6b3901bef8681fb33f4df59988a4cf99f5504924cf4ecf71eb3b7b8dd9d72bdb2b7fbbc71f9422079f11f18",
+            "parent": "9d41114c142f5e674fcb7bf571ed7840c8e92dda9fcdeff072cff5b1721a153f00f7ee54e95058eb2abd55bbec60ff1cbeab25b49aaa444e19b4ec0bd714768f",
+            "pkgs": [
+                {
+                    "description": "  Rebuilt.\n  This update patches some security issues:\n  CVE-2018-14629: Unprivileged adding of CNAME record causing loop in AD\n    Internal DNS server\n  CVE-2018-16841: Double-free in Samba AD DC KDC with PKINIT\n  CVE-2018-16851: NULL pointer de-reference in Samba AD DC LDAP server\n  CVE-2018-16852: NULL pointer de-reference in Samba AD DC DNS servers\n  CVE-2018-16853: Samba AD DC S4U2Self crash in experimental MIT Kerberos\n    configuration (unsupported)\n  CVE-2018-16857: Bad password count in AD DC not always effective\n  For more information, see:\n    https://www.samba.org/samba/security/CVE-2018-14629.html\n    https://www.samba.org/samba/security/CVE-2018-16841.html\n    https://www.samba.org/samba/security/CVE-2018-16851.html\n    https://www.samba.org/samba/security/CVE-2018-16852.html\n    https://www.samba.org/samba/security/CVE-2018-16853.html\n    https://www.samba.org/samba/security/CVE-2018-16857.html\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14629\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16841\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16851\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16852\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16853\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16857\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/samba-4.6.16-x86_64-2_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2018-11-29T05:53:27Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "ec1a296e626307e60838d2abc20ce7ee9ddc93be5b0b88ce2d3514b0bf396e91a5afa46d46a3bae0baa82ade403270c69615281f93c63b5da2d0bce1de8350f7",
+            "description": "",
+            "identifier": "9d41114c142f5e674fcb7bf571ed7840c8e92dda9fcdeff072cff5b1721a153f00f7ee54e95058eb2abd55bbec60ff1cbeab25b49aaa444e19b4ec0bd714768f",
+            "parent": "e6ce8d811486dfa22d4abbad4f130800241b2103b93d9db45dbb1317e4bc67ea6ffe8e52bbf73129a25b2d3421676491bdda4dabd69a98a16fb91f09cd6bd030",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This update fixes bugs and security issues.\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3282\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9843\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3174\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/mariadb-5.5.62-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2018-11-06T03:41:45Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "d9aa13c57c9b65730c5051892165b67fa8fbb474a045dfc6d7e79f17485e531112692446e268d634ba29428fbdbc2c853999bb2cbbdc300c8375655aa038cd9f",
+            "description": "",
+            "identifier": "e6ce8d811486dfa22d4abbad4f130800241b2103b93d9db45dbb1317e4bc67ea6ffe8e52bbf73129a25b2d3421676491bdda4dabd69a98a16fb91f09cd6bd030",
+            "parent": "0bdac4f2a5f32a54e6fbf3fe39f224c783e0e1f2def1d8df46b40783c4e83cd9db8d4dca50bf320a69a68c9056bada48b0b01cde9c90cda5ad2d5fafdaf3d0b9",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This release fixes the following security issues:\n  SASL password overflow via integer overflow.\n  Use-after-free in handle close.\n  Warning message out-of-buffer read.\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16839\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16840\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16842\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/curl-7.62.0-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2018-10-31T22:49:36Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "6a08538608ead877437099ee0ac68faab88406df1e61a7b6e3d62bd01946dd6f6545eec71f5e99795e5fe9844c68cfc387cb9465bdddd817c4ed9893d125edcd",
+            "description": "",
+            "identifier": "0bdac4f2a5f32a54e6fbf3fe39f224c783e0e1f2def1d8df46b40783c4e83cd9db8d4dca50bf320a69a68c9056bada48b0b01cde9c90cda5ad2d5fafdaf3d0b9",
+            "parent": "8ab1029c9cb7cabc027496646c0b9f11fd3d4ac794018d19456a087ea308ab9478ec477b61701d3823a89fbbf55597353a9fa73da46e8f0e46a992ab1aba4bbc",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This package provides the latest timezone updates.\n",
+                    "pkg": "patches/packages/glibc-zoneinfo-2018g-noarch-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2018-10-29T20:02:38Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "a600f3ac8429b31044b1789a8bc0976aaa08f0a21b4a7bc7c758ad62072af44e9bd9938744d00cbe8d53ceea155d2c671d37a218434e00579df21be3a966d1cc",
+            "description": "",
+            "identifier": "8ab1029c9cb7cabc027496646c0b9f11fd3d4ac794018d19456a087ea308ab9478ec477b61701d3823a89fbbf55597353a9fa73da46e8f0e46a992ab1aba4bbc",
+            "parent": "779db4ff0c0d7b0218b99cc54ca331c4d9cbc939e8528bd174a1357a36890dc25837cf16cef5d64b5fb5a43486aead176f770c5c51d862c20818869f6c44d01b",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This is the latest release from the Apache HTTP Server 2.4.x stable branch.\n",
+                    "pkg": "patches/packages/httpd-2.4.37-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2018-10-24T21:22:04Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "fe57c0697317e6d6c7720cbc9e6f6d966b317eb6b9896103e5cbaf2fcca362d1d893e2c0ced0b7a875193756cd5836ebe435b904ab7285e9553090c12cd3c6e7",
+            "description": "",
+            "identifier": "779db4ff0c0d7b0218b99cc54ca331c4d9cbc939e8528bd174a1357a36890dc25837cf16cef5d64b5fb5a43486aead176f770c5c51d862c20818869f6c44d01b",
+            "parent": "d3b8aae54eb1aa912c0a6e1d0590431dab41c895c631f33041fce376f86c3affc0a3adf50874fef10502a614e4cdd12daba284b2f500a7e0fdbe3b2b901ff2a5",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This package provides the latest timezone updates.\n",
+                    "pkg": "patches/packages/glibc-zoneinfo-2018f-noarch-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2018-10-19T19:59:54Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "374536fb182c16028a5d5e117adaa0115e05c76790c01853b77240de4472c43c54e815dcdf1911ff0714df32605d3d9bcff7ae2019cf9c9a9f0d9669c849133a",
+            "description": "",
+            "identifier": "d3b8aae54eb1aa912c0a6e1d0590431dab41c895c631f33041fce376f86c3affc0a3adf50874fef10502a614e4cdd12daba284b2f500a7e0fdbe3b2b901ff2a5",
+            "parent": "4a748e9d987825539420091d7b3aa08531380f2161257e90efeeb4f7f027bd94ef04432d50e7ee84319e0027802912722c6c3bb28bb8e91a64f7ccad85bebd6d",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  Fixed authentication bypass vulnerability.\n  For more information, see:\n    https://www.libssh.org/2018/10/16/libssh-0-8-4-and-0-7-6-security-and-bugfix-release/\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10933\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/libssh-0.7.6-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2018-10-17T03:11:25Z",
+            "timezone": "UTC"
+        },
+        {
+            "checksum": "692479873f0516987c8ca7df6b7e2dec6e8c0c43ac129183148bbd864f06d8411ad7427b95b326ca5690141ed3d29fdbb34ad54f83c19235061096ef4b8bc71e",
+            "description": "",
+            "identifier": "4a748e9d987825539420091d7b3aa08531380f2161257e90efeeb4f7f027bd94ef04432d50e7ee84319e0027802912722c6c3bb28bb8e91a64f7ccad85bebd6d",
+            "parent": "be2c84dc4fe8edd05f459b0ce3af737321d7905201aff43243f64823a0c41022c14140afb5a016adbe0a57acf8a65bf10003bb45a5e18cfdc4c2974e9ce32262",
+            "pkgs": [
+                {
+                    "description": "  Upgraded.\n  This update fixes a security issue:\n  Submodules' \"URL\"s come from the untrusted .gitmodules file, but we\n  blindly gave it to \"git clone\" to clone submodules when \"git clone\n  --recurse-submodules\" was used to clone a project that has such a\n  submodule. The code has been hardened to reject such malformed URLs\n  (e.g. one that begins with a dash). Credit for finding and fixing this\n  vulnerability goes to joernchen and Jeff King, respectively.\n  For more information, see:\n    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17456\n  (* Security fix *)\n",
+                    "pkg": "patches/packages/git-2.14.5-x86_64-1_slack14.1.txz"
+                }
+            ],
+            "timestamp": "2018-10-10T23:09:36Z",
+            "timezone": "UTC"
+        },
+        {
             "checksum": "cffe0dc243b2fdd09704cc4148fffd47cf2d2ca413b240d12a5c006a9383ea182265044bb3234652029f5d74202c84d92dc61881b5f6db345f81bff0315db951",
             "description": "",
             "identifier": "be2c84dc4fe8edd05f459b0ce3af737321d7905201aff43243f64823a0c41022c14140afb5a016adbe0a57acf8a65bf10003bb45a5e18cfdc4c2974e9ce32262",

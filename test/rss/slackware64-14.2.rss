@@ -9,9 +9,676 @@
     <language>en</language>
     <managingEditor>vmj@linuxbox.fi (Mikko Värri)</managingEditor>
     <webMaster>vmj@linuxbox.fi (Mikko Värri)</webMaster>
-    <pubDate>Tue, 25 Sep 2018 02:17:44 GMT</pubDate>
-    <lastBuildDate>Tue, 02 Oct 2018 14:17:34 GMT</lastBuildDate>
+    <pubDate>Tue, 12 Mar 2019 20:03:46 GMT</pubDate>
+    <lastBuildDate>Wed, 13 Mar 2019 19:29:44 GMT</lastBuildDate>
     <generator>SlackLog</generator>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190312T200346Z</guid>
+      <title>slackware64 14.2 changes for Tue, 12 Mar 2019 20:03:46 GMT</title>
+      <pubDate>Tue, 12 Mar 2019 20:03:46 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mariadb-10.0.38-x86_64-2_slack14.2.txz:  Rebuilt.
+  Fixed paths in /usr/bin/mysql_install_db.
+  Thanks to Stuart Winter.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190308T182840Z</guid>
+      <title>slackware64 14.2 changes for Fri, 08 Mar 2019 18:28:40 GMT</title>
+      <pubDate>Fri, 08 Mar 2019 18:28:40 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/ca-certificates-20190308-noarch-1_slack14.2.txz:  Upgraded.
+  This update provides the latest CA certificates to check for the
+  authenticity of SSL connections.
+patches/packages/ntp-4.2.8p13-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes a bug that allows an attacker with access to an explicitly
+  trusted source to send a crafted malicious mode 6 (ntpq) packet that can
+  trigger a NULL pointer dereference, crashing ntpd.
+  It also provides 17 other bugfixes and 1 other improvement.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8936
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190307T212658Z</guid>
+      <title>slackware64 14.2 changes for Thu, 07 Mar 2019 21:26:58 GMT</title>
+      <pubDate>Thu, 07 Mar 2019 21:26:58 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-60.5.3-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+  For more information, see:
+    https://www.mozilla.org/en-US/thunderbird/60.5.3/releasenotes/
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190303T220339Z</guid>
+      <title>slackware64 14.2 changes for Sun, 03 Mar 2019 22:03:39 GMT</title>
+      <pubDate>Sun, 03 Mar 2019 22:03:39 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/python-2.7.16-x86_64-1_slack14.2.txz:  Upgraded.
+  Updated to the latest 2.7.x release, which fixes a few security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1752
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14647
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5010
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190301T204601Z</guid>
+      <title>slackware64 14.2 changes for Fri, 01 Mar 2019 20:46:01 GMT</title>
+      <pubDate>Fri, 01 Mar 2019 20:46:01 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/infozip-6.0-x86_64-4_slack14.2.txz:  Rebuilt.
+  Added some patches that should fix extracting archives with non-latin
+  characters in the filenames. Thanks to saahriktu.
+  This update also fixes various security issues in zip and unzip.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8139
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8140
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8141
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9844
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18384
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000035
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190227T232115Z</guid>
+      <title>slackware64 14.2 changes for Wed, 27 Feb 2019 23:21:15 GMT</title>
+      <pubDate>Wed, 27 Feb 2019 23:21:15 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/curl-7.64.0-x86_64-2_slack14.2.txz:  Rebuilt.
+  Applied upstream patch to fix log spam:
+  [PATCH] multi: remove verbose "Expire in" ... messages
+  Thanks to compassnet.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190227T030941Z</guid>
+      <title>slackware64 14.2 changes for Wed, 27 Feb 2019 03:09:41 GMT</title>
+      <pubDate>Wed, 27 Feb 2019 03:09:41 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/ca-certificates-20181210-noarch-1_slack14.2.txz:  Upgraded.
+  This update provides the latest CA certificates to check for the
+  authenticity of SSL connections.
+patches/packages/mozilla-thunderbird-60.5.2-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+  For more information, see:
+    https://www.mozilla.org/en-US/thunderbird/60.5.2/releasenotes/
+patches/packages/openssl-1.0.2r-x86_64-1_slack14.2.txz:  Upgraded.
+  Go into the error state if a fatal alert is sent or received. If an
+  application calls SSL_shutdown after a fatal alert has occured and
+  then behaves different based on error codes from that function then
+  the application may be vulnerable to a padding oracle.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1559
+  (* Security fix *)
+patches/packages/openssl-solibs-1.0.2r-x86_64-1_slack14.2.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190223T204138Z</guid>
+      <title>slackware64 14.2 changes for Sat, 23 Feb 2019 20:41:38 GMT</title>
+      <pubDate>Sat, 23 Feb 2019 20:41:38 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/file-5.36-x86_64-1_slack14.2.txz:  Upgraded.
+  Fix out-of-bounds read and denial-of-service security issues:
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8906
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8907
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190223T033352Z</guid>
+      <title>slackware64 14.2 changes for Sat, 23 Feb 2019 03:33:52 GMT</title>
+      <pubDate>Sat, 23 Feb 2019 03:33:52 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-firefox-60.5.2esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+  For more information, see:
+    https://www.mozilla.org/en-US/firefox/60.5.2/releasenotes/
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190214T224537Z</guid>
+      <title>slackware64 14.2 changes for Thu, 14 Feb 2019 22:45:37 GMT</title>
+      <pubDate>Thu, 14 Feb 2019 22:45:37 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-60.5.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/en-US/thunderbird/60.5.1/releasenotes/
+    https://www.mozilla.org/security/known-vulnerabilities/thunderbird.html
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-06/
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-06/#CVE-2018-18356
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-06/#CVE-2019-5785
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-06/#CVE-2018-18335
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-06/#CVE-2018-18509
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190213T230159Z</guid>
+      <title>slackware64 14.2 changes for Wed, 13 Feb 2019 23:01:59 GMT</title>
+      <pubDate>Wed, 13 Feb 2019 23:01:59 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-firefox-60.5.1esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-05/
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-05/#CVE-2018-18356
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-05/#CVE-2019-5785
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-05/#CVE-2018-18335
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190213T002229Z</guid>
+      <title>slackware64 14.2 changes for Wed, 13 Feb 2019 00:22:29 GMT</title>
+      <pubDate>Wed, 13 Feb 2019 00:22:29 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/lxc-2.0.9_d3a03247-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue where a malicious privileged container
+  could overwrite the host binary and thus gain root-level code execution on
+  the host. As the LXC project considers privileged containers to be unsafe
+  no CVE has been assigned for this issue for LXC. To prevent this attack,
+  LXC has been patched to create a temporary copy of the calling binary
+  itself when it starts or attaches to containers. To do this LXC creates an
+  anonymous, in-memory file using the memfd_create() system call and copies
+  itself into the temporary in-memory file, which is then sealed to prevent
+  further modifications. LXC then executes this sealed, in-memory file
+  instead of the original on-disk binary.
+  For more information, see:
+    https://seclists.org/oss-sec/2019/q1/119
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190207T222819Z</guid>
+      <title>slackware64 14.2 changes for Thu, 07 Feb 2019 22:28:19 GMT</title>
+      <pubDate>Thu, 07 Feb 2019 22:28:19 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/php-5.6.40-x86_64-1_slack14.2.txz:  Upgraded.
+  Several security bugs have been fixed in this release:
+  GD:
+  Fixed bug #77269 (efree() on uninitialized Heap data in imagescale leads
+  to use-after-free).
+  Fixed bug #77270 (imagecolormatch Out Of Bounds Write on Heap).
+  Mbstring:
+  Fixed bug #77370 (Buffer overflow on mb regex functions - fetch_token).
+  Fixed bug #77371 (heap buffer overflow in mb regex functions -
+  compile_string_node).
+  Fixed bug #77381 (heap buffer overflow in multibyte match_at).
+  Fixed bug #77382 (heap buffer overflow due to incorrect length in
+  expand_case_fold_string).
+  Fixed bug #77385 (buffer overflow in fetch_token).
+  Fixed bug #77394 (Buffer overflow in multibyte case folding - unicode).
+  Fixed bug #77418 (Heap overflow in utf32be_mbc_to_code).
+  Phar:
+  Fixed bug #77247 (heap buffer overflow in phar_detect_phar_fname_ext).
+  Xmlrpc:
+  Fixed bug #77242 (heap out of bounds read in xmlrpc_decode()).
+  Fixed bug #77380 (Global out of bounds read in xmlrpc base64 code).
+  For more information, see:
+    https://php.net/ChangeLog-5.php#5.6.40
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190206T224432Z</guid>
+      <title>slackware64 14.2 changes for Wed, 06 Feb 2019 22:44:32 GMT</title>
+      <pubDate>Wed, 06 Feb 2019 22:44:32 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/curl-7.64.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes the following security issues:
+  NTLM type-2 out-of-bounds buffer read.
+  NTLMv2 type-3 header stack buffer overflow.
+  SMTP end-of-response out-of-bounds read.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16890
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3822
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3823
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190201T231313Z</guid>
+      <title>slackware64 14.2 changes for Fri, 01 Feb 2019 23:13:13 GMT</title>
+      <pubDate>Fri, 01 Feb 2019 23:13:13 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mariadb-10.0.38-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2537
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2529
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190130T232959Z</guid>
+      <title>slackware64 14.2 changes for Wed, 30 Jan 2019 23:29:59 GMT</title>
+      <pubDate>Wed, 30 Jan 2019 23:29:59 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/linux-4.4.172/*:  Upgraded.
+  These updates fix various bugs and many (mostly minor) security issues.
+  Be sure to upgrade your initrd after upgrading the kernel packages.
+  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+  kernel and initrd and run lilo as root to update the bootloader.
+  If you use elilo to boot your machine, you should run eliloconfig to copy the
+  kernel and initrd to the EFI System Partition.
+  For more information, see:
+    Fixed in 4.4.159:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20511
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14633
+    Fixed in 4.4.160:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7755
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18021
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10880
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-13053
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17972
+    Fixed in 4.4.163:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18281
+    Fixed in 4.4.164:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18710
+    Fixed in 4.4.167:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19824
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16862
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20169
+    Fixed in 4.4.168:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1120
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5848
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12896
+    Fixed in 4.4.169:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18241
+    Fixed in 4.4.170:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19985
+    Fixed in 4.4.171:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16884
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14611
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14610
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14613
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14612
+    Fixed in 4.4.172:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14616
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-13096
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-13097
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14614
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-13099
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-13100
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3701
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18690
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18249
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190130T042703Z</guid>
+      <title>slackware64 14.2 changes for Wed, 30 Jan 2019 04:27:03 GMT</title>
+      <pubDate>Wed, 30 Jan 2019 04:27:03 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-firefox-60.5.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-02/
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-02/#CVE-2018-18500
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-02/#CVE-2018-18505
+    https://www.mozilla.org/en-US/security/advisories/mfsa2019-02/#CVE-2018-18501
+  (* Security fix *)
+patches/packages/mozilla-thunderbird-60.5.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release. For more information, see:
+  https://www.mozilla.org/en-US/thunderbird/60.5.0/releasenotes/
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190123T043904Z</guid>
+      <title>slackware64 14.2 changes for Wed, 23 Jan 2019 04:39:04 GMT</title>
+      <pubDate>Wed, 23 Jan 2019 04:39:04 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/httpd-2.4.38-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  mod_session: mod_session_cookie does not respect expiry time allowing
+  sessions to be reused.  [Hank Ibell]
+  mod_http2: fixes a DoS attack vector. By sending slow request bodies
+  to resources not consuming them, httpd cleanup code occupies a server
+  thread unnecessarily. This was changed to an immediate stream reset
+  which discards all stream state and incoming data.  [Stefan Eissing]
+  mod_ssl: Fix infinite loop triggered by a client-initiated
+  renegotiation in TLSv1.2 (or earlier) with OpenSSL 1.1.1 and
+  later.  PR 63052.  [Joe Orton]
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17199
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17189
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0190
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190114T043043Z</guid>
+      <title>slackware64 14.2 changes for Mon, 14 Jan 2019 04:30:43 GMT</title>
+      <pubDate>Mon, 14 Jan 2019 04:30:43 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/zsh-5.6.2-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes security issues, including ones that could allow a local
+  attacker to execute arbitrary code.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18205
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18206
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1071
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1083
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1100
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7548
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7549
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20190111T211541Z</guid>
+      <title>slackware64 14.2 changes for Fri, 11 Jan 2019 21:15:41 GMT</title>
+      <pubDate>Fri, 11 Jan 2019 21:15:41 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2018i-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
+patches/packages/irssi-1.1.2-x86_64-1_slack14.2.txz:  Upgraded.
+  This update addresses bugs including security and stability issues:
+  A NULL pointer dereference occurs for an "empty" nick.
+  Certain nick names could result in out-of-bounds access when printing
+  theme strings.
+  Crash due to a NULL pointer dereference w hen the number of windows
+  exceeds the available space.
+  Use-after-free when SASL messages are received in an unexpected order.
+  Use-after-free when a server is disconnected during netsplits.
+  Use-after-free when hidden lines were expired from the scroll buffer.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7050
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7051
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7052
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7053
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7054
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5882
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181230T203337Z</guid>
+      <title>slackware64 14.2 changes for Sun, 30 Dec 2018 20:33:37 GMT</title>
+      <pubDate>Sun, 30 Dec 2018 20:33:37 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/xscreensaver-5.42-x86_64-1_slack14.2.txz:  Upgraded.
+  Here's an upgrade to the latest xscreensaver.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181222T043827Z</guid>
+      <title>slackware64 14.2 changes for Sat, 22 Dec 2018 04:38:27 GMT</title>
+      <pubDate>Sat, 22 Dec 2018 04:38:27 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/netatalk-3.1.12-x86_64-1_slack14.2.txz:  Upgraded.
+  Netatalk before 3.1.12 is vulnerable to an out of bounds write in
+  dsi_opensess.c. This is due to lack of bounds checking on attacker
+  controlled data. A remote unauthenticated attacker can leverage
+  this vulnerability to achieve arbitrary code execution.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1160
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181221T050034Z</guid>
+      <title>slackware64 14.2 changes for Fri, 21 Dec 2018 05:00:34 GMT</title>
+      <pubDate>Fri, 21 Dec 2018 05:00:34 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-60.4.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release. For more information, see:
+  https://www.mozilla.org/en-US/thunderbird/60.4.0/releasenotes/
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181212T040954Z</guid>
+      <title>slackware64 14.2 changes for Wed, 12 Dec 2018 04:09:54 GMT</title>
+      <pubDate>Wed, 12 Dec 2018 04:09:54 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-firefox-60.4.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-30/
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-30/#CVE-2018-17466
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-30/#CVE-2018-18492
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-30/#CVE-2018-18493
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-30/#CVE-2018-18494
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-30/#CVE-2018-18498
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-30/#CVE-2018-12405
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181208T041045Z</guid>
+      <title>slackware64 14.2 changes for Sat, 08 Dec 2018 04:10:45 GMT</title>
+      <pubDate>Sat, 08 Dec 2018 04:10:45 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-60.3.3-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release. For more information, see:
+  https://www.mozilla.org/en-US/thunderbird/60.3.3/releasenotes/
+patches/packages/php-5.6.39-x86_64-1_slack14.2.txz:  Upgraded.
+  Several security bugs have been fixed in this release: 
+  Segfault when using convert.quoted-printable-encode filter.
+  Null pointer dereference in imap_mail.
+  imap_open allows to run arbitrary shell commands via mailbox parameter.
+  PharData always creates new files with mode 0666.
+  Heap Buffer Overflow (READ: 4) in phar_parse_pharfile.
+  For more information, see:
+    https://php.net/ChangeLog-5.php#5.6.39
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181206T043811Z</guid>
+      <title>slackware64 14.2 changes for Thu, 06 Dec 2018 04:38:11 GMT</title>
+      <pubDate>Thu, 06 Dec 2018 04:38:11 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/gnutls-3.6.5-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue:
+  Bleichenbacher-like side channel leakage in PKCS#1 1.5 verification and
+  padding oracle verification.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16868
+  (* Security fix *)
+patches/packages/nettle-3.4.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue:
+  A Bleichenbacher type side-channel based padding oracle attack was found
+  in the way nettle handles endian conversion of RSA decrypted PKCS#1 v1.5
+  data. An attacker who is able to run a process on the same physical core
+  as the victim process, could use this flaw to extract plaintext or in some
+  cases downgrade any TLS connections to a vulnerable server.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16869
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181203T205930Z</guid>
+      <title>slackware64 14.2 changes for Mon, 03 Dec 2018 20:59:30 GMT</title>
+      <pubDate>Mon, 03 Dec 2018 20:59:30 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-nss-3.40.1-x86_64-1_slack14.2.txz:  Upgraded.
+  Upgraded to nss-3.40.1 and nspr-4.20.
+  Mitigate cache side-channel variant of the Bleichenbacher attack.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12404
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181201T031635Z</guid>
+      <title>slackware64 14.2 changes for Sat, 01 Dec 2018 03:16:35 GMT</title>
+      <pubDate>Sat, 01 Dec 2018 03:16:35 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-60.3.2-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release. For more information, see:
+  https://www.mozilla.org/en-US/thunderbird/60.3.2/releasenotes/
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181129T055327Z</guid>
+      <title>slackware64 14.2 changes for Thu, 29 Nov 2018 05:53:27 GMT</title>
+      <pubDate>Thu, 29 Nov 2018 05:53:27 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/samba-4.6.16-x86_64-2_slack14.2.txz:  Rebuilt.
+  This update patches some security issues:
+  CVE-2018-14629: Unprivileged adding of CNAME record causing loop in AD
+    Internal DNS server
+  CVE-2018-16841: Double-free in Samba AD DC KDC with PKINIT
+  CVE-2018-16851: NULL pointer de-reference in Samba AD DC LDAP server
+  CVE-2018-16852: NULL pointer de-reference in Samba AD DC DNS servers
+  CVE-2018-16853: Samba AD DC S4U2Self crash in experimental MIT Kerberos
+    configuration (unsupported)
+  CVE-2018-16857: Bad password count in AD DC not always effective
+  For more information, see:
+    https://www.samba.org/samba/security/CVE-2018-14629.html
+    https://www.samba.org/samba/security/CVE-2018-16841.html
+    https://www.samba.org/samba/security/CVE-2018-16851.html
+    https://www.samba.org/samba/security/CVE-2018-16852.html
+    https://www.samba.org/samba/security/CVE-2018-16853.html
+    https://www.samba.org/samba/security/CVE-2018-16857.html
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14629
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16841
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16851
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16852
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16853
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16857
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181122T055656Z</guid>
+      <title>slackware64 14.2 changes for Thu, 22 Nov 2018 05:56:56 GMT</title>
+      <pubDate>Thu, 22 Nov 2018 05:56:56 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/openssl-1.0.2q-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a timing side-channel flaw on processors which implement
+  SMT/Hyper-Threading architectures, and a side channel attack on DSA
+  signature generation that could allow an attacker to recover the private key.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5407
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0734
+  (* Security fix *)
+patches/packages/openssl-solibs-1.0.2q-x86_64-1_slack14.2.txz:  Upgraded.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181117T030349Z</guid>
+      <title>slackware64 14.2 changes for Sat, 17 Nov 2018 03:03:49 GMT</title>
+      <pubDate>Sat, 17 Nov 2018 03:03:49 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-thunderbird-60.3.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release. For more information, see:
+  https://www.mozilla.org/en-US/thunderbird/60.3.1/releasenotes/
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181113T051529Z</guid>
+      <title>slackware64 14.2 changes for Tue, 13 Nov 2018 05:15:29 GMT</title>
+      <pubDate>Tue, 13 Nov 2018 05:15:29 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libtiff-4.0.10-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes some denial of service security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7456
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8905
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10779
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10963
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18661
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181106T034145Z</guid>
+      <title>slackware64 14.2 changes for Tue, 06 Nov 2018 03:41:45 GMT</title>
+      <pubDate>Tue, 06 Nov 2018 03:41:45 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mariadb-10.0.37-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes bugs and security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3282
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9843
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3174
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3143
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3156
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3251
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181031T224936Z</guid>
+      <title>slackware64 14.2 changes for Wed, 31 Oct 2018 22:49:36 GMT</title>
+      <pubDate>Wed, 31 Oct 2018 22:49:36 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/curl-7.62.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This release fixes the following security issues:
+  SASL password overflow via integer overflow.
+  Use-after-free in handle close.
+  Warning message out-of-buffer read.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16839
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16840
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16842
+  (* Security fix *)
+patches/packages/mozilla-thunderbird-60.3.0-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release. For more information, see:
+  https://www.mozilla.org/en-US/thunderbird/60.3.0/releasenotes/
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181029T200238Z</guid>
+      <title>slackware64 14.2 changes for Mon, 29 Oct 2018 20:02:38 GMT</title>
+      <pubDate>Mon, 29 Oct 2018 20:02:38 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2018g-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181024T212204Z</guid>
+      <title>slackware64 14.2 changes for Wed, 24 Oct 2018 21:22:04 GMT</title>
+      <pubDate>Wed, 24 Oct 2018 21:22:04 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/httpd-2.4.37-x86_64-1_slack14.2.txz:  Upgraded.
+  This is the latest release from the Apache HTTP Server 2.4.x stable branch.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181023T051147Z</guid>
+      <title>slackware64 14.2 changes for Tue, 23 Oct 2018 05:11:47 GMT</title>
+      <pubDate>Tue, 23 Oct 2018 05:11:47 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-firefox-60.3.0esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181019T195954Z</guid>
+      <title>slackware64 14.2 changes for Fri, 19 Oct 2018 19:59:54 GMT</title>
+      <pubDate>Fri, 19 Oct 2018 19:59:54 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/glibc-zoneinfo-2018f-noarch-1_slack14.2.txz:  Upgraded.
+  This package provides the latest timezone updates.
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181017T031125Z</guid>
+      <title>slackware64 14.2 changes for Wed, 17 Oct 2018 03:11:25 GMT</title>
+      <pubDate>Wed, 17 Oct 2018 03:11:25 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/libssh-0.7.6-x86_64-1_slack14.2.txz:  Upgraded.
+  Fixed authentication bypass vulnerability.
+  For more information, see:
+    https://www.libssh.org/2018/10/16/libssh-0-8-4-and-0-7-6-security-and-bugfix-release/
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10933
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181010T230936Z</guid>
+      <title>slackware64 14.2 changes for Wed, 10 Oct 2018 23:09:36 GMT</title>
+      <pubDate>Wed, 10 Oct 2018 23:09:36 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/git-2.14.5-x86_64-1_slack14.2.txz:  Upgraded.
+  This update fixes a security issue:
+  Submodules' "URL"s come from the untrusted .gitmodules file, but we
+  blindly gave it to "git clone" to clone submodules when "git clone
+  --recurse-submodules" was used to clone a project that has such a
+  submodule. The code has been hardened to reject such malformed URLs
+  (e.g. one that begins with a dash). Credit for finding and fixing this
+  vulnerability goes to joernchen and Jeff King, respectively.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17456
+  (* Security fix *)
+</pre>]]></description>
+    </item>
+    <item>
+      <guid isPermaLink="false">slackware64-14.2-20181003T052651Z</guid>
+      <title>slackware64 14.2 changes for Wed, 03 Oct 2018 05:26:51 GMT</title>
+      <pubDate>Wed, 03 Oct 2018 05:26:51 GMT</pubDate>
+      <description><![CDATA[<pre>patches/packages/mozilla-firefox-60.2.2esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This release contains security fixes and improvements.
+  For more information, see:
+    https://www.mozilla.org/security/known-vulnerabilities/firefoxESR.html
+    https://www.mozilla.org/en-US/security/advisories/mfsa2018-24/
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12387
+  (* Security fix *)
+patches/packages/mozilla-thunderbird-60.2.1-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release. For more information, see:
+  https://www.mozilla.org/en-US/thunderbird/60.2.1/releasenotes/
+</pre>]]></description>
+    </item>
     <item>
       <guid isPermaLink="false">slackware64-14.2-20180925T021744Z</guid>
       <title>slackware64 14.2 changes for Tue, 25 Sep 2018 02:17:44 GMT</title>
