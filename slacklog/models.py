@@ -44,7 +44,7 @@ class SlackLogEntry (object):
     """
 
     def __init__(self, timestamp, description, log, checksum=None, identifier=None, parent=None,
-                 timezone=None):
+                 timezone=None, twelveHourFormat=None):
         assert(isinstance(timestamp, datetime))
         assert(isinstance(description, str))
         assert(timestamp.tzinfo.utcoffset(timestamp).total_seconds() == 0)
@@ -78,6 +78,8 @@ class SlackLogEntry (object):
         """A unicode parent identifier or :py:const:`None`."""
         self.timezone = timezone
         """The original timezone of the entry as :py:class:`datetime.tzinfo` or :py:const:`None`."""
+        self.twelveHourFormat = twelveHourFormat
+        """If this is :py:const:`True`, the original timestamp was in twelve hour format."""
         self.pkgs = []
         """The list of :any:`SlackLogPkg` objects. Empty by default."""
 

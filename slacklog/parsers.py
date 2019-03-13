@@ -27,6 +27,9 @@ except NameError:
 # a file name.
 pkg_name_re = re.compile(r'\A[-a-zA-Z0-9_]+[/.][-a-zA-Z0-9_+/.]*[*]?:  ')
 
+# A regex for checking if the timestamp had 12-hour or 24-hour format
+am_pm_re = re.compile(r' [AaPp][Mm]? ')
+
 tzinfos = {
     'CDT': -5 * 60 * 60,
     'CST': -6 * 60 * 60,
@@ -113,12 +116,12 @@ class SlackLogParser (object):
             identifier = self.gen_entry_identifier(data, checksum, parent)
         else:
             identifier = self.gen_entry_identifier(data, checksum, None)
-        timestamp, timezone, data = self.parse_entry_timestamp(data)
+        timestamp, timezone, twelve_hour, data = self.parse_entry_timestamp(data)
         if self.min_date and self.min_date > timestamp:
             return None
         description, data = self.parse_entry_description(data)
         entry = SlackLogEntry(timestamp, description, log, checksum=checksum, identifier=identifier, parent=parent,
-                                     timezone=timezone)
+                                     timezone=timezone, twelveHourFormat=twelve_hour)
         for pkg_data in self.split_entry_to_pkgs(data):
             pkg = self.parse_pkg(pkg_data, entry)
             entry.pkgs.append(pkg)
@@ -152,12 +155,16 @@ class SlackLogParser (object):
         Parse ChangeLog entry timestamp from data.
 
         :param data: :py:class:`unicode` -- ChangeLog entry content.
-        :returns: [:py:class:`datetime.datetime`, :py:class:`unicode`] -- a two element list: timestamp and the rest of the entry.
+        :returns: [:py:class:`datetime.datetime`, :py:class:`tzinfo`, :py:class:`bool`, :py:class:`unicode`] --
+            a four element list: timestamp in UTC, original timezone, :py:const:`True` if the timestamp had a 12-hour
+            clock, and the rest of the entry.
         """
         assert(isinstance(data, str))
         timestamp_str, data = self.get_line(data)
         timestamp, timezone = self.parse_date_with_timezone(timestamp_str)
-        return [timestamp, timezone, data]
+        if am_pm_re.search(timestamp_str):
+            return [timestamp, timezone, True, data]
+        return [timestamp, timezone, False, data]
 
     def parse_entry_description(self, data):
         """

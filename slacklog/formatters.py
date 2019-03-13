@@ -315,9 +315,27 @@ class SlackLogTxtFormatter (SlackLogFormatter):
         if entry.timezone is not None and not isinstance(entry.timezone, tz.tzutc):
             timestamp = timestamp.astimezone(entry.timezone)
         data = u''
-        data += timestamp.strftime("%a %b %d %H:%M:%S %Z %Y")
-        # Remove leading zero from the day-of-month only
-        data = re.sub(r' 0(\d) ', r'  \1 ', data)
+        # %a -- Weekday as locale’s abbreviated name.
+        # %b -- Month as locale’s abbreviated name.
+        # %d -- Day of the month as a zero-padded decimal number.
+        # %H -- Hour (24-hour clock) as a zero-padded decimal number.
+        # %I -- Hour (12-hour clock) as a zero-padded decimal number.
+        # %M -- Minute as a zero-padded decimal number.
+        # %S -- Second as a zero-padded decimal number.
+        # %p -- Locale’s equivalent of either AM or PM.
+        # %Y -- Year with century as a decimal number.
+        # %Z -- Time zone name (empty string if the object is naive).
+        if entry.twelveHourFormat:
+            # This is the case in one entry in slackware{,64}-current ChangeLog.txt,
+            # whose timestamp was:
+            # Fri 01 Feb 2019 01:26:44 AM UTC
+            data += timestamp.strftime("%a %d %b %Y %I:%M:%S %p %Z")
+        else:
+            # That glitch was corrected in the next entry, whose timestamp was:
+            # Fri Feb  1 05:53:41 UTC 2019
+            data += timestamp.strftime("%a %b %d %H:%M:%S %Z %Y")
+            # Remove leading zero from the day-of-month only
+            data = re.sub(r' 0(\d) ', r'  \1 ', data)
         data += u'\n'
         if entry.description:
             data += entry.description
