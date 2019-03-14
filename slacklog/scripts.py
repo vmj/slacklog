@@ -55,14 +55,17 @@ def read(changelog, encoding):
     :return: Unicode text from the file.
     """
     try:
-        with open(changelog, encoding=encoding) as f:
-            return f.read()
+        f = codecs.open(changelog, 'r', encoding)
     except IOError as e:
         print("%s: %s" % (e.filename, e.strerror))
         exit(e.errno)
+    try:
+        txt = f.read()
     except UnicodeDecodeError as e:
         print("%s: %s-%s: %s: %s" % (changelog, e.start, e.end, e.encoding, e.reason))
         exit(-1)
+    f.close()
+    return txt
 
 
 def write(out, data):
@@ -71,12 +74,13 @@ def write(out, data):
     :param out: File name.
     :param data: Unicode data.    
     """
+    f = codecs.open(out, 'w', 'utf-8')
     try:
-        with open(out, mode='w', encoding='utf-8') as f:
-            f.write(data)
+        f.write(data)
     except UnicodeEncodeError as e:
         print("%s: %s-%s: %s: %s" % (out, e.start, e.end, data[e.start:e.end], e.reason))
         exit(-1)
+    f.close()
 
 
 def main(**kwargs):
