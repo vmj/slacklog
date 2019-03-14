@@ -1,10 +1,51 @@
 language: python
+matrix:
+  include:
+  - os: linux
+    dist: xenial
+    sudo: required
+    python: '3.7'
+    env: DATEUTIL_VERSION=2.1
+  - os: linux
+    dist: xenial
+    sudo: required
+    python: '3.7'
+    env: DATEUTIL_VERSION=2.2
+  - os: linux
+    dist: xenial
+    sudo: required
+    python: '3.7'
+    env: DATEUTIL_VERSION=2.3
+  - os: linux
+    dist: xenial
+    sudo: required
+    python: '3.7'
+    env: DATEUTIL_VERSION=2.4.2
+  - os: linux
+    dist: xenial
+    sudo: required
+    python: '3.7'
+    env: DATEUTIL_VERSION=2.5.3
+  - os: linux
+    dist: xenial
+    sudo: required
+    python: '3.7'
+    env: DATEUTIL_VERSION=2.6.1
+  - os: linux
+    dist: xenial
+    sudo: required
+    python: '3.7'
+    env: DATEUTIL_VERSION=2.7.5
+  - os: linux
+    dist: xenial
+    sudo: required
+    python: '3.7'
+    env: DATEUTIL_VERSION=2.8.0
 python:
  - 2.7
  - 3.4
  - 3.5
  - 3.6
- - 3.7
 env:
  - DATEUTIL_VERSION=2.1
  - DATEUTIL_VERSION=2.2
