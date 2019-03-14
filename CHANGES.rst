@@ -2,6 +2,16 @@ Release history
 ===============
 
 
+Version 0.9.6 (2019-03-14)
+--------------------------
+
+Fixed a bug in text formatter when the original timestamp is in 12-hour format.
+
+Added Python 3.7 and dateutil 2.8 into test matrix.
+
+Deprecated PyBlosxom formatter.
+
+
 Version 0.9.5 (2018-10-02)
 --------------------------
 

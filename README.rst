@@ -73,7 +73,7 @@ Requirements
 In addition to Python, `python-dateutil
 <https://pypi.python.org/pypi/python-dateutil>`_ is required.
 
-Python versions 2.7 and 3.4 - 3.6 are tested, together with python-dateutil versions 2.1 - 2.7.
+Python versions 2.7 and 3.4 - 3.7 are tested, together with python-dateutil versions 2.1 - 2.8.
 
 
 Installation
