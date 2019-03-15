@@ -9,7 +9,7 @@ import slacklog
 
 project = u'slacklog'
 copyright = u'2019, Mikko Värri'
-author = 'Mikko Värri'
+author = u'Mikko Värri'
 
 # The short X.Y version.
 version = slacklog.__version__
